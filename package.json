@@ -1,0 +1,13 @@
+{
+  "name": "coffeepro",
+  "version": "1.0.0",
+  "description": "CoffeePro — The all-in-one global coffee marketplace and roastery management platform",
+  "scripts": {
+    "dev": "npx serve -l 8090",
+    "start": "npx serve"
+  },
+  "keywords": ["coffee", "b2b", "marketplace", "pos", "cafe"],
+  "author": "Frances Coffee, Istanbul",
+  "license": "UNLICENSED",
+  "private": true
+}
