@@ -13,6 +13,7 @@
 <title>CoffeePro — The Global Coffee Marketplace</title>
 <meta name="theme-color" content="#f6f3ef">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -1053,6 +1054,212 @@ body.dark .rce-live-cost{background:var(--d-bg)}
 .profit-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px}
 .profit-cards .q{text-align:center}
 @media(max-width:600px){.profit-cards{grid-template-columns:repeat(2,1fr)}.rc-grid{grid-template-columns:1fr}}
+
+/* ═══════════════════════════════════════
+   MEGA ENHANCEMENT PACK — CSS
+   ═══════════════════════════════════════ */
+
+/* === A1. PAGE TRANSITIONS === */
+.S{animation:pageRevealMega .35s cubic-bezier(.4,0,.2,1) both}
+.S.page-out{animation:pageOutMega .2s ease both}
+@keyframes pageRevealMega{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pageOutMega{from{opacity:1;transform:translateY(0)}to{opacity:0;transform:translateY(-6px)}}
+
+/* === A2. SKELETON LOADING === */
+.skel-wrap{padding:24px;max-width:1000px;margin:0 auto}
+.skel{background:linear-gradient(90deg,var(--cream2) 25%,var(--cream3) 50%,var(--cream2) 75%);background-size:200% 100%;animation:skelShimmer 1.5s ease-in-out infinite;border-radius:var(--r)}
+@keyframes skelShimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+.skel-hero{height:280px;border-radius:var(--rx);margin-bottom:20px}
+.skel-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:16px}
+.skel-card{height:220px;border-radius:var(--rl)}
+.skel-line{height:14px;margin-bottom:8px;width:60%}
+.skel-line.w80{width:80%}.skel-line.w40{width:40%}.skel-line.w100{width:100%}
+body.dark .skel{background:linear-gradient(90deg,#221e1a 25%,#302a24 50%,#221e1a 75%);background-size:200% 100%}
+@media(max-width:600px){.skel-row{grid-template-columns:repeat(2,1fr)}}
+
+/* === A3. MOBILE BOTTOM NAV === */
+.mob-nav{display:none;position:fixed;bottom:0;left:0;right:0;height:60px;background:rgba(246,243,239,.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-top:1px solid rgba(0,0,0,.06);z-index:200;padding:0 8px;padding-bottom:env(safe-area-inset-bottom)}
+.mob-nav-inner{display:flex;align-items:center;justify-content:space-around;height:60px;max-width:500px;margin:0 auto}
+.mob-nav-item{display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 12px;border-radius:12px;cursor:pointer;transition:all .2s;position:relative;-webkit-tap-highlight-color:transparent}
+.mob-nav-item i{font-size:1.05rem;color:var(--muted);transition:color .2s}
+.mob-nav-item span{font-size:.52rem;font-weight:600;color:var(--muted);letter-spacing:.3px;transition:color .2s}
+.mob-nav-item.on i{color:var(--amber)}
+.mob-nav-item.on span{color:var(--amber)}
+.mob-nav-item.on::after{content:'';position:absolute;top:2px;left:50%;transform:translateX(-50%);width:4px;height:4px;border-radius:50%;background:var(--amber)}
+.mob-nav-item:active{transform:scale(.92)}
+.mob-nav.hidden{transform:translateY(100%)}
+body.dark .mob-nav{background:rgba(22,20,16,.95);border-color:#302a24}
+@media(max-width:768px){.mob-nav{display:block}.footer{padding-bottom:70px}#app{padding-bottom:10px}}
+@media(min-width:769px){.mob-nav{display:none!important}}
+
+/* === A5. EMPTY STATES === */
+.empty-state{text-align:center;padding:50px 20px;color:var(--muted)}
+.empty-state svg{width:120px;height:120px;margin-bottom:16px;opacity:.5}
+.empty-state .es-ico{font-size:3.5rem;margin-bottom:12px;opacity:.35}
+.empty-state h3{font-family:var(--fd);font-size:1.05rem;color:var(--esp);margin-bottom:6px;font-weight:700}
+.empty-state p{font-size:.76rem;line-height:1.5;max-width:320px;margin:0 auto 16px}
+.empty-state .B{font-size:.72rem}
+
+/* === A6. MICRO-INTERACTIONS === */
+.B:active,.pos-nb:active,.mob-nav-item:active,.pill:active,.H-link:active{transform:scale(.96);transition:transform .1s}
+.P:hover{transform:translateY(-3px);box-shadow:0 8px 30px var(--card-shadow);transition:all .25s var(--e)}
+.P{transition:transform .25s var(--e),box-shadow .25s var(--e)}
+.pos-nb{transition:all .2s var(--e)}
+.pos-nb.on{position:relative}
+.pos-nb.on::after{content:'';position:absolute;bottom:-1px;left:20%;right:20%;height:2px;background:var(--amber);border-radius:2px;animation:tabSlide .25s var(--e)}
+@keyframes tabSlide{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes toastIn{from{transform:translateX(120%);opacity:0}to{transform:translateX(0);opacity:1}}
+@keyframes toastOut{from{transform:translateX(0);opacity:1}to{transform:translateX(120%);opacity:0}}
+.T{position:fixed;top:74px;right:16px;z-index:9999;display:flex;flex-direction:column;gap:6px;pointer-events:none}
+.toast-item{animation:toastIn .3s var(--e);pointer-events:auto;background:var(--white);border:1px solid var(--card-bdr);border-radius:12px;padding:10px 16px;font-size:.74rem;font-weight:500;box-shadow:0 4px 20px rgba(0,0,0,.1);display:flex;align-items:center;gap:8px;min-width:200px;max-width:340px}
+.toast-item.out{animation:toastOut .3s var(--e) forwards}
+@keyframes badgePulse{0%{transform:scale(1)}50%{transform:scale(1.3)}100%{transform:scale(1)}}
+.cb.pulse{animation:badgePulse .3s var(--e)}
+
+/* === A7. LOADING SPINNER === */
+.loader-ov{position:fixed;inset:0;background:rgba(246,243,239,.85);backdrop-filter:blur(8px);z-index:10000;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:14px}
+.loader-spin{width:44px;height:44px;border:3px solid var(--cream3);border-top-color:var(--amber);border-radius:50%;animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loader-text{font-size:.76rem;color:var(--muted);font-weight:500}
+body.dark .loader-ov{background:rgba(18,16,12,.85)}
+
+/* === A8. THEME SYSTEM === */
+.theme-picker{position:fixed;top:70px;right:80px;background:var(--white);border:1px solid var(--card-bdr);border-radius:16px;padding:12px;box-shadow:0 10px 40px var(--card-shadow);z-index:1500;animation:fu .2s ease;display:none}
+.theme-picker.open{display:block}
+.theme-picker-title{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:8px}
+.theme-swatches{display:flex;gap:8px}
+.theme-sw{width:36px;height:36px;border-radius:50%;cursor:pointer;border:2px solid transparent;transition:all .2s;position:relative;display:flex;align-items:center;justify-content:center}
+.theme-sw:hover{transform:scale(1.15)}
+.theme-sw.on{border-color:var(--esp);box-shadow:0 0 0 2px var(--white),0 0 0 4px var(--esp)}
+.theme-sw::after{content:attr(data-name);position:absolute;bottom:-18px;left:50%;transform:translateX(-50%);font-size:.48rem;font-weight:600;white-space:nowrap;color:var(--muted);opacity:0;transition:opacity .2s}
+.theme-sw:hover::after{opacity:1}
+body.dark .theme-picker{background:#1c1a16;border-color:#302a24}
+
+/* Theme: Midnight */
+body.theme-midnight{--cream:#0f1117;--cream2:#171b24;--cream3:#222838;--warm:#3a4260;--esp:#e4e8f0;--esp2:#c0c8d8;--text:#e4e8f0;--text2:#8898b8;--muted:#6878a0;--faint:#4a5878;--amber:#4a8af4;--amber2:#5a9aff;--amber-lt:rgba(74,138,244,.1);--amber-br:rgba(74,138,244,.2);--emerald:#34d08a;--emerald2:#40e098;--em-lt:rgba(52,208,138,.08);--copper:#7a8aaa;--cop-lt:rgba(122,138,170,.1);--ruby:#f06070;--ruby-lt:rgba(240,96,112,.1);--blue:#4a8af4;--blue-lt:rgba(74,138,244,.1);--white:#1a1d28;--bg:#0f1117;--accent:#4a8af4;--card-bdr:rgba(74,138,244,.12);--card-shadow:rgba(0,0,0,.3);--panel:#171b24;--csh:0 1px 2px rgba(0,0,0,.2),0 4px 16px rgba(0,0,0,.15)}
+body.theme-midnight .H{background:rgba(15,17,23,.95);border-color:#222838}
+body.theme-midnight .P,body.theme-midnight .C,body.theme-midnight .pos-card,body.theme-midnight .auth-box,body.theme-midnight .pay-modal{background:#1a1d28;border-color:#222838}
+body.theme-midnight input,body.theme-midnight textarea,body.theme-midnight select{background:#0f1117;border-color:#222838;color:#e4e8f0}
+body.theme-midnight .pill{background:#171b24;color:#8898b8;border-color:#222838}
+body.theme-midnight .pill.on{background:var(--accent);color:#fff}
+body.theme-midnight .mob-nav{background:rgba(15,17,23,.95);border-color:#222838}
+body.theme-midnight .footer{background:#0f1117;border-color:#222838}
+
+/* Theme: Forest */
+body.theme-forest{--amber:#3a9a5a;--amber2:#44b068;--amber-lt:rgba(58,154,90,.08);--amber-br:rgba(58,154,90,.18);--accent:#3a9a5a;--cream:#f2f7f4;--cream2:#e4ede8;--cream3:#d0ddd6}
+body.theme-forest .H-tag{color:var(--amber);background:var(--amber-lt);border-color:var(--amber-br)}
+
+/* Theme: Ocean */
+body.theme-ocean{--amber:#2a8a9a;--amber2:#34a0b0;--amber-lt:rgba(42,138,154,.08);--amber-br:rgba(42,138,154,.18);--accent:#2a8a9a;--cream:#f0f7f9;--cream2:#e0eef2;--cream3:#cce0e6}
+body.theme-ocean .H-tag{color:var(--amber);background:var(--amber-lt);border-color:var(--amber-br)}
+
+/* Theme: Neon */
+body.theme-neon{--cream:#0a0a14;--cream2:#141428;--cream3:#1e1e38;--warm:#3a3a68;--esp:#e0e0f0;--esp2:#b0b0d0;--text:#e0e0f0;--text2:#8080b8;--muted:#6060a0;--faint:#4a4a80;--amber:#f040a0;--amber2:#ff50b0;--amber-lt:rgba(240,64,160,.1);--amber-br:rgba(240,64,160,.2);--emerald:#40f0a0;--em-lt:rgba(64,240,160,.08);--copper:#8080b8;--cop-lt:rgba(128,128,184,.1);--ruby:#f04060;--ruby-lt:rgba(240,64,96,.1);--blue:#6060f0;--blue-lt:rgba(96,96,240,.1);--white:#14142a;--bg:#0a0a14;--accent:#f040a0;--card-bdr:rgba(240,64,160,.12);--card-shadow:rgba(0,0,0,.35);--panel:#141428}
+body.theme-neon .H{background:rgba(10,10,20,.95);border-color:#1e1e38}
+body.theme-neon .P,body.theme-neon .C,body.theme-neon .pos-card,body.theme-neon .auth-box,body.theme-neon .pay-modal{background:#14142a;border-color:#1e1e38}
+body.theme-neon input,body.theme-neon textarea,body.theme-neon select{background:#0a0a14;border-color:#1e1e38;color:#e0e0f0}
+body.theme-neon .pill{background:#141428;color:#8080b8;border-color:#1e1e38}
+body.theme-neon .pill.on{background:var(--accent);color:#fff}
+body.theme-neon .mob-nav{background:rgba(10,10,20,.95);border-color:#1e1e38}
+body.theme-neon .footer{background:#0a0a14;border-color:#1e1e38}
+
+/* === A9. GRADIENT MESH HERO === */
+.hero{position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:-50%;width:200%;height:200%;background:radial-gradient(ellipse at 20% 50%,var(--amber-lt),transparent 50%),radial-gradient(ellipse at 80% 20%,var(--em-lt),transparent 50%),radial-gradient(ellipse at 50% 80%,var(--blue-lt),transparent 50%);animation:meshFloat 20s ease-in-out infinite alternate;z-index:0;pointer-events:none}
+@keyframes meshFloat{0%{transform:translate(0,0) rotate(0deg)}33%{transform:translate(2%,-3%) rotate(1deg)}66%{transform:translate(-2%,2%) rotate(-1deg)}100%{transform:translate(1%,-1%) rotate(0.5deg)}}
+
+/* === A10. 3D CARD TILT === */
+.pg{perspective:800px}
+.P{transform-style:preserve-3d;will-change:transform}
+
+/* === KDS STYLES (Batch B preview) === */
+.kds-board{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;min-height:400px}
+.kds-col{background:var(--cream2);border-radius:var(--rl);padding:10px;min-height:300px}
+.kds-col-hdr{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:8px;border-radius:10px;text-align:center;margin-bottom:8px}
+.kds-col-hdr.new{background:rgba(192,80,74,.1);color:var(--ruby)}
+.kds-col-hdr.prep{background:var(--amber-lt);color:var(--amber)}
+.kds-col-hdr.ready{background:var(--em-lt);color:var(--emerald)}
+.kds-card{background:var(--white);border:1px solid var(--card-bdr);border-radius:var(--r);padding:10px;margin-bottom:8px;cursor:pointer;transition:all .2s}
+.kds-card:hover{box-shadow:var(--csh2)}
+.kds-card .kds-ord{font-weight:700;font-size:.82rem;color:var(--esp)}
+.kds-card .kds-tbl{font-size:.62rem;color:var(--muted)}
+.kds-card .kds-items{font-size:.66rem;color:var(--text2);margin:4px 0}
+.kds-card .kds-time{font-size:.58rem;font-family:var(--fm);padding:2px 6px;border-radius:6px;display:inline-block}
+.kds-card .kds-time.warn{background:rgba(192,80,74,.1);color:var(--ruby)}
+.kds-card .kds-time.ok{background:var(--em-lt);color:var(--emerald)}
+@media(max-width:700px){.kds-board{grid-template-columns:1fr}}
+
+/* === LOYALTY STYLES === */
+.loyalty-card{background:linear-gradient(135deg,var(--amber),#a07828);border-radius:16px;padding:20px;color:#fff;position:relative;overflow:hidden}
+.loyalty-card::before{content:'☕';position:absolute;right:-10px;top:-10px;font-size:6rem;opacity:.1}
+.loyalty-stamps{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0}
+.loyalty-stamp{width:30px;height:30px;border-radius:50%;border:2px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;font-size:.7rem}
+.loyalty-stamp.filled{background:rgba(255,255,255,.3);border-color:#fff}
+.loyalty-cust{display:flex;align-items:center;gap:10px;padding:10px;border:1px solid var(--card-bdr);border-radius:var(--r);margin-bottom:6px;background:var(--white);cursor:pointer;transition:all .2s}
+.loyalty-cust:hover{background:var(--cream2)}
+.loyalty-av{width:34px;height:34px;border-radius:50%;background:var(--amber-lt);display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:700;color:var(--amber)}
+
+/* === ANALYTICS STYLES === */
+.analytics-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media(max-width:700px){.analytics-grid{grid-template-columns:1fr}}
+.analytics-widget{background:var(--white);border:1px solid var(--card-bdr);border-radius:var(--rl);padding:14px}
+.analytics-widget h4{font-size:.74rem;font-weight:700;color:var(--esp);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.analytics-widget h4 i{color:var(--amber);font-size:.68rem}
+.heatmap-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px}
+.heatmap-cell{aspect-ratio:1;border-radius:4px;font-size:.42rem;display:flex;align-items:center;justify-content:center;color:var(--faint);background:var(--cream2)}
+.hbar{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.hbar-label{font-size:.62rem;color:var(--text2);width:80px;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hbar-bar{flex:1;height:20px;background:var(--cream2);border-radius:6px;overflow:hidden;position:relative}
+.hbar-fill{height:100%;border-radius:6px;transition:width .5s var(--e)}
+.hbar-val{font-size:.58rem;font-family:var(--fm);color:var(--muted);width:50px}
+
+/* === WAITLIST STYLES === */
+.waitlist-item{display:flex;align-items:center;gap:10px;padding:12px;border:1px solid var(--card-bdr);border-radius:var(--r);margin-bottom:6px;background:var(--white)}
+.waitlist-pos{width:28px;height:28px;border-radius:50%;background:var(--amber-lt);display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;color:var(--amber)}
+.waitlist-info{flex:1}
+.waitlist-nm{font-size:.76rem;font-weight:600;color:var(--esp)}
+.waitlist-det{font-size:.62rem;color:var(--muted)}
+.waitlist-actions{display:flex;gap:4px}
+
+/* === SVG CHART STYLES === */
+.svg-chart{width:100%;height:200px}
+.svg-chart .line{fill:none;stroke:var(--amber);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.svg-chart .area{fill:var(--amber-lt)}
+.svg-chart .dot{fill:var(--amber);r:3}
+.svg-chart .grid-line{stroke:var(--cream3);stroke-width:0.5}
+.svg-chart .label{font-size:9px;fill:var(--muted);font-family:var(--fm)}
+
+/* === SPLIT BILL MODAL === */
+.split-modal{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:2000;display:flex;align-items:center;justify-content:center;animation:fu .2s ease}
+.split-box{background:var(--white);border-radius:var(--rx);padding:20px;width:90%;max-width:440px;max-height:80vh;overflow-y:auto}
+.split-method{display:flex;gap:6px;margin:10px 0}
+.split-method .pill{flex:1;text-align:center}
+.split-group{padding:10px;border:2px solid var(--cream3);border-radius:var(--r);margin-bottom:8px}
+.split-group.a{border-color:var(--amber)}
+.split-group.b{border-color:var(--emerald)}
+.split-group.c{border-color:var(--blue)}
+
+/* === FEEDBACK STARS === */
+.fb-stars{display:flex;gap:4px;margin:8px 0}
+.fb-stars i{font-size:1.3rem;color:var(--cream3);cursor:pointer;transition:color .15s}
+.fb-stars i.active{color:var(--amber)}
+.fb-stars i:hover,.fb-stars i:hover~i{color:var(--amber-br)}
+
+/* === FLAVOR WHEEL === */
+.flavor-wheel-wrap{position:relative;width:300px;height:300px;margin:20px auto}
+.flavor-sector{cursor:pointer;transition:opacity .2s}
+.flavor-sector:hover{opacity:.8}
+.flavor-label{font-size:8px;font-weight:600;fill:var(--esp);pointer-events:none}
+
+/* === TRACEABILITY TIMELINE === */
+.trace-timeline{display:flex;align-items:center;gap:0;margin:16px 0;overflow-x:auto;padding:10px 0}
+.trace-step{display:flex;flex-direction:column;align-items:center;min-width:100px;position:relative}
+.trace-step::after{content:'';position:absolute;top:16px;left:60%;width:80%;height:2px;background:var(--cream3)}
+.trace-step:last-child::after{display:none}
+.trace-ico{width:32px;height:32px;border-radius:50%;background:var(--amber-lt);display:flex;align-items:center;justify-content:center;font-size:.7rem;color:var(--amber);position:relative;z-index:1}
+.trace-step.done .trace-ico{background:var(--emerald);color:#fff}
+.trace-lbl{font-size:.56rem;color:var(--muted);margin-top:6px;text-align:center}
+.trace-date{font-size:.5rem;color:var(--faint);font-family:var(--fm)}
 </style>
 </head>
 <body>
@@ -1075,6 +1282,7 @@ body.dark .rce-live-cost{background:var(--d-bg)}
 </div>
 <div class="H-r">
 <div class="lang-sw"><button class="lang-b on" onclick="setLang('en')">EN</button><button class="lang-b" onclick="setLang('tr')">TR</button><button class="lang-b" onclick="setLang('ar')">ع</button><button class="lang-b" onclick="setLang('ru')">RU</button></div>
+<div class="H-btn" onclick="toggleThemePicker()" title="Change theme" role="button" aria-label="Change theme" tabindex="0"><i class="fas fa-palette"></i></div>
 <div class="H-btn" onclick="toggleDark()" title="Toggle dark mode" role="button" aria-label="Toggle dark mode" tabindex="0"><i class="fas fa-moon" id="darkIco"></i></div>
 <div class="H-btn" onclick="showNotifs()" style="position:relative" role="button" aria-label="Notifications" tabindex="0"><i class="fas fa-bell"></i><span class="notif-dot" id="notifDot" style="display:none"></span></div>
 <div class="H-btn cart-badge" onclick="go('cart')"><i class="fas fa-bag-shopping"></i><span class="cb empty" id="cartBadge">0</span></div>
@@ -1123,6 +1331,29 @@ body.dark .rce-live-cost{background:var(--d-bg)}
 <div class="footer-bot" data-i="footerCopy">© 2026 CoffeePro. Built by Frances Coffee, Istanbul.</div>
 </div></div>
 
+<!-- MOBILE BOTTOM NAV -->
+<div class="mob-nav" id="mobNav">
+<div class="mob-nav-inner">
+<div class="mob-nav-item on" data-mob="home" onclick="go('home')"><i class="fas fa-house"></i><span>Home</span></div>
+<div class="mob-nav-item" data-mob="market" onclick="go('market')"><i class="fas fa-store"></i><span>Market</span></div>
+<div class="mob-nav-item" data-mob="cafe" onclick="go('cafe')"><i class="fas fa-cash-register"></i><span>Cafe</span></div>
+<div class="mob-nav-item" data-mob="tools" onclick="go('tools')"><i class="fas fa-wrench"></i><span>Tools</span></div>
+<div class="mob-nav-item" data-mob="acct" onclick="go('acct')"><i class="fas fa-user"></i><span>Account</span></div>
+</div>
+</div>
+
+<!-- THEME PICKER -->
+<div class="theme-picker" id="themePicker">
+<div class="theme-picker-title">Theme</div>
+<div class="theme-swatches">
+<div class="theme-sw on" style="background:linear-gradient(135deg,#c8913a,#f6f3ef)" data-theme="classic" data-name="Classic" onclick="applyTheme('classic')"></div>
+<div class="theme-sw" style="background:linear-gradient(135deg,#4a8af4,#0f1117)" data-theme="midnight" data-name="Midnight" onclick="applyTheme('midnight')"></div>
+<div class="theme-sw" style="background:linear-gradient(135deg,#3a9a5a,#f2f7f4)" data-theme="forest" data-name="Forest" onclick="applyTheme('forest')"></div>
+<div class="theme-sw" style="background:linear-gradient(135deg,#2a8a9a,#f0f7f9)" data-theme="ocean" data-name="Ocean" onclick="applyTheme('ocean')"></div>
+<div class="theme-sw" style="background:linear-gradient(135deg,#f040a0,#0a0a14)" data-theme="neon" data-name="Neon" onclick="applyTheme('neon')"></div>
+</div>
+</div>
+
 <script>
 (function(){
 'use strict';
@@ -1152,7 +1383,7 @@ acctListings:"My Listings",acctOrders:"Orders",acctAnalytics:"Analytics",acctSet
 cartSoon:"Cart — coming soon",added:"Added",removed:"Removed",saved:"Saved",enterName:"Enter name",enterCost:"Enter valid cost",calcFirst:"Calculate first",prodName:"Product name:",noRoasts:"No roasts logged yet",noBeans:"No beans added yet",noPacks:"No packaging items",noProds:"No saved products",noClients:"No clients yet",genPdf:"Generating PDF...",pdfDone:"✓ PDF downloaded",pdfErr:"PDF error — try on desktop",noInvFound:"No invoice found",invalidFile:"Invalid file",offlineRate:"Offline — enter manually",backupDone:"✓ Backup",restoredDone:"✓ Restored",updatedDone:"✓ Updated",removedDone:"✓ Removed",voidedDone:"✓ Voided",shiftStart:"✓ Shift started",dayClear:"✓ Day cleared",tablesReset:"✓ All tables reset",discApplied:"✓ Discount applied",trialStart:"✓ 14-day trial started",freePlan:"✓ Free plan active",selectOrigDest:"Select origin and destination",insuffAmount:"⚠ Insufficient amount",tblInUse:"⚠ Table is in use",wrongCreds:"⚠ Wrong credentials",listInquiry:"✓ Listing inquiry sent",logInquiry:"✓ Logistics inquiry sent",equipInquiry:"✓ Equipment listing inquiry sent",advisorSent:"✓ Advisor request sent",compGuide:"✓ Comparison guide downloading...",salesNotif:"Sales team notified",enterCafeName:"Enter café name",enterUsername:"Enter username",enterItemName:"Enter item name",enterValidPrice:"Enter valid price",msgSent:"💬 Message sent",quoteSent:"✓ Quote requested",sampleSent:"📦 Sample kit requested",
 platformCol:"Platform",companyCol:"Company",supportCol:"Support",aboutUs:"About Us",careers:"Careers",blog:"Blog",press:"Press",helpCenter:"Help Center",contact:"Contact",terms:"Terms",privacy:"Privacy",footerCopy:"Built by Frances Coffee, Istanbul.",
 cafeTitle:"My Café",cafeDesc:"Your café's point-of-sale system.",cafeLogin:"Sign In to Your Café",cafeUser:"Username",cafePass:"Password",cafeName:"Café Name",cafeSignIn:"Sign In",cafeSetup:"First time? Enter café name to set up.",cafeLogout:"Sign Out",
-posOrders:"Orders",posTables:"Tables",posMenu:"Menu",posReport:"Report",posNewOrder:"New Order",posRecipes:"Recipes",
+posOrders:"Orders",posTables:"Tables",posMenu:"Menu",posReport:"Report",posNewOrder:"New Order",posRecipes:"Recipes",posLoyalty:"Loyalty",posKitchen:"Kitchen",posAnalytics:"Analytics",posWaitlist:"Waitlist",
 tblOpen:"Open",tblOccupied:"Occupied",tblBill:"Bill Ready",tblTakeaway:"Takeaway",
 cartTitle:"Current Order",cartEmpty:"Tap items to add",cartTable:"Table",cartTotal:"TOTAL",cartPay:"Charge",cartClear:"Clear",
 payTitle:"Payment",payCash:"Cash",payCard:"Credit Card",payAmount:"Amount Due",payReceived:"Received",payChange:"Change",payConfirm:"Confirm Payment",payCancel:"Cancel",
@@ -1199,7 +1430,7 @@ acctListings:"İlanlarım",acctOrders:"Siparişler",acctAnalytics:"Analitik",acc
 cartSoon:"Sepet — yakında",added:"Eklendi",removed:"Kaldırıldı",saved:"Kaydedildi",enterName:"İsim girin",enterCost:"Geçerli maliyet girin",calcFirst:"Önce hesaplayın",prodName:"Ürün adı:",noRoasts:"Henüz kavurma yok",noBeans:"Henüz çekirdek yok",noPacks:"Henüz ambalaj yok",noProds:"Henüz ürün yok",noClients:"Henüz müşteri yok",genPdf:"PDF oluşturuluyor...",pdfDone:"✓ PDF indirildi",pdfErr:"PDF hatası — masaüstünde deneyin",noInvFound:"Fatura bulunamadı",invalidFile:"Geçersiz dosya",offlineRate:"Çevrimdışı — el ile girin",backupDone:"✓ Yedek alındı",restoredDone:"✓ Geri yüklendi",updatedDone:"✓ Güncellendi",removedDone:"✓ Kaldırıldı",voidedDone:"✓ İptal edildi",shiftStart:"✓ Vardiya başladı",dayClear:"✓ Gün temizlendi",tablesReset:"✓ Tüm masalar sıfırlandı",discApplied:"✓ İndirim uygulandı",trialStart:"✓ 14 günlük deneme başladı",freePlan:"✓ Ücretsiz plan aktif",selectOrigDest:"Kaynak ve hedef seçin",insuffAmount:"⚠ Yetersiz tutar",tblInUse:"⚠ Masa kullanımda",wrongCreds:"⚠ Yanlış bilgiler",listInquiry:"✓ İlan sorgusu gönderildi",logInquiry:"✓ Lojistik sorgusu gönderildi",equipInquiry:"✓ Ekipman sorgusu gönderildi",advisorSent:"✓ Danışman isteği gönderildi",compGuide:"✓ Karşılaştırma rehberi indiriliyor...",salesNotif:"Satış ekibi bilgilendirildi",enterCafeName:"Kafe adı girin",enterUsername:"Kullanıcı adı girin",enterItemName:"Ürün adı girin",enterValidPrice:"Geçerli fiyat girin",msgSent:"💬 Mesaj gönderildi",quoteSent:"✓ Teklif istendi",sampleSent:"📦 Numune talep edildi",
 platformCol:"Platform",companyCol:"Şirket",supportCol:"Destek",aboutUs:"Hakkımızda",careers:"Kariyer",blog:"Blog",press:"Basın",helpCenter:"Yardım Merkezi",contact:"İletişim",terms:"Şartlar",privacy:"Gizlilik",footerCopy:"Frances Coffee, İstanbul tarafından geliştirildi.",
 cafeTitle:"Kafem",cafeDesc:"Kafenizin satış noktası sistemi.",cafeLogin:"Kafenize Giriş Yapın",cafeUser:"Kullanıcı Adı",cafePass:"Şifre",cafeName:"Kafe Adı",cafeSignIn:"Giriş Yap",cafeSetup:"İlk kez mi? Kafe adınızı girin.",cafeLogout:"Çıkış Yap",
-posOrders:"Siparişler",posTables:"Masalar",posMenu:"Menü",posReport:"Rapor",posNewOrder:"Yeni Sipariş",posRecipes:"Tarifler",
+posOrders:"Siparişler",posTables:"Masalar",posMenu:"Menü",posReport:"Rapor",posNewOrder:"Yeni Sipariş",posRecipes:"Tarifler",posLoyalty:"Sadakat",posKitchen:"Mutfak",posAnalytics:"Analiz",posWaitlist:"Bekleme",
 tblOpen:"Açık",tblOccupied:"Dolu",tblBill:"Hesap Hazır",tblTakeaway:"Paket",
 cartTitle:"Mevcut Sipariş",cartEmpty:"Eklemek için dokunun",cartTable:"Masa",cartTotal:"TOPLAM",cartPay:"Ödeme Al",cartClear:"Temizle",
 payTitle:"Ödeme",payCash:"Nakit",payCard:"Kredi Kartı",payAmount:"Tutar",payReceived:"Alınan",payChange:"Para Üstü",payConfirm:"Ödemeyi Onayla",payCancel:"İptal",
@@ -1246,7 +1477,7 @@ acctListings:"إعلاناتي",acctOrders:"الطلبات",acctAnalytics:"ال�
 cartSoon:"السلة — قريباً",added:"تمت الإضافة",removed:"تمت الإزالة",saved:"تم الحفظ",enterName:"أدخل الاسم",enterCost:"أدخل تكلفة صحيحة",calcFirst:"احسب أولاً",prodName:"اسم المنتج:",noRoasts:"لا يوجد تحميص بعد",noBeans:"لا يوجد بن بعد",noPacks:"لا يوجد تعبئة بعد",noProds:"لا يوجد منتجات بعد",noClients:"لا يوجد عملاء بعد",genPdf:"جارٍ إنشاء PDF...",pdfDone:"✓ تم تحميل PDF",pdfErr:"خطأ PDF — جرب على الكمبيوتر",noInvFound:"لم يتم العثور على فاتورة",invalidFile:"ملف غير صالح",offlineRate:"غير متصل — أدخل يدوياً",backupDone:"✓ نسخة احتياطية",restoredDone:"✓ تمت الاستعادة",updatedDone:"✓ تم التحديث",removedDone:"✓ تمت الإزالة",voidedDone:"✓ تم الإلغاء",shiftStart:"✓ بدأت الوردية",dayClear:"✓ تم مسح اليوم",tablesReset:"✓ تم إعادة تعيين جميع الطاولات",discApplied:"✓ تم تطبيق الخصم",trialStart:"✓ بدأت التجربة لمدة 14 يوماً",freePlan:"✓ الخطة المجانية نشطة",selectOrigDest:"اختر المصدر والوجهة",insuffAmount:"⚠ مبلغ غير كافٍ",tblInUse:"⚠ الطاولة مشغولة",wrongCreds:"⚠ بيانات خاطئة",listInquiry:"✓ تم إرسال استفسار القائمة",logInquiry:"✓ تم إرسال استفسار اللوجستيات",equipInquiry:"✓ تم إرسال استفسار المعدات",advisorSent:"✓ تم إرسال طلب المستشار",compGuide:"✓ جارٍ تحميل دليل المقارنة...",salesNotif:"تم إبلاغ فريق المبيعات",enterCafeName:"أدخل اسم المقهى",enterUsername:"أدخل اسم المستخدم",enterItemName:"أدخل اسم العنصر",enterValidPrice:"أدخل سعراً صالحاً",msgSent:"💬 تم إرسال الرسالة",quoteSent:"✓ تم طلب عرض السعر",sampleSent:"📦 تم طلب عينة",
 platformCol:"المنصة",companyCol:"الشركة",supportCol:"الدعم",aboutUs:"من نحن",careers:"وظائف",blog:"مدونة",press:"صحافة",helpCenter:"مركز المساعدة",contact:"اتصل بنا",terms:"الشروط",privacy:"الخصوصية",footerCopy:"صنع بواسطة Frances Coffee، إسطنبول.",
 cafeTitle:"مقهاي",cafeDesc:"نظام نقاط البيع لمقهاك.",cafeLogin:"تسجيل الدخول إلى مقهاك",cafeUser:"اسم المستخدم",cafePass:"كلمة المرور",cafeName:"اسم المقهى",cafeSignIn:"دخول",cafeSetup:"أول مرة؟ أدخل اسم المقهى.",cafeLogout:"خروج",
-posOrders:"الطلبات",posTables:"الطاولات",posMenu:"القائمة",posReport:"التقرير",posNewOrder:"طلب جديد",posRecipes:"الوصفات",
+posOrders:"الطلبات",posTables:"الطاولات",posMenu:"القائمة",posReport:"التقرير",posNewOrder:"طلب جديد",posRecipes:"الوصفات",posLoyalty:"الولاء",posKitchen:"المطبخ",posAnalytics:"التحليلات",posWaitlist:"الانتظار",
 tblOpen:"متاح",tblOccupied:"مشغول",tblBill:"الفاتورة جاهزة",tblTakeaway:"سفري",
 cartTitle:"الطلب الحالي",cartEmpty:"انقر لإضافة",cartTable:"طاولة",cartTotal:"المجموع",cartPay:"الدفع",cartClear:"مسح",
 payTitle:"الدفع",payCash:"نقداً",payCard:"بطاقة",payAmount:"المبلغ المستحق",payReceived:"المبلغ المستلم",payChange:"الباقي",payConfirm:"تأكيد الدفع",payCancel:"إلغاء",
@@ -1293,7 +1524,7 @@ acctListings:"Мои листинги",acctOrders:"Заказы",acctAnalytics:"
 cartSoon:"Корзина — скоро",added:"Добавлено",removed:"Удалено",saved:"Сохранено",enterName:"Введите название",enterCost:"Введите стоимость",calcFirst:"Сначала рассчитайте",prodName:"Название продукта:",noRoasts:"Нет обжарок",noBeans:"Нет кофе",noPacks:"Нет упаковки",noProds:"Нет продуктов",noClients:"Нет клиентов",genPdf:"Создание PDF...",pdfDone:"✓ PDF скачан",pdfErr:"Ошибка PDF — попробуйте на ПК",noInvFound:"Счёт не найден",invalidFile:"Неверный файл",offlineRate:"Офлайн — введите вручную",backupDone:"✓ Резервная копия",restoredDone:"✓ Восстановлено",updatedDone:"✓ Обновлено",removedDone:"✓ Удалено",voidedDone:"✓ Отменено",shiftStart:"✓ Смена начата",dayClear:"✓ День очищен",tablesReset:"✓ Все столы сброшены",discApplied:"✓ Скидка применена",trialStart:"✓ Пробный период 14 дней",freePlan:"✓ Бесплатный план активен",selectOrigDest:"Выберите источник и назначение",insuffAmount:"⚠ Недостаточно средств",tblInUse:"⚠ Стол занят",wrongCreds:"⚠ Неверные данные",listInquiry:"✓ Запрос листинга отправлен",logInquiry:"✓ Запрос логистики отправлен",equipInquiry:"✓ Запрос оборудования отправлен",advisorSent:"✓ Запрос консультанта отправлен",compGuide:"✓ Загрузка руководства...",salesNotif:"Отдел продаж уведомлён",enterCafeName:"Введите название кафе",enterUsername:"Введите имя пользователя",enterItemName:"Введите название",enterValidPrice:"Введите корректную цену",msgSent:"💬 Сообщение отправлено",quoteSent:"✓ Запрос отправлен",sampleSent:"📦 Образец запрошен",
 platformCol:"Платформа",companyCol:"Компания",supportCol:"Поддержка",aboutUs:"О нас",careers:"Карьера",blog:"Блог",press:"Пресса",helpCenter:"Помощь",contact:"Контакт",terms:"Условия",privacy:"Конфиденциальность",footerCopy:"Создано Frances Coffee, Стамбул.",
 cafeTitle:"Моё кафе",cafeDesc:"POS-система вашего кафе.",cafeLogin:"Вход в ваше кафе",cafeUser:"Имя пользователя",cafePass:"Пароль",cafeName:"Название кафе",cafeSignIn:"Войти",cafeSetup:"Впервые? Введите название кафе.",cafeLogout:"Выйти",
-posOrders:"Заказы",posTables:"Столики",posMenu:"Меню",posReport:"Отчёт",posNewOrder:"Новый заказ",posRecipes:"Рецепты",
+posOrders:"Заказы",posTables:"Столики",posMenu:"Меню",posReport:"Отчёт",posNewOrder:"Новый заказ",posRecipes:"Рецепты",posLoyalty:"Лояльность",posKitchen:"Кухня",posAnalytics:"Аналитика",posWaitlist:"Ожидание",
 tblOpen:"Свободен",tblOccupied:"Занят",tblBill:"Счёт готов",tblTakeaway:"Навынос",
 cartTitle:"Текущий заказ",cartEmpty:"Нажмите для добавления",cartTable:"Столик",cartTotal:"ИТОГО",cartPay:"Оплата",cartClear:"Очистить",
 payTitle:"Оплата",payCash:"Наличные",payCard:"Карта",payAmount:"К оплате",payReceived:"Получено",payChange:"Сдача",payConfirm:"Подтвердить",payCancel:"Отмена",
@@ -1340,7 +1571,7 @@ function go(id){curPage=id;renderPage();window.scrollTo({top:0,behavior:'instant
   if(id==='inv'){setTimeout(()=>{const d=$('invDate');if(d&&!d.value){d.value=new Date().toISOString().slice(0,10);updInv()}},30)}
 }
 /* STORAGE */
-let D={beans:[],packs:[],products:[],roasts:[],clients:[],cuppings:[],settings:{usd:36,ohKg:0,low:5},oh:{r:0,l:0,u:0,m:0,kg:1000},cart:[],user:null,sub:'free',orders:[],wishlist:[]};
+let D={beans:[],packs:[],products:[],roasts:[],clients:[],cuppings:[],settings:{usd:36,ohKg:0,low:5},oh:{r:0,l:0,u:0,m:0,kg:1000},cart:[],user:null,sub:'free',orders:[],wishlist:[],reviews:[]};
 function ls(k,v){if(v!==undefined){localStorage.setItem('cp_'+k,JSON.stringify(v));return}try{return JSON.parse(localStorage.getItem('cp_'+k))}catch(e){return null}}
 function loadAll(){D.beans=ls('beans')||[];D.packs=ls('packs')||[];D.products=ls('products')||[];D.roasts=ls('roasts')||[];D.clients=ls('clients')||[];D.cuppings=ls('cuppings')||[];const s=ls('settings');D.settings=s?Object.assign({usd:36,ohKg:0,low:5},s):{usd:36,ohKg:0,low:5};D.oh=ls('oh')||{r:0,l:0,u:0,m:0,kg:1000};D.cart=ls('cart')||[];D.user=ls('user')||null;D.sub=ls('sub')||'free';D.orders=ls('orders')||[];D.wishlist=ls('wishlist')||[];updCartBadge();updUserBtn()}
 function saveD(){['beans','packs','products','roasts','clients','cuppings','settings','oh','cart','user','sub','orders','wishlist'].forEach(k=>ls(k,D[k]))}
@@ -1468,11 +1699,12 @@ return`<div class="P ${p.wide?'wide':''}" onclick="viewProd('${esc(pid)}')"><div
 /* ===== RENDER ENGINE ===== */
 function renderPage(){
 const a=$('app');
-const pages={home:rHome,market:rMarket,shop:rShop,trade:rTrade,tradecoops:rTradeCoops,tradeshipcalc:rTradeShipCalc,tradeprivate:rTradePrivate,tradepackets:rTradePackets,tradeequip:rTradeEquip,tools:rTools,inventory:rInv,roast:rRoast,costs:rCosts,calc:rCalc,cupping:rCupping,clients:rClients,inv:rInvGen,pricing:rPricing,about:rAbout,acct:rAcct,cart:rCart,checkout:rCheckout,ordersuccess:rOrderSuccess,auth:rAuth,cafe:rCafe,cafepos:rCafePos,cafetables:rCafeTables,cafemenu:rCafeMenu,cafeorders:rCafeOrders,cafereport:rCafeReport,caferecipes:rCafeRecipes,contact:rContact};
+const pages={home:rHome,market:rMarket,shop:rShop,trade:rTrade,tradecoops:rTradeCoops,tradeshipcalc:rTradeShipCalc,tradeprivate:rTradePrivate,tradepackets:rTradePackets,tradeequip:rTradeEquip,tools:rTools,inventory:rInv,roast:rRoast,costs:rCosts,calc:rCalc,cupping:rCupping,clients:rClients,inv:rInvGen,pricing:rPricing,about:rAbout,acct:rAcct,cart:rCart,checkout:rCheckout,ordersuccess:rOrderSuccess,auth:rAuth,cafe:rCafe,cafepos:rCafePos,cafetables:rCafeTables,cafemenu:rCafeMenu,cafeorders:rCafeOrders,cafereport:rCafeReport,caferecipes:rCafeRecipes,contact:rContact,cafemenuqr:rCafeMenuQR,cafeloyalty:rCafeLoyalty,cafekitchen:rCafeKitchen,cafeanalytics:rCafeAnalytics,cafewaitlist:rCafeWaitlist};
 const fn=pages[curPage]||rHome;
 window._curPage=curPage;
 a.innerHTML=`<div class="S on">${getBreadcrumb(curPage)}${fn()}</div>`;
 bindEvents();updCartBadge();updUserBtn();
+if(typeof _updateMobNav==='function')_updateMobNav();
 if(curPage==='home')setTimeout(function(){animateCounters();typeHero();startDealTimer();genHeroParticles()},100);
 setTimeout(initScrollReveal,200);
 }
@@ -2748,7 +2980,7 @@ window.pickSub=function(plan){
    Document-level listener routes all café interactions
    ================================================================ */
 
-var CF={user:'',pass:'',name:'',loggedIn:false,menu:[],tables:[],orders:[],cart:[],cartTable:'',posTab:'order',shift:null,discount:{type:'pct',val:0},nextOrd:1001,ingredients:[],recipes:[],invLog:[],rcSubTab:'recipes'};
+var CF={user:'',pass:'',name:'',loggedIn:false,menu:[],tables:[],orders:[],cart:[],cartTable:'',posTab:'order',shift:null,discount:{type:'pct',val:0},nextOrd:1001,ingredients:[],recipes:[],invLog:[],rcSubTab:'recipes',customers:[],loyaltyRate:10,happyHour:{enabled:false,start:'14:00',end:'16:00',discount:20},specials:[],feedback:[],waitlist:[],waste:[],tips:[],kdsEnabled:false};
 
 function loadCF(){
   var s=ls('cafe');
@@ -2759,6 +2991,10 @@ function loadCF(){
   if(!CF.ingredients||!CF.ingredients.length)CF.ingredients=_defaultIngredients();
   if(!CF.recipes||!CF.recipes.length)CF.recipes=_defaultRecipes();
   CF.invLog=CF.invLog||[];CF.rcSubTab=CF.rcSubTab||'recipes';
+  CF.customers=CF.customers||[];CF.loyaltyRate=CF.loyaltyRate||10;
+  CF.happyHour=CF.happyHour||{enabled:false,start:'14:00',end:'16:00',discount:20};
+  CF.specials=CF.specials||[];CF.feedback=CF.feedback||[];CF.waitlist=CF.waitlist||[];
+  CF.waste=CF.waste||[];CF.tips=CF.tips||[];CF.kdsEnabled=CF.kdsEnabled!==undefined?CF.kdsEnabled:false;
 }
 function saveCF(){ls('cafe',CF)}
 
@@ -3114,8 +3350,250 @@ function _fTbl(id){for(var i=0;i<CF.tables.length;i++){if(CF.tables[i].id===id)r
 function _catL(c){var m={coffee:'catCoffee',tea:'catTea',cold:'catCold',food:'catFood',dessert:'catDessert',other:'catOther'};return t(m[c]||'catOther')}
 function _catI(c){var m={coffee:'fa-mug-hot',tea:'fa-leaf',cold:'fa-snowflake',food:'fa-utensils',dessert:'fa-cake-candles',other:'fa-ellipsis'};return m[c]||'fa-circle'}
 
-function _posH(){var h='<div class="sh"><h2><i class="fas fa-cash-register" style="color:var(--amber);font-size:.85rem;margin-inline-end:6px"></i>'+esc(CF.name||'My Café');if(CF.shift){h+=' <span class="tg tg-g"><i class="fas fa-clock"></i> '+((Date.now()-CF.shift)/3600000).toFixed(1)+'h</span>'}h+='</h2><button class="B Bo Bs" data-act="logout"><i class="fas fa-sign-out-alt"></i></button></div>';return h}
-function _posN(){var tabs=[['order','posNewOrder','fa-plus-circle'],['tables','posTables','fa-th-large'],['menu','posMenu','fa-utensils'],['orders','posOrders','fa-receipt'],['report','posReport','fa-chart-bar'],['recipes','posRecipes','fa-flask']];var h='<div class="pos-nav">';for(var i=0;i<tabs.length;i++){h+='<div class="pos-nb'+(CF.posTab===tabs[i][0]?' on':'')+'" data-act="postab" data-id="'+tabs[i][0]+'"><i class="fas '+tabs[i][2]+'"></i> '+t(tabs[i][1])+'</div>'}h+='</div>';return h}
+function _posH(){var h='<div class="sh"><h2><i class="fas fa-cash-register" style="color:var(--amber);font-size:.85rem;margin-inline-end:6px"></i>'+esc(CF.name||'My Café');if(CF.shift){h+=' <span class="tg tg-g"><i class="fas fa-clock"></i> '+((Date.now()-CF.shift)/3600000).toFixed(1)+'h</span>'}h+='</h2><button class="B Bo Bs" data-act="logout"><i class="fas fa-sign-out-alt"></i></button></div>';if(typeof _happyHourBanner==='function')h+=_happyHourBanner();return h}
+function _posN(){var tabs=[['order','posNewOrder','fa-plus-circle'],['tables','posTables','fa-th-large'],['menu','posMenu','fa-utensils'],['orders','posOrders','fa-receipt'],['report','posReport','fa-chart-bar'],['recipes','posRecipes','fa-flask'],['loyalty','posLoyalty','fa-heart'],['kitchen','posKitchen','fa-fire-burner'],['analytics','posAnalytics','fa-chart-pie'],['waitlist','posWaitlist','fa-clock']];var h='<div class="pos-nav" style="overflow-x:auto;scrollbar-width:none">';for(var i=0;i<tabs.length;i++){h+='<div class="pos-nb'+(CF.posTab===tabs[i][0]?' on':'')+'" data-act="postab" data-id="'+tabs[i][0]+'"><i class="fas '+tabs[i][2]+'"></i> '+t(tabs[i][1])+'</div>'}h+='</div>';return h}
+
+/* ═══════════════════════════════════════
+   BATCH B: CAFÉ POS REVOLUTION — PAGES
+   ═══════════════════════════════════════ */
+
+/* === B1. QR CODE DIGITAL MENU === */
+function rCafeMenuQR(){CF.posTab='menu';
+  var cats={};CF.menu.forEach(function(m){if(!cats[m.cat])cats[m.cat]=[];cats[m.cat].push(m)});
+  var h=_posH()+_posN();
+  h+='<div class="C" style="text-align:center"><h3 style="font-family:var(--fd);margin-bottom:4px"><i class="fas fa-qrcode" style="color:var(--amber)"></i> Digital Menu</h3>';
+  h+='<p style="font-size:.72rem;color:var(--muted);margin-bottom:14px">Generate a QR code for your café menu</p>';
+  h+='<div style="display:flex;gap:8px;justify-content:center;margin-bottom:16px"><button class="B Ba Bs" data-act="generateqr"><i class="fas fa-qrcode"></i> Generate QR</button><button class="B Bd Bs" data-act="printmenu"><i class="fas fa-print"></i> Print Menu</button></div>';
+  h+='<canvas id="qrCanvas" style="margin:10px auto;display:block;border-radius:12px"></canvas>';
+  h+='<div id="menuPreview" style="text-align:left;margin-top:16px">';
+  h+='<div style="background:var(--white);border:1px solid var(--card-bdr);border-radius:var(--rl);padding:20px;max-width:400px;margin:0 auto">';
+  h+='<div style="text-align:center;margin-bottom:14px"><div style="font-family:var(--fd);font-size:1.2rem;font-weight:900;color:var(--esp)">'+esc(CF.name||'My Café')+'</div><div style="font-size:.6rem;color:var(--muted);margin-top:2px">Powered by CoffeePro</div></div>';
+  Object.keys(cats).forEach(function(cat){
+    h+='<div style="margin-bottom:12px"><div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--amber);margin-bottom:6px;border-bottom:1px solid var(--cream3);padding-bottom:4px"><i class="fas '+_catI(cat)+'"></i> '+cat+'</div>';
+    cats[cat].forEach(function(m){h+='<div style="display:flex;justify-content:space-between;padding:4px 0;font-size:.72rem"><span style="color:var(--esp)">'+esc(m.nm)+'</span><span style="font-family:var(--fm);color:var(--amber);font-weight:600">₺'+parseFloat(m.pr).toFixed(2)+'</span></div>'});
+    h+='</div>';
+  });
+  h+='</div></div></div>';
+  return h;
+}
+
+/* === B2. CUSTOMER LOYALTY PROGRAM === */
+function rCafeLoyalty(){CF.posTab='loyalty';
+  if(!CF.customers)CF.customers=[];
+  var h=_posH()+_posN();
+  h+='<div class="C"><div class="sh"><h3><i class="fas fa-heart" style="color:var(--ruby)"></i> Customer Loyalty</h3><button class="B Ba Bs" data-act="addcustomer"><i class="fas fa-plus"></i> Add Customer</button></div>';
+  h+='<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0">';
+  h+='<div class="q"><div class="q-v" style="color:var(--amber)">'+CF.customers.length+'</div><div class="q-l">Customers</div></div>';
+  var totalPts=CF.customers.reduce(function(s,c){return s+(c.points||0)},0);
+  h+='<div class="q"><div class="q-v" style="color:var(--emerald)">'+totalPts+'</div><div class="q-l">Total Points</div></div>';
+  var repeat=CF.customers.filter(function(c){return(c.visits||0)>=3}).length;
+  h+='<div class="q"><div class="q-v" style="color:var(--blue)">'+repeat+'</div><div class="q-l">Regulars</div></div>';
+  h+='</div>';
+  h+='<div style="font-size:.62rem;color:var(--muted);margin-bottom:10px;background:var(--cream2);padding:8px 12px;border-radius:8px"><i class="fas fa-info-circle"></i> Rate: ₺'+CF.loyaltyRate+' spent = 1 point · 100 points = ₺10 reward</div>';
+  if(!CF.customers.length){
+    h+=emptyState('fa-heart','No Customers Yet','Add your first customer to start tracking loyalty points and visits.','Add Customer','_openAddCustomer()');
+  }else{
+    CF.customers.forEach(function(c,i){
+      var stamps='';for(var s=0;s<10;s++)stamps+='<div class="loyalty-stamp'+(s<(c.visits||0)%10?' filled':'')+'">☕</div>';
+      h+='<div class="loyalty-cust" style="flex-wrap:wrap"><div class="loyalty-av">'+esc((c.name||'?')[0].toUpperCase())+'</div>';
+      h+='<div style="flex:1;min-width:120px"><div style="font-size:.78rem;font-weight:600;color:var(--esp)">'+esc(c.name)+'</div>';
+      h+='<div style="font-size:.6rem;color:var(--muted)">'+(c.phone||'')+(c.email?' · '+c.email:'')+'</div></div>';
+      h+='<div style="text-align:right;min-width:80px"><div style="font-size:.88rem;font-weight:700;color:var(--amber)">'+( c.points||0)+' pts</div>';
+      h+='<div style="font-size:.56rem;color:var(--muted)">'+(c.visits||0)+' visits</div></div>';
+      h+='<div style="width:100%;margin-top:6px"><div class="loyalty-stamps">'+stamps+'</div></div>';
+      h+='<div style="width:100%;display:flex;gap:4px;margin-top:4px">';
+      if((c.points||0)>=100)h+='<button class="B Bg Bs" data-act="redeempoints" data-id="'+i+'" style="font-size:.58rem"><i class="fas fa-gift"></i> Redeem</button>';
+      h+='<button class="B Bd Bs" data-act="editcustomer" data-id="'+i+'" style="font-size:.58rem"><i class="fas fa-pen"></i></button>';
+      h+='<button class="B Bo Bs" data-act="delcustomer" data-id="'+i+'" style="font-size:.58rem;color:var(--ruby)"><i class="fas fa-trash"></i></button>';
+      h+='</div></div>';
+    });
+  }
+  h+='</div>';
+  return h;
+}
+
+/* === B4. KITCHEN DISPLAY SYSTEM === */
+function rCafeKitchen(){CF.posTab='kitchen';
+  var h=_posH()+_posN();
+  var today=new Date().toDateString();
+  var orders=CF.orders.filter(function(o){return new Date(o.date).toDateString()===today});
+  var newOrds=[],prepOrds=[],readyOrds=[];
+  orders.forEach(function(o){
+    if(o.kdsStatus==='ready')readyOrds.push(o);
+    else if(o.kdsStatus==='preparing')prepOrds.push(o);
+    else newOrds.push(o);
+  });
+  h+='<div class="C"><div class="sh"><h3><i class="fas fa-fire-burner" style="color:var(--ruby)"></i> Kitchen Display</h3>';
+  h+='<span class="tg tg-g" style="font-size:.6rem">'+orders.length+' orders today</span></div>';
+  h+='<div class="kds-board">';
+  /* New column */
+  h+='<div class="kds-col"><div class="kds-col-hdr new"><i class="fas fa-bell"></i> NEW ('+newOrds.length+')</div>';
+  newOrds.forEach(function(o,i){h+=_kdsCard(o,i,'new')});
+  if(!newOrds.length)h+='<div style="text-align:center;padding:30px;color:var(--faint);font-size:.68rem">No new orders</div>';
+  h+='</div>';
+  /* Preparing column */
+  h+='<div class="kds-col"><div class="kds-col-hdr prep"><i class="fas fa-fire"></i> PREPARING ('+prepOrds.length+')</div>';
+  prepOrds.forEach(function(o,i){h+=_kdsCard(o,i,'preparing')});
+  if(!prepOrds.length)h+='<div style="text-align:center;padding:30px;color:var(--faint);font-size:.68rem">Nothing preparing</div>';
+  h+='</div>';
+  /* Ready column */
+  h+='<div class="kds-col"><div class="kds-col-hdr ready"><i class="fas fa-check-circle"></i> READY ('+readyOrds.length+')</div>';
+  readyOrds.forEach(function(o,i){h+=_kdsCard(o,i,'ready')});
+  if(!readyOrds.length)h+='<div style="text-align:center;padding:30px;color:var(--faint);font-size:.68rem">None ready</div>';
+  h+='</div>';
+  h+='</div></div>';
+  return h;
+}
+function _kdsCard(o,idx,status){
+  var elapsed=Math.round((Date.now()-new Date(o.date).getTime())/60000);
+  var timeClass=elapsed>10?'warn':'ok';
+  var h='<div class="kds-card" data-act="kdsadvance" data-id="'+CF.orders.indexOf(o)+'">';
+  h+='<div style="display:flex;justify-content:space-between;align-items:center"><div class="kds-ord">#'+o.num+'</div><div class="kds-time '+timeClass+'">'+elapsed+'m</div></div>';
+  h+='<div class="kds-tbl">'+(o.table||'Takeaway')+' · '+new Date(o.date).toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})+'</div>';
+  h+='<div class="kds-items">';
+  o.items.forEach(function(it){h+=it.qty+'× '+esc(it.nm)+(it.note?' <em style="color:var(--amber)">'+esc(it.note)+'</em>':'')+'<br>'});
+  h+='</div>';
+  if(status!=='ready')h+='<div style="font-size:.54rem;color:var(--amber);cursor:pointer"><i class="fas fa-arrow-right"></i> Tap to advance</div>';
+  h+='</div>';
+  return h;
+}
+
+/* === B7. CAFE ANALYTICS === */
+function rCafeAnalytics(){CF.posTab='analytics';
+  var h=_posH()+_posN();
+  var allOrds=CF.orders||[];
+  var today=new Date().toDateString();
+  var todayOrds=allOrds.filter(function(o){return new Date(o.date).toDateString()===today});
+  var todayRev=todayOrds.reduce(function(s,o){return s+o.total},0);
+  var todayTips=todayOrds.reduce(function(s,o){return s+(o.tip||0)},0);
+  var avgOrder=todayOrds.length?todayRev/todayOrds.length:0;
+
+  h+='<div class="C"><div class="sh"><h3><i class="fas fa-chart-pie" style="color:var(--blue)"></i> Analytics Dashboard</h3>';
+  h+='<div style="display:flex;gap:4px"><button class="B Bd Bs'+(window._analyticsPeriod!=='week'?' on':'')+'" data-act="analyticsperiod" data-id="today" style="font-size:.58rem">Today</button><button class="B Bd Bs'+(window._analyticsPeriod==='week'?' on':'')+'" data-act="analyticsperiod" data-id="week" style="font-size:.58rem">Week</button></div></div>';
+
+  /* Summary cards */
+  h+='<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0">';
+  h+='<div class="q"><div class="q-v" style="color:var(--emerald)">₺'+todayRev.toFixed(0)+'</div><div class="q-l">Revenue</div></div>';
+  h+='<div class="q"><div class="q-v" style="color:var(--amber)">'+todayOrds.length+'</div><div class="q-l">Orders</div></div>';
+  h+='<div class="q"><div class="q-v" style="color:var(--blue)">₺'+avgOrder.toFixed(0)+'</div><div class="q-l">Avg Order</div></div>';
+  h+='<div class="q"><div class="q-v" style="color:var(--copper)">₺'+todayTips.toFixed(0)+'</div><div class="q-l">Tips</div></div>';
+  h+='</div>';
+
+  h+='<div class="analytics-grid">';
+
+  /* Sales Heatmap */
+  h+='<div class="analytics-widget"><h4><i class="fas fa-th"></i> Sales Heatmap</h4>';
+  h+='<div style="display:flex;font-size:.48rem;color:var(--faint);margin-bottom:4px;gap:2px"><span style="width:28px"></span>';
+  ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'].forEach(function(d){h+='<span style="flex:1;text-align:center">'+d+'</span>'});
+  h+='</div>';
+  for(var hr=8;hr<=22;hr+=2){
+    h+='<div style="display:flex;gap:2px;margin-bottom:2px"><span style="width:28px;font-size:.48rem;color:var(--faint);display:flex;align-items:center">'+hr+':00</span>';
+    for(var d=0;d<7;d++){
+      var cnt=allOrds.filter(function(o){var dt=new Date(o.date);return dt.getDay()===d&&dt.getHours()>=hr&&dt.getHours()<hr+2}).length;
+      var intensity=Math.min(cnt/3,1);
+      h+='<div class="heatmap-cell" style="flex:1;background:rgba(200,145,58,'+(0.05+intensity*0.6)+');color:'+(intensity>.3?'#fff':'var(--faint)')+'">'+cnt+'</div>';
+    }
+    h+='</div>';
+  }
+  h+='</div>';
+
+  /* Revenue Trend */
+  h+='<div class="analytics-widget"><h4><i class="fas fa-chart-line"></i> Revenue Trend (7 days)</h4>';
+  var revData=[];for(var dd=6;dd>=0;dd--){
+    var d=new Date();d.setDate(d.getDate()-dd);var ds=d.toDateString();
+    revData.push(allOrds.filter(function(o){return new Date(o.date).toDateString()===ds}).reduce(function(s,o){return s+o.total},0));
+  }
+  h+=buildSvgLine(revData,320,140);
+  h+='<div style="display:flex;justify-content:space-between;font-size:.48rem;color:var(--faint);margin-top:4px">';
+  for(var dd=6;dd>=0;dd--){var d=new Date();d.setDate(d.getDate()-dd);h+='<span>'+['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][d.getDay()]+'</span>'}
+  h+='</div></div>';
+
+  /* Top Items */
+  h+='<div class="analytics-widget"><h4><i class="fas fa-fire"></i> Top Items</h4>';
+  var itemMap={};allOrds.forEach(function(o){o.items.forEach(function(it){if(!itemMap[it.nm])itemMap[it.nm]={qty:0,rev:0};itemMap[it.nm].qty+=it.qty;itemMap[it.nm].rev+=it.qty*it.pr})});
+  var topItems=Object.keys(itemMap).map(function(k){return{nm:k,qty:itemMap[k].qty,rev:itemMap[k].rev}}).sort(function(a,b){return b.qty-a.qty}).slice(0,6);
+  var maxQty=topItems.length?topItems[0].qty:1;
+  topItems.forEach(function(it){
+    h+='<div class="hbar"><div class="hbar-label">'+esc(it.nm)+'</div><div class="hbar-bar"><div class="hbar-fill" style="width:'+(it.qty/maxQty*100)+'%;background:var(--amber)"></div></div><div class="hbar-val">'+it.qty+'× ₺'+it.rev.toFixed(0)+'</div></div>';
+  });
+  if(!topItems.length)h+='<div style="color:var(--faint);font-size:.68rem;text-align:center;padding:20px">No order data yet</div>';
+  h+='</div>';
+
+  /* Customer Insights */
+  h+='<div class="analytics-widget"><h4><i class="fas fa-users"></i> Customer Insights</h4>';
+  var totalCust=CF.customers.length;
+  var returning=CF.customers.filter(function(c){return(c.visits||0)>=2}).length;
+  h+='<div style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px">';
+  h+='<div class="q"><div class="q-v" style="color:var(--amber);font-size:1.1rem">'+totalCust+'</div><div class="q-l">Total Customers</div></div>';
+  h+='<div class="q"><div class="q-v" style="color:var(--emerald);font-size:1.1rem">'+returning+'</div><div class="q-l">Returning</div></div>';
+  h+='</div>';
+  /* Feedback summary */
+  if(CF.feedback&&CF.feedback.length){
+    var avgRating=CF.feedback.reduce(function(s,f){return s+f.rating},0)/CF.feedback.length;
+    h+='<div style="margin-top:10px;padding:8px;background:var(--cream2);border-radius:8px;font-size:.68rem"><i class="fas fa-star" style="color:var(--amber)"></i> Avg Rating: <strong>'+avgRating.toFixed(1)+'</strong>/5 ('+CF.feedback.length+' reviews)</div>';
+  }
+  h+='</div>';
+
+  /* Waste Tracking */
+  h+='<div class="analytics-widget"><h4><i class="fas fa-trash-can"></i> Waste Tracking</h4>';
+  h+='<button class="B Bd Bs" data-act="logwaste" style="font-size:.6rem;margin-bottom:8px"><i class="fas fa-plus"></i> Log Waste</button>';
+  if(CF.waste&&CF.waste.length){
+    var totalWaste=CF.waste.reduce(function(s,w){return s+w.cost},0);
+    h+='<div style="font-size:.72rem;color:var(--ruby);font-weight:600;margin-bottom:6px">Total waste: ₺'+totalWaste.toFixed(2)+'</div>';
+    CF.waste.slice(-5).reverse().forEach(function(w){
+      h+='<div style="display:flex;justify-content:space-between;font-size:.62rem;padding:4px 0;border-bottom:1px solid var(--cream3)"><span>'+esc(w.item)+'</span><span style="color:var(--ruby)">₺'+w.cost.toFixed(2)+'</span></div>';
+    });
+  }else{
+    h+='<div style="color:var(--faint);font-size:.68rem;text-align:center;padding:20px">No waste logged</div>';
+  }
+  h+='</div>';
+
+  /* Break-Even Calculator */
+  h+='<div class="analytics-widget"><h4><i class="fas fa-calculator"></i> Break-Even</h4>';
+  if(allOrds.length>=5){
+    var avgOrdVal=allOrds.reduce(function(s,o){return s+o.total},0)/allOrds.length;
+    var daysActive=Math.max(1,Math.ceil((Date.now()-new Date(allOrds[0].date).getTime())/86400000));
+    var ordPerDay=allOrds.length/daysActive;
+    h+='<div style="font-size:.68rem;line-height:1.8"><div><span style="color:var(--muted)">Avg order value:</span> <strong>₺'+avgOrdVal.toFixed(2)+'</strong></div>';
+    h+='<div><span style="color:var(--muted)">Orders/day:</span> <strong>'+ordPerDay.toFixed(1)+'</strong></div>';
+    h+='<div><span style="color:var(--muted)">Daily revenue:</span> <strong>₺'+(avgOrdVal*ordPerDay).toFixed(0)+'</strong></div></div>';
+  }else{
+    h+='<div style="color:var(--faint);font-size:.68rem;text-align:center;padding:20px">Need 5+ orders for analysis</div>';
+  }
+  h+='</div>';
+
+  h+='</div></div>';
+  return h;
+}
+
+/* === B10. WAITLIST SYSTEM === */
+function rCafeWaitlist(){CF.posTab='waitlist';
+  if(!CF.waitlist)CF.waitlist=[];
+  var h=_posH()+_posN();
+  h+='<div class="C"><div class="sh"><h3><i class="fas fa-clock" style="color:var(--copper)"></i> Waitlist</h3><button class="B Ba Bs" data-act="addwaitlist"><i class="fas fa-plus"></i> Add Party</button></div>';
+  var waiting=CF.waitlist.filter(function(w){return w.status==='waiting'}).length;
+  var avgWait=CF.waitlist.length?15*waiting:0;
+  h+='<div style="display:flex;gap:8px;margin:10px 0"><div class="q" style="flex:1"><div class="q-v" style="color:var(--amber);font-size:1.2rem">'+waiting+'</div><div class="q-l">Waiting</div></div><div class="q" style="flex:1"><div class="q-v" style="color:var(--copper);font-size:1.2rem">~'+avgWait+'m</div><div class="q-l">Est. Wait</div></div></div>';
+  if(!CF.waitlist.length){
+    h+=emptyState('fa-clock','No One Waiting','Your waitlist is empty. Add a party when customers arrive.','Add Party','_openAddWaitlist()');
+  }else{
+    CF.waitlist.forEach(function(w,i){
+      var statusColor=w.status==='waiting'?'var(--amber)':w.status==='seated'?'var(--emerald)':'var(--faint)';
+      h+='<div class="waitlist-item"><div class="waitlist-pos">'+(i+1)+'</div>';
+      h+='<div class="waitlist-info"><div class="waitlist-nm">'+esc(w.name)+' <span style="font-size:.6rem;color:var(--muted)">· Party of '+w.size+'</span></div>';
+      h+='<div class="waitlist-det">'+(w.phone||'No phone')+' · Added '+new Date(w.addedAt).toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})+' <span class="tg" style="background:'+statusColor+'20;color:'+statusColor+';font-size:.5rem">'+w.status+'</span></div></div>';
+      h+='<div class="waitlist-actions">';
+      if(w.status==='waiting'){
+        h+='<button class="B Bg Bs" data-act="seatwaitlist" data-id="'+i+'" style="font-size:.56rem" title="Seat"><i class="fas fa-chair"></i></button>';
+        if(w.phone)h+='<button class="B Bd Bs" data-act="notifywaitlist" data-id="'+i+'" style="font-size:.56rem" title="Notify via WhatsApp"><i class="fab fa-whatsapp"></i></button>';
+      }
+      h+='<button class="B Bo Bs" data-act="donewaitlist" data-id="'+i+'" style="font-size:.56rem;color:var(--ruby)" title="Remove"><i class="fas fa-times"></i></button>';
+      h+='</div></div>';
+    });
+  }
+  h+='</div>';
+  return h;
+}
 
 function rCafe(){return CF.loggedIn?rCafePos():rCafeLogin()}
 
@@ -3183,8 +3661,8 @@ function rCafeOrders(){CF.posTab='orders';var to=_todayOrds().slice().reverse(),
   if(!to.length){h+='<div class="empty" style="padding:50px"><i class="fas fa-receipt" style="font-size:2.5rem"></i><div style="margin-top:10px;font-size:.84rem">'+t('rptNoOrders')+'</div></div>'}
   else{for(var i=0;i<to.length;i++){var o=to[i],oi=CF.orders.indexOf(o),is=[];for(var j=0;j<o.items.length;j++)is.push(o.items[j].qty+'× '+o.items[j].nm);
   h+='<div class="ord-card" data-act="showreceipt" data-id="'+oi+'"><div class="ord-head"><div><span class="ord-id">#'+o.id+'</span> '+(o.table?'<span class="tg tg-a" style="margin-inline-start:4px">'+o.table+'</span>':'<span class="tg tg-d">'+t('tblTakeaway')+'</span>')+'</div><div class="ord-time">'+new Date(o.time).toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})+'</div></div>';
-  h+='<div class="ord-row">'+esc(is.join(' · '))+'</div><div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px"><div class="ord-total">₺'+o.total.toFixed(2)+(o.disc?' <span style="font-size:.56rem;color:var(--ruby)">(-'+(o.discType==='pct'?o.disc+'%':'₺'+o.disc)+')</span>':'')+'</div><span class="tg '+(o.method==='cash'?'tg-g':'tg-b')+'"><i class="fas '+(o.method==='cash'?'fa-money-bill-wave':'fa-credit-card')+'" style="margin-inline-end:3px"></i>'+(o.method==='cash'?t('payCash'):t('payCard'))+'</span></div></div>'}
-  h+='<button class="B Bo Bw Bs" style="margin-top:8px;color:var(--ruby)" data-act="voidlast"><i class="fas fa-undo"></i> Void Last Order</button>'}return h}
+  h+='<div class="ord-row">'+esc(is.join(' · '))+'</div><div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px"><div class="ord-total">₺'+o.total.toFixed(2)+(o.disc?' <span style="font-size:.56rem;color:var(--ruby)">(-'+(o.discType==='pct'?o.disc+'%':'₺'+o.disc)+')</span>':'')+'</div><div style="display:flex;gap:4px;align-items:center"><button class="B Bd Bs" data-act="sharereceipt" data-id="'+oi+'" style="font-size:.54rem" onclick="event.stopPropagation()" title="Share via WhatsApp"><i class="fab fa-whatsapp"></i></button><span class="tg '+(o.method==='cash'?'tg-g':'tg-b')+'"><i class="fas '+(o.method==='cash'?'fa-money-bill-wave':'fa-credit-card')+'" style="margin-inline-end:3px"></i>'+(o.method==='cash'?t('payCash'):t('payCard'))+'</span></div></div></div>'}
+  h+='<div style="display:flex;gap:6px;margin-top:8px"><button class="B Bo Bs" style="color:var(--ruby)" data-act="voidlast"><i class="fas fa-undo"></i> Void Last</button><button class="B Bd Bs" data-act="splitbill" style="font-size:.62rem"><i class="fas fa-divide"></i> Split Bill</button></div>'}return h}
 
 function rCafeReport(){CF.posTab='report';var tO=_todayOrds(),totalS=0,cashS=0,cashC=0;
   for(var i=0;i<tO.length;i++){totalS+=tO[i].total;if(tO[i].method==='cash'){cashS+=tO[i].total;cashC++}}
@@ -3289,7 +3767,7 @@ ov.innerHTML=h;document.body.appendChild(ov);ov.addEventListener('click',functio
 document.addEventListener('click',function(e){var el=e.target.closest('[data-act]');if(!el)return;var act=el.dataset.act,id=el.dataset.id;
 switch(act){
 case 'login':_doLogin();break;case 'logout':_doLogout();break;
-case 'postab':CF.posTab=id;if(id==='order')go('cafe');else if(id==='tables')go('cafetables');else if(id==='menu')go('cafemenu');else if(id==='orders')go('cafeorders');else if(id==='report')go('cafereport');else if(id==='recipes')go('caferecipes');break;
+case 'postab':CF.posTab=id;if(id==='order')go('cafe');else if(id==='tables')go('cafetables');else if(id==='menu')go('cafemenu');else if(id==='orders')go('cafeorders');else if(id==='report')go('cafereport');else if(id==='recipes')go('caferecipes');else if(id==='loyalty')go('cafeloyalty');else if(id==='kitchen')go('cafekitchen');else if(id==='analytics')go('cafeanalytics');else if(id==='waitlist')go('cafewaitlist');break;
 case 'poscat':window._cfCat=id;renderPage();break;case 'seltbl':_doSelTbl(parseInt(id));break;case 'additem':_doAdd(parseInt(id));break;case 'loadtbl':_doLoadTbl(parseInt(id));break;
 case 'cartplus':_doPlus(parseInt(id));break;case 'cartminus':_doMinus(parseInt(id));break;case 'cartnote':_doNote(parseInt(id));break;case 'clearcart':_doClear();break;
 case 'discount':_openDisc();break;case 'savetbl':_doSaveTbl();break;case 'openpay':_openPay();break;
@@ -3312,6 +3790,26 @@ case 'exportprofitcsv':_exportProfitCSV();break;
 case 'exportrecipepdf':_exportRecipePDF();break;
 case 'exportinvpdf':_exportRecipePDF();break;
 case 'exportprofitpdf':_exportRecipePDF();break;
+/* Batch B: POS Enhancement cases */
+case 'addcustomer':_openAddCustomer();break;
+case 'editcustomer':_openEditCustomer(parseInt(id));break;
+case 'delcustomer':if(confirm('Remove this customer?')){CF.customers.splice(parseInt(id),1);saveCF();renderPage();toast('Customer removed')}break;
+case 'redeempoints':_redeemPoints(parseInt(id));break;
+case 'kdsadvance':_kdsAdvance(parseInt(id));break;
+case 'togglehappy':CF.happyHour.enabled=!CF.happyHour.enabled;saveCF();renderPage();toast(CF.happyHour.enabled?'Happy Hour ON':'Happy Hour OFF');break;
+case 'addwaitlist':_openAddWaitlist();break;
+case 'seatwaitlist':_seatWaitlist(parseInt(id));break;
+case 'donewaitlist':CF.waitlist.splice(parseInt(id),1);saveCF();renderPage();toast('Removed from waitlist');break;
+case 'notifywaitlist':_notifyWaitlist(parseInt(id));break;
+case 'splitbill':_openSplitBill();break;
+case 'logwaste':_openLogWaste();break;
+case 'sharereceipt':_shareReceipt(parseInt(id));break;
+case 'generateqr':_generateQR();break;
+case 'printmenu':_printMenu();break;
+/* Batch C: Marketplace & Analytics cases */
+case 'addreview':_openAddReview(id);break;
+case 'filterwheel':_filterByFlavor(id);break;
+case 'analyticsperiod':window._analyticsPeriod=id;renderPage();break;
 }});
 
 
@@ -3459,6 +3957,458 @@ window.showNotifs=function(){
   var d=document.createElement('div');d.innerHTML=html;document.body.appendChild(d.firstChild);
   var dot=document.getElementById('notifDot');if(dot)dot.style.display='none';
   setTimeout(function(){document.addEventListener('click',function remN(e){if(!e.target.closest('#notifPanel')&&!e.target.closest('.fa-bell')){var p=document.getElementById('notifPanel');if(p)p.remove();document.removeEventListener('click',remN)}})},50);
+};
+
+/* ═══════════════════════════════════════
+   MEGA ENHANCEMENT PACK — JS
+   ═══════════════════════════════════════ */
+
+/* === A7. LOADING SPINNER === */
+window.showLoader=function(txt){var ov=document.createElement('div');ov.className='loader-ov';ov.id='loaderOv';ov.innerHTML='<div class="loader-spin"></div><div class="loader-text">'+(txt||'Loading...')+'</div>';document.body.appendChild(ov)};
+window.hideLoader=function(){var ov=document.getElementById('loaderOv');if(ov)ov.remove()};
+
+/* === A8. THEME SYSTEM === */
+window._curTheme=localStorage.getItem('cp_theme')||'classic';
+window.applyTheme=function(name){
+  var body=document.body;
+  ['theme-midnight','theme-forest','theme-ocean','theme-neon'].forEach(function(c){body.classList.remove(c)});
+  if(name!=='classic')body.classList.add('theme-'+name);
+  window._curTheme=name;localStorage.setItem('cp_theme',name);
+  var swatches=document.querySelectorAll('.theme-sw');
+  swatches.forEach(function(s){s.classList.toggle('on',s.dataset.theme===name)});
+  toast('Theme: '+name.charAt(0).toUpperCase()+name.slice(1));
+};
+window.toggleThemePicker=function(){
+  var p=document.getElementById('themePicker');if(!p)return;
+  p.classList.toggle('open');
+  if(p.classList.contains('open')){
+    setTimeout(function(){document.addEventListener('click',function closeTP(e){if(!e.target.closest('.theme-picker')&&!e.target.closest('.fa-palette')){p.classList.remove('open');document.removeEventListener('click',closeTP)}})},50);
+  }
+};
+(function(){var t=localStorage.getItem('cp_theme');if(t&&t!=='classic')document.body.classList.add('theme-'+t)})();
+
+/* === A3. MOBILE BOTTOM NAV === */
+window._updateMobNav=function(){
+  var items=document.querySelectorAll('.mob-nav-item');if(!items.length)return;
+  var pg=window._curPage||'home';
+  var map={home:'home',market:'market',shop:'market',trade:'market',cafe:'cafe',cafepos:'cafe',cafetables:'cafe',cafemenu:'cafe',cafeorders:'cafe',cafereport:'cafe',caferecipes:'cafe',cafemenuqr:'cafe',cafeloyalty:'cafe',cafekitchen:'cafe',cafeanalytics:'cafe',cafewaitlist:'cafe',tools:'tools',inventory:'tools',roast:'tools',costs:'tools',calc:'tools',cupping:'tools',clients:'tools',inv:'tools',acct:'acct',auth:'acct',cart:'acct',pricing:'acct',about:'acct',contact:'acct'};
+  var active=map[pg]||'home';
+  items.forEach(function(it){it.classList.toggle('on',it.dataset.mob===active)});
+};
+/* Auto-hide on scroll */
+(function(){
+  var lastY=0,mobNav=null;
+  window.addEventListener('scroll',function(){
+    if(!mobNav)mobNav=document.getElementById('mobNav');if(!mobNav)return;
+    var y=window.scrollY;
+    if(y>lastY&&y>100)mobNav.classList.add('hidden');
+    else mobNav.classList.remove('hidden');
+    lastY=y;
+  },{passive:true});
+})();
+
+/* === A4. SCROLL-ANIMATED COUNTERS (IntersectionObserver upgrade) === */
+window.animateCounters=function(){
+  var els=document.querySelectorAll('.q-v[data-count]');
+  if(!('IntersectionObserver' in window)){
+    els.forEach(function(el){var target=parseFloat(el.getAttribute('data-count'));var suffix=el.getAttribute('data-suffix')||'';el.textContent=target.toLocaleString()+suffix});
+    return;
+  }
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(!entry.isIntersecting)return;
+      var el=entry.target;if(el.dataset.animated)return;el.dataset.animated='1';
+      var target=parseFloat(el.getAttribute('data-count'));
+      var suffix=el.getAttribute('data-suffix')||'';
+      var prefix=el.getAttribute('data-prefix')||'';
+      var dur=900;var startTime=null;
+      function step(ts){if(!startTime)startTime=ts;var prog=Math.min((ts-startTime)/dur,1);var eased=1-Math.pow(1-prog,4);var val=Math.round(eased*target);el.innerHTML=prefix+val.toLocaleString()+(suffix?'<small style="font-size:.5rem;color:var(--faint)">'+suffix+'</small>':'');if(prog<1)requestAnimationFrame(step)}
+      requestAnimationFrame(step);
+      obs.unobserve(el);
+    });
+  },{threshold:0.3});
+  els.forEach(function(el){el.dataset.animated='';obs.observe(el)});
+};
+
+/* === A5. EMPTY STATE GENERATOR === */
+window.emptyState=function(icon,title,desc,btnText,btnAct){
+  return '<div class="empty-state"><div class="es-ico"><i class="fas '+icon+'"></i></div><h3>'+title+'</h3><p>'+desc+'</p>'+(btnText?'<button class="B Ba" onclick="'+btnAct+'"><i class="fas fa-plus"></i> '+btnText+'</button>':'')+'</div>';
+};
+
+/* === A6. MICRO-INTERACTIONS: enhanced toast === */
+var _toastQueue=[];
+window.toast=function(msg){
+  var c=document.getElementById('T');if(!c)return;
+  var d=document.createElement('div');d.className='toast-item';d.innerHTML='<i class="fas fa-coffee" style="color:var(--amber);font-size:.7rem"></i> '+msg;
+  c.appendChild(d);
+  setTimeout(function(){d.classList.add('out');setTimeout(function(){d.remove()},300)},2800);
+};
+/* Badge pulse */
+window._pulseCartBadge=function(){var b=document.getElementById('cartBadge');if(b){b.classList.add('pulse');setTimeout(function(){b.classList.remove('pulse')},400)}};
+
+/* === A10. 3D CARD TILT (Desktop only) === */
+(function(){
+  if('ontouchstart' in window)return;
+  document.addEventListener('mousemove',function(e){
+    var card=e.target.closest('.P');if(!card)return;
+    var rect=card.getBoundingClientRect();
+    var x=(e.clientX-rect.left)/rect.width-.5;
+    var y=(e.clientY-rect.top)/rect.height-.5;
+    card.style.transform='perspective(600px) rotateY('+x*6+'deg) rotateX('+(-y*6)+'deg) translateY(-3px)';
+  });
+  document.addEventListener('mouseout',function(e){
+    var card=e.target.closest('.P');if(card)card.style.transform='';
+  });
+})();
+
+/* === A2. SKELETON LOADING === */
+window.showSkeleton=function(){
+  return '<div class="skel-wrap"><div class="skel skel-hero"></div><div class="skel skel-line w80"></div><div class="skel skel-line w40"></div><div class="skel-row"><div class="skel skel-card"></div><div class="skel skel-card"></div><div class="skel skel-card"></div><div class="skel skel-card"></div></div><div class="skel skel-line w100"></div><div class="skel-row"><div class="skel skel-card"></div><div class="skel skel-card"></div><div class="skel skel-card"></div><div class="skel skel-card"></div></div></div>';
+};
+
+/* ═══════════════════════════════════════
+   BATCH B: CAFÉ POS REVOLUTION — ACTIONS
+   ═══════════════════════════════════════ */
+
+/* === B1. QR Code Actions === */
+window._generateQR=function(){
+  var canvas=document.getElementById('qrCanvas');if(!canvas)return;
+  var url=window.location.origin+'/#cafemenuqr';
+  if(typeof QRCode!=='undefined'){
+    QRCode.toCanvas(canvas,url,{width:220,margin:2,color:{dark:'#1a1612',light:'#ffffff'}},function(err){if(err)toast('QR Error: '+err.message);else toast('QR code generated!')});
+  }else{
+    canvas.width=220;canvas.height=220;var ctx=canvas.getContext('2d');
+    ctx.fillStyle='#f6f3ef';ctx.fillRect(0,0,220,220);
+    ctx.fillStyle='#1a1612';ctx.font='12px var(--fm)';ctx.textAlign='center';
+    ctx.fillText('QR Library Loading...',110,110);ctx.fillText('Try again in a moment',110,130);
+    toast('QR library loading, try again...');
+  }
+};
+window._printMenu=function(){
+  var preview=document.getElementById('menuPreview');if(!preview)return;
+  var w=window.open('','_blank');
+  w.document.write('<html><head><title>'+esc(CF.name||'Menu')+'</title><style>body{font-family:system-ui,sans-serif;max-width:400px;margin:20px auto;color:#1a1612}h2{text-align:center}@media print{body{margin:0}}</style></head><body>'+preview.innerHTML+'</body></html>');
+  w.document.close();w.print();
+};
+
+/* === B2. Loyalty Actions === */
+window._openAddCustomer=function(){
+  var ov=document.createElement('div');ov.className='pay-overlay';ov.id='custOv';
+  var h='<div class="pay-modal" style="max-width:420px"><div class="sh" style="margin-bottom:12px"><h2><i class="fas fa-user-plus" style="color:var(--amber)"></i> New Customer</h2><button class="B Bo Bs" onclick="document.getElementById(\'custOv\').remove()"><i class="fas fa-times"></i></button></div>';
+  h+='<div class="fg"><label>Name *</label><input type="text" id="custName" placeholder="Customer name"></div>';
+  h+='<div class="fg"><label>Phone</label><input type="tel" id="custPhone" placeholder="+90 555..."></div>';
+  h+='<div class="fg"><label>Email</label><input type="email" id="custEmail" placeholder="email@example.com"></div>';
+  h+='<button class="B Bg Bw" id="custSave"><i class="fas fa-check"></i> Save Customer</button></div>';
+  ov.innerHTML=h;document.body.appendChild(ov);
+  ov.addEventListener('click',function(e){
+    if(e.target===ov){ov.remove();return}
+    if(e.target.closest('#custSave')){
+      var nm=document.getElementById('custName').value.trim();if(!nm){toast('Name required');return}
+      CF.customers.push({name:nm,phone:document.getElementById('custPhone').value.trim(),email:document.getElementById('custEmail').value.trim(),points:0,visits:0,joinedAt:new Date().toISOString(),lastVisit:null});
+      saveCF();ov.remove();renderPage();toast('Customer added: '+nm);
+    }
+  });
+};
+window._openEditCustomer=function(idx){
+  var c=CF.customers[idx];if(!c)return;
+  var ov=document.createElement('div');ov.className='pay-overlay';ov.id='custEditOv';
+  var h='<div class="pay-modal" style="max-width:420px"><div class="sh" style="margin-bottom:12px"><h2><i class="fas fa-user-pen" style="color:var(--amber)"></i> Edit Customer</h2><button class="B Bo Bs" onclick="document.getElementById(\'custEditOv\').remove()"><i class="fas fa-times"></i></button></div>';
+  h+='<div class="fg"><label>Name</label><input type="text" id="eCustName" value="'+esc(c.name)+'"></div>';
+  h+='<div class="fg"><label>Phone</label><input type="tel" id="eCustPhone" value="'+esc(c.phone||'')+'"></div>';
+  h+='<div class="fg"><label>Email</label><input type="email" id="eCustEmail" value="'+esc(c.email||'')+'"></div>';
+  h+='<div class="fg"><label>Points</label><input type="number" id="eCustPts" value="'+(c.points||0)+'"></div>';
+  h+='<button class="B Bg Bw" id="eCustSave"><i class="fas fa-check"></i> Update</button></div>';
+  ov.innerHTML=h;document.body.appendChild(ov);
+  ov.addEventListener('click',function(e){
+    if(e.target===ov){ov.remove();return}
+    if(e.target.closest('#eCustSave')){
+      c.name=document.getElementById('eCustName').value.trim()||c.name;
+      c.phone=document.getElementById('eCustPhone').value.trim();
+      c.email=document.getElementById('eCustEmail').value.trim();
+      c.points=parseInt(document.getElementById('eCustPts').value)||0;
+      saveCF();ov.remove();renderPage();toast('Customer updated');
+    }
+  });
+};
+window._redeemPoints=function(idx){
+  var c=CF.customers[idx];if(!c||c.points<100)return;
+  if(!confirm(c.name+' has '+c.points+' points. Redeem 100 for ₺10 discount?'))return;
+  c.points-=100;
+  CF.discount={type:'fixed',val:10};
+  saveCF();renderPage();toast('Redeemed! ₺10 discount applied');
+};
+
+/* === B4. KDS Actions === */
+window._kdsAdvance=function(idx){
+  var o=CF.orders[idx];if(!o)return;
+  if(!o.kdsStatus||o.kdsStatus==='new')o.kdsStatus='preparing';
+  else if(o.kdsStatus==='preparing')o.kdsStatus='ready';
+  else return;
+  saveCF();renderPage();toast('Order #'+o.num+' → '+(o.kdsStatus==='preparing'?'Preparing':'Ready'));
+};
+
+/* === B3. Split Bill === */
+window._openSplitBill=function(){
+  if(!CF.cart.length){toast('Cart is empty');return}
+  var total=0;CF.cart.forEach(function(c){total+=c.pr*c.qty});
+  var ov=document.createElement('div');ov.className='split-modal';ov.id='splitOv';
+  var h='<div class="split-box"><div class="sh" style="margin-bottom:12px"><h2><i class="fas fa-divide" style="color:var(--amber)"></i> Split Bill</h2><button class="B Bo Bs" onclick="document.getElementById(\'splitOv\').remove()"><i class="fas fa-times"></i></button></div>';
+  h+='<div style="text-align:center;font-size:1.5rem;font-weight:700;color:var(--amber);margin-bottom:10px">₺'+total.toFixed(2)+'</div>';
+  h+='<div class="fg"><label>Split between how many people?</label><input type="number" id="splitNum" value="2" min="2" max="10" style="text-align:center;font-size:1.2rem"></div>';
+  h+='<div id="splitResult" style="margin-top:10px"></div>';
+  h+='<button class="B Bg Bw" id="splitCalc" style="margin-top:8px"><i class="fas fa-calculator"></i> Calculate Split</button></div>';
+  ov.innerHTML=h;document.body.appendChild(ov);
+  ov.addEventListener('click',function(e){
+    if(e.target===ov){ov.remove();return}
+    if(e.target.closest('#splitCalc')){
+      var n=parseInt(document.getElementById('splitNum').value)||2;
+      var perPerson=(total/n).toFixed(2);
+      var res=document.getElementById('splitResult');
+      var rh='<div style="font-size:.72rem;text-align:center;font-weight:600;margin-bottom:8px">Each person pays:</div>';
+      var colors=['var(--amber)','var(--emerald)','var(--blue)','var(--ruby)','var(--copper)'];
+      for(var i=0;i<n;i++){
+        rh+='<div class="split-group '+(i<3?['a','b','c'][i]:'')+'" style="border-color:'+colors[i%5]+'"><div style="display:flex;justify-content:space-between;font-size:.74rem"><span style="font-weight:600;color:'+colors[i%5]+'">Person '+(i+1)+'</span><span style="font-family:var(--fm);font-weight:700">₺'+perPerson+'</span></div></div>';
+      }
+      res.innerHTML=rh;
+    }
+  });
+};
+
+/* === B5. Happy Hour check === */
+window._isHappyHour=function(){
+  if(!CF.happyHour||!CF.happyHour.enabled)return false;
+  var now=new Date();var h=now.getHours()*60+now.getMinutes();
+  var parts=CF.happyHour.start.split(':');var start=parseInt(parts[0])*60+parseInt(parts[1]);
+  var eParts=CF.happyHour.end.split(':');var end=parseInt(eParts[0])*60+parseInt(eParts[1]);
+  return h>=start&&h<=end;
+};
+
+/* === B6. Tip in payment (hook into receipt) === */
+/* Tips are added via the payment flow — we store ord.tip */
+
+/* === B8. Customer Feedback === */
+window._openFeedback=function(ordNum){
+  var ov=document.createElement('div');ov.className='pay-overlay';ov.id='fbOv';
+  var h='<div class="pay-modal" style="max-width:380px;text-align:center"><div style="font-size:2rem;margin-bottom:6px">☕</div>';
+  h+='<h3 style="font-family:var(--fd);margin-bottom:4px">How was your experience?</h3>';
+  h+='<p style="font-size:.68rem;color:var(--muted);margin-bottom:12px">Order #'+ordNum+'</p>';
+  h+='<div class="fb-stars" id="fbStars" style="justify-content:center">';
+  for(var i=1;i<=5;i++)h+='<i class="far fa-star" data-star="'+i+'"></i>';
+  h+='</div>';
+  h+='<div class="fg" style="margin-top:8px"><textarea id="fbComment" rows="2" placeholder="Any comments? (optional)" style="width:100%;font-size:.72rem"></textarea></div>';
+  h+='<button class="B Bg Bw" id="fbSubmit"><i class="fas fa-paper-plane"></i> Submit</button></div>';
+  ov.innerHTML=h;document.body.appendChild(ov);
+  var rating=0;
+  ov.addEventListener('click',function(e){
+    if(e.target===ov){ov.remove();return}
+    var star=e.target.closest('[data-star]');
+    if(star){
+      rating=parseInt(star.dataset.star);
+      var stars=document.querySelectorAll('#fbStars i');
+      stars.forEach(function(s,i){s.className=(i<rating?'fas':'far')+' fa-star';if(i<rating)s.classList.add('active')});
+    }
+    if(e.target.closest('#fbSubmit')){
+      if(!rating){toast('Please select a rating');return}
+      if(!CF.feedback)CF.feedback=[];
+      CF.feedback.push({orderId:ordNum,rating:rating,comment:document.getElementById('fbComment').value.trim(),date:new Date().toISOString()});
+      saveCF();ov.remove();toast(rating>=4?'Thank you! ♥':'Thanks for your feedback');
+    }
+  });
+};
+
+/* === B9. Receipt Sharing === */
+window._shareReceipt=function(idx){
+  var o=CF.orders[idx];if(!o)return;
+  var text='Receipt from '+esc(CF.name||'CoffeePro')+'\n';
+  text+='Order #'+o.num+' · '+new Date(o.date).toLocaleString()+'\n';
+  text+='---\n';
+  o.items.forEach(function(it){text+=it.qty+'× '+it.nm+' ₺'+(it.qty*it.pr).toFixed(2)+'\n'});
+  text+='---\nTotal: ₺'+o.total.toFixed(2)+'\nPaid: '+(o.method||'card')+'\n\nPowered by CoffeePro ☕';
+  var encoded=encodeURIComponent(text);
+  var waUrl='https://wa.me/?text='+encoded;
+  window.open(waUrl,'_blank');
+  toast('Opening WhatsApp...');
+};
+
+/* === B10. Waitlist Actions === */
+window._openAddWaitlist=function(){
+  var ov=document.createElement('div');ov.className='pay-overlay';ov.id='wlOv';
+  var h='<div class="pay-modal" style="max-width:400px"><div class="sh" style="margin-bottom:12px"><h2><i class="fas fa-clock" style="color:var(--copper)"></i> Add to Waitlist</h2><button class="B Bo Bs" onclick="document.getElementById(\'wlOv\').remove()"><i class="fas fa-times"></i></button></div>';
+  h+='<div class="fg"><label>Name *</label><input type="text" id="wlName" placeholder="Party name"></div>';
+  h+='<div style="display:flex;gap:8px"><div class="fg" style="flex:1"><label>Party Size</label><input type="number" id="wlSize" value="2" min="1" max="20"></div>';
+  h+='<div class="fg" style="flex:1"><label>Phone</label><input type="tel" id="wlPhone" placeholder="+90..."></div></div>';
+  h+='<div class="fg"><label>Notes</label><input type="text" id="wlNotes" placeholder="Special requests..."></div>';
+  h+='<button class="B Bg Bw" id="wlSave"><i class="fas fa-check"></i> Add to Waitlist</button></div>';
+  ov.innerHTML=h;document.body.appendChild(ov);
+  ov.addEventListener('click',function(e){
+    if(e.target===ov){ov.remove();return}
+    if(e.target.closest('#wlSave')){
+      var nm=document.getElementById('wlName').value.trim();if(!nm){toast('Name required');return}
+      if(!CF.waitlist)CF.waitlist=[];
+      CF.waitlist.push({name:nm,size:parseInt(document.getElementById('wlSize').value)||2,phone:document.getElementById('wlPhone').value.trim(),notes:document.getElementById('wlNotes').value.trim(),status:'waiting',addedAt:new Date().toISOString()});
+      saveCF();ov.remove();renderPage();toast(nm+' added to waitlist');
+    }
+  });
+};
+window._seatWaitlist=function(idx){
+  if(!CF.waitlist[idx])return;
+  CF.waitlist[idx].status='seated';saveCF();renderPage();toast(CF.waitlist[idx].name+' seated!');
+};
+window._notifyWaitlist=function(idx){
+  var w=CF.waitlist[idx];if(!w||!w.phone)return;
+  var msg='Hi '+w.name+'! Your table at '+(CF.name||'our café')+' is ready. Please come to the front. ☕';
+  window.open('https://wa.me/'+w.phone.replace(/[^0-9+]/g,'')+'?text='+encodeURIComponent(msg),'_blank');
+  toast('WhatsApp notification sent');
+};
+
+/* === Waste Logging === */
+window._openLogWaste=function(){
+  var ov=document.createElement('div');ov.className='pay-overlay';ov.id='wasteOv';
+  var h='<div class="pay-modal" style="max-width:380px"><div class="sh" style="margin-bottom:12px"><h2><i class="fas fa-trash-can" style="color:var(--ruby)"></i> Log Waste</h2><button class="B Bo Bs" onclick="document.getElementById(\'wasteOv\').remove()"><i class="fas fa-times"></i></button></div>';
+  h+='<div class="fg"><label>Item</label><select id="wasteItem"><option value="">Select...</option>';
+  CF.menu.forEach(function(m){h+='<option value="'+esc(m.nm)+'">'+esc(m.nm)+' (₺'+m.pr+')</option>'});
+  h+='<option value="custom">Custom item...</option></select></div>';
+  h+='<div class="fg"><label>Cost (₺)</label><input type="number" id="wasteCost" step="0.5" placeholder="0.00"></div>';
+  h+='<div class="fg"><label>Reason</label><input type="text" id="wasteReason" placeholder="Expired, dropped, etc."></div>';
+  h+='<button class="B Bg Bw" id="wasteSave"><i class="fas fa-check"></i> Log Waste</button></div>';
+  ov.innerHTML=h;document.body.appendChild(ov);
+  var itemSel=document.getElementById('wasteItem');
+  itemSel.addEventListener('change',function(){
+    var m=CF.menu.find(function(x){return x.nm===itemSel.value});
+    if(m)document.getElementById('wasteCost').value=m.pr;
+  });
+  ov.addEventListener('click',function(e){
+    if(e.target===ov){ov.remove();return}
+    if(e.target.closest('#wasteSave')){
+      var item=document.getElementById('wasteItem').value;
+      var cost=parseFloat(document.getElementById('wasteCost').value)||0;
+      if(!item||!cost){toast('Fill in item and cost');return}
+      if(!CF.waste)CF.waste=[];
+      CF.waste.push({item:item,cost:cost,reason:document.getElementById('wasteReason').value.trim(),date:new Date().toISOString()});
+      saveCF();ov.remove();renderPage();toast('Waste logged: ₺'+cost.toFixed(2));
+    }
+  });
+};
+
+/* === B5. Happy Hour Banner — injected directly into _posH via _happyHourBanner === */
+window._happyHourBanner=function(){
+  if(!_isHappyHour())return '';
+  return '<div style="background:linear-gradient(135deg,var(--amber),#e0a030);color:#fff;padding:8px 14px;border-radius:10px;font-size:.72rem;font-weight:600;text-align:center;margin-bottom:8px;animation:badgePulse 2s infinite"><i class="fas fa-fire"></i> Happy Hour! '+CF.happyHour.discount+'% OFF all items</div>';
+};
+
+/* === B6. Tip integration — add to payment receipt === */
+/* We'll add tip buttons in the receipt overlay via _showRcpt hook */
+
+/* ═══════════════════════════════════════
+   BATCH C: MARKETPLACE + ANALYTICS — JS
+   ═══════════════════════════════════════ */
+
+/* === C1. Supplier Reviews === */
+window._openAddReview=function(sellerId){
+  var ov=document.createElement('div');ov.className='pay-overlay';ov.id='revOv';
+  var h='<div class="pay-modal" style="max-width:400px"><div class="sh" style="margin-bottom:12px"><h2><i class="fas fa-star" style="color:var(--amber)"></i> Write Review</h2><button class="B Bo Bs" onclick="document.getElementById(\'revOv\').remove()"><i class="fas fa-times"></i></button></div>';
+  h+='<div class="fb-stars" id="revStars" style="justify-content:center;margin-bottom:10px">';
+  for(var i=1;i<=5;i++)h+='<i class="far fa-star" data-star="'+i+'" style="font-size:1.5rem"></i>';
+  h+='</div>';
+  h+='<div class="fg"><textarea id="revText" rows="3" placeholder="Share your experience with this seller..." style="width:100%"></textarea></div>';
+  h+='<button class="B Bg Bw" id="revSubmit"><i class="fas fa-paper-plane"></i> Submit Review</button></div>';
+  ov.innerHTML=h;document.body.appendChild(ov);
+  var rating=0;
+  ov.addEventListener('click',function(e){
+    if(e.target===ov){ov.remove();return}
+    var star=e.target.closest('[data-star]');
+    if(star){
+      rating=parseInt(star.dataset.star);
+      document.querySelectorAll('#revStars i').forEach(function(s,i){s.className=(i<rating?'fas':'far')+' fa-star';if(i<rating)s.classList.add('active')});
+    }
+    if(e.target.closest('#revSubmit')){
+      if(!rating){toast('Select a rating');return}
+      if(!D.reviews)D.reviews=[];
+      D.reviews.push({seller:sellerId||'unknown',rating:rating,text:document.getElementById('revText').value.trim(),date:new Date().toISOString(),verified:true});
+      saveD();ov.remove();toast('Review submitted!');
+    }
+  });
+};
+
+/* === C3. Coffee Flavor Wheel === */
+window._flavorCategories={
+  Fruity:{color:'#e74c3c',sub:['Berry','Citrus','Stone Fruit','Tropical']},
+  Floral:{color:'#9b59b6',sub:['Rose','Jasmine','Chamomile','Lavender']},
+  Sweet:{color:'#f39c12',sub:['Caramel','Honey','Vanilla','Brown Sugar']},
+  Nutty:{color:'#8B4513',sub:['Almond','Hazelnut','Peanut','Walnut']},
+  Chocolatey:{color:'#5D4037',sub:['Dark Chocolate','Milk Chocolate','Cocoa','Cacao Nib']},
+  Spicy:{color:'#e67e22',sub:['Cinnamon','Clove','Black Pepper','Cardamom']},
+  Roasted:{color:'#2c3e50',sub:['Smoky','Toasted','Charred','Malty']},
+  Herbal:{color:'#27ae60',sub:['Mint','Sage','Basil','Green Tea']}
+};
+
+window.renderFlavorWheel=function(){
+  var cats=Object.keys(_flavorCategories);
+  var size=280,cx=size/2,cy=size/2,r=size/2-30;
+  var svg='<svg class="flavor-wheel-svg" viewBox="0 0 '+size+' '+size+'" width="'+size+'" height="'+size+'">';
+  var angleStep=360/cats.length;
+  cats.forEach(function(cat,i){
+    var a1=(i*angleStep-90)*Math.PI/180;
+    var a2=((i+1)*angleStep-90)*Math.PI/180;
+    var x1=cx+r*Math.cos(a1),y1=cy+r*Math.sin(a1);
+    var x2=cx+r*Math.cos(a2),y2=cy+r*Math.sin(a2);
+    var la=angleStep>180?1:0;
+    svg+='<path class="flavor-sector" d="M'+cx+','+cy+' L'+x1+','+y1+' A'+r+','+r+' 0 '+la+',1 '+x2+','+y2+' Z" fill="'+_flavorCategories[cat].color+'22" stroke="'+_flavorCategories[cat].color+'" stroke-width="1.5" data-act="filterwheel" data-id="'+cat+'" style="cursor:pointer"/>';
+    var midA=((i+0.5)*angleStep-90)*Math.PI/180;
+    var lx=cx+(r*0.65)*Math.cos(midA),ly=cy+(r*0.65)*Math.sin(midA);
+    svg+='<text x="'+lx+'" y="'+ly+'" text-anchor="middle" dominant-baseline="central" class="flavor-label" style="font-size:9px;font-weight:700;fill:'+_flavorCategories[cat].color+'">'+cat+'</text>';
+  });
+  svg+='<circle cx="'+cx+'" cy="'+cy+'" r="35" fill="var(--white)" stroke="var(--cream3)"/>';
+  svg+='<text x="'+cx+'" y="'+cy+'" text-anchor="middle" dominant-baseline="central" style="font-size:8px;font-weight:700;fill:var(--esp)">FLAVOR</text>';
+  svg+='</svg>';
+  return '<div class="flavor-wheel-wrap">'+svg+'</div>';
+};
+
+window._filterByFlavor=function(category){
+  toast('Filtering by: '+category+' notes');
+  /* In a real implementation, this would filter products by flavor notes */
+};
+
+/* === C4. Batch Traceability === */
+window.renderTraceTimeline=function(roast){
+  if(!roast)return '';
+  var steps=[
+    {label:'Origin',icon:'fa-seedling',date:roast.origin||'Ethiopia',done:true},
+    {label:'Arrived',icon:'fa-truck',date:roast.arrivalDate||'',done:!!roast.arrivalDate},
+    {label:'Roasted',icon:'fa-fire',date:roast.date||new Date().toLocaleDateString(),done:true},
+    {label:'QC/Cupping',icon:'fa-clipboard-check',date:roast.cuppingDate||'',done:!!roast.cuppingDate},
+    {label:'Packaged',icon:'fa-box',date:roast.packageDate||'',done:!!roast.packageDate},
+    {label:'Shipped',icon:'fa-shipping-fast',date:roast.shipDate||'',done:!!roast.shipDate}
+  ];
+  var h='<div class="trace-timeline">';
+  steps.forEach(function(s){
+    h+='<div class="trace-step'+(s.done?' done':'')+'"><div class="trace-ico"><i class="fas '+s.icon+'"></i></div><div class="trace-lbl">'+s.label+'</div><div class="trace-date">'+esc(s.date||'—')+'</div></div>';
+  });
+  h+='</div>';
+  return h;
+};
+
+/* === C5. Carbon Footprint === */
+window.estimateCarbon=function(originCountry){
+  /* Rough estimates in kg CO2 per kg of coffee */
+  var distances={Ethiopia:8000,Colombia:9500,Brazil:9000,Kenya:7500,Peru:10000,Indonesia:12000,Guatemala:10500,CostaRica:10000};
+  var km=distances[originCountry]||8000;
+  /* Sea freight: ~0.016 kg CO2 per ton-km → per kg of coffee */
+  var seaCO2=(km*0.016/1000).toFixed(2);
+  /* Roasting: ~0.3 kg CO2 per kg */
+  var roastCO2=0.3;
+  var total=(parseFloat(seaCO2)+roastCO2).toFixed(2);
+  return{transport:seaCO2,roasting:roastCO2.toFixed(2),total:total,trees:Math.ceil(parseFloat(total)/21.77*100)/100};
+};
+
+/* === C6. Price Trends (SVG line chart helper) === */
+window.buildSvgLine=function(data,w,h,color){
+  if(!data||!data.length)return '';
+  var max=Math.max.apply(null,data);if(max===0)max=1;
+  var step=w/(data.length-1||1);
+  var pts=data.map(function(v,i){return (i*step)+','+(h-v/max*(h-20)+10)});
+  var areaP=pts.join(' ')+' '+w+','+h+' 0,'+h;
+  return '<svg class="svg-chart" viewBox="0 0 '+w+' '+h+'" preserveAspectRatio="none"><polygon class="area" points="'+areaP+'" style="fill:'+(color||'var(--amber-lt)')+'"/><polyline class="line" points="'+pts.join(' ')+'" style="stroke:'+(color||'var(--amber)')+'"/></svg>';
 };
 
 /* INIT */
