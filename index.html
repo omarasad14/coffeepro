@@ -7,6 +7,9 @@
 <meta name="theme-color" content="#f6f3ef">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="CoffeePro">
+<link rel="manifest" href="/manifest.json">
+<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect width='180' height='180' rx='36' fill='%231a1612'/><text x='90' y='135' font-size='120' text-anchor='middle' fill='%23c8913a'>☕</text></svg>">
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☕</text></svg>">
@@ -29,7 +32,7 @@
 --csh2:0 4px 12px rgba(26,22,18,.06),0 16px 40px rgba(26,22,18,.06);
 --fd:'Fraunces',Georgia,serif;--fb:'Outfit',system-ui,sans-serif;--fm:'JetBrains Mono',monospace;
 --r:12px;--rl:16px;--rx:24px;--e:cubic-bezier(.4,0,.2,1);
---bg:#f6f3ef;--accent:#c8913a;--card-bdr:rgba(26,22,18,.06);--card-shadow:rgba(26,22,18,.05);--panel:#ece8e2;
+--bg:#f6f3ef;--accent:#c8913a;--card-bdr:rgba(26,22,18,.06);--card-shadow:rgba(26,22,18,.05);--panel:#ece8e2;--card:#fff;--d-card:#fff;--d-bdr:rgba(26,22,18,.06);--d-txt:#1a1612;--d-bg:#f6f3ef;
 }
 html[dir=rtl]{--fb:'Noto Sans Arabic','Outfit',system-ui,sans-serif;--fd:'Noto Sans Arabic',Georgia,serif}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
@@ -673,7 +676,7 @@ body.dark .pg .C img{opacity:.92}
 .cur-opt.on{background:var(--accent);color:#fff}
 /* === DARK MODE === */
 .notif-dot{position:absolute;top:2px;right:2px;width:8px;height:8px;background:var(--ruby);border-radius:50%;border:2px solid var(--white)}
-body.dark{--bg:#12100c;--white:#1c1a16;--cream:#161410;--cream2:#221e1a;--cream3:#302a24;--card-bdr:#302a24;--card-shadow:rgba(0,0,0,.35);--text:#e8e2d8;--text2:#a09888;--esp:#f0ebe4;--muted:#78706a;--faint:#5a524a;--panel:#221e1a;--accent:#d4a04a;--amber-lt:rgba(200,145,58,.12);--em-lt:rgba(42,138,90,.1);--cop-lt:rgba(138,122,106,.12);--blue-lt:rgba(58,114,184,.12)}
+body.dark{--bg:#12100c;--white:#1c1a16;--cream:#161410;--cream2:#221e1a;--cream3:#302a24;--card-bdr:#302a24;--card-shadow:rgba(0,0,0,.35);--text:#e8e2d8;--text2:#a09888;--esp:#f0ebe4;--muted:#78706a;--faint:#5a524a;--panel:#221e1a;--accent:#d4a04a;--amber-lt:rgba(200,145,58,.12);--em-lt:rgba(42,138,90,.1);--cop-lt:rgba(138,122,106,.12);--blue-lt:rgba(58,114,184,.12);--card:#1c1a16;--d-card:#1c1a16;--d-bdr:#302a24;--d-txt:#e8e2d8;--d-bg:#161410}
 body.dark .H{background:rgba(22,20,16,.95);border-color:#302a24}
 body.dark .P,body.dark .coop,body.dark .tc,body.dark .pk-card,body.dark .C,body.dark .auth-box,body.dark .pay-modal{background:#1c1a16;border-color:#302a24}
 body.dark input,body.dark textarea,body.dark select{background:#161410;border-color:#302a24;color:#e8e2d8}
@@ -1033,6 +1036,8 @@ body.dark .profit-bar-label .nm{color:var(--d-txt)}
 body.dark .profit-bar-track{background:var(--d-bdr)}
 
 /* Recipe Editor Modal */
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 .rce-overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:9999;display:flex;align-items:center;justify-content:center;animation:fadeIn .2s}
 .rce-modal{background:var(--card);border-radius:18px;padding:22px;max-width:480px;width:92%;max-height:85vh;overflow-y:auto;box-shadow:0 16px 40px rgba(0,0,0,.15);animation:slideUp .25s}
 .rce-modal h3{font-family:var(--fd);font-size:1rem;margin-bottom:12px;display:flex;align-items:center;gap:8px}
@@ -1406,8 +1411,8 @@ body.dark .dtable tbody tr:hover td{background:#221e1a}
 <div class="H-link" data-t="trade" onclick="go('trade')"><i class="fas fa-handshake"></i><span data-i="navTrade">Trade</span></div>
 <div class="H-link" data-t="cafe" onclick="go('cafe')"><i class="fas fa-cash-register"></i><span data-i="navCafe">My Café</span></div>
 <div class="H-link" data-t="tools" onclick="go('tools')"><i class="fas fa-wrench"></i><span data-i="navTools">Tools</span></div>
-<div class="H-link" data-t="pricing" onclick="go('pricing')"><i class="fas fa-tags"></i>Pricing</div>
-<div class="H-link" data-t="about" onclick="go('about')"><i class="fas fa-info-circle"></i>About</div>
+<div class="H-link" data-t="pricing" onclick="go('pricing')"><i class="fas fa-tags"></i><span data-i="navPricing">Pricing</span></div>
+<div class="H-link" data-t="about" onclick="go('about')"><i class="fas fa-info-circle"></i><span data-i="navAbout">About</span></div>
 </div>
 <div class="H-r">
 <div class="lang-sw"><button class="lang-b on" onclick="setLang('en')">EN</button><button class="lang-b" onclick="setLang('tr')">TR</button><button class="lang-b" onclick="setLang('ar')">ع</button><button class="lang-b" onclick="setLang('ru')">RU</button></div>
@@ -1431,20 +1436,20 @@ body.dark .dtable tbody tr:hover td{background:#221e1a}
 
 <!-- LIVE CHAT WIDGET -->
 <div class="chat-fab" id="chatFab">
-<div class="chat-bubble" id="chatBubble" onclick="toggleChat()">Need help sourcing coffee? We're online!</div>
+<div class="chat-bubble" id="chatBubble" onclick="toggleChat()" data-i="chatBubble">Need help sourcing coffee? We're online!</div>
 <button class="chat-btn" onclick="toggleChat()" aria-label="Open chat"><i class="fas fa-comment-dots"></i></button>
 </div>
 <div class="chat-window" id="chatWindow">
 <div class="chat-header">
 <div class="chat-header-av">☕</div>
-<div class="chat-header-info"><div class="chat-header-nm">CoffeePro Support</div><div class="chat-header-st">Online now</div></div>
+<div class="chat-header-info"><div class="chat-header-nm" data-i="chatSupport">CoffeePro Support</div><div class="chat-header-st" data-i="chatOnline">Online now</div></div>
 <button class="chat-close" onclick="toggleChat()"><i class="fas fa-times"></i></button>
 </div>
 <div class="chat-messages" id="chatMsgs">
-<div class="chat-msg bot">Hey there! Welcome to CoffeePro. I'm here to help you find the perfect beans, navigate our tools, or answer any questions. What can I help you with?<span class="chat-time">Just now</span></div>
+<div class="chat-msg bot" data-i="chatGreeting">Hey there! Welcome to CoffeePro. I'm here to help you find the perfect beans, navigate our tools, or answer any questions. What can I help you with?<span class="chat-time">Just now</span></div>
 </div>
 <div class="chat-input-area">
-<input class="chat-input" id="chatInput" placeholder="Type your message..." onkeydown="if(event.key==='Enter')sendChat()">
+<input class="chat-input" id="chatInput" placeholder="Type your message..." data-i-placeholder="chatPlaceholder" onkeydown="if(event.key==='Enter')sendChat()">
 <button class="chat-send" onclick="sendChat()"><i class="fas fa-paper-plane"></i></button>
 </div>
 </div>
@@ -1452,7 +1457,7 @@ body.dark .dtable tbody tr:hover td{background:#221e1a}
 <div class="footer">
 <div class="footer-inner">
 <div class="footer-grid">
-<div><div class="footer-brand">Coffee<span>Pro</span></div><div style="font-size:.72rem;line-height:1.5;margin-bottom:8px">The all-in-one global coffee marketplace and roastery management platform. Source, roast, sell — all in one place.</div><div class="nl-wrap"><input class="nl-input" id="nlEmail" placeholder="Enter your email..." type="email"><button class="nl-btn" onclick="nlSignup()">Subscribe</button></div><div class="trust-row"><div class="trust-badge"><i class="fas fa-lock"></i> SSL Encrypted</div><div class="trust-badge"><i class="fas fa-shield-halved"></i> Escrow Protected</div><div class="trust-badge"><i class="fas fa-globe"></i> 47 Countries</div></div><div style="display:flex;gap:10px;font-size:1rem;margin-top:10px"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-linkedin"></i></a><a href="#"><i class="fab fa-x-twitter"></i></a><a href="#"><i class="fab fa-youtube"></i></a></div></div>
+<div><div class="footer-brand">Coffee<span>Pro</span></div><div style="font-size:.72rem;line-height:1.5;margin-bottom:8px" data-i="footerDesc">The all-in-one global coffee marketplace and roastery management platform. Source, roast, sell — all in one place.</div><div class="nl-wrap"><input class="nl-input" id="nlEmail" placeholder="Enter your email..." type="email"><button class="nl-btn" onclick="nlSignup()">Subscribe</button></div><div class="trust-row"><div class="trust-badge"><i class="fas fa-lock"></i> <span data-i="sslEncrypted">SSL Encrypted</span></div><div class="trust-badge"><i class="fas fa-shield-halved"></i> <span data-i="escrowProtected">Escrow Protected</span></div><div class="trust-badge"><i class="fas fa-globe"></i> 47 Countries</div></div><div style="display:flex;gap:10px;font-size:1rem;margin-top:10px"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-linkedin"></i></a><a href="#"><i class="fab fa-x-twitter"></i></a><a href="#"><i class="fab fa-youtube"></i></a></div></div>
 <div><h4 data-i="platformCol">Platform</h4><a href="#" onclick="go('market');return false" data-i="navMarket">Market</a><br><a href="#" onclick="go('shop');return false" data-i="navShop">Shop</a><br><a href="#" onclick="go('trade');return false" data-i="navTrade">Trade</a><br><a href="#" onclick="go('tools');return false" data-i="navTools">Tools</a><br><a href="#" onclick="go('cafe');return false" data-i="navCafe">My Café</a></div>
 <div><h4 data-i="companyCol">Company</h4><a href="#" onclick="go('about');return false" data-i="aboutUs">About Us</a><br><a href="#" onclick="go('pricing');return false">Pricing</a><br><a href="#" onclick="toast('🚀 Careers page coming soon!');return false" data-i="careers">Careers</a><br><a href="#" onclick="toast('📝 Blog launching soon!');return false" data-i="blog">Blog</a><br><a href="#" onclick="toast('📰 Press kit coming soon!');return false" data-i="press">Press</a></div>
 <div><h4 data-i="supportCol">Support</h4><a href="#" onclick="go('contact');return false" data-i="helpCenter">Help Center</a><br><a href="#" onclick="go('contact');return false" data-i="contact">Contact</a><br><a href="#" onclick="toast('📋 Terms of Service — Coming Soon');return false" data-i="terms">Terms</a><br><a href="#" onclick="toast('🔒 Privacy Policy — Coming Soon');return false" data-i="privacy">Privacy</a></div>
@@ -1463,11 +1468,11 @@ body.dark .dtable tbody tr:hover td{background:#221e1a}
 <!-- MOBILE BOTTOM NAV -->
 <div class="mob-nav" id="mobNav">
 <div class="mob-nav-inner">
-<div class="mob-nav-item on" data-mob="home" onclick="go('home')"><i class="fas fa-house"></i><span>Home</span></div>
-<div class="mob-nav-item" data-mob="market" onclick="go('market')"><i class="fas fa-store"></i><span>Market</span></div>
-<div class="mob-nav-item" data-mob="cafe" onclick="go('cafe')"><i class="fas fa-cash-register"></i><span>Cafe</span></div>
-<div class="mob-nav-item" data-mob="tools" onclick="go('tools')"><i class="fas fa-wrench"></i><span>Tools</span></div>
-<div class="mob-nav-item" data-mob="acct" onclick="go('acct')"><i class="fas fa-user"></i><span>Account</span></div>
+<div class="mob-nav-item on" data-mob="home" onclick="go('home')"><i class="fas fa-house"></i><span data-i="navHome">Home</span></div>
+<div class="mob-nav-item" data-mob="market" onclick="go('market')"><i class="fas fa-store"></i><span data-i="navMarket">Market</span></div>
+<div class="mob-nav-item" data-mob="cafe" onclick="go('cafe')"><i class="fas fa-cash-register"></i><span data-i="navCafe">Cafe</span></div>
+<div class="mob-nav-item" data-mob="tools" onclick="go('tools')"><i class="fas fa-wrench"></i><span data-i="navTools">Tools</span></div>
+<div class="mob-nav-item" data-mob="acct" onclick="go('acct')"><i class="fas fa-user"></i><span data-i="acctTitle">Account</span></div>
 </div>
 </div>
 
@@ -1534,7 +1539,8 @@ shoppingCart:"Shopping Cart",cartEmpty:"Your cart is empty",cartEmptyDesc:"Brows
 recentViewed:"Recently Viewed",processing:"Processing",delivered:"Delivered",
 aboutMission:"Our Mission",aboutMissionP1:"CoffeePro was born from a simple question: why is it so hard for specialty coffee professionals to source, manage, and sell coffee efficiently? We set out to build the platform we wished existed — one that connects every link in the coffee supply chain, from farm to cup.",aboutMissionP2:"Whether you're a roastery owner in Istanbul, a green bean importer in Hamburg, or running a corner café in Brooklyn — CoffeePro gives you the tools to manage your entire operation from one place.",
 aboutOffer:"What We Offer",aboutB2B:"B2B Marketplace",aboutB2Bd:"Source green beans, equipment, and packaging from verified sellers across 47 countries.",aboutConsumer:"Consumer Shop",aboutConsumerd:"Sell your roasted coffee directly to consumers with a built-in storefront.",aboutDirectTrade:"Direct Trade",aboutDirectTraded:"Connect directly with cooperatives and farms. Full traceability and fair prices.",aboutPOS:"My Café POS",aboutPOSd:"Complete point-of-sale system: table management, orders, payments, reports.",aboutProTools:"Pro Tools",aboutProToolsd:"Inventory, roast logger, blend calculator, overhead costs, clients, invoices.",aboutMultilang:"Multilingual",aboutMultilangd:"Full platform in English, Turkish, Arabic (RTL), and Russian.",
-aboutNumbers:"Platform Numbers",aboutActiveSellers:"Active Sellers",aboutCafeOwners:"Café Owners",aboutMonthlyVol:"Monthly Volume",aboutBuiltBy:"Built by Frances Coffee",aboutBuiltByP1:"CoffeePro is developed by the team behind Frances Coffee, a specialty roastery based in Istanbul, Turkey. Born from real roastery operations, every feature solves a problem we faced ourselves.",aboutBuiltByP2:"Our headquarters are in Istanbul — a city at the crossroads of global coffee trade for centuries. We're proud to continue that tradition in the digital age.",aboutCTA:"Ready to grow your coffee business?",aboutCTAp:"Join 2,400+ sellers and café owners on CoffeePro today.",viewPlans:"View Plans",tryTools:"Try Pro Tools",openCafe:"Open My Café",noCuppings:"No cupping evaluations yet",aboutHeroP:"The all-in-one global coffee marketplace and roastery management platform — connecting producers, roasters, and café owners worldwide.",tradeShipDesc:"FOB & CIF, container costing.",recentCoops:"Recent Cooperatives",cuppingTitle:"Cupping Evaluation",stockValue:"Stock Value",avgMargin:"Avg Margin",suppliers:"Suppliers",bagTypes:"Bag Types",compareProds:"Compare Products",maxCompare:"Max 4 products to compare",selectTwo:"Select at least 2 products",addedCompare:"Added to compare"
+aboutNumbers:"Platform Numbers",aboutActiveSellers:"Active Sellers",aboutCafeOwners:"Café Owners",aboutMonthlyVol:"Monthly Volume",aboutBuiltBy:"Built by Frances Coffee",aboutBuiltByP1:"CoffeePro is developed by the team behind Frances Coffee, a specialty roastery based in Istanbul, Turkey. Born from real roastery operations, every feature solves a problem we faced ourselves.",aboutBuiltByP2:"Our headquarters are in Istanbul — a city at the crossroads of global coffee trade for centuries. We're proud to continue that tradition in the digital age.",aboutCTA:"Ready to grow your coffee business?",aboutCTAp:"Join 2,400+ sellers and café owners on CoffeePro today.",viewPlans:"View Plans",tryTools:"Try Pro Tools",openCafe:"Open My Café",noCuppings:"No cupping evaluations yet",aboutHeroP:"The all-in-one global coffee marketplace and roastery management platform — connecting producers, roasters, and café owners worldwide.",tradeShipDesc:"FOB & CIF, container costing.",recentCoops:"Recent Cooperatives",cuppingTitle:"Cupping Evaluation",stockValue:"Stock Value",avgMargin:"Avg Margin",suppliers:"Suppliers",bagTypes:"Bag Types",compareProds:"Compare Products",maxCompare:"Max 4 products to compare",selectTwo:"Select at least 2 products",addedCompare:"Added to compare",
+navPricing:"Pricing",navAbout:"About",hiwTitle:"How It Works",hiwSub:"From sourcing to selling — in four simple steps",hiwStep1:"Discover",hiwStep1d:"Browse verified sellers & green beans from 47 countries",hiwStep2:"Connect",hiwStep2d:"Contact cooperatives, request samples & negotiate directly",hiwStep3:"Roast & Track",hiwStep3d:"Log roasts, calculate costs, manage your entire inventory",hiwStep4:"Sell & Grow",hiwStep4d:"Open your online shop or manage your café POS system",testiTitle:"What Roasters Say",trustedBy:"Trusted by roasters worldwide",chatBubble:"Need help sourcing coffee? We're online!",chatSupport:"CoffeePro Support",chatOnline:"Online now",chatGreeting:"Hey there! Welcome to CoffeePro. How can I help you today?",chatPlaceholder:"Type your message...",skipContent:"Skip to content",footerDesc:"The all-in-one global coffee marketplace and roastery management platform.",sslEncrypted:"SSL Encrypted",escrowProtected:"Escrow Protected",clearCart:"Clear Cart",city:"City",country:"Country",optional:"Optional",hrs:"HRS",min:"MIN",sec:"SEC",dealOfDay:"Deal of the Day",recipes:"Recipes",inventory:"Inventory",profit:"Profit",recipesAndCost:"Recipes & Cost",cost:"Cost",sell:"Sell",restockAll:"Restock All",belowMinStock:"below minimum stock!",ingredient:"Ingredient",unit:"Unit",costPerUnit:"Cost/Unit",stock:"Stock",minStock:"Min Stock",status:"Status",actions:"Actions",stockGood:"Good",stockLow:"Low",stockCritical:"Critical",revenue:"Revenue",cogs:"COGS",grossProfit:"Gross Profit",noOrdersToday:"No orders today yet",detailedBreakdown:"Detailed Breakdown",totalCost:"Total Cost",newRecipe:"New Recipe",editRecipe:"Edit Recipe",newIngredient:"New Ingredient",editIngredient:"Edit Ingredient",selectMenuItem:"Select menu item...",ingredients:"Ingredients",saveRecipe:"Save Recipe",saveIngredient:"Save Ingredient",cancel:"Cancel",notePrompt:"Note (no sugar, oat milk, extra shot):",resetTablesConfirm:"Reset all tables?",thankYou:"Thank you!",poweredBy:"Powered by CoffeePro POS",healthCheck:"Health Check",exportAll:"Export All",myCart:"My Cart"
 },
 tr:{
 navHome:"Ana Sayfa",navMarket:"Pazar",navShop:"Mağaza",navTrade:"Ticaret",navCafe:"Kafem",navTools:"Araçlar",
@@ -1581,7 +1587,8 @@ shoppingCart:"Alışveriş Sepeti",cartEmpty:"Sepetiniz boş",cartEmptyDesc:"Be�
 recentViewed:"Son Görüntülenen",processing:"İşleniyor",delivered:"Teslim Edildi",
 aboutMission:"Misyonumuz",aboutMissionP1:"CoffeePro basit bir sorudan doğdu: özel kahve profesyonellerinin verimli şekilde kaynak bulması, yönetmesi ve satması neden bu kadar zor? Kahve tedarik zincirinin her halkasını birbirine bağlayan — çiftlikten fincana kadar — hayalini kurduğumuz platformu inşa ettik.",aboutMissionP2:"İster İstanbul'da bir kavurhane sahibi, ister Hamburg'da yeşil çekirdek ithalatçısı, isterse Brooklyn'de bir köşe kafe işletiyor olun — CoffeePro tüm operasyonunuzu tek yerden yönetme araçlarını sunar.",
 aboutOffer:"Neler Sunuyoruz",aboutB2B:"B2B Pazar",aboutB2Bd:"47 ülkeden doğrulanmış satıcılardan yeşil çekirdek, ekipman ve ambalaj temin edin.",aboutConsumer:"Tüketici Mağazası",aboutConsumerd:"Kavurulmuş kahvenizi doğrudan tüketicilere satın.",aboutDirectTrade:"Doğrudan Ticaret",aboutDirectTraded:"Kooperatifler ve çiftliklerle doğrudan bağlantı kurun. Tam izlenebilirlik ve adil fiyatlar.",aboutPOS:"Kafem POS",aboutPOSd:"Eksiksiz satış noktası sistemi: masa yönetimi, siparişler, ödemeler, raporlar.",aboutProTools:"Pro Araçlar",aboutProToolsd:"Envanter, kavurma günlüğü, harman hesaplayıcı, genel giderler, müşteriler, faturalar.",aboutMultilang:"Çok Dilli",aboutMultilangd:"Platform tamamen İngilizce, Türkçe, Arapça ve Rusça olarak kullanılabilir.",
-aboutNumbers:"Platform Rakamları",aboutActiveSellers:"Aktif Satıcılar",aboutCafeOwners:"Kafe Sahipleri",aboutMonthlyVol:"Aylık Hacim",aboutBuiltBy:"Frances Coffee Tarafından Geliştirildi",aboutBuiltByP1:"CoffeePro, İstanbul merkezli özel kahve kavurhanesi Frances Coffee ekibi tarafından geliştirilmiştir. Gerçek kavurhane operasyonlarından doğan her özellik, bizzat yaşadığımız bir sorunu çözer.",aboutBuiltByP2:"Merkezimiz İstanbul'da — yüzyıllardır küresel kahve ticaretinin kavşak noktasında olan bir şehir. Bu geleneği dijital çağda sürdürmekten gurur duyuyoruz.",aboutCTA:"Kahve işinizi büyütmeye hazır mısınız?",aboutCTAp:"Bugün 2.400'den fazla satıcı ve kafe sahibine katılın.",viewPlans:"Planları Gör",tryTools:"Pro Araçları Dene",openCafe:"Kafemi Aç",noCuppings:"Henüz cupping değerlendirmesi yok",aboutHeroP:"Üreticileri, kavurhane sahiplerini ve kafe işletmecilerini dünya çapında birbirine bağlayan hepsi bir arada küresel kahve platformu.",tradeShipDesc:"FOB & CIF, konteyner maliyetlendirmesi.",recentCoops:"Son Kooperatifler",cuppingTitle:"Cupping Değerlendirmesi",stockValue:"Stok Değeri",avgMargin:"Ort. Marj",suppliers:"Tedarikçiler",bagTypes:"Torba Çeşitleri",compareProds:"Ürünleri Karşılaştır",maxCompare:"En fazla 4 ürün karşılaştırılabilir",selectTwo:"En az 2 ürün seçin",addedCompare:"Karşılaştırmaya eklendi"
+aboutNumbers:"Platform Rakamları",aboutActiveSellers:"Aktif Satıcılar",aboutCafeOwners:"Kafe Sahipleri",aboutMonthlyVol:"Aylık Hacim",aboutBuiltBy:"Frances Coffee Tarafından Geliştirildi",aboutBuiltByP1:"CoffeePro, İstanbul merkezli özel kahve kavurhanesi Frances Coffee ekibi tarafından geliştirilmiştir. Gerçek kavurhane operasyonlarından doğan her özellik, bizzat yaşadığımız bir sorunu çözer.",aboutBuiltByP2:"Merkezimiz İstanbul'da — yüzyıllardır küresel kahve ticaretinin kavşak noktasında olan bir şehir. Bu geleneği dijital çağda sürdürmekten gurur duyuyoruz.",aboutCTA:"Kahve işinizi büyütmeye hazır mısınız?",aboutCTAp:"Bugün 2.400'den fazla satıcı ve kafe sahibine katılın.",viewPlans:"Planları Gör",tryTools:"Pro Araçları Dene",openCafe:"Kafemi Aç",noCuppings:"Henüz cupping değerlendirmesi yok",aboutHeroP:"Üreticileri, kavurhane sahiplerini ve kafe işletmecilerini dünya çapında birbirine bağlayan hepsi bir arada küresel kahve platformu.",tradeShipDesc:"FOB & CIF, konteyner maliyetlendirmesi.",recentCoops:"Son Kooperatifler",cuppingTitle:"Cupping Değerlendirmesi",stockValue:"Stok Değeri",avgMargin:"Ort. Marj",suppliers:"Tedarikçiler",bagTypes:"Torba Çeşitleri",compareProds:"Ürünleri Karşılaştır",maxCompare:"En fazla 4 ürün karşılaştırılabilir",selectTwo:"En az 2 ürün seçin",addedCompare:"Karşılaştırmaya eklendi",
+navPricing:"Fiyatlar",navAbout:"Hakkımızda",hiwTitle:"Nasıl Çalışır",hiwSub:"Tedarikten satışa — dört basit adımda",hiwStep1:"Keşfet",hiwStep1d:"47 ülkeden doğrulanmış satıcıları ve yeşil çekirdekleri inceleyin",hiwStep2:"Bağlan",hiwStep2d:"Kooperatiflerle iletişime geçin, numune isteyin ve doğrudan pazarlık yapın",hiwStep3:"Kavur & Takip Et",hiwStep3d:"Kavurmaları kaydedin, maliyetleri hesaplayın, envanterinizi yönetin",hiwStep4:"Sat & Büyü",hiwStep4d:"Online mağazanızı açın veya kafe POS sisteminizi yönetin",testiTitle:"Kavurmacılar Ne Diyor",trustedBy:"Dünya genelinde kavurmacıların güvendiği platform",chatBubble:"Kahve tedariki konusunda yardıma mı ihtiyacınız var?",chatSupport:"CoffeePro Destek",chatOnline:"Çevrimiçi",chatGreeting:"Merhaba! CoffeePro'ya hoş geldiniz. Size nasıl yardımcı olabiliriz?",chatPlaceholder:"Mesajınızı yazın...",skipContent:"İçeriğe atla",footerDesc:"Hepsi bir arada küresel kahve pazarı ve kavurhane yönetim platformu.",sslEncrypted:"SSL Şifreli",escrowProtected:"Emanet Korumalı",clearCart:"Sepeti Temizle",city:"Şehir",country:"Ülke",optional:"İsteğe bağlı",hrs:"SAAT",min:"DAK",sec:"SAN",dealOfDay:"Günün Fırsatı",recipes:"Tarifler",inventory:"Envanter",profit:"Kâr",recipesAndCost:"Tarifler & Maliyet",cost:"Maliyet",sell:"Satış",restockAll:"Tümünü Stokla",belowMinStock:"minimum stok altında!",ingredient:"Malzeme",unit:"Birim",costPerUnit:"Birim Maliyet",stock:"Stok",minStock:"Min Stok",status:"Durum",actions:"İşlemler",stockGood:"İyi",stockLow:"Düşük",stockCritical:"Kritik",revenue:"Gelir",cogs:"SMM",grossProfit:"Brüt Kâr",noOrdersToday:"Bugün henüz sipariş yok",detailedBreakdown:"Detaylı Döküm",totalCost:"Toplam Maliyet",newRecipe:"Yeni Tarif",editRecipe:"Tarif Düzenle",newIngredient:"Yeni Malzeme",editIngredient:"Malzeme Düzenle",selectMenuItem:"Menü öğesi seçin...",ingredients:"Malzemeler",saveRecipe:"Tarifi Kaydet",saveIngredient:"Malzemeyi Kaydet",cancel:"İptal",notePrompt:"Not (şekersiz, yulaf sütü, ekstra shot):",resetTablesConfirm:"Tüm masalar sıfırlansın mı?",thankYou:"Teşekkürler!",poweredBy:"CoffeePro POS ile çalışır",healthCheck:"Sağlık Kontrolü",exportAll:"Tümünü Dışa Aktar",myCart:"Sepetim"
 },
 ar:{
 navHome:"الرئيسية",navMarket:"السوق",navShop:"المتجر",navTrade:"التجارة",navCafe:"مقهاي",navTools:"الأدوات",
@@ -1628,7 +1635,8 @@ shoppingCart:"سلة التسوق",cartEmpty:"سلة التسوق فارغة",ca
 recentViewed:"شوهد مؤخراً",processing:"قيد المعالجة",delivered:"تم التسليم",
 aboutMission:"مهمتنا",aboutMissionP1:"وُلد CoffeePro من سؤال بسيط: لماذا يصعب على محترفي القهوة المتخصصة الحصول على القهوة وإدارتها وبيعها بكفاءة؟ قمنا ببناء المنصة التي تمنيناها — منصة تربط كل حلقة في سلسلة توريد القهوة من المزرعة إلى الفنجان.",aboutMissionP2:"سواء كنت صاحب محمصة في إسطنبول أو مستورد حبوب خضراء في هامبورغ أو تدير مقهى في بروكلين — يمنحك CoffeePro أدوات إدارة عملياتك بالكامل من مكان واحد.",
 aboutOffer:"ما نقدمه",aboutB2B:"سوق B2B",aboutB2Bd:"احصل على حبوب خضراء ومعدات وتغليف من بائعين موثقين في 47 دولة.",aboutConsumer:"متجر المستهلك",aboutConsumerd:"بع قهوتك المحمصة مباشرة للمستهلكين مع واجهة متجر مدمجة.",aboutDirectTrade:"التجارة المباشرة",aboutDirectTraded:"تواصل مباشرة مع التعاونيات والمزارع. تتبع كامل وأسعار عادلة.",aboutPOS:"نقطة بيع المقهى",aboutPOSd:"نظام نقطة بيع متكامل: إدارة الطاولات والطلبات والمدفوعات والتقارير.",aboutProTools:"الأدوات الاحترافية",aboutProToolsd:"المخزون وسجل التحميص وحاسبة المزج والتكاليف والعملاء والفواتير.",aboutMultilang:"متعدد اللغات",aboutMultilangd:"المنصة متوفرة بالكامل بالإنجليزية والتركية والعربية والروسية.",
-aboutNumbers:"أرقام المنصة",aboutActiveSellers:"بائعون نشطون",aboutCafeOwners:"أصحاب مقاهي",aboutMonthlyVol:"الحجم الشهري",aboutBuiltBy:"من تطوير Frances Coffee",aboutBuiltByP1:"تم تطوير CoffeePro بواسطة فريق Frances Coffee، محمصة قهوة متخصصة في إسطنبول. كل ميزة تحل مشكلة واجهناها بأنفسنا.",aboutBuiltByP2:"مقرنا في إسطنبول — مدينة على مفترق طرق تجارة القهوة العالمية منذ قرون. نفخر بمواصلة هذا التقليد في العصر الرقمي.",aboutCTA:"هل أنت مستعد لتنمية أعمال القهوة الخاصة بك؟",aboutCTAp:"انضم إلى أكثر من 2,400 بائع وصاحب مقهى على CoffeePro اليوم.",viewPlans:"عرض الخطط",tryTools:"جرب الأدوات الاحترافية",openCafe:"افتح مقهاي",noCuppings:"لا توجد تقييمات تذوق بعد",aboutHeroP:"منصة القهوة العالمية الشاملة — تربط بين المنتجين والمحمصين وأصحاب المقاهي حول العالم.",tradeShipDesc:"FOB و CIF، تكلفة الحاويات.",recentCoops:"تعاونيات حديثة",cuppingTitle:"تقييم التذوق",stockValue:"قيمة المخزون",avgMargin:"متوسط الهامش",suppliers:"الموردون",bagTypes:"أنواع الأكياس",compareProds:"مقارنة المنتجات",maxCompare:"4 منتجات كحد أقصى للمقارنة",selectTwo:"اختر منتجين على الأقل",addedCompare:"تمت الإضافة للمقارنة"
+aboutNumbers:"أرقام المنصة",aboutActiveSellers:"بائعون نشطون",aboutCafeOwners:"أصحاب مقاهي",aboutMonthlyVol:"الحجم الشهري",aboutBuiltBy:"من تطوير Frances Coffee",aboutBuiltByP1:"تم تطوير CoffeePro بواسطة فريق Frances Coffee، محمصة قهوة متخصصة في إسطنبول. كل ميزة تحل مشكلة واجهناها بأنفسنا.",aboutBuiltByP2:"مقرنا في إسطنبول — مدينة على مفترق طرق تجارة القهوة العالمية منذ قرون. نفخر بمواصلة هذا التقليد في العصر الرقمي.",aboutCTA:"هل أنت مستعد لتنمية أعمال القهوة الخاصة بك؟",aboutCTAp:"انضم إلى أكثر من 2,400 بائع وصاحب مقهى على CoffeePro اليوم.",viewPlans:"عرض الخطط",tryTools:"جرب الأدوات الاحترافية",openCafe:"افتح مقهاي",noCuppings:"لا توجد تقييمات تذوق بعد",aboutHeroP:"منصة القهوة العالمية الشاملة — تربط بين المنتجين والمحمصين وأصحاب المقاهي حول العالم.",tradeShipDesc:"FOB و CIF، تكلفة الحاويات.",recentCoops:"تعاونيات حديثة",cuppingTitle:"تقييم التذوق",stockValue:"قيمة المخزون",avgMargin:"متوسط الهامش",suppliers:"الموردون",bagTypes:"أنواع الأكياس",compareProds:"مقارنة المنتجات",maxCompare:"4 منتجات كحد أقصى للمقارنة",selectTwo:"اختر منتجين على الأقل",addedCompare:"تمت الإضافة للمقارنة",
+navPricing:"الأسعار",navAbout:"عن المنصة",hiwTitle:"كيف يعمل",hiwSub:"من التوريد إلى البيع — في أربع خطوات بسيطة",hiwStep1:"اكتشف",hiwStep1d:"تصفح البائعين والحبوب الخضراء من 47 دولة",hiwStep2:"تواصل",hiwStep2d:"تواصل مع التعاونيات واطلب عينات وتفاوض مباشرة",hiwStep3:"حمّص وتابع",hiwStep3d:"سجل التحميص، احسب التكاليف، أدر مخزونك",hiwStep4:"بِع وانمُ",hiwStep4d:"افتح متجرك الإلكتروني أو أدر نظام نقاط البيع",testiTitle:"ماذا يقول المحمصون",trustedBy:"موثوق من المحمصين حول العالم",chatBubble:"هل تحتاج مساعدة في توريد القهوة؟",chatSupport:"دعم CoffeePro",chatOnline:"متصل الآن",chatGreeting:"مرحباً! أهلاً بك في CoffeePro. كيف يمكننا مساعدتك؟",chatPlaceholder:"اكتب رسالتك...",skipContent:"تخطي إلى المحتوى",footerDesc:"منصة سوق القهوة العالمية الشاملة ومنصة إدارة المحمصة.",sslEncrypted:"تشفير SSL",escrowProtected:"حماية الضمان",clearCart:"إفراغ السلة",city:"المدينة",country:"الدولة",optional:"اختياري",hrs:"ساعة",min:"دقيقة",sec:"ثانية",dealOfDay:"عرض اليوم",recipes:"الوصفات",inventory:"المخزون",profit:"الربح",recipesAndCost:"الوصفات والتكلفة",cost:"التكلفة",sell:"البيع",restockAll:"إعادة تخزين الكل",belowMinStock:"أقل من الحد الأدنى!",ingredient:"المكون",unit:"الوحدة",costPerUnit:"تكلفة الوحدة",stock:"المخزون",minStock:"أدنى مخزون",status:"الحالة",actions:"الإجراءات",stockGood:"جيد",stockLow:"منخفض",stockCritical:"حرج",revenue:"الإيرادات",cogs:"تكلفة البضاعة",grossProfit:"الربح الإجمالي",noOrdersToday:"لا توجد طلبات اليوم",detailedBreakdown:"تفصيل مفصّل",totalCost:"التكلفة الإجمالية",newRecipe:"وصفة جديدة",editRecipe:"تعديل الوصفة",newIngredient:"مكون جديد",editIngredient:"تعديل المكون",selectMenuItem:"اختر عنصر القائمة...",ingredients:"المكونات",saveRecipe:"حفظ الوصفة",saveIngredient:"حفظ المكون",cancel:"إلغاء",thankYou:"شكراً لك!",poweredBy:"يعمل بواسطة CoffeePro POS",healthCheck:"فحص البيانات",exportAll:"تصدير الكل",myCart:"سلتي"
 },
 ru:{
 navHome:"Главная",navMarket:"Рынок",navShop:"Магазин",navTrade:"Торговля",navCafe:"Моё кафе",navTools:"Инструменты",
@@ -1675,13 +1683,14 @@ shoppingCart:"Корзина",cartEmpty:"Ваша корзина пуста",car
 recentViewed:"Недавно просмотренные",processing:"В обработке",delivered:"Доставлен",
 aboutMission:"Наша миссия",aboutMissionP1:"CoffeePro родился из простого вопроса: почему профессионалам кофейной индустрии так сложно эффективно находить, управлять и продавать кофе? Мы создали платформу, о которой мечтали — соединяющую каждое звено цепочки поставок кофе, от фермы до чашки.",aboutMissionP2:"Будь вы владельцем обжарочного цеха в Стамбуле, импортёром зелёного зерна в Гамбурге или управляете кафе в Бруклине — CoffeePro предоставляет инструменты для управления всей операцией из одного места.",
 aboutOffer:"Что мы предлагаем",aboutB2B:"B2B Маркетплейс",aboutB2Bd:"Зелёное зерно, оборудование и упаковка от проверенных продавцов из 47 стран.",aboutConsumer:"Магазин для покупателей",aboutConsumerd:"Продавайте обжаренный кофе напрямую покупателям через встроенный магазин.",aboutDirectTrade:"Прямая торговля",aboutDirectTraded:"Прямая связь с кооперативами и фермами. Полная прослеживаемость и справедливые цены.",aboutPOS:"POS для кафе",aboutPOSd:"Полная система продаж: управление столиками, заказы, оплата, отчёты.",aboutProTools:"Про инструменты",aboutProToolsd:"Инвентаризация, журнал обжарки, калькулятор купажей, расходы, клиенты, счета.",aboutMultilang:"Мультиязычность",aboutMultilangd:"Платформа доступна на английском, турецком, арабском и русском языках.",
-aboutNumbers:"Цифры платформы",aboutActiveSellers:"Активных продавцов",aboutCafeOwners:"Владельцев кафе",aboutMonthlyVol:"Месячный оборот",aboutBuiltBy:"Создано командой Frances Coffee",aboutBuiltByP1:"CoffeePro разработан командой Frances Coffee — специализированной обжарочной компании в Стамбуле. Каждая функция решает проблему, с которой мы столкнулись сами.",aboutBuiltByP2:"Наша штаб-квартира в Стамбуле — городе на перекрёстке мировой кофейной торговли на протяжении веков. Мы гордимся продолжением этой традиции в цифровую эпоху.",aboutCTA:"Готовы развивать свой кофейный бизнес?",aboutCTAp:"Присоединяйтесь к 2 400+ продавцам и владельцам кафе на CoffeePro уже сегодня.",viewPlans:"Смотреть планы",tryTools:"Попробовать инструменты",openCafe:"Открыть моё кафе",noCuppings:"Пока нет оценок каппинга",aboutHeroP:"Универсальная глобальная кофейная платформа — объединяющая производителей, обжарщиков и владельцев кафе по всему миру.",tradeShipDesc:"FOB и CIF, расчёт контейнеров.",recentCoops:"Последние кооперативы",cuppingTitle:"Оценка каппинга",stockValue:"Стоимость запасов",avgMargin:"Ср. маржа",suppliers:"Поставщики",bagTypes:"Типы упаковки",compareProds:"Сравнить товары",maxCompare:"Максимум 4 товара для сравнения",selectTwo:"Выберите минимум 2 товара",addedCompare:"Добавлено к сравнению"
+aboutNumbers:"Цифры платформы",aboutActiveSellers:"Активных продавцов",aboutCafeOwners:"Владельцев кафе",aboutMonthlyVol:"Месячный оборот",aboutBuiltBy:"Создано командой Frances Coffee",aboutBuiltByP1:"CoffeePro разработан командой Frances Coffee — специализированной обжарочной компании в Стамбуле. Каждая функция решает проблему, с которой мы столкнулись сами.",aboutBuiltByP2:"Наша штаб-квартира в Стамбуле — городе на перекрёстке мировой кофейной торговли на протяжении веков. Мы гордимся продолжением этой традиции в цифровую эпоху.",aboutCTA:"Готовы развивать свой кофейный бизнес?",aboutCTAp:"Присоединяйтесь к 2 400+ продавцам и владельцам кафе на CoffeePro уже сегодня.",viewPlans:"Смотреть планы",tryTools:"Попробовать инструменты",openCafe:"Открыть моё кафе",noCuppings:"Пока нет оценок каппинга",aboutHeroP:"Универсальная глобальная кофейная платформа — объединяющая производителей, обжарщиков и владельцев кафе по всему миру.",tradeShipDesc:"FOB и CIF, расчёт контейнеров.",recentCoops:"Последние кооперативы",cuppingTitle:"Оценка каппинга",stockValue:"Стоимость запасов",avgMargin:"Ср. маржа",suppliers:"Поставщики",bagTypes:"Типы упаковки",compareProds:"Сравнить товары",maxCompare:"Максимум 4 товара для сравнения",selectTwo:"Выберите минимум 2 товара",addedCompare:"Добавлено к сравнению",
+navPricing:"Цены",navAbout:"О нас",hiwTitle:"Как это работает",hiwSub:"От поиска до продажи — за четыре простых шага",hiwStep1:"Откройте",hiwStep1d:"Просмотрите проверенных продавцов и зелёное зерно из 47 стран",hiwStep2:"Свяжитесь",hiwStep2d:"Свяжитесь с кооперативами, запросите образцы и ведите переговоры",hiwStep3:"Обжарьте и отслеживайте",hiwStep3d:"Записывайте обжарки, рассчитывайте затраты, управляйте запасами",hiwStep4:"Продавайте и растите",hiwStep4d:"Откройте интернет-магазин или управляйте POS-системой кафе",testiTitle:"Что говорят обжарщики",trustedBy:"Доверие обжарщиков по всему миру",chatBubble:"Нужна помощь с поиском кофе?",chatSupport:"Поддержка CoffeePro",chatOnline:"Онлайн",chatGreeting:"Привет! Добро пожаловать в CoffeePro. Чем можем помочь?",chatPlaceholder:"Введите сообщение...",skipContent:"Перейти к содержимому",footerDesc:"Универсальная глобальная кофейная платформа и система управления обжарочной.",sslEncrypted:"SSL шифрование",escrowProtected:"Защита эскроу",clearCart:"Очистить корзину",city:"Город",country:"Страна",optional:"Необязательно",hrs:"ЧАС",min:"МИН",sec:"СЕК",dealOfDay:"Предложение дня",recipes:"Рецепты",inventory:"Инвентарь",profit:"Прибыль",recipesAndCost:"Рецепты и затраты",cost:"Себестоимость",sell:"Продажа",restockAll:"Пополнить всё",belowMinStock:"ниже минимума!",ingredient:"Ингредиент",unit:"Единица",costPerUnit:"Цена за ед.",stock:"Запас",minStock:"Мин. запас",status:"Статус",actions:"Действия",stockGood:"Хорошо",stockLow:"Мало",stockCritical:"Критично",revenue:"Выручка",cogs:"Себестоимость",grossProfit:"Валовая прибыль",noOrdersToday:"Сегодня заказов пока нет",detailedBreakdown:"Подробная разбивка",totalCost:"Общая стоимость",newRecipe:"Новый рецепт",editRecipe:"Редактировать рецепт",newIngredient:"Новый ингредиент",editIngredient:"Редактировать ингредиент",selectMenuItem:"Выберите пункт меню...",ingredients:"Ингредиенты",saveRecipe:"Сохранить рецепт",saveIngredient:"Сохранить ингредиент",cancel:"Отмена",thankYou:"Спасибо!",poweredBy:"Работает на CoffeePro POS",healthCheck:"Проверка данных",exportAll:"Экспорт всего",myCart:"Моя корзина"
 }
 };
 
 let lang='en';
 function t(k){return(L[lang]&&L[lang][k])||L.en[k]||k}
-function setLang(l){lang=l;localStorage.setItem('cp_lang',l);document.documentElement.dir=l==='ar'?'rtl':'ltr';document.documentElement.lang=l;document.querySelectorAll('.lang-b').forEach(b=>b.classList.toggle('on',b.textContent.trim()===(l==='ar'?'ع':l.toUpperCase())));document.querySelectorAll('[data-i]').forEach(el=>{el.textContent=t(el.dataset.i)});renderPage()}
+function setLang(l){lang=l;localStorage.setItem('cp_lang',l);document.documentElement.dir=l==='ar'?'rtl':'ltr';document.documentElement.lang=l;document.querySelectorAll('.lang-b').forEach(b=>b.classList.toggle('on',b.textContent.trim()===(l==='ar'?'ع':l.toUpperCase())));document.querySelectorAll('[data-i]').forEach(el=>{el.textContent=t(el.dataset.i)});document.querySelectorAll('[data-i-placeholder]').forEach(el=>{el.placeholder=t(el.getAttribute('data-i-placeholder'))});renderPage()}
 
 function toast(m){
   var stack=document.querySelector('.toast-stack');
@@ -1861,19 +1870,19 @@ ${sellers.map(s=>`<div class="slr"><div class="slr-av" style="background:${s.bg}
 <div class="why-grid"><div class="why-card"><div class="why-ico" style="background:var(--em-lt);border:1px solid var(--em-br)"><i class="fas fa-shield-halved" style="color:var(--emerald)"></i></div><div class="why-nm">${t('whyV')}</div><div class="why-ds">${t('whyVd')}</div></div><div class="why-card"><div class="why-ico" style="background:var(--blue-lt);border:1px solid rgba(42,90,144,.2)"><i class="fas fa-globe" style="color:var(--blue)"></i></div><div class="why-nm">${t('whyG')}</div><div class="why-ds">${t('whyGd')}</div></div><div class="why-card"><div class="why-ico" style="background:var(--amber-lt);border:1px solid var(--amber-br)"><i class="fas fa-lock" style="color:var(--amber)"></i></div><div class="why-nm">${t('whyS')}</div><div class="why-ds">${t('whySd')}</div></div><div class="why-card"><div class="why-ico" style="background:var(--cop-lt);border:1px solid rgba(106,122,142,.2)"><i class="fas fa-chart-line" style="color:var(--copper)"></i></div><div class="why-nm">${t('whyT')}</div><div class="why-ds">${t('whyTd')}</div></div></div></div>
 <!-- How It Works -->
 <div class="hiw reveal">
-<div class="hiw-title">How It Works</div>
-<div class="hiw-sub">From sourcing to selling — in four simple steps</div>
+<div class="hiw-title" data-i="hiwTitle">How It Works</div>
+<div class="hiw-sub" data-i="hiwSub">From sourcing to selling — in four simple steps</div>
 <div class="hiw-grid reveal-stagger">
-<div class="hiw-step"><div class="hiw-line"></div><div class="hiw-num">1</div><div class="hiw-ico" style="background:var(--amber-lt);border:1px solid var(--amber-br);color:var(--amber)"><i class="fas fa-search"></i></div><div class="hiw-nm">Discover</div><div class="hiw-ds">Browse verified green beans from 47 countries &amp; top brands</div></div>
-<div class="hiw-step"><div class="hiw-line"></div><div class="hiw-num">2</div><div class="hiw-ico" style="background:var(--em-lt);border:1px solid var(--em-br);color:var(--emerald)"><i class="fas fa-handshake"></i></div><div class="hiw-nm">Connect</div><div class="hiw-ds">Direct trade with farms &amp; cooperatives. Fair, transparent pricing</div></div>
-<div class="hiw-step"><div class="hiw-line"></div><div class="hiw-num">3</div><div class="hiw-ico" style="background:var(--blue-lt);border:1px solid rgba(42,90,144,.2);color:var(--blue)"><i class="fas fa-fire"></i></div><div class="hiw-nm">Roast &amp; Track</div><div class="hiw-ds">Use pro tools to log batches, manage inventory &amp; calculate costs</div></div>
-<div class="hiw-step"><div class="hiw-num">4</div><div class="hiw-ico" style="background:var(--cop-lt);border:1px solid rgba(106,122,142,.2);color:var(--copper)"><i class="fas fa-rocket"></i></div><div class="hiw-nm">Sell &amp; Grow</div><div class="hiw-ds">Invoice clients, run your café POS &amp; scale your coffee business</div></div>
+<div class="hiw-step"><div class="hiw-line"></div><div class="hiw-num">1</div><div class="hiw-ico" style="background:var(--amber-lt);border:1px solid var(--amber-br);color:var(--amber)"><i class="fas fa-search"></i></div><div class="hiw-nm" data-i="hiwStep1">Discover</div><div class="hiw-ds" data-i="hiwStep1d">Browse verified green beans from 47 countries &amp; top brands</div></div>
+<div class="hiw-step"><div class="hiw-line"></div><div class="hiw-num">2</div><div class="hiw-ico" style="background:var(--em-lt);border:1px solid var(--em-br);color:var(--emerald)"><i class="fas fa-handshake"></i></div><div class="hiw-nm" data-i="hiwStep2">Connect</div><div class="hiw-ds" data-i="hiwStep2d">Direct trade with farms &amp; cooperatives. Fair, transparent pricing</div></div>
+<div class="hiw-step"><div class="hiw-line"></div><div class="hiw-num">3</div><div class="hiw-ico" style="background:var(--blue-lt);border:1px solid rgba(42,90,144,.2);color:var(--blue)"><i class="fas fa-fire"></i></div><div class="hiw-nm" data-i="hiwStep3">Roast &amp; Track</div><div class="hiw-ds" data-i="hiwStep3d">Use pro tools to log batches, manage inventory &amp; calculate costs</div></div>
+<div class="hiw-step"><div class="hiw-num">4</div><div class="hiw-ico" style="background:var(--cop-lt);border:1px solid rgba(106,122,142,.2);color:var(--copper)"><i class="fas fa-rocket"></i></div><div class="hiw-nm" data-i="hiwStep4">Sell &amp; Grow</div><div class="hiw-ds" data-i="hiwStep4d">Invoice clients, run your café POS &amp; scale your coffee business</div></div>
 </div>
 </div>
 
 <!-- Testimonials -->
 <div class="testi-section reveal">
-<div class="sh"><h2>What Roasters <em>Say</em></h2></div>
+<div class="sh"><h2 data-i="testiTitle">What Roasters <em>Say</em></h2></div>
 <div class="testi-carousel" id="testiCarousel">
 <div class="testi-track" id="testiTrack">
 <div class="testi-card"><div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><div class="testi-text">CoffeePro transformed how we source beans. Direct trade connections saved us 30% on green coffee costs while improving quality.</div><div class="testi-footer"><div class="testi-avatar" style="background:var(--amber-lt)">🇹🇷</div><div class="testi-info"><div class="testi-name">Mehmet Kaya</div><div class="testi-company">Istanbul Roasters, Turkey</div></div></div></div>
@@ -1888,7 +1897,7 @@ ${sellers.map(s=>`<div class="slr"><div class="slr-av" style="background:${s.bg}
 
 <!-- Trusted By Strip -->
 <div class="trusted reveal">
-<div class="trusted-title">Trusted by roasters worldwide</div>
+<div class="trusted-title" data-i="trustedBy">Trusted by roasters worldwide</div>
 <div style="overflow:hidden"><div class="trusted-scroll" id="trustedScroll">
 <div class="trusted-logo"><span>🇹🇷</span> Frances Coffee</div>
 <div class="trusted-logo"><span>☕</span> Kahve Dünyası</div>
@@ -2239,7 +2248,7 @@ const th=D.settings.low||5;const low=D.beans.filter(b=>parseFloat(b.stock||0)<=t
 const out=D.beans.filter(b=>parseFloat(b.stock||0)<=0).length;
 const totalRoasts=D.roasts.length;const totalCuppings=D.cuppings?D.cuppings.length:0;
 const ohPk=(D.oh.r||0)+(D.oh.l||0)+(D.oh.u||0)+(D.oh.m||0);
-return`<div class="sh"><h2>${t('toolsTitle')}</h2><div style="display:flex;gap:6px"><button class="Bgh" onclick="_dataHealthCheck()" title="Health Check"><i class="fas fa-stethoscope"></i></button><button class="Bgh" onclick="_exportAllCSV()" title="Export All"><i class="fas fa-file-csv"></i></button><button class="Bgh" onclick="_showKbShortcuts()"><i class="fas fa-keyboard"></i></button><button class="Bgh" onclick="backupData()"><i class="fas fa-download"></i></button></div></div><p style="font-size:.78rem;color:var(--muted);margin-bottom:12px;line-height:1.4">${t('toolsDesc')}</p>
+return`<div class="sh"><h2>${t('toolsTitle')}</h2><div style="display:flex;gap:6px"><button class="Bgh" onclick="_batchPriceUpdate()" title="Batch Price Update"><i class="fas fa-tags"></i></button><button class="Bgh" onclick="_checkExpiry()" title="Expiry Alerts"><i class="fas fa-clock"></i></button><button class="Bgh" onclick="_dataHealthCheck()" title="Health Check"><i class="fas fa-stethoscope"></i></button><button class="Bgh" onclick="_exportAllCSV()" title="Export All"><i class="fas fa-file-csv"></i></button><button class="Bgh" onclick="_showKbShortcuts()"><i class="fas fa-keyboard"></i></button><button class="Bgh" onclick="backupData()"><i class="fas fa-download"></i></button></div></div><p style="font-size:.78rem;color:var(--muted);margin-bottom:12px;line-height:1.4">${t('toolsDesc')}</p>
 <div class="C" style="background:linear-gradient(135deg,var(--esp),var(--esp2));color:white;padding:20px;margin-bottom:14px">
 <div style="font-family:var(--fd);font-size:.82rem;font-weight:700;margin-bottom:12px;opacity:.8"><i class="fas fa-chart-pie" style="margin-right:4px"></i> Command Center</div>
 <div class="qs" style="margin-bottom:8px"><div class="q" style="border-color:rgba(255,255,255,.1)"><div class="q-v" style="color:#5cc8a0">${bk.toFixed(0)}<small style="font-size:.45rem;opacity:.6"> kg</small></div><div class="q-l" style="color:rgba(255,255,255,.5)">${t('greenBeansTitle')}</div></div><div class="q" style="border-color:rgba(255,255,255,.1)"><div class="q-v" style="color:#5090d4">$${bv.toFixed(0)}</div><div class="q-l" style="color:rgba(255,255,255,.5)">${t('stockValue')}</div></div><div class="q" style="border-color:rgba(255,255,255,.1)"><div class="q-v" style="color:#f0a060">${pv.toFixed(0)}%</div><div class="q-l" style="color:rgba(255,255,255,.5)">${t('avgMargin')}</div></div><div class="q" style="border-color:rgba(255,255,255,.1)"><div class="q-v" style="color:${low+out>0?'#e07070':'#5cc8a0'}">${low+out}</div><div class="q-l" style="color:rgba(255,255,255,.5)">${low?low+' Low':'0 Low'}${out?' · '+out+' Out':''}</div></div></div>
@@ -2461,7 +2470,7 @@ ${!D.clients.length?emptyState('fa-users','No clients yet','Add your first clien
 const initials=(cl.name||'?').split(' ').map(w=>w[0]).join('').substring(0,2).toUpperCase();
 const clr=colors[i%colors.length];
 const tagClr=cl.tag==='VIP'?'tg-a':cl.tag==='Wholesale'?'tg-g':cl.tag==='Retail'?'tg-b':'tg-d';
-return`<div class="crm-card"><div class="crm-top"><div class="crm-av" style="background:${clr}">${initials}</div><div style="flex:1"><div style="font-weight:700;font-size:.82rem;color:var(--esp)">${esc(cl.name)}${cl.tag?` <span class="tg ${tagClr}" style="font-size:.48rem">${cl.tag}</span>`:''}</div><div style="font-size:.62rem;color:var(--faint)">${esc(cl.contact||'')}${cl.phone?' · '+esc(cl.phone):''}</div>${cl.email?`<div style="font-size:.58rem;color:var(--muted)">${esc(cl.email)}</div>`:''}</div><div style="display:flex;gap:6px;align-items:center"><i class="fas fa-file-invoice" style="color:var(--amber);font-size:.68rem;cursor:pointer" title="Invoice" onclick="event.stopPropagation();cliToInv(${i})"></i><i class="fas fa-comment" style="color:var(--blue);font-size:.62rem;cursor:pointer" title="Log" onclick="event.stopPropagation();_openClientLog(${i})"></i><i class="fas fa-trash" style="color:var(--faint);cursor:pointer;font-size:.58rem" onclick="event.stopPropagation();delItem('client',${i})"></i></div></div>
+return`<div class="crm-card"><div class="crm-top"><div class="crm-av" style="background:${clr}">${initials}</div><div style="flex:1"><div style="font-weight:700;font-size:.82rem;color:var(--esp)">${esc(cl.name)}${cl.tag?` <span class="tg ${tagClr}" style="font-size:.48rem">${cl.tag}</span>`:''}</div><div style="font-size:.62rem;color:var(--faint)">${esc(cl.contact||'')}${cl.phone?' · '+esc(cl.phone):''}</div>${cl.email?`<div style="font-size:.58rem;color:var(--muted)">${esc(cl.email)}</div>`:''}</div><div style="display:flex;gap:6px;align-items:center"><i class="fas fa-file-invoice" style="color:var(--amber);font-size:.68rem;cursor:pointer" title="Invoice" onclick="event.stopPropagation();cliToInv(${i})"></i><i class="fas fa-history" style="color:var(--emerald);font-size:.62rem;cursor:pointer" title="Order History" onclick="event.stopPropagation();_clientOrderHistory('${cl.name.replace(/'/g,"\\'")}')"></i><i class="fas fa-comment" style="color:var(--blue);font-size:.62rem;cursor:pointer" title="Log" onclick="event.stopPropagation();_openClientLog(${i})"></i><i class="fas fa-trash" style="color:var(--faint);cursor:pointer;font-size:.58rem" onclick="event.stopPropagation();delItem('client',${i})"></i></div></div>
 <div class="crm-tags">${cl.address?`<span class="tg tg-d" style="font-size:.48rem"><i class="fas fa-map-marker-alt"></i> ${esc(cl.address)}</span>`:''}${cl.totalSpent?`<span class="tg tg-g" style="font-size:.48rem"><i class="fas fa-coins"></i> ₺${parseFloat(cl.totalSpent).toLocaleString()}</span>`:''}${cl.credit?`<span class="tg tg-b" style="font-size:.48rem"><i class="fas fa-credit-card"></i> Limit: ₺${parseFloat(cl.credit).toLocaleString()}</span>`:''}${cl.lastOrder?`<span class="tg tg-d" style="font-size:.48rem"><i class="fas fa-clock"></i> Last: ${cl.lastOrder}</span>`:''}</div>
 ${cl.notes?`<div style="margin-top:6px;font-size:.64rem;color:var(--muted);font-style:italic;border-left:2px solid var(--cream3);padding-left:8px">${esc(cl.notes)}</div>`:''}</div>`}).join('')}</div>`}
 
@@ -2629,7 +2638,7 @@ return`<div class="acct"><div class="acct-av">${D.user.name.charAt(0).toUpperCas
 <div class="pay-opt ${D.sub==='enterprise'?'on':''}" onclick="pickSub('enterprise')"><i class="fas fa-building"></i>Enterprise<br><small>$199/mo</small></div>
 </div></div>
 ${D.orders.length?`<div class="C"><div class="st">${t('ordHistory')}</div>${D.orders.slice().reverse().map((o,i)=>{var idx=D.orders.length-1-i;return`<div class="cart-item" style="padding:10px 0"><div style="flex:1"><div style="font-weight:600;font-size:.78rem;color:var(--esp)">#${o.id} — ${o.items.length} item${o.items.length>1?'s':''}</div><div style="font-size:.62rem;color:var(--faint)">${new Date(o.date).toLocaleDateString()} · <span class="tg tg-g">${t('confirmed')}</span></div></div><div style="display:flex;align-items:center;gap:8px"><div class="cart-pr">${o.cur}${o.total.toFixed(2)}</div><button class="B Bs Bd" style="font-size:.6rem;padding:4px 8px" onclick="reorder(${idx})"><i class="fas fa-redo"></i></button></div></div>`}).join('')}</div>`:''}
-${[['tools','fa-wrench','--amber',t('toolsTitle')],['market','fa-box','--emerald',t('acctListings')],['cart','fa-bag-shopping','--blue','My Cart'],['pricing','fa-tags','--copper','Plans & Pricing']].map(x=>`<div class="tc" onclick="go('${x[0]}')"><div class="tc-inner"><i class="fas ${x[1]}" style="color:var(${x[2]})"></i><div class="tc-nm">${x[3]}</div><div class="tc-arr"><i class="fas fa-chevron-right"></i></div></div></div>`).join('')}
+${[['tools','fa-wrench','--amber',t('toolsTitle')],['market','fa-box','--emerald',t('acctListings')],['cart','fa-bag-shopping','--blue',t('myCart')],['pricing','fa-tags','--copper',t('navPricing')]].map(x=>`<div class="tc" onclick="go('${x[0]}')"><div class="tc-inner"><i class="fas ${x[1]}" style="color:var(${x[2]})"></i><div class="tc-nm">${x[3]}</div><div class="tc-arr"><i class="fas fa-chevron-right"></i></div></div></div>`).join('')}
 <button class="B Bo Bw" style="margin-top:8px" onclick="doLogout()"><i class="fas fa-sign-out-alt"></i> ${t('signOut')}</button>`}
 
 function rAuth(){
@@ -2640,7 +2649,7 @@ return`<div class="auth-box">
 <p style="font-size:.76rem;color:var(--muted);margin-bottom:16px">${isLogin?t('signIn')+' — CoffeePro':t('signUp')+' — CoffeePro'}</p>
 <div class="auth-tabs"><button class="auth-tab ${isLogin?'on':''}" onclick="window._authTab='login';renderPage()">${t('signIn')}</button><button class="auth-tab ${!isLogin?'on':''}" onclick="window._authTab='signup';renderPage()">${t('signUp')}</button></div>
 <button class="social-btn" onclick="socialAuth('google')"><i class="fab fa-google" style="color:#4285f4"></i> ${t('contGoogle')}</button>
-<button class="social-btn" onclick="socialAuth('apple')"><i class="fab fa-apple" style="color:#000"></i> ${t('contApple')}</button>
+<button class="social-btn" onclick="socialAuth('apple')"><i class="fab fa-apple" style="color:var(--esp)"></i> ${t('contApple')}</button>
 <div class="auth-sep">${t('orSep')}</div>
 <div class="C" style="text-align:left">
 ${!isLogin?`<div class="fg"><label>${t('fullName')}</label><input type="text" id="authName" placeholder="John Doe"></div>`:''}
@@ -2663,7 +2672,7 @@ return`<div class="sh"><h2><i class="fas fa-bag-shopping" style="color:var(--amb
 <div class="cart-row"><span>${t('commissionLabel')} (${D.sub==='enterprise'?'2':D.sub==='pro'?'4':'8'}%)</span><span>${cur}${(sub*(D.sub==='enterprise'?.02:D.sub==='pro'?.04:.08)).toFixed(2)}</span></div>
 <div class="cart-total"><span>Total</span><span>${cur}${(sub+sub*(D.sub==='enterprise'?.02:D.sub==='pro'?.04:.08)).toFixed(2)}</span></div>
 <button class="B Ba Bw" style="margin-top:14px" onclick="goCheckout()"><i class="fas fa-lock"></i> ${t('proceedChk')}</button>
-<button class="B Bd Bw" style="margin-top:6px" onclick="D.cart=[];saveD();renderPage();toast(t('removedDone'))"><i class="fas fa-trash"></i> ${t('removedDone')}</button>
+<button class="B Bd Bw" style="margin-top:6px" onclick="D.cart=[];saveD();renderPage();toast(t('removedDone'))"><i class="fas fa-trash"></i> ${t('clearCart')}</button>
 <div style="margin-top:12px;font-size:.6rem;color:var(--faint);text-align:center"><i class="fas fa-shield-halved"></i> ${t('whyS')} · SSL</div>
 </div></div></div>`}
 
@@ -2678,7 +2687,7 @@ return`<div class="sh"><h2><i class="fas fa-lock" style="color:var(--amber);marg
 <div class="fg"><label>${t('email')}</label><input type="email" id="chkEmail" value="${esc(D.user.email)}"></div>
 <div class="fg"><label>${t('phone')}</label><input type="tel" id="chkPhone" value="${esc(D.user.phone||'')}"></div>
 <div class="fg"><label>${t('shipAddr')}</label><textarea rows="2" id="chkAddr">${esc(D.user.address||'')}</textarea></div>
-<div class="row fg"><div class="col"><label>${t('shipAddr')}</label><input type="text" id="chkCity"></div><div class="col"><label>${t('countries')}</label><input type="text" id="chkCountry"></div></div></div>
+<div class="row fg"><div class="col"><label>${t('city')}</label><input type="text" id="chkCity"></div><div class="col"><label>${t('country')}</label><input type="text" id="chkCountry"></div></div></div>
 <div class="C"><div class="st"><span class="step-num">2</span>${t('bankTransfer')}</div>
 <div class="pay-method">
 <div class="pay-opt on" onclick="pickPay(this,'card')"><i class="fas fa-credit-card"></i>${t('cardNum')}</div>
@@ -2766,7 +2775,7 @@ window.saveProd=function(){if(!window._cur||!window._cur.cost){toast(t('calcFirs
 window.toInv=function(){if(!window._cur)return;go('inv');setTimeout(()=>{if($('invProd'))$('invProd').value=window._cur.desc;if($('invPr'))$('invPr').value=window._cur.price.toFixed(2);updInv()},50)};
 
 window.saveCli=function(){const nm=$('cName')?.value.trim();if(!nm){toast(t('enterName'));return}D.clients.push({id:Date.now(),name:nm,contact:$('cContact')?.value.trim(),address:$('cAddr')?.value.trim(),tax:$('cTax')?.value.trim(),phone:$('cPhone')?.value.trim(),email:$('cEmail')?.value.trim(),tag:$('cTag')?.value||'',credit:$('cCredit')?.value||'',notes:$('cNotes')?.value.trim()||''});saveD();renderPage();toast('✓ '+nm)};
-window.cliToInv=function(i){const cl=D.clients[i];if(!cl)return;go('inv');setTimeout(()=>{if($('clName'))$('clName').value=cl.name;if($('clAddr'))$('clAddr').value=cl.addr||'';if($('clTax'))$('clTax').value=cl.tax||'';updInv()},50)};
+window.cliToInv=function(i){const cl=D.clients[i];if(!cl)return;go('inv');setTimeout(()=>{if($('clName'))$('clName').value=cl.name;if($('clAddr'))$('clAddr').value=cl.address||'';if($('clTax'))$('clTax').value=cl.tax||'';updInv()},50)};
 window.lpInv=function(){const i=$('loadProd')?.value;if(!i&&i!==0)return;const p=D.products[i];if(!p)return;
 /* Fill first line item */
 var firstLine=document.querySelector('.inv-line-item');
@@ -2883,7 +2892,7 @@ window.viewProd=function(pid){
 window.toggleWish=function(pid){if(!D.wishlist)D.wishlist=[];var i=D.wishlist.indexOf(pid);if(i>=0){D.wishlist.splice(i,1);toast(t('removedWish'))}else{D.wishlist.push(pid);toast(t('addedWish'))}saveD()};
 
 /* ===== DARK MODE ===== */
-window.toggleDark=function(){document.body.classList.toggle('dark');var isDark=document.body.classList.contains('dark');localStorage.setItem('cp_dark',isDark?'1':'0');var ico=$('darkIco');if(ico)ico.className='fas fa-'+(isDark?'sun':'moon');toast(isDark?t('darkOn'):t('lightOn'))};
+window.toggleDark=function(){document.body.classList.toggle('dark');var isDark=document.body.classList.contains('dark');localStorage.setItem('cp_dark',isDark?'1':'0');var ico=$('darkIco');if(ico)ico.className='fas fa-'+(isDark?'sun':'moon');var tc=document.querySelector('meta[name="theme-color"]');if(tc)tc.content=isDark?'#12100c':'#f6f3ef';toast(isDark?t('darkOn'):t('lightOn'))};
 (function(){if(localStorage.getItem('cp_dark')==='1'){document.body.classList.add('dark');var ico=document.getElementById('darkIco');if(ico)ico.className='fas fa-sun'}})();
 
 /* ===== NOTIFICATION CENTER ===== */
@@ -3070,6 +3079,7 @@ window.typeHero=function(){
 };
 
 /* ===== UNIFIED MOUSEMOVE HANDLER (throttled via RAF) ===== */
+var _particleThrottle=0;
 window._mouseRAF=null;
 document.addEventListener('mousemove',function(e){
   if(_mouseRAF)return;
@@ -3336,7 +3346,7 @@ window.fmtCard=function(el){var v=el.value.replace(/\D/g,'').substring(0,16);el.
 window.placeOrder=function(total,cur){
   var name=$('chkName')?.value.trim(),addr=$('chkAddr')?.value.trim();
   if(!name){toast(t('enterName'));return}if(!addr){toast(t('enterAddr'));return}
-  var ordId=1000+D.orders.length+1;
+  var ordId=D.orders.length?Math.max.apply(null,D.orders.map(function(o){return o.id||0}))+1:1001;
   D.orders.push({id:ordId,date:new Date().toISOString(),items:D.cart.slice(),total:total,cur:cur,name:name,address:addr,status:'processing'});
   D.cart=[];saveD();updCartBadge();go('ordersuccess');toast('Order #'+ordId+' confirmed!')
 };
@@ -3721,10 +3731,10 @@ function _exportTabPDF(selector,name){
 }
 
 function _cartSub(){var s=0;for(var i=0;i<CF.cart.length;i++)s+=CF.cart[i].pr*CF.cart[i].qty;return s}
-function _cartTotal(){var s=_cartSub();if(!CF.discount||!CF.discount.val)return s;return CF.discount.type==='pct'?s*(1-CF.discount.val/100):Math.max(0,s-CF.discount.val)}
+function _cartTotal(){var s=_cartSub();if(typeof _isHappyHour==='function'&&_isHappyHour())s*=(1-(CF.happyHour&&CF.happyHour.discount||0)/100);if(!CF.discount||!CF.discount.val)return Math.max(0,s);return Math.max(0,CF.discount.type==='pct'?s*(1-Math.min(CF.discount.val,100)/100):s-CF.discount.val)}
 function _cartCount(){var c=0;for(var i=0;i<CF.cart.length;i++)c+=CF.cart[i].qty;return c}
 function _since(ts){if(!ts)return'';var m=Math.floor((Date.now()-new Date(ts).getTime())/60000);if(m<1)return'now';if(m<60)return m+'m';return Math.floor(m/60)+'h '+m%60+'m'}
-function _todayOrds(){var d=new Date().toDateString(),r=[];for(var i=0;i<CF.orders.length;i++){if(new Date(CF.orders[i].time).toDateString()===d)r.push(CF.orders[i])}return r}
+function _todayOrds(){var d=new Date().toDateString(),r=[];for(var i=0;i<CF.orders.length;i++){if(new Date(CF.orders[i].time||CF.orders[i].date).toDateString()===d)r.push(CF.orders[i])}return r}
 function _fMenu(id){for(var i=0;i<CF.menu.length;i++){if(CF.menu[i].id===id)return CF.menu[i]}return null}
 function _fCart(id){for(var i=0;i<CF.cart.length;i++){if(CF.cart[i].id===id)return i}return-1}
 function _fTbl(id){for(var i=0;i<CF.tables.length;i++){if(CF.tables[i].id===id)return i}return-1}
@@ -4011,7 +4021,9 @@ function rCafePos(){
   h+='<div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;font-size:.72rem;color:var(--muted);border-top:1px solid var(--cream3);margin-top:4px;cursor:pointer" data-act="discount"><span><i class="fas fa-tag" style="color:var(--amber);margin-inline-end:4px"></i>Discount</span><span style="font-family:var(--fm);color:var(--ruby)">'+ds+'</span></div>';
   if(CF.discount.val&&sub!==total)h+='<div style="display:flex;justify-content:space-between;padding:3px 0;font-size:.7rem;color:var(--faint)"><span>Subtotal</span><span style="font-family:var(--fm);text-decoration:line-through">₺'+sub.toFixed(2)+'</span></div>';
   h+='<div class="cart-total"><span>'+t('cartTotal')+'</span><span>₺'+total.toFixed(2)+'</span></div>';
+  if(window._orderNote)h+='<div style="padding:4px 8px;margin-top:4px;font-size:.66rem;color:var(--amber);background:var(--amber-lt);border-radius:6px"><i class="fas fa-sticky-note" style="margin-right:4px"></i>'+esc(window._orderNote)+'</div>';
   h+='<div style="display:flex;gap:6px;margin-top:10px">';if(CF.cartTable)h+='<button class="B Ba" style="flex:1" data-act="savetbl"><i class="fas fa-chair"></i> Save</button>';
+  h+='<button class="B Bo Bs" onclick="_setOrderNote()" title="Add Note"><i class="fas fa-sticky-note"></i></button>';
   h+='<button class="B Bg" style="flex:'+(CF.cartTable?'2':'1')+'" data-act="openpay"><i class="fas fa-cash-register"></i> ₺'+total.toFixed(0)+'</button></div>'}
   h+='</div>';return h;
 }
@@ -4042,7 +4054,7 @@ function rCafeOrders(){CF.posTab='orders';var to=_todayOrds().slice().reverse(),
   if(!to.length){h+='<div class="empty" style="padding:50px"><i class="fas fa-receipt" style="font-size:2.5rem"></i><div style="margin-top:10px;font-size:.84rem">'+t('rptNoOrders')+'</div></div>'}
   else{for(var i=0;i<to.length;i++){var o=to[i],oi=CF.orders.indexOf(o),is=[];for(var j=0;j<o.items.length;j++)is.push(o.items[j].qty+'× '+o.items[j].nm);
   h+='<div class="ord-card" data-act="showreceipt" data-id="'+oi+'"><div class="ord-head"><div><span class="ord-id">#'+o.id+'</span> '+(o.table?'<span class="tg tg-a" style="margin-inline-start:4px">'+o.table+'</span>':'<span class="tg tg-d">'+t('tblTakeaway')+'</span>')+'</div><div class="ord-time">'+new Date(o.time).toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})+'</div></div>';
-  h+='<div class="ord-row">'+esc(is.join(' · '))+'</div><div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px"><div class="ord-total">₺'+o.total.toFixed(2)+(o.disc?' <span style="font-size:.56rem;color:var(--ruby)">(-'+(o.discType==='pct'?o.disc+'%':'₺'+o.disc)+')</span>':'')+'</div><div style="display:flex;gap:4px;align-items:center"><button class="B Bd Bs" data-act="sharereceipt" data-id="'+oi+'" style="font-size:.54rem" onclick="event.stopPropagation()" title="Share via WhatsApp"><i class="fab fa-whatsapp"></i></button><span class="tg '+(o.method==='cash'?'tg-g':'tg-b')+'"><i class="fas '+(o.method==='cash'?'fa-money-bill-wave':'fa-credit-card')+'" style="margin-inline-end:3px"></i>'+(o.method==='cash'?t('payCash'):t('payCard'))+'</span></div></div></div>'}
+  h+='<div class="ord-row">'+esc(is.join(' · '))+'</div><div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px"><div class="ord-total">₺'+o.total.toFixed(2)+(o.disc?' <span style="font-size:.56rem;color:var(--ruby)">(-'+(o.discType==='pct'?o.disc+'%':'₺'+o.disc)+')</span>':'')+'</div><div style="display:flex;gap:4px;align-items:center"><button class="B Bd Bs" style="font-size:.54rem" onclick="event.stopPropagation();_quickReorder('+o.id+')" title="Reorder"><i class="fas fa-redo"></i></button><button class="B Bd Bs" data-act="sharereceipt" data-id="'+oi+'" style="font-size:.54rem" onclick="event.stopPropagation()" title="Share via WhatsApp"><i class="fab fa-whatsapp"></i></button><span class="tg '+(o.method==='cash'?'tg-g':'tg-b')+'"><i class="fas '+(o.method==='cash'?'fa-money-bill-wave':'fa-credit-card')+'" style="margin-inline-end:3px"></i>'+(o.method==='cash'?t('payCash'):t('payCard'))+'</span></div></div></div>'}
   h+='<div style="display:flex;gap:6px;margin-top:8px"><button class="B Bo Bs" style="color:var(--ruby)" data-act="voidlast"><i class="fas fa-undo"></i> Void Last</button><button class="B Bd Bs" data-act="splitbill" style="font-size:.62rem"><i class="fas fa-divide"></i> Split Bill</button></div>'}return h}
 
 function rCafeReport(){CF.posTab='report';var tO=_todayOrds(),totalS=0,cashS=0,cashC=0;
@@ -4121,7 +4133,7 @@ function updPay(){var el=document.getElementById('pDisp');if(!el)return;el.textC
 ov.addEventListener('click',function(e){if(e.target===ov){ov.remove();return}if(e.target.closest('#pClose')){ov.remove();return}
 var mb=e.target.closest('.pSel');if(mb){pMethod=mb.dataset.pm;ov.querySelectorAll('.pSel').forEach(function(m){m.classList.toggle('on',m.dataset.pm===pMethod)});var cb=document.getElementById('cashBlk');if(cb)cb.style.display=pMethod==='card'?'none':'block';return}
 var qb=e.target.closest('.pQk');if(qb){pAmt=qb.dataset.pq;updPay();return}
-var kb=e.target.closest('.nKey');if(kb){var k=kb.dataset.nk;if(k==='C')pAmt='';else pAmt+=k;updPay();return}
+var kb=e.target.closest('.nKey');if(kb){var k=kb.dataset.nk;if(k==='C')pAmt='';else if(k==='.'&&pAmt.includes('.'))return;else pAmt+=k;updPay();return}
 if(e.target.closest('#pConfirm')){if(pMethod==='cash'){var rcv=parseFloat(pAmt)||0;if(rcv<total){toast(t('insuffAmount'));return}}
 var ordId=CF.nextOrd++;var items=[];for(var i=0;i<CF.cart.length;i++){var c=CF.cart[i];items.push({id:c.id,nm:c.nm,qty:c.qty,pr:c.pr,note:c.note||''})}
 var ord={id:ordId,num:ordId,items:items,total:total,method:pMethod,table:CF.cartTable||'',time:new Date().toISOString(),date:new Date().toISOString(),received:pMethod==='cash'?(parseFloat(pAmt)||total):total,disc:CF.discount.val||0,discType:CF.discount.type||'pct',kdsStatus:'new'};
@@ -4602,7 +4614,7 @@ window._openFeedback=function(ordNum){
 /* === B9. Receipt Sharing === */
 window._shareReceipt=function(idx){
   var o=CF.orders[idx];if(!o)return;
-  var text='Receipt from '+esc(CF.name||'CoffeePro')+'\n';
+  var text='Receipt from '+(CF.name||'CoffeePro')+'\n';
   text+='Order #'+(o.num||o.id)+' · '+new Date(o.date||o.time).toLocaleString()+'\n';
   text+='---\n';
   o.items.forEach(function(it){text+=it.qty+'× '+it.nm+' ₺'+(it.qty*it.pr).toFixed(2)+'\n'});
@@ -5133,17 +5145,9 @@ window.addItem=function(type){
 /* === 1. PWA Install Support === */
 (function(){
   if('serviceWorker' in navigator){
-    /* Minimal SW registration — actual sw.js would be served separately */
-    /* For now we just add the meta tags and manifest link */
-  }
-  /* Add manifest link if not present */
-  if(!document.querySelector('link[rel="manifest"]')){
-    var lnk=document.createElement('link');lnk.rel='manifest';
-    lnk.href='data:application/json,'+encodeURIComponent(JSON.stringify({
-      name:'CoffeePro',short_name:'CoffeePro',start_url:'/',display:'standalone',
-      background_color:'#f6f3ef',theme_color:'#c8913a',
-      icons:[{src:'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">☕</text></svg>',sizes:'any',type:'image/svg+xml'}]
-    }));document.head.appendChild(lnk);
+    navigator.serviceWorker.register('/sw.js').then(function(reg){
+      console.log('SW registered, scope:',reg.scope);
+    }).catch(function(err){console.log('SW registration skipped:',err.message)});
   }
   var deferredPrompt=null;
   window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();deferredPrompt=e;
@@ -5493,19 +5497,11 @@ window.smartSearch=function(query){
   },200);
 };
 
-/* === 2. RECENTLY VIEWED PRODUCTS PERSISTENCE === */
-window._recentlyViewed=JSON.parse(localStorage.getItem('cp_recent')||'[]');
-var _origViewProd=window.viewProd;
+/* === 2. RECENTLY VIEWED — uses existing _recentViewed system (line ~2933) === */
+/* Removed duplicate system to prevent cp_recent localStorage corruption */
+var _origViewProd2=window.viewProd;
 window.viewProd=function(pid){
-  if(pid){
-    var rv=window._recentlyViewed;
-    rv=rv.filter(function(id){return id!==pid});
-    rv.unshift(pid);
-    if(rv.length>10)rv=rv.slice(0,10);
-    window._recentlyViewed=rv;
-    localStorage.setItem('cp_recent',JSON.stringify(rv));
-  }
-  if(typeof _origViewProd==='function')_origViewProd(pid);
+  if(typeof _origViewProd2==='function')_origViewProd2(pid);
 };
 
 /* === 3. PROFIT MARGIN ALERTS === */
@@ -5785,6 +5781,130 @@ if(!window._saveDWrapped){
   });
   resetIdle();
 })();
+
+/* ═══════════════════════════════════════
+   5 NEW FEATURES — ROUND 3
+   ═══════════════════════════════════════ */
+
+/* === NEW 1. BATCH PRICE UPDATER === */
+window._batchPriceUpdate=function(){
+  var ov=document.createElement('div');ov.className='rce-overlay';
+  var h='<div class="rce-modal"><h3><i class="fas fa-tags" style="color:var(--amber)"></i> Batch Price Update</h3>';
+  h+='<div style="font-size:.72rem;color:var(--muted);margin-bottom:12px">Adjust all product prices by a percentage. Positive = increase, negative = decrease.</div>';
+  h+='<div style="display:flex;gap:8px;margin-bottom:12px"><select id="bpTarget" style="flex:1;padding:8px;border-radius:8px;border:1px solid var(--cream3);font-size:.72rem"><option value="products">Saved Products</option><option value="beans">Green Beans (cost)</option><option value="menu">POS Menu Items</option></select>';
+  h+='<input type="number" id="bpPct" placeholder="e.g. 10 or -5" style="width:80px;padding:8px;border-radius:8px;border:1px solid var(--cream3);font-size:.72rem;text-align:center"><span style="font-size:.72rem;align-self:center">%</span></div>';
+  h+='<div style="display:flex;gap:8px;justify-content:flex-end"><button class="B Bo" onclick="this.closest(\'.rce-overlay\').remove()">Cancel</button><button class="B Ba" onclick="_applyBatchPrice()">Apply</button></div></div>';
+  ov.innerHTML=h;document.body.appendChild(ov);
+  ov.addEventListener('click',function(e){if(e.target===ov)ov.remove()});
+};
+window._applyBatchPrice=function(){
+  var target=document.getElementById('bpTarget').value;
+  var pct=parseFloat(document.getElementById('bpPct').value);
+  if(isNaN(pct)||pct===0){toast('Enter a valid percentage');return}
+  var mult=1+(pct/100);var count=0;
+  if(target==='products'){
+    D.products.forEach(function(p){if(p.price){p.price=(parseFloat(p.price)*mult).toFixed(2);count++}if(p.cost){p.cost=(parseFloat(p.cost)*mult).toFixed(2)}});saveD();
+  }else if(target==='beans'){
+    D.beans.forEach(function(b){if(b.cost){b.cost=(parseFloat(b.cost)*mult).toFixed(2);count++}});saveD();
+  }else if(target==='menu'&&typeof CF!=='undefined'){
+    CF.menu.forEach(function(m){if(m.pr){m.pr=parseFloat((m.pr*mult).toFixed(2));count++}});saveCF();
+  }
+  document.querySelector('.rce-overlay').remove();
+  toast(count+' items updated by '+(pct>0?'+':'')+pct+'%');
+  renderPage();
+};
+
+/* === NEW 2. ORDER NOTES / SPECIAL INSTRUCTIONS === */
+window._orderNote='';
+window._setOrderNote=function(){
+  var note=prompt(t('notePrompt')||'Order note (e.g. no sugar, extra hot):',window._orderNote||'');
+  if(note!==null){window._orderNote=note.trim();toast(note?'Note: '+note:'Note cleared')}
+};
+/* Patch POS order creation to include note */
+var _origConfirmPay=window.confirmPay;
+if(_origConfirmPay){
+  window.confirmPay=function(){
+    var result=_origConfirmPay.apply(this,arguments);
+    if(window._orderNote&&D.orders&&D.orders.length){
+      D.orders[D.orders.length-1].note=window._orderNote;
+      saveD();
+    }
+    window._orderNote='';
+    return result;
+  };
+}
+
+/* === NEW 3. INVENTORY EXPIRY COUNTDOWN === */
+window._checkExpiry=function(){
+  var now=new Date();var alerts=[];
+  D.beans.forEach(function(b){
+    if(b.arrival){
+      var arrival=new Date(b.arrival);
+      /* Green beans typically last 12 months from arrival */
+      var expiry=new Date(arrival);expiry.setMonth(expiry.getMonth()+12);
+      var daysLeft=Math.ceil((expiry-now)/(1000*60*60*24));
+      if(daysLeft<=90&&daysLeft>0)alerts.push({name:b.name,days:daysLeft,status:daysLeft<=30?'critical':'warning'});
+      else if(daysLeft<=0)alerts.push({name:b.name,days:daysLeft,status:'expired'});
+    }
+  });
+  if(!alerts.length){toast('No upcoming expirations');return}
+  var ov=document.createElement('div');ov.className='rce-overlay';
+  var h='<div class="rce-modal"><h3><i class="fas fa-clock" style="color:var(--ruby)"></i> Expiry Alerts</h3>';
+  h+='<div style="max-height:300px;overflow-y:auto">';
+  alerts.sort(function(a,b){return a.days-b.days}).forEach(function(a){
+    var color=a.status==='expired'?'var(--ruby)':a.status==='critical'?'var(--amber)':'var(--emerald)';
+    var label=a.status==='expired'?'EXPIRED':a.days+' days left';
+    h+='<div style="display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--cream3)"><div style="font-size:.74rem;font-weight:600;color:var(--esp)">'+esc(a.name)+'</div><div style="font-size:.66rem;font-weight:600;color:'+color+';background:'+color+'15;padding:3px 8px;border-radius:6px">'+label+'</div></div>';
+  });
+  h+='</div><div style="margin-top:12px;text-align:right"><button class="B Ba" onclick="this.closest(\'.rce-overlay\').remove()">Close</button></div></div>';
+  ov.innerHTML=h;document.body.appendChild(ov);
+  ov.addEventListener('click',function(e){if(e.target===ov)ov.remove()});
+};
+
+/* === NEW 4. CUSTOMER ORDER HISTORY === */
+window._clientOrderHistory=function(clientName){
+  if(!clientName){toast('Select a client first');return}
+  var orders=D.orders.filter(function(o){return o.client===clientName||o.clientName===clientName});
+  var invs=(D.invoices||[]).filter(function(inv){return inv.client===clientName});
+  var ov=document.createElement('div');ov.className='rce-overlay';
+  var h='<div class="rce-modal" style="max-width:500px"><h3><i class="fas fa-history" style="color:var(--blue)"></i> '+esc(clientName)+' — History</h3>';
+  if(!orders.length&&!invs.length){h+='<div style="text-align:center;padding:20px;color:var(--muted);font-size:.72rem">No order or invoice history found for this client.</div>'}
+  else{
+    if(invs.length){
+      h+='<div style="font-size:.68rem;font-weight:600;color:var(--muted);margin:8px 0 4px;text-transform:uppercase;letter-spacing:1px">Invoices ('+invs.length+')</div>';
+      invs.forEach(function(inv){
+        h+='<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--cream3);font-size:.72rem"><div>'+esc(inv.date||'N/A')+'</div><div style="font-weight:600;color:var(--amber)">'+fmtCur(inv.total)+'</div><div class="tg '+(inv.status==='paid'?'tg-s':'tg-d')+'">'+esc(inv.status||'pending')+'</div></div>';
+      });
+    }
+    if(orders.length){
+      var totalSpent=orders.reduce(function(s,o){return s+(o.total||0)},0);
+      h+='<div style="font-size:.68rem;font-weight:600;color:var(--muted);margin:12px 0 4px;text-transform:uppercase;letter-spacing:1px">Orders ('+orders.length+') — Total: '+fmtCur(totalSpent)+'</div>';
+      orders.slice(0,20).forEach(function(o){
+        h+='<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--cream3);font-size:.72rem"><div>#'+(o.id||o.num||'?')+'</div><div>'+esc(o.date||o.time||'')+'</div><div style="font-weight:600">'+fmtCur(o.total)+'</div></div>';
+      });
+    }
+  }
+  h+='<div style="margin-top:12px;text-align:right"><button class="B Ba" onclick="this.closest(\'.rce-overlay\').remove()">Close</button></div></div>';
+  ov.innerHTML=h;document.body.appendChild(ov);
+  ov.addEventListener('click',function(e){if(e.target===ov)ov.remove()});
+};
+
+/* === NEW 5. QUICK REORDER FROM ORDER HISTORY === */
+window._quickReorder=function(orderId){
+  var order=D.orders.find(function(o){return o.id===orderId||o.num===orderId});
+  if(!order||!order.items||!order.items.length){toast('Order not found or empty');return}
+  var added=0;
+  order.items.forEach(function(item){
+    if(typeof CF!=='undefined'&&CF.cart){
+      var existing=CF.cart.find(function(c){return c.nm===item.nm||c.name===item.nm});
+      if(existing){existing.qty=(existing.qty||1)+1}
+      else{CF.cart.push({nm:item.nm||item.name,pr:item.pr||item.price,qty:item.qty||1})}
+      added++;
+    }
+  });
+  if(added){saveCF();toast(added+' '+t('reorderAdd'));renderPage()}
+  else{toast('Could not add items')}
+};
 
 /* INIT */
 loadAll();
