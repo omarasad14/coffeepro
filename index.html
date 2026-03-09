@@ -355,7 +355,7 @@ body.dark .hero{background:linear-gradient(180deg,#0e0c08 0%,#14120e 30%,#1a1610
 /* FOOTER */
 .footer{background:linear-gradient(180deg,#1a1610,#14120e);color:rgba(255,255,255,.45);padding:44px 24px 20px;font-size:.72rem;line-height:1.6}
 .footer-inner{max-width:1000px;margin:0 auto}
-.footer a{color:var(--amber2);text-decoration:none}.footer a:hover{text-decoration:underline;color:#6aa0d4}
+.footer a{color:var(--amber2);text-decoration:none}.footer a:hover{text-decoration:underline;color:var(--amber)}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:28px;margin-bottom:24px}
 @media(max-width:600px){.footer-grid{grid-template-columns:1fr 1fr;gap:14px}}
 .footer h4{color:white;font-family:var(--fd);font-weight:500;font-size:.82rem;margin-bottom:8px}
@@ -637,7 +637,7 @@ body.dark .cmd-trigger{background:rgba(255,255,255,.04);border-color:var(--card-
 /* === FOOTER NEWSLETTER === */
 .nl-wrap{display:flex;gap:0;max-width:340px;margin-top:10px}
 .nl-input{flex:1;padding:8px 12px;border:1px solid rgba(255,255,255,.1);border-right:none;border-radius:8px 0 0 8px;background:rgba(255,255,255,.04);color:#fff;font-size:.72rem;outline:none;font-family:var(--fb)}.nl-input::placeholder{color:rgba(255,255,255,.3)}
-.nl-btn{padding:8px 14px;background:var(--amber);color:#fff;border:none;border-radius:0 8px 8px 0;font-size:.68rem;font-weight:600;cursor:pointer;transition:background .2s;white-space:nowrap}.nl-btn:hover{background:#2a5a90}
+.nl-btn{padding:8px 14px;background:var(--amber);color:#fff;border:none;border-radius:0 8px 8px 0;font-size:.68rem;font-weight:600;cursor:pointer;transition:background .2s;white-space:nowrap}.nl-btn:hover{background:var(--amber2)}
 /* === TRUST BADGES === */
 .trust-row{display:flex;gap:12px;margin-top:14px;flex-wrap:wrap}
 .trust-badge{display:flex;align-items:center;gap:5px;font-size:.58rem;color:rgba(255,255,255,.4)}.trust-badge i{color:var(--amber);font-size:.65rem}
@@ -1139,6 +1139,40 @@ body.dark .loader-ov{background:rgba(18,16,12,.85)}
 .theme-sw:hover::after{opacity:1}
 body.dark .theme-picker{background:#1c1a16;border-color:#302a24}
 
+/* Brand Customizer Panel */
+.brand-panel{position:fixed;top:0;right:-400px;width:380px;max-width:92vw;height:100vh;background:var(--white);border-left:1px solid var(--card-bdr);z-index:2100;transition:right .35s var(--e);overflow-y:auto;box-shadow:-10px 0 40px rgba(0,0,0,.12);display:flex;flex-direction:column}
+.brand-panel.open{right:0}
+.brand-panel-ov{position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:2050;opacity:0;pointer-events:none;transition:opacity .3s}
+.brand-panel-ov.open{opacity:1;pointer-events:auto}
+.bp-head{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--cream3);flex-shrink:0}
+.bp-head h3{font-family:var(--fd);font-size:.92rem;font-weight:700;color:var(--esp);display:flex;align-items:center;gap:8px}
+.bp-body{padding:20px;flex:1;overflow-y:auto}
+.bp-section{margin-bottom:20px}
+.bp-label{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--muted);margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.bp-row{display:flex;gap:8px;align-items:center;margin-bottom:8px}
+.bp-color{width:36px;height:36px;border-radius:10px;border:2px solid var(--cream3);cursor:pointer;appearance:none;-webkit-appearance:none;padding:0;overflow:hidden}
+.bp-color::-webkit-color-swatch-wrapper{padding:0}
+.bp-color::-webkit-color-swatch{border:none;border-radius:8px}
+.bp-input{flex:1;padding:8px 12px;border:1px solid var(--cream3);border-radius:8px;font-size:.74rem;font-family:var(--fb);color:var(--esp);background:var(--cream)}
+.bp-input:focus{outline:none;border-color:var(--amber)}
+.bp-input::placeholder{color:var(--faint)}
+.bp-select{padding:8px 12px;border:1px solid var(--cream3);border-radius:8px;font-size:.72rem;color:var(--esp);background:var(--cream);cursor:pointer;font-family:var(--fb)}
+.bp-preview{width:100%;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-weight:700;font-size:.88rem;letter-spacing:-.3px;margin-top:8px;transition:all .3s;border:1px solid var(--cream3)}
+.bp-logo-area{width:100%;height:80px;border:2px dashed var(--cream3);border-radius:12px;display:flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;transition:all .2s;font-size:.68rem;color:var(--muted)}
+.bp-logo-area:hover{border-color:var(--amber);background:var(--amber-lt)}
+.bp-logo-area img{max-height:60px;max-width:200px;object-fit:contain}
+.bp-font-preview{padding:8px 12px;border:1px solid var(--cream3);border-radius:8px;font-size:.82rem;color:var(--esp);margin-top:6px;text-align:center}
+.bp-swatch-row{display:flex;gap:6px;flex-wrap:wrap}
+.bp-swatch{width:30px;height:30px;border-radius:8px;cursor:pointer;border:2px solid transparent;transition:all .15s}
+.bp-swatch:hover{transform:scale(1.1)}
+.bp-swatch.on{border-color:var(--esp);box-shadow:0 0 0 2px var(--white),0 0 0 4px var(--esp)}
+.bp-footer{padding:14px 20px;border-top:1px solid var(--cream3);display:flex;gap:8px;flex-shrink:0}
+.bp-footer .B{flex:1}
+.bp-radius-row{display:flex;gap:6px;margin-top:6px}
+.bp-radius-opt{padding:6px 10px;border:1px solid var(--cream3);border-radius:6px;font-size:.62rem;font-weight:600;cursor:pointer;color:var(--muted);transition:all .15s}
+.bp-radius-opt.on{background:var(--amber);color:#fff;border-color:var(--amber)}
+@media(max-width:600px){.brand-panel{width:100%;right:-100%}}
+
 /* Theme: Midnight */
 body.theme-midnight{--cream:#0f1117;--cream2:#171b24;--cream3:#222838;--warm:#3a4260;--esp:#e4e8f0;--esp2:#c0c8d8;--text:#e4e8f0;--text2:#8898b8;--muted:#6878a0;--faint:#4a5878;--amber:#4a8af4;--amber2:#5a9aff;--amber-lt:rgba(74,138,244,.1);--amber-br:rgba(74,138,244,.2);--emerald:#34d08a;--emerald2:#40e098;--em-lt:rgba(52,208,138,.08);--copper:#7a8aaa;--cop-lt:rgba(122,138,170,.1);--ruby:#f06070;--ruby-lt:rgba(240,96,112,.1);--blue:#4a8af4;--blue-lt:rgba(74,138,244,.1);--white:#1a1d28;--bg:#0f1117;--accent:#4a8af4;--card-bdr:rgba(74,138,244,.12);--card-shadow:rgba(0,0,0,.3);--panel:#171b24;--csh:0 1px 2px rgba(0,0,0,.2),0 4px 16px rgba(0,0,0,.15)}
 body.theme-midnight .H{background:rgba(15,17,23,.95);border-color:#222838}
@@ -1485,6 +1519,96 @@ body.dark .dtable tbody tr:hover td{background:#221e1a}
 <div class="theme-sw" style="background:linear-gradient(135deg,#3a9a5a,#f2f7f4)" data-theme="forest" data-name="Forest" onclick="applyTheme('forest')"></div>
 <div class="theme-sw" style="background:linear-gradient(135deg,#2a8a9a,#f0f7f9)" data-theme="ocean" data-name="Ocean" onclick="applyTheme('ocean')"></div>
 <div class="theme-sw" style="background:linear-gradient(135deg,#f040a0,#0a0a14)" data-theme="neon" data-name="Neon" onclick="applyTheme('neon')"></div>
+</div>
+</div>
+
+<!-- BRAND CUSTOMIZER PANEL -->
+<div class="brand-panel-ov" id="bpOv" onclick="closeBrandPanel()"></div>
+<div class="brand-panel" id="brandPanel">
+<div class="bp-head">
+<h3><i class="fas fa-wand-magic-sparkles" style="color:var(--amber)"></i> Brand Customizer</h3>
+<button class="B Bo Bs" onclick="closeBrandPanel()"><i class="fas fa-times"></i></button>
+</div>
+<div class="bp-body">
+
+<!-- Brand Name -->
+<div class="bp-section">
+<div class="bp-label"><i class="fas fa-pen-nib"></i> Brand Name</div>
+<input class="bp-input" id="bpName" placeholder="e.g. My Coffee Co" oninput="_bpPreview()">
+<div class="bp-preview" id="bpNamePreview">CoffeePro</div>
+</div>
+
+<!-- Accent Color -->
+<div class="bp-section">
+<div class="bp-label"><i class="fas fa-palette"></i> Accent Color</div>
+<div class="bp-swatch-row" id="bpSwatches"></div>
+<div class="bp-row" style="margin-top:8px">
+<input type="color" class="bp-color" id="bpAccent" value="#c8913a" oninput="_bpPreview()">
+<input class="bp-input" id="bpAccentHex" placeholder="#c8913a" style="font-family:var(--fm);font-size:.68rem" oninput="_bpHexSync(this.value)">
+</div>
+</div>
+
+<!-- Background Color -->
+<div class="bp-section">
+<div class="bp-label"><i class="fas fa-fill-drip"></i> Background</div>
+<div class="bp-row">
+<input type="color" class="bp-color" id="bpBg" value="#f6f3ef" oninput="_bpPreview()">
+<input class="bp-input" id="bpBgHex" placeholder="#f6f3ef" style="font-family:var(--fm);font-size:.68rem" oninput="_bpBgHexSync(this.value)">
+</div>
+</div>
+
+<!-- Logo Upload -->
+<div class="bp-section">
+<div class="bp-label"><i class="fas fa-image"></i> Logo</div>
+<div class="bp-logo-area" id="bpLogoArea" onclick="document.getElementById('bpLogoFile').click()">
+<i class="fas fa-cloud-arrow-up"></i> Click to upload logo
+</div>
+<input type="file" id="bpLogoFile" accept="image/*" style="display:none" onchange="_bpLoadLogo(this)">
+<div style="display:flex;gap:6px;margin-top:6px">
+<button class="B Bo Bs" style="font-size:.58rem;flex:1" onclick="_bpClearLogo()"><i class="fas fa-trash"></i> Remove Logo</button>
+</div>
+</div>
+
+<!-- Font -->
+<div class="bp-section">
+<div class="bp-label"><i class="fas fa-font"></i> Heading Font</div>
+<select class="bp-select" id="bpFont" style="width:100%" onchange="_bpPreview()">
+<option value="'Fraunces',Georgia,serif">Fraunces (Default)</option>
+<option value="'Playfair Display',Georgia,serif">Playfair Display</option>
+<option value="'DM Serif Display',Georgia,serif">DM Serif Display</option>
+<option value="Georgia,serif">Georgia</option>
+<option value="'Outfit',system-ui,sans-serif">Outfit (Sans)</option>
+<option value="system-ui,-apple-system,sans-serif">System UI</option>
+</select>
+<div class="bp-font-preview" id="bpFontPreview">The quick brown fox</div>
+</div>
+
+<!-- Body Font -->
+<div class="bp-section">
+<div class="bp-label"><i class="fas fa-align-left"></i> Body Font</div>
+<select class="bp-select" id="bpBodyFont" style="width:100%" onchange="_bpPreview()">
+<option value="'Outfit',system-ui,sans-serif">Outfit (Default)</option>
+<option value="'Inter',system-ui,sans-serif">Inter</option>
+<option value="system-ui,-apple-system,sans-serif">System UI</option>
+<option value="'DM Sans',system-ui,sans-serif">DM Sans</option>
+</select>
+</div>
+
+<!-- Border Radius -->
+<div class="bp-section">
+<div class="bp-label"><i class="fas fa-vector-square"></i> Corner Style</div>
+<div class="bp-radius-row">
+<div class="bp-radius-opt" data-radius="0" onclick="_bpSetRadius(0)">Sharp</div>
+<div class="bp-radius-opt" data-radius="8" onclick="_bpSetRadius(8)">Subtle</div>
+<div class="bp-radius-opt on" data-radius="12" onclick="_bpSetRadius(12)">Rounded</div>
+<div class="bp-radius-opt" data-radius="20" onclick="_bpSetRadius(20)">Pill</div>
+</div>
+</div>
+
+</div>
+<div class="bp-footer">
+<button class="B Bo" onclick="_bpReset()"><i class="fas fa-undo"></i> Reset</button>
+<button class="B Ba" onclick="_bpApply()"><i class="fas fa-check"></i> Apply & Save</button>
 </div>
 </div>
 
@@ -2268,7 +2392,7 @@ const totalVal=D.beans.reduce((s,b)=>s+(parseFloat(b.cost||0)*parseFloat(b.stock
 const lowBeans=D.beans.filter(b=>parseFloat(b.stock||0)<=th&&parseFloat(b.stock||0)>0);
 const outBeans=D.beans.filter(b=>parseFloat(b.stock||0)<=0);
 const origins=[...new Set(D.beans.map(b=>(b.origin||b.name.split(' ')[0])))];
-return`<div class="sh"><h2><i class="fas fa-arrow-left" style="font-size:.7rem;cursor:pointer;color:var(--faint);margin-right:6px" onclick="go('tools')"></i><em>${t('invTitle')}</em></h2><div style="display:flex;gap:6px"><button class="Bgh" onclick="exportCSV()"><i class="fas fa-file-csv"></i></button><button class="Bgh" onclick="_invReorderAlert()"><i class="fas fa-bell"></i></button></div></div>
+return`<div class="sh"><h2><i class="fas fa-arrow-left" style="font-size:.7rem;cursor:pointer;color:var(--faint);margin-right:6px" onclick="go('tools')"></i><em>${t('invTitle')}</em></h2><div style="display:flex;gap:6px"><button class="Bgh" onclick="exportCSV()"><i class="fas fa-file-csv"></i></button><button class="Bgh" onclick="_restockSuggestions()" title="Smart Restock"><i class="fas fa-truck-fast"></i></button><button class="Bgh" onclick="_invReorderAlert()"><i class="fas fa-bell"></i></button></div></div>
 
 <!-- Stock Dashboard -->
 <div class="metric-row">
@@ -2450,7 +2574,7 @@ const totalClients=D.clients.length;
 const vipClients=D.clients.filter(c=>(c.tag||'').toLowerCase()==='vip').length;
 const totalRev=D.clients.reduce((s,c)=>s+(parseFloat(c.totalSpent)||0),0);
 const colors=['#c8913a','#3a9a5a','#4a8af4','#b0404a','#6a7a8e','#f040a0','#2a8a9a','#8a5cf0'];
-return`<div class="sh"><h2><i class="fas fa-arrow-left" style="font-size:.7rem;cursor:pointer;color:var(--faint);margin-right:6px" onclick="go('tools')"></i><em>${t('clientTitle')}</em></h2><button class="Bgh" onclick="_exportClientCSV()"><i class="fas fa-file-csv"></i></button></div>
+return`<div class="sh"><h2><i class="fas fa-arrow-left" style="font-size:.7rem;cursor:pointer;color:var(--faint);margin-right:6px" onclick="go('tools')"></i><em>${t('clientTitle')}</em></h2><button class="Bgh" onclick="_showLoyaltyDashboard()" title="Loyalty Tiers"><i class="fas fa-crown"></i></button><button class="Bgh" onclick="_exportClientCSV()"><i class="fas fa-file-csv"></i></button></div>
 
 <div class="metric-row">
 <div class="metric-card"><div class="mc-val" style="color:var(--blue)">${totalClients}</div><div class="mc-lbl">Total Clients</div></div>
@@ -2993,7 +3117,7 @@ window.addEventListener('scroll',function(){var btn=document.getElementById('btt
 /* ===== BREADCRUMB NAVIGATION ===== */
 window.getBreadcrumb=function(page,label){
   var crumbs=[{label:t('navHome'),page:'home'}];
-  var map={market:{p:'home',l:t('navMarket')},shop:{p:'home',l:t('navShop')},trade:{p:'home',l:t('navTrade')},tradecoops:{p:'trade',l:t('tradeCoopsNav')},tradeshipcalc:{p:'trade',l:t('tradeShipCalcNav')},tradeprivate:{p:'trade',l:t('tradePrivateNav')},tradepackets:{p:'trade',l:t('tradePacketsNav')},tradeequip:{p:'trade',l:t('tradeEquipNav')},tools:{p:'home',l:t('navTools')},inventory:{p:'tools',l:t('greenBeansTitle')},roast:{p:'tools',l:t('roastLogTitle')},costs:{p:'tools',l:t('overheadTitle')},calc:{p:'tools',l:t('calcTitle')},cupping:{p:'tools',l:'Cupping'},clients:{p:'tools',l:t('clientTitle')},inv:{p:'tools',l:t('invGenTitle')},pricing:{p:'home',l:t('pricingTag')},about:{p:'home',l:t('aboutCoffeePro')},acct:{p:'home',l:t('acctTitle')},cart:{p:'shop',l:t('shoppingCart')},checkout:{p:'cart',l:t('checkout')},contact:{p:'home',l:t('contactTitle')},cafe:{p:'home',l:t('navCafe')}};
+  var map={market:{p:'home',l:t('navMarket')},shop:{p:'home',l:t('navShop')},trade:{p:'home',l:t('navTrade')},tradecoops:{p:'trade',l:t('tradeCoopsNav')},tradeshipcalc:{p:'trade',l:t('tradeShipCalcNav')},tradeprivate:{p:'trade',l:t('tradePrivateNav')},tradepackets:{p:'trade',l:t('tradePacketsNav')},tradeequip:{p:'trade',l:t('tradeEquipNav')},tools:{p:'home',l:t('navTools')},inventory:{p:'tools',l:t('greenBeansTitle')},roast:{p:'tools',l:t('roastTitle')},costs:{p:'tools',l:t('ohTitle')},calc:{p:'tools',l:t('calcTitle')},cupping:{p:'tools',l:t('cuppingTitle')},clients:{p:'tools',l:t('clientTitle')},inv:{p:'tools',l:t('invGenTitle')},pricing:{p:'home',l:t('pricingTag')},about:{p:'home',l:t('aboutCoffeePro')},acct:{p:'home',l:t('acctTitle')},cart:{p:'shop',l:t('shoppingCart')},checkout:{p:'cart',l:t('checkout')},contact:{p:'home',l:t('contactTitle')},cafe:{p:'home',l:t('navCafe')}};
   if(page==='home')return'';
   var trail=[];var cur=page;
   while(cur&&cur!=='home'&&trail.length<5){var m=map[cur];if(!m)break;trail.unshift({label:m.l,page:cur});cur=m.p}
@@ -3963,7 +4087,7 @@ function rCafeWaitlist(){CF.posTab='waitlist';
   var h=_posH()+_posN();
   h+='<div class="C"><div class="sh"><h3><i class="fas fa-clock" style="color:var(--copper)"></i> Waitlist</h3><button class="B Ba Bs" data-act="addwaitlist"><i class="fas fa-plus"></i> Add Party</button></div>';
   var waiting=CF.waitlist.filter(function(w){return w.status==='waiting'}).length;
-  var avgWait=CF.waitlist.length?15*waiting:0;
+  var avgWait=waiting?15*waiting:0;
   h+='<div style="display:flex;gap:8px;margin:10px 0"><div class="q" style="flex:1"><div class="q-v" style="color:var(--amber);font-size:1.2rem">'+waiting+'</div><div class="q-l">Waiting</div></div><div class="q" style="flex:1"><div class="q-v" style="color:var(--copper);font-size:1.2rem">~'+avgWait+'m</div><div class="q-l">Est. Wait</div></div></div>';
   if(!CF.waitlist.length){
     h+=emptyState('fa-clock','No One Waiting','Your waitlist is empty. Add a party when customers arrive.','Add Party','_openAddWaitlist()');
@@ -4075,7 +4199,7 @@ function rCafeReport(){CF.posTab='report';var tO=_todayOrds(),totalS=0,cashS=0,c
   h+='<div class="C Ca"><div class="st"><span><i class="fas fa-trophy" style="color:var(--copper);margin-inline-end:5px"></i>'+t('rptTopItems')+'</span></div>';
   if(!topI.length){h+='<div class="empty">'+t('rptNoOrders')+'</div>'}
   else{for(var i=0;i<topI.length;i++){var pct=topI[i][1]/topMax*100;h+='<div style="display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid var(--cream3)"><span style="background:'+(i<3?'var(--amber)':'var(--cream3)')+';color:'+(i<3?'white':'var(--muted)')+';font-size:.52rem;font-weight:700;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--fm);flex-shrink:0">'+(i+1)+'</span><div style="flex:1"><div style="font-size:.78rem;font-weight:600;color:var(--esp)">'+topI[i][0]+'</div><div style="height:4px;background:var(--cream3);border-radius:2px;margin-top:3px;overflow:hidden"><div style="height:100%;width:'+pct+'%;background:linear-gradient(90deg,var(--amber),var(--copper));border-radius:2px"></div></div></div><span style="font-family:var(--fm);font-weight:600;font-size:.78rem;color:var(--amber)">×'+topI[i][1]+'</span></div>'}}
-  h+='</div><button class="B Bo Bw Bs" style="margin-top:10px;color:var(--ruby)" data-act="clearday"><i class="fas fa-eraser"></i> Clear Today</button>';return h}
+  h+='</div>'+_revenueGoalHTML()+'<div style="display:flex;gap:6px;margin-top:10px"><button class="B Bo Bw Bs" style="color:var(--ruby)" data-act="clearday"><i class="fas fa-eraser"></i> Clear Today</button><button class="B Bo Bw Bs" onclick="_exportDailyPDF()"><i class="fas fa-file-pdf"></i> Export PDF</button><button class="B Bo Bw Bs" onclick="_setRevenueGoal()"><i class="fas fa-bullseye"></i> Set Goal</button></div>';return h}
 
 /* === ACTIONS === */
 function _doLogin(){var nm=$('cfName')?$('cfName').value.trim():'',u=$('cfUser')?$('cfUser').value.trim():'',p=$('cfPass')?$('cfPass').value:'';if(!nm){toast(t('enterCafeName'));return}if(!u){toast(t('enterUsername'));return}if(CF.user&&CF.pass){if(u!==CF.user||p!==CF.pass){toast(t('wrongCreds'));return}}CF.name=nm;CF.user=u;CF.pass=p||CF.pass||'1234';CF.loggedIn=true;saveCF();renderPage();toast('✓ '+t('welcomeBackName')+' — '+nm)}
@@ -5646,11 +5770,13 @@ window._sortProducts=function(products,sortBy){
 /* === 12. SESSION ANALYTICS === */
 window._sessionStart=Date.now();
 window._pageViews=0;
-var _origGoForAnalytics=window.go;
-window.go=function(){
-  window._pageViews++;
-  return _origGoForAnalytics.apply(this,arguments);
-};
+(function(){
+  var _origGoForAnalytics=window.go;
+  window.go=function(){
+    window._pageViews++;
+    return _origGoForAnalytics.apply(this,arguments);
+  };
+})();
 window._getSessionStats=function(){
   var duration=Math.round((Date.now()-window._sessionStart)/60000);
   return{minutes:duration,pages:window._pageViews};
@@ -5904,6 +6030,190 @@ window._quickReorder=function(orderId){
   });
   if(added){saveCF();toast(added+' '+t('reorderAdd'));renderPage()}
   else{toast('Could not add items')}
+};
+
+/* ═══════════════════════════════════════
+   5 NEW FEATURES — ROUND 4
+   ═══════════════════════════════════════ */
+
+/* === FEAT 1. REVENUE GOAL TRACKER === */
+window._setRevenueGoal=function(){
+  var current=CF.revenueGoal||0;
+  var val=prompt('Monthly revenue goal (₺):',current||'5000');
+  if(val===null)return;
+  val=parseFloat(val);
+  if(isNaN(val)||val<=0){toast('Enter a valid amount');return}
+  CF.revenueGoal=val;saveCF();toast('Revenue goal set: ₺'+val.toLocaleString());renderPage();
+};
+window._getRevenueProgress=function(){
+  var goal=CF.revenueGoal||0;if(!goal)return null;
+  var now=new Date();var monthStart=new Date(now.getFullYear(),now.getMonth(),1).toDateString();
+  var monthRev=0;
+  if(CF.orders){CF.orders.forEach(function(o){
+    var d=new Date(o.date||o.time);
+    if(d.getMonth()===now.getMonth()&&d.getFullYear()===now.getFullYear())monthRev+=o.total||0;
+  })}
+  var pct=Math.min(100,Math.round(monthRev/goal*100));
+  var daysLeft=new Date(now.getFullYear(),now.getMonth()+1,0).getDate()-now.getDate();
+  var dailyNeeded=daysLeft>0?(goal-monthRev)/daysLeft:0;
+  return{goal:goal,current:monthRev,pct:pct,daysLeft:daysLeft,dailyNeeded:Math.max(0,dailyNeeded)};
+};
+window._revenueGoalHTML=function(){
+  var rg=_getRevenueProgress();if(!rg)return'';
+  var color=rg.pct>=100?'var(--emerald)':rg.pct>=60?'var(--amber)':'var(--ruby)';
+  return'<div class="C" style="margin-bottom:12px;border-left:3px solid '+color+'"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px"><div style="font-size:.72rem;font-weight:600;color:var(--esp)"><i class="fas fa-bullseye" style="color:'+color+';margin-right:4px"></i>Revenue Goal</div><div style="font-size:.62rem;color:var(--muted);cursor:pointer" onclick="_setRevenueGoal()"><i class="fas fa-pen" style="font-size:.5rem"></i> Edit</div></div><div style="display:flex;justify-content:space-between;font-size:.68rem;margin-bottom:4px"><span style="color:var(--muted)">₺'+rg.current.toLocaleString(undefined,{maximumFractionDigits:0})+' of ₺'+rg.goal.toLocaleString(undefined,{maximumFractionDigits:0})+'</span><span style="font-weight:700;color:'+color+'">'+rg.pct+'%</span></div><div style="height:6px;background:var(--cream3);border-radius:3px;overflow:hidden"><div style="height:100%;width:'+rg.pct+'%;background:'+color+';border-radius:3px;transition:width .5s"></div></div>'+(rg.pct<100?'<div style="font-size:.58rem;color:var(--faint);margin-top:4px">Need ₺'+rg.dailyNeeded.toFixed(0)+'/day for '+rg.daysLeft+' days</div>':'<div style="font-size:.58rem;color:var(--emerald);margin-top:4px"><i class="fas fa-check-circle"></i> Goal reached!</div>')+'</div>';
+};
+
+/* === FEAT 2. SMART RESTOCK SUGGESTIONS === */
+window._restockSuggestions=function(){
+  if(!D.beans.length){toast('No beans in inventory');return}
+  var th=D.settings.low||5;
+  var suggestions=[];
+  D.beans.forEach(function(b){
+    var stock=parseFloat(b.stock||0);
+    var usage=0;var usageCount=0;
+    D.roasts.forEach(function(r){
+      if(r.ded){r.ded.forEach(function(d){if(d.name===b.name){usage+=d.qty;usageCount++}})}
+    });
+    var avgUsage=usageCount>0?usage/usageCount:0;
+    var weeksOfStock=avgUsage>0?stock/avgUsage:999;
+    var urgency=stock<=0?'critical':stock<=th?'low':weeksOfStock<=4?'soon':'good';
+    if(urgency!=='good'){
+      suggestions.push({name:b.name,stock:stock,avgUsage:avgUsage.toFixed(1),weeksLeft:weeksOfStock===999?'N/A':weeksOfStock.toFixed(1),urgency:urgency,suggestQty:Math.max(10,Math.ceil(avgUsage*8))});
+    }
+  });
+  if(!suggestions.length){toast('All stock levels look healthy!');return}
+  suggestions.sort(function(a,b){var o={critical:0,low:1,soon:2};return(o[a.urgency]||3)-(o[b.urgency]||3)});
+  var ov=document.createElement('div');ov.className='rce-overlay';
+  var h='<div class="rce-modal" style="max-width:520px"><h3><i class="fas fa-truck-fast" style="color:var(--amber)"></i> Restock Suggestions</h3>';
+  h+='<div style="font-size:.68rem;color:var(--muted);margin-bottom:10px">Based on your roast history and current stock levels</div>';
+  h+='<div style="max-height:350px;overflow-y:auto">';
+  suggestions.forEach(function(s){
+    var color=s.urgency==='critical'?'var(--ruby)':s.urgency==='low'?'var(--amber)':'var(--blue)';
+    var label=s.urgency==='critical'?'OUT OF STOCK':s.urgency==='low'?'LOW STOCK':'RESTOCK SOON';
+    h+='<div style="display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--cream3)"><div style="flex:1"><div style="font-size:.76rem;font-weight:600;color:var(--esp)">'+esc(s.name)+'</div><div style="font-size:.6rem;color:var(--muted)">Stock: '+s.stock+'kg · Avg use: '+s.avgUsage+'kg/batch · ~'+s.weeksLeft+' batches left</div></div><div style="text-align:right"><div style="font-size:.52rem;font-weight:700;color:'+color+';background:'+color+'15;padding:2px 6px;border-radius:4px;margin-bottom:3px">'+label+'</div><div style="font-size:.62rem;font-weight:600;color:var(--esp)">Order ~'+s.suggestQty+'kg</div></div></div>';
+  });
+  h+='</div><div style="margin-top:12px;text-align:right"><button class="B Ba" onclick="this.closest(\'.rce-overlay\').remove()">Close</button></div></div>';
+  ov.innerHTML=h;document.body.appendChild(ov);
+  ov.addEventListener('click',function(e){if(e.target===ov)ov.remove()});
+};
+
+/* === FEAT 3. CUSTOMER LOYALTY TIERS === */
+window._loyaltyTiers=[
+  {name:'Bronze',min:0,icon:'fa-medal',color:'#cd7f32',discount:0},
+  {name:'Silver',min:500,icon:'fa-medal',color:'#c0c0c0',discount:5},
+  {name:'Gold',min:2000,icon:'fa-crown',color:'#ffd700',discount:10},
+  {name:'Platinum',min:5000,icon:'fa-gem',color:'#e5e4e2',discount:15}
+];
+window._getClientTier=function(totalSpent){
+  var tier=window._loyaltyTiers[0];
+  for(var i=window._loyaltyTiers.length-1;i>=0;i--){
+    if(totalSpent>=window._loyaltyTiers[i].min){tier=window._loyaltyTiers[i];break}
+  }
+  return tier;
+};
+window._showLoyaltyDashboard=function(){
+  var tiers={Bronze:0,Silver:0,Gold:0,Platinum:0};
+  var totalClients=D.clients.length;
+  D.clients.forEach(function(c){
+    var spent=parseFloat(c.totalSpent||0);
+    var tier=_getClientTier(spent);
+    tiers[tier.name]++;
+  });
+  var ov=document.createElement('div');ov.className='rce-overlay';
+  var h='<div class="rce-modal" style="max-width:480px"><h3><i class="fas fa-crown" style="color:#ffd700"></i> Loyalty Tiers</h3>';
+  h+='<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0">';
+  window._loyaltyTiers.forEach(function(t){
+    h+='<div class="C" style="text-align:center;padding:12px;border-left:3px solid '+t.color+'"><div style="font-size:1.1rem"><i class="fas '+t.icon+'" style="color:'+t.color+'"></i></div><div style="font-size:.76rem;font-weight:700;color:var(--esp)">'+t.name+'</div><div style="font-size:1.1rem;font-weight:700;color:var(--amber)">'+tiers[t.name]+'</div><div style="font-size:.54rem;color:var(--muted)">≥₺'+t.min.toLocaleString()+(t.discount?' · '+t.discount+'% off':'')+'</div></div>';
+  });
+  h+='</div>';
+  var topClients=D.clients.slice().sort(function(a,b){return(parseFloat(b.totalSpent||0))-(parseFloat(a.totalSpent||0))}).slice(0,5);
+  if(topClients.length){
+    h+='<div style="font-size:.68rem;font-weight:600;color:var(--muted);margin:8px 0 4px;text-transform:uppercase;letter-spacing:1px">Top Clients</div>';
+    topClients.forEach(function(c,i){
+      var tier=_getClientTier(parseFloat(c.totalSpent||0));
+      h+='<div style="display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid var(--cream3)"><span style="font-size:.56rem;font-weight:700;color:var(--amber);">'+(i+1)+'</span><div style="flex:1;font-size:.72rem;font-weight:600;color:var(--esp)">'+esc(c.name)+'</div><span style="font-size:.52rem;padding:2px 6px;border-radius:4px;background:'+tier.color+'20;color:'+tier.color+';font-weight:700"><i class="fas '+tier.icon+'"></i> '+tier.name+'</span><span style="font-size:.68rem;font-family:var(--fm);color:var(--amber)">₺'+(parseFloat(c.totalSpent||0)).toLocaleString()+'</span></div>';
+    });
+  }
+  h+='<div style="margin-top:12px;text-align:right"><button class="B Ba" onclick="this.closest(\'.rce-overlay\').remove()">Close</button></div></div>';
+  ov.innerHTML=h;document.body.appendChild(ov);
+  ov.addEventListener('click',function(e){if(e.target===ov)ov.remove()});
+};
+
+/* === FEAT 4. POS DAILY REPORT PDF EXPORT === */
+window._exportDailyPDF=function(){
+  var tO=_todayOrds();
+  if(!tO.length){toast('No orders today');return}
+  var totalS=0,cashS=0,cashC=0;
+  for(var i=0;i<tO.length;i++){totalS+=tO[i].total;if(tO[i].method==='cash'){cashS+=tO[i].total;cashC++}}
+  var cardS=totalS-cashS,cardC=tO.length-cashC;
+  var ic={};for(var i=0;i<tO.length;i++){for(var j=0;j<tO[i].items.length;j++){var nm=tO[i].items[j].nm;ic[nm]=(ic[nm]||0)+tO[i].items[j].qty}}
+  var topI=[];for(var k in ic)topI.push([k,ic[k]]);topI.sort(function(a,b){return b[1]-a[1]});topI=topI.slice(0,10);
+  var el=document.createElement('div');
+  el.style.cssText='padding:30px;font-family:Outfit,system-ui,sans-serif;max-width:600px';
+  el.innerHTML='<div style="text-align:center;margin-bottom:20px"><h1 style="font-family:Fraunces,Georgia,serif;font-size:1.4rem;margin:0">'+esc(CF.name||'CoffeePro')+'</h1><div style="font-size:.78rem;color:#888">Daily Report — '+new Date().toLocaleDateString()+'</div></div>'+
+  '<div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:12px;margin-bottom:20px;text-align:center"><div style="padding:12px;background:#f8f6f3;border-radius:8px"><div style="font-size:1.1rem;font-weight:700;color:#2a8a5a">₺'+totalS.toFixed(0)+'</div><div style="font-size:.62rem;color:#888">Total Sales</div></div><div style="padding:12px;background:#f8f6f3;border-radius:8px"><div style="font-size:1.1rem;font-weight:700;color:#c8913a">'+tO.length+'</div><div style="font-size:.62rem;color:#888">Orders</div></div><div style="padding:12px;background:#f8f6f3;border-radius:8px"><div style="font-size:1.1rem;font-weight:700;color:#3a72b8">₺'+(tO.length?totalS/tO.length:0).toFixed(0)+'</div><div style="font-size:.62rem;color:#888">Avg Order</div></div><div style="padding:12px;background:#f8f6f3;border-radius:8px"><div style="font-size:1.1rem;font-weight:700;color:#8a7a6a">₺'+(CF.tips||0).toFixed(0)+'</div><div style="font-size:.62rem;color:#888">Tips</div></div></div>'+
+  '<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px"><div style="padding:12px;border:1px solid #eee;border-radius:8px"><div style="font-size:.68rem;color:#888;margin-bottom:4px"><i class="fas fa-money-bill-wave"></i> Cash</div><div style="font-size:1rem;font-weight:700">₺'+cashS.toFixed(0)+' <span style="font-size:.62rem;color:#888">('+cashC+' orders)</span></div></div><div style="padding:12px;border:1px solid #eee;border-radius:8px"><div style="font-size:.68rem;color:#888;margin-bottom:4px"><i class="fas fa-credit-card"></i> Card</div><div style="font-size:1rem;font-weight:700">₺'+cardS.toFixed(0)+' <span style="font-size:.62rem;color:#888">('+cardC+' orders)</span></div></div></div>'+
+  '<h3 style="font-size:.82rem;margin-bottom:8px">Top Items</h3>'+
+  '<table style="width:100%;border-collapse:collapse;font-size:.72rem"><thead><tr style="border-bottom:2px solid #ddd"><th style="text-align:left;padding:6px">Item</th><th style="text-align:right;padding:6px">Qty</th></tr></thead><tbody>'+
+  topI.map(function(it){return'<tr style="border-bottom:1px solid #eee"><td style="padding:6px">'+it[0]+'</td><td style="text-align:right;padding:6px;font-weight:600">×'+it[1]+'</td></tr>'}).join('')+
+  '</tbody></table><div style="text-align:center;margin-top:20px;font-size:.56rem;color:#bbb">Generated by CoffeePro POS</div>';
+  toast(t('genPdf'));
+  html2pdf().set({margin:10,filename:CF.name+'-report-'+new Date().toISOString().slice(0,10)+'.pdf',image:{type:'jpeg',quality:.95},html2canvas:{scale:2},jsPDF:{format:'a4'}}).from(el).save().then(function(){toast(t('pdfDone'))}).catch(function(){toast(t('pdfErr'))});
+};
+
+/* === FEAT 5. ROAST PROFILE COMPARISON === */
+window._compareRoasts=function(){
+  if(D.roasts.length<2){toast('Need at least 2 roasts to compare');return}
+  var ov=document.createElement('div');ov.className='rce-overlay';
+  var h='<div class="rce-modal" style="max-width:600px"><h3><i class="fas fa-code-compare" style="color:var(--amber)"></i> Compare Roast Profiles</h3>';
+  h+='<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px">';
+  h+='<div><label style="font-size:.62rem;font-weight:600;color:var(--muted)">ROAST A</label><select id="rcA" class="bp-select" style="width:100%;margin-top:4px" onchange="_doRoastCompare()">';
+  D.roasts.forEach(function(r,i){h+='<option value="'+i+'">'+esc(r.name)+' ('+esc(r.date||'no date')+')</option>'});
+  h+='</select></div>';
+  h+='<div><label style="font-size:.62rem;font-weight:600;color:var(--muted)">ROAST B</label><select id="rcB" class="bp-select" style="width:100%;margin-top:4px" onchange="_doRoastCompare()">';
+  D.roasts.forEach(function(r,i){h+='<option value="'+i+'"'+(i===1?' selected':'')+'>'+esc(r.name)+' ('+esc(r.date||'no date')+')</option>'});
+  h+='</select></div></div>';
+  h+='<div id="rcResult"></div>';
+  h+='<div style="margin-top:12px;text-align:right"><button class="B Ba" onclick="this.closest(\'.rce-overlay\').remove()">Close</button></div></div>';
+  ov.innerHTML=h;document.body.appendChild(ov);
+  ov.addEventListener('click',function(e){if(e.target===ov)ov.remove()});
+  _doRoastCompare();
+};
+window._doRoastCompare=function(){
+  var aIdx=parseInt(document.getElementById('rcA')?.value||0);
+  var bIdx=parseInt(document.getElementById('rcB')?.value||1);
+  var a=D.roasts[aIdx],b=D.roasts[bIdx];
+  if(!a||!b)return;
+  var res=document.getElementById('rcResult');if(!res)return;
+  var fields=[
+    {label:'Charge Temp',key:'charge',unit:'°C'},
+    {label:'1st Crack',key:'fc',unit:'°C'},
+    {label:'Drop Temp',key:'drop',unit:'°C'},
+    {label:'Dev Time',key:'dev',unit:''},
+    {label:'Total Time',key:'time',unit:''},
+    {label:'Loss',key:'loss',unit:'%'},
+    {label:'Level',key:'level',unit:''},
+    {label:'Agtron',key:'agtron',unit:''}
+  ];
+  var h='<table style="width:100%;border-collapse:collapse;font-size:.72rem"><thead><tr style="border-bottom:2px solid var(--cream3)"><th style="text-align:left;padding:6px;color:var(--muted);font-size:.6rem">METRIC</th><th style="text-align:center;padding:6px;color:var(--amber);font-size:.6rem">'+esc(a.name)+'</th><th style="text-align:center;padding:6px;color:var(--blue);font-size:.6rem">'+esc(b.name)+'</th><th style="text-align:center;padding:6px;color:var(--muted);font-size:.6rem">DIFF</th></tr></thead><tbody>';
+  fields.forEach(function(f){
+    var va=a[f.key]||'—';var vb=b[f.key]||'—';
+    var na=parseFloat(va);var nb=parseFloat(vb);
+    var diff='—';var diffColor='var(--muted)';
+    if(!isNaN(na)&&!isNaN(nb)){
+      var d=nb-na;diff=(d>0?'+':'')+d.toFixed(1)+f.unit;
+      diffColor=d>0?'var(--emerald)':d<0?'var(--ruby)':'var(--muted)';
+    }
+    h+='<tr style="border-bottom:1px solid var(--cream3)"><td style="padding:6px;color:var(--muted);font-weight:600">'+f.label+'</td><td style="text-align:center;padding:6px;font-family:var(--fm);color:var(--esp)">'+va+f.unit+'</td><td style="text-align:center;padding:6px;font-family:var(--fm);color:var(--esp)">'+vb+f.unit+'</td><td style="text-align:center;padding:6px;font-family:var(--fm);font-weight:600;color:'+diffColor+'">'+diff+'</td></tr>';
+  });
+  h+='</tbody></table>';
+  if(a.notes||b.notes){
+    h+='<div style="margin-top:10px;display:grid;grid-template-columns:1fr 1fr;gap:8px">';
+    h+='<div style="font-size:.62rem;color:var(--muted)"><strong>Notes A:</strong> '+(a.notes?esc(a.notes):'—')+'</div>';
+    h+='<div style="font-size:.62rem;color:var(--muted)"><strong>Notes B:</strong> '+(b.notes?esc(b.notes):'—')+'</div></div>';
+  }
+  res.innerHTML=h;
 };
 
 /* INIT */
