@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="description" content="CoffeePro — The all-in-one B2B coffee trade platform. Marketplace, POS, roasting tools, and supply chain management for coffee professionals.">
+<meta name="description" content="CoffeePro — Professional roastery management tools. Roast logging, cupping scoresheets, bean inventory, yield calculators, and café POS for coffee professionals worldwide.">
 <meta name="theme-color" content="#f6f3ef">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -13,12 +13,12 @@
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☕</text></svg>">
-<title>CoffeePro — The Global Coffee Marketplace</title>
+<title>CoffeePro — Professional Roastery & Café Management Tools</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
 --cream:#f6f3ef;--cream2:#ece8e2;--cream3:#ddd8d0;--warm:#c4bdb4;
@@ -30,11 +30,11 @@
 --blue:#3a72b8;--blue-lt:rgba(58,114,184,.07);
 --white:#fff;--csh:0 1px 2px rgba(26,22,18,.04),0 4px 16px rgba(26,22,18,.04);
 --csh2:0 4px 12px rgba(26,22,18,.06),0 16px 40px rgba(26,22,18,.06);
---fd:'Fraunces',Georgia,serif;--fb:'Outfit',system-ui,sans-serif;--fm:'JetBrains Mono',monospace;
+--fd:'DM Serif Display',Georgia,serif;--fb:'Plus Jakarta Sans',system-ui,sans-serif;--fm:'JetBrains Mono',monospace;
 --r:12px;--rl:16px;--rx:24px;--e:cubic-bezier(.4,0,.2,1);
 --bg:#f6f3ef;--accent:#c8913a;--card-bdr:rgba(26,22,18,.06);--card-shadow:rgba(26,22,18,.05);--panel:#ece8e2;--card:#fff;--d-card:#fff;--d-bdr:rgba(26,22,18,.06);--d-txt:#1a1612;--d-bg:#f6f3ef;
 }
-html[dir=rtl]{--fb:'Noto Sans Arabic','Outfit',system-ui,sans-serif;--fd:'Noto Sans Arabic',Georgia,serif}
+html[dir=rtl]{--fb:'Noto Sans Arabic','Plus Jakarta Sans',system-ui,sans-serif;--fd:'Noto Sans Arabic','DM Serif Display',Georgia,serif}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
 body{font-family:var(--fb);background:var(--cream);color:var(--text);-webkit-font-smoothing:antialiased;min-height:100vh}
 [dir=rtl] .fa-arrow-left::before{content:"\f061"}[dir=rtl] .fa-chevron-right::before{content:"\f053"}
@@ -1440,9 +1440,11 @@ body.dark .dtable tbody tr:hover td{background:#221e1a}
 <div class="H-b"><div class="H-logo" onclick="go('home');eeTap()">Coffee<span>Pro</span></div><div class="H-tag">BETA</div></div><div class="cmd-trigger" onclick="openCmdPal()"><i class="fas fa-search" style="font-size:.6rem"></i> Search <kbd>⌘K</kbd></div>
 <div class="H-nav" id="mainNav">
 <div class="H-link on" data-t="home" onclick="go('home')"><i class="fas fa-house"></i><span data-i="navHome">Home</span></div>
+<!-- V2: B2B/Trade nav hidden for tool-first launch
 <div class="H-link" data-t="market" onclick="go('market')"><i class="fas fa-store"></i><span data-i="navMarket">Market</span></div>
 <div class="H-link" data-t="shop" onclick="go('shop')"><i class="fas fa-mug-hot"></i><span data-i="navShop">Shop</span></div>
 <div class="H-link" data-t="trade" onclick="go('trade')"><i class="fas fa-handshake"></i><span data-i="navTrade">Trade</span></div>
+-->
 <div class="H-link" data-t="cafe" onclick="go('cafe')"><i class="fas fa-cash-register"></i><span data-i="navCafe">My Café</span></div>
 <div class="H-link" data-t="tools" onclick="go('tools')"><i class="fas fa-wrench"></i><span data-i="navTools">Tools</span></div>
 <div class="H-link" data-t="pricing" onclick="go('pricing')"><i class="fas fa-tags"></i><span data-i="navPricing">Pricing</span></div>
@@ -1453,7 +1455,8 @@ body.dark .dtable tbody tr:hover td{background:#221e1a}
 <div class="H-btn" onclick="toggleThemePicker()" title="Change theme" role="button" aria-label="Change theme" tabindex="0"><i class="fas fa-palette"></i></div>
 <div class="H-btn" onclick="toggleDark()" title="Toggle dark mode" role="button" aria-label="Toggle dark mode" tabindex="0"><i class="fas fa-moon" id="darkIco"></i></div>
 <div class="H-btn" onclick="showNotifs()" style="position:relative" role="button" aria-label="Notifications" tabindex="0"><i class="fas fa-bell"></i><span class="notif-dot" id="notifDot" style="display:none"></span></div>
-<div class="H-btn cart-badge" onclick="go('cart')"><i class="fas fa-bag-shopping"></i><span class="cb empty" id="cartBadge">0</span></div>
+<!-- V2: Cart hidden for tool-first launch -->
+<!--<div class="H-btn cart-badge" onclick="go('cart')"><i class="fas fa-bag-shopping"></i><span class="cb empty" id="cartBadge">0</span></div>-->
 <div id="userHeaderBtn"></div>
 </div>
 </div></div>
@@ -1491,8 +1494,8 @@ body.dark .dtable tbody tr:hover td{background:#221e1a}
 <div class="footer">
 <div class="footer-inner">
 <div class="footer-grid">
-<div><div class="footer-brand">Coffee<span>Pro</span></div><div style="font-size:.72rem;line-height:1.5;margin-bottom:8px" data-i="footerDesc">The all-in-one global coffee marketplace and roastery management platform. Source, roast, sell — all in one place.</div><div class="nl-wrap"><input class="nl-input" id="nlEmail" placeholder="Enter your email..." type="email"><button class="nl-btn" onclick="nlSignup()">Subscribe</button></div><div class="trust-row"><div class="trust-badge"><i class="fas fa-lock"></i> <span data-i="sslEncrypted">SSL Encrypted</span></div><div class="trust-badge"><i class="fas fa-shield-halved"></i> <span data-i="escrowProtected">Escrow Protected</span></div><div class="trust-badge"><i class="fas fa-globe"></i> 47 Countries</div></div><div style="display:flex;gap:10px;font-size:1rem;margin-top:10px"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-linkedin"></i></a><a href="#"><i class="fab fa-x-twitter"></i></a><a href="#"><i class="fab fa-youtube"></i></a></div></div>
-<div><h4 data-i="platformCol">Platform</h4><a href="#" onclick="go('market');return false" data-i="navMarket">Market</a><br><a href="#" onclick="go('shop');return false" data-i="navShop">Shop</a><br><a href="#" onclick="go('trade');return false" data-i="navTrade">Trade</a><br><a href="#" onclick="go('tools');return false" data-i="navTools">Tools</a><br><a href="#" onclick="go('cafe');return false" data-i="navCafe">My Café</a></div>
+<div><div class="footer-brand">Coffee<span>Pro</span></div><div style="font-size:.72rem;line-height:1.5;margin-bottom:8px" data-i="footerDesc">Professional roastery management and café tools for coffee professionals. Log roasts, score cuppings, track inventory, and run your café — all in one place.</div><div class="nl-wrap"><input class="nl-input" id="nlEmail" placeholder="Enter your email..." type="email"><button class="nl-btn" onclick="nlSignup()">Subscribe</button></div><div class="trust-row"><div class="trust-badge"><i class="fas fa-lock"></i> <span data-i="sslEncrypted">SSL Encrypted</span></div><div class="trust-badge"><i class="fas fa-cloud"></i> <span>Cloud Sync</span></div><div class="trust-badge"><i class="fas fa-globe"></i> 4 Languages</div></div><div style="display:flex;gap:10px;font-size:1rem;margin-top:10px"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-linkedin"></i></a><a href="#"><i class="fab fa-x-twitter"></i></a><a href="#"><i class="fab fa-youtube"></i></a></div></div>
+<div><h4 data-i="platformCol">Platform</h4><a href="#" onclick="go('tools');return false" data-i="navTools">Tools</a><br><a href="#" onclick="go('cafe');return false" data-i="navCafe">My Café</a><br><a href="#" onclick="go('pricing');return false" data-i="navPricing">Pricing</a><br><a href="#" onclick="go('about');return false" data-i="aboutUs">About</a></div>
 <div><h4 data-i="companyCol">Company</h4><a href="#" onclick="go('about');return false" data-i="aboutUs">About Us</a><br><a href="#" onclick="go('pricing');return false">Pricing</a><br><a href="#" onclick="toast('🚀 Careers page coming soon!');return false" data-i="careers">Careers</a><br><a href="#" onclick="toast('📝 Blog launching soon!');return false" data-i="blog">Blog</a><br><a href="#" onclick="toast('📰 Press kit coming soon!');return false" data-i="press">Press</a></div>
 <div><h4 data-i="supportCol">Support</h4><a href="#" onclick="go('contact');return false" data-i="helpCenter">Help Center</a><br><a href="#" onclick="go('contact');return false" data-i="contact">Contact</a><br><a href="#" onclick="toast('📋 Terms of Service — Coming Soon');return false" data-i="terms">Terms</a><br><a href="#" onclick="toast('🔒 Privacy Policy — Coming Soon');return false" data-i="privacy">Privacy</a></div>
 </div>
@@ -1503,9 +1506,9 @@ body.dark .dtable tbody tr:hover td{background:#221e1a}
 <div class="mob-nav" id="mobNav">
 <div class="mob-nav-inner">
 <div class="mob-nav-item on" data-mob="home" onclick="go('home')"><i class="fas fa-house"></i><span data-i="navHome">Home</span></div>
-<div class="mob-nav-item" data-mob="market" onclick="go('market')"><i class="fas fa-store"></i><span data-i="navMarket">Market</span></div>
-<div class="mob-nav-item" data-mob="cafe" onclick="go('cafe')"><i class="fas fa-cash-register"></i><span data-i="navCafe">Cafe</span></div>
 <div class="mob-nav-item" data-mob="tools" onclick="go('tools')"><i class="fas fa-wrench"></i><span data-i="navTools">Tools</span></div>
+<div class="mob-nav-item" data-mob="cafe" onclick="go('cafe')"><i class="fas fa-cash-register"></i><span data-i="navCafe">Cafe</span></div>
+<div class="mob-nav-item" data-mob="pricing" onclick="go('pricing')"><i class="fas fa-tags"></i><span data-i="navPricing">Pricing</span></div>
 <div class="mob-nav-item" data-mob="acct" onclick="go('acct')"><i class="fas fa-user"></i><span data-i="acctTitle">Account</span></div>
 </div>
 </div>
@@ -1620,11 +1623,11 @@ window.closeMob=function(){document.getElementById('mainNav').classList.remove('
 const L={
 en:{
 navHome:"Home",navMarket:"Market",navShop:"Shop",navTrade:"Trade",navCafe:"My Café",navTools:"Tools",
-heroTag:"The Global Coffee Platform",heroH1:'Source. Roast.<br><em>Sell. Connect.</em>',heroP:"All-in-one marketplace for green beans, roasted coffee, equipment & direct trade.",
-btnMarket:"Marketplace",btnShop:"Shop Coffee",btnTools:"Pro Tools",
-sellers:"Sellers",countries:"Countries",monthlyVol:"Monthly Vol.",
+heroTag:"Professional Coffee Tools",heroH1:'Roast. Track.<br><em>Perfect. Repeat.</em>',heroP:"The all-in-one toolkit for roasters and café owners. Log batches, score cuppings, manage inventory, and run your café — built by coffee people, for coffee people.",
+btnTools:"Explore Tools",btnCafe:"My Café",btnPricing:"View Plans",
+toolUsers:"Active Roasters",toolCountries:"Languages",toolRoasts:"Roasts Logged",
 featList:"Featured Listings",viewAll:"View All →",topSellers:"Top Sellers",
-whyTitle:"Why CoffeePro?",whyV:"Verified Sellers",whyVd:"Every seller vetted",whyG:"Global Reach",whyGd:"47 countries, 24/7",whyS:"Secure Pay",whySd:"Escrow protection",whyT:"Pro Tools",whyTd:"Full roastery suite",
+whyTitle:"Why CoffeePro?",whyV:"Roast Logging",whyVd:"Every batch recorded",whyG:"Multi-Language",whyGd:"EN, TR, AR, RU",whyS:"Cloud Backup",whySd:"Never lose your data",whyT:"Pro Tools",whyTd:"Full roastery suite",
 b2bTitle:"B2B Marketplace",searchGreen:"Search green beans, equipment...",all:"All",greenBeans:"Green Beans",equipment:"Equipment",supplies:"Supplies",
 featured:"Featured",priceUp:"Price ↑",priceDown:"Price ↓",allOrigins:"All Origins",noResults:"No results found",
 shopTitle:"Frances Coffee Shop",shopDesc:"Where coffee becomes an obsession. 100% Arabica, hand-roasted in Istanbul.",searchRoasted:"Search roasted coffee...",searchPL:"Search private label providers...",espresso:"Espresso",filter:"Filter",singleOrigin:"Single Origin",turkish:"Turkish",capsule:"Capsule",otherRoasters:"Other Roasters",
@@ -1669,11 +1672,11 @@ origin:"Origin",lotNum:"Lot #",supplier:"Supplier",arrivalDate:"Arrival Date",ro
 },
 tr:{
 navHome:"Ana Sayfa",navMarket:"Pazar",navShop:"Mağaza",navTrade:"Ticaret",navCafe:"Kafem",navTools:"Araçlar",
-heroTag:"Global Kahve Platformu",heroH1:'Kaynak. Kavur.<br><em>Sat. Bağlan.</em>',heroP:"Yeşil çekirdek, kavrulmuş kahve, ekipman ve doğrudan ticaret için hepsi bir arada pazar.",
-btnMarket:"Pazar Yeri",btnShop:"Kahve Mağazası",btnTools:"Pro Araçlar",
-sellers:"Satıcı",countries:"Ülke",monthlyVol:"Aylık Hacim",
+heroTag:"Profesyonel Kahve Araçları",heroH1:'Kavur. Takip Et.<br><em>Mükemmelleştir. Tekrarla.</em>',heroP:"Kavurma ve kafe sahipleri için hepsi bir arada araç seti. Kavurmaları kaydedin, tadımları puanlayın, envanteri yönetin ve kafenizi yönetin.",
+btnTools:"Araçları Keşfet",btnCafe:"Kafem",btnPricing:"Planları Gör",
+toolUsers:"Aktif Kavurmacı",toolCountries:"Dil",toolRoasts:"Kayıtlı Kavurma",
 featList:"Öne Çıkan İlanlar",viewAll:"Tümünü Gör →",topSellers:"En İyi Satıcılar",
-whyTitle:"Neden CoffeePro?",whyV:"Doğrulanmış Satıcılar",whyVd:"Her satıcı denetlendi",whyG:"Global Erişim",whyGd:"47 ülke, 7/24",whyS:"Güvenli Ödeme",whySd:"Emanet koruması",whyT:"Pro Araçlar",whyTd:"Tam kavurhane paketi",
+whyTitle:"Neden CoffeePro?",whyV:"Kavurma Kaydı",whyVd:"Her parti kaydedildi",whyG:"Çoklu Dil",whyGd:"EN, TR, AR, RU",whyS:"Bulut Yedekleme",whySd:"Verilerinizi kaybetmeyin",whyT:"Pro Araçlar",whyTd:"Tam kavurhane paketi",
 b2bTitle:"B2B Pazar Yeri",searchGreen:"Yeşil çekirdek, ekipman ara...",all:"Tümü",greenBeans:"Yeşil Çekirdek",equipment:"Ekipman",supplies:"Malzeme",
 featured:"Öne Çıkan",priceUp:"Fiyat ↑",priceDown:"Fiyat ↓",allOrigins:"Tüm Menşe",noResults:"Sonuç bulunamadı",
 shopTitle:"Frances Kahve Mağazası",shopDesc:"Kahvenin tutku olduğu yer. %100 Arabica, İstanbul'da el kavurması.",searchRoasted:"Kavrulmuş kahve ara...",searchPL:"Özel marka sağlayıcı ara...",espresso:"Espresso",filter:"Filtre",singleOrigin:"Tek Menşe",turkish:"Türk Kahvesi",capsule:"Kapsül",otherRoasters:"Diğer Kavurucular",
@@ -1718,11 +1721,11 @@ origin:"Menşe",lotNum:"Lot #",supplier:"Tedarikçi",arrivalDate:"Varış Tarihi
 },
 ar:{
 navHome:"الرئيسية",navMarket:"السوق",navShop:"المتجر",navTrade:"التجارة",navCafe:"مقهاي",navTools:"الأدوات",
-heroTag:"منصة القهوة العالمية",heroH1:'مصدر. حمّص.<br><em>بِع. تواصل.</em>',heroP:"سوق شامل للبن الأخضر والقهوة المحمصة والمعدات والتجارة المباشرة.",
-btnMarket:"السوق",btnShop:"تسوق القهوة",btnTools:"أدوات احترافية",
-sellers:"بائع",countries:"دولة",monthlyVol:"حجم شهري",
+heroTag:"أدوات القهوة الاحترافية",heroH1:'حمّص. تتبّع.<br><em>أتقن. كرّر.</em>',heroP:"مجموعة أدوات متكاملة للمحمصين وأصحاب المقاهي. سجّل الدفعات، قيّم التذوق، أدر المخزون، وشغّل مقهاك.",
+btnTools:"استكشف الأدوات",btnCafe:"مقهاي",btnPricing:"عرض الخطط",
+toolUsers:"محمّص نشط",toolCountries:"لغة",toolRoasts:"تحميص مسجّل",
 featList:"قوائم مميزة",viewAll:"عرض الكل ←",topSellers:"أفضل البائعين",
-whyTitle:"لماذا CoffeePro؟",whyV:"بائعون موثقون",whyVd:"كل بائع تم التحقق منه",whyG:"وصول عالمي",whyGd:"٤٧ دولة، ٢٤/٧",whyS:"دفع آمن",whySd:"حماية الضمان",whyT:"أدوات احترافية",whyTd:"حزمة المحمصة الكاملة",
+whyTitle:"لماذا CoffeePro؟",whyV:"سجل التحميص",whyVd:"كل دفعة مسجلة",whyG:"متعدد اللغات",whyGd:"EN, TR, AR, RU",whyS:"نسخ احتياطي سحابي",whySd:"لا تفقد بياناتك أبداً",whyT:"أدوات احترافية",whyTd:"حزمة المحمصة الكاملة",
 b2bTitle:"سوق B2B",searchGreen:"ابحث عن بن أخضر، معدات...",all:"الكل",greenBeans:"بن أخضر",equipment:"معدات",supplies:"مستلزمات",
 featured:"مميز",priceUp:"السعر ↑",priceDown:"السعر ↓",allOrigins:"جميع المناشئ",noResults:"لا توجد نتائج",
 shopTitle:"متجر قهوة فرانسيس",shopDesc:"حيث تصبح القهوة شغفاً. ١٠٠٪ أرابيكا، محمصة يدوياً في إسطنبول.",searchRoasted:"ابحث عن قهوة محمصة...",searchPL:"ابحث عن مقدمي العلامة الخاصة...",espresso:"إسبريسو",filter:"فلتر",singleOrigin:"أحادي المنشأ",turkish:"تركي",capsule:"كبسولة",otherRoasters:"محمصات أخرى",
@@ -1766,11 +1769,11 @@ navPricing:"الأسعار",navAbout:"عن المنصة",hiwTitle:"كيف يعم
 },
 ru:{
 navHome:"Главная",navMarket:"Рынок",navShop:"Магазин",navTrade:"Торговля",navCafe:"Моё кафе",navTools:"Инструменты",
-heroTag:"Глобальная платформа кофе",heroH1:'Закупай. Обжаривай.<br><em>Продавай. Объединяй.</em>',heroP:"Единая площадка для зелёного кофе, обжаренного кофе, оборудования и прямой торговли.",
-btnMarket:"Торговая площадка",btnShop:"Магазин кофе",btnTools:"Про Инструменты",
-sellers:"Продавцы",countries:"Стран",monthlyVol:"Месячный об.",
+heroTag:"Профессиональные инструменты для кофе",heroH1:'Обжаривай. Отслеживай.<br><em>Совершенствуй. Повторяй.</em>',heroP:"Полный набор инструментов для обжарщиков и владельцев кафе. Журнал обжарки, каппинг, управление запасами и POS для кафе.",
+btnTools:"Инструменты",btnCafe:"Моё кафе",btnPricing:"Тарифы",
+toolUsers:"Обжарщиков",toolCountries:"Языков",toolRoasts:"Обжарок",
 featList:"Избранные листинги",viewAll:"Все →",topSellers:"Лучшие продавцы",
-whyTitle:"Почему CoffeePro?",whyV:"Проверенные продавцы",whyVd:"Каждый продавец проверен",whyG:"Глобальный охват",whyGd:"47 стран, 24/7",whyS:"Безопасная оплата",whySd:"Защита эскроу",whyT:"Про Инструменты",whyTd:"Полный набор обжарщика",
+whyTitle:"Почему CoffeePro?",whyV:"Журнал обжарки",whyVd:"Каждая партия записана",whyG:"Мультиязычность",whyGd:"EN, TR, AR, RU",whyS:"Облачный бэкап",whySd:"Никогда не теряйте данные",whyT:"Про Инструменты",whyTd:"Полный набор обжарщика",
 b2bTitle:"B2B Торговая площадка",searchGreen:"Зелёный кофе, оборудование...",all:"Все",greenBeans:"Зелёный кофе",equipment:"Оборудование",supplies:"Расходники",
 featured:"Избранное",priceUp:"Цена ↑",priceDown:"Цена ↓",allOrigins:"Все происхождения",noResults:"Ничего не найдено",
 shopTitle:"Магазин Frances Coffee",shopDesc:"Где кофе становится страстью. 100% Арабика, обжарка вручную в Стамбуле.",searchRoasted:"Поиск обжаренного кофе...",searchPL:"Поиск поставщиков СТМ...",espresso:"Эспрессо",filter:"Фильтр",singleOrigin:"Моносорт",turkish:"Турецкий",capsule:"Капсулы",otherRoasters:"Другие обжарщики",
@@ -1977,32 +1980,23 @@ function rHome(){const bk=D.beans.reduce((s,b)=>s+parseFloat(b.stock||0),0);cons
 const tk=[{n:'Arabica',p:'$4.82',c:'+2.1%',u:1},{n:'Robusta',p:'$5,240',c:'-0.8%',u:0},{n:'ETH',p:'$5.80',c:'+1.4%',u:1},{n:'BRA',p:'$3.20',c:'+0.3%',u:1},{n:'KEN',p:'$6.90',c:'+3.2%',u:1},{n:'USD/TRY',p:'₺36.12',c:'+0.1%',u:1}];
 const tkH=tk.map(x=>`<div class="tki"><span class="n">${x.n}</span><span class="p">${x.p}</span><span class="c ${x.u?'up':'dn'}">${x.c}</span></div>`).join('');
 const sellers=[{nm:"Frances Coffee",lc:"Istanbul",av:"🇹🇷",bg:"var(--amber-lt)",rt:4.9,ct:24},{nm:"Kahve Dünyası",lc:"Trendyol",av:"☕",bg:"rgba(255,108,0,.08)",rt:4.4,ct:50},{nm:"Nespresso",lc:"Amazon",av:"🟢",bg:"rgba(255,153,0,.08)",rt:4.7,ct:120},{nm:"Lavazza",lc:"Amazon / Trendyol",av:"🇮🇹",bg:"var(--cop-lt)",rt:4.3,ct:60},{nm:"Starbucks",lc:"Amazon",av:"🟢",bg:"var(--em-lt)",rt:4.6,ct:85},{nm:"Bongardi Coffee",lc:"Trendyol",av:"☕",bg:"rgba(255,108,0,.08)",rt:4.7,ct:38},{nm:"Addis Export",lc:"Ethiopia",av:"🇪🇹",bg:"var(--em-lt)",rt:4.8,ct:18},{nm:"Santos Trading",lc:"São Paulo",av:"🇧🇷",bg:"var(--cop-lt)",rt:4.6,ct:31}];
-return`${getGreeting()}<div class="hero"><div class="hero-particles" id="heroP"></div><div style="position:relative;z-index:1"><div class="h-tag"><i class="fas fa-globe"></i> <span id="heroTyped">${t('heroTag')}</span></div><h1>${t('heroH1')}</h1><p>${t('heroP')}</p><div class="h-acts"><button class="B Ba" onclick="go('market')"><i class="fas fa-store"></i> ${t('btnMarket')}</button><button class="B Bg" onclick="go('shop')"><i class="fas fa-mug-hot"></i> ${t('btnShop')}</button><button class="B Bd" onclick="go('tools')"><i class="fas fa-wrench"></i> ${t('btnTools')}</button></div><div class="h-stats"><div class="hs"><div class="hs-v">2,400+</div><div class="hs-l">${t('sellers')}</div></div><div class="hs"><div class="hs-v">47</div><div class="hs-l">${t('countries')}</div></div><div class="hs"><div class="hs-v">$12M</div><div class="hs-l">${t('monthlyVol')}</div></div></div></div></div>
-${getDailyDeal()}
-<div class="tk"><div class="tk-inner">${tkH}${tkH}</div></div>
+return`${getGreeting()}<div class="hero"><div class="hero-particles" id="heroP"></div><div style="position:relative;z-index:1"><div class="h-tag"><i class="fas fa-fire"></i> <span id="heroTyped">${t('heroTag')}</span></div><h1>${t('heroH1')}</h1><p>${t('heroP')}</p><div class="h-acts"><button class="B Ba" onclick="go('tools')"><i class="fas fa-wrench"></i> ${t('btnTools')}</button><button class="B Bg" onclick="go('cafe')"><i class="fas fa-cash-register"></i> ${t('btnCafe')}</button><button class="B Bd" onclick="go('pricing')"><i class="fas fa-tags"></i> ${t('btnPricing')}</button></div><div class="h-stats"><div class="hs"><div class="hs-v">1,200+</div><div class="hs-l">${t('toolUsers')}</div></div><div class="hs"><div class="hs-v">4</div><div class="hs-l">${t('toolCountries')}</div></div><div class="hs"><div class="hs-v">${D.roasts.length||'50K+'}</div><div class="hs-l">${t('toolRoasts')}</div></div></div></div></div>
+<!-- V2: Daily deals and ticker hidden for tool-first launch -->
+
 <div class="qs reveal"><div class="q"><div class="q-v" style="color:var(--emerald)" data-count="${bk.toFixed(0)}" data-suffix="kg">0<small style="font-size:.5rem;color:var(--faint)">kg</small></div><div class="q-l">${t('greenBeansTitle')}</div></div><div class="q"><div class="q-v" style="color:var(--amber)" data-count="${D.products.length}">0</div><div class="q-l">${t('savedProducts')}</div></div><div class="q"><div class="q-v" style="color:var(--copper)" data-count="${D.roasts.length}">0</div><div class="q-l">${t('roastLog')}</div></div><div class="q"><div class="q-v" style="color:var(--blue)" data-count="${D.clients.length}">0</div><div class="q-l">${t('clientTitle')}</div></div></div>
 ${low.map(b=>`<div class="sw-warn"><i class="fas fa-exclamation-triangle"></i><strong>${esc(b.name)}</strong> — ${b.stock} kg</div>`).join('')}
-<div class="sh"><h2>${t('featList').replace(/(Listings|İlanlar|قوائم مميزة|листинги)/i,'<em>$1</em>')}</h2><button class="Bgh" onclick="go('market')">${t('viewAll')}</button></div>
-<div class="pg">${[greenDB[0],greenDB[4],greenDB[6],greenDB[3]].map(p=>pc(p,true)).join('')}</div>
-<div class="sh" style="margin-top:8px"><h2>Frances Coffee ☕</h2><button class="Bgh" onclick="go('shop')">${t('shopAll')}</button></div>
-<div class="pg">${[francesShop[0],francesShop[4],francesShop[8],francesShop[10]].map(p=>pc(p,true)).join('')}</div>
-<div class="sh" style="margin-top:8px"><h2>${t('trendTrendyol')} 🇹🇷</h2><button class="Bgh" onclick="go('shop')">${t('shopAll')}</button></div>
-<div class="pg">${[trendyolDB[0],trendyolDB[2],trendyolDB[3],trendyolDB[9]].map(p=>pc(p,true)).join('')}</div>
-<div class="sh" style="margin-top:8px"><h2>${t('amazonBest')} 🇺🇸</h2><button class="Bgh" onclick="go('shop')">${t('shopAll')}</button></div>
-<div class="pg">${[amazonDB[2],amazonDB[0],amazonDB[4],amazonDB[6]].map(p=>pc(p,true)).join('')}</div>
-<div class="sh" style="margin-top:8px"><h2>${t('topSellers').replace(/(Sellers|Satıcılar|البائعين|продавцы)/i,'<em>$1</em>')}</h2></div>
-${sellers.map(s=>`<div class="slr"><div class="slr-av" style="background:${s.bg};font-size:1.3rem">${s.av}</div><div><div class="slr-nm">${s.nm}</div><div class="slr-lc">${s.lc}</div></div><div class="slr-st"><div class="v">${s.rt}★</div><div class="l">${s.ct} items</div></div></div>`).join('')}
+<!-- V2: Marketplace listings hidden for tool-first launch -->
 <div class="C reveal" style="text-align:center;background:var(--white)"><div style="font-family:var(--fd);font-size:1.05rem;font-weight:700;color:var(--esp);margin-bottom:12px">${t('whyTitle')}</div>
-<div class="why-grid"><div class="why-card"><div class="why-ico" style="background:var(--em-lt);border:1px solid var(--em-br)"><i class="fas fa-shield-halved" style="color:var(--emerald)"></i></div><div class="why-nm">${t('whyV')}</div><div class="why-ds">${t('whyVd')}</div></div><div class="why-card"><div class="why-ico" style="background:var(--blue-lt);border:1px solid rgba(42,90,144,.2)"><i class="fas fa-globe" style="color:var(--blue)"></i></div><div class="why-nm">${t('whyG')}</div><div class="why-ds">${t('whyGd')}</div></div><div class="why-card"><div class="why-ico" style="background:var(--amber-lt);border:1px solid var(--amber-br)"><i class="fas fa-lock" style="color:var(--amber)"></i></div><div class="why-nm">${t('whyS')}</div><div class="why-ds">${t('whySd')}</div></div><div class="why-card"><div class="why-ico" style="background:var(--cop-lt);border:1px solid rgba(106,122,142,.2)"><i class="fas fa-chart-line" style="color:var(--copper)"></i></div><div class="why-nm">${t('whyT')}</div><div class="why-ds">${t('whyTd')}</div></div></div></div>
+<div class="why-grid"><div class="why-card"><div class="why-ico" style="background:var(--em-lt);border:1px solid var(--em-br)"><i class="fas fa-fire" style="color:var(--emerald)"></i></div><div class="why-nm">${t('whyV')}</div><div class="why-ds">${t('whyVd')}</div></div><div class="why-card"><div class="why-ico" style="background:var(--blue-lt);border:1px solid rgba(42,90,144,.2)"><i class="fas fa-language" style="color:var(--blue)"></i></div><div class="why-nm">${t('whyG')}</div><div class="why-ds">${t('whyGd')}</div></div><div class="why-card"><div class="why-ico" style="background:var(--amber-lt);border:1px solid var(--amber-br)"><i class="fas fa-cloud-arrow-up" style="color:var(--amber)"></i></div><div class="why-nm">${t('whyS')}</div><div class="why-ds">${t('whySd')}</div></div><div class="why-card"><div class="why-ico" style="background:var(--cop-lt);border:1px solid rgba(106,122,142,.2)"><i class="fas fa-chart-line" style="color:var(--copper)"></i></div><div class="why-nm">${t('whyT')}</div><div class="why-ds">${t('whyTd')}</div></div></div></div>
 <!-- How It Works -->
 <div class="hiw reveal">
 <div class="hiw-title" data-i="hiwTitle">How It Works</div>
-<div class="hiw-sub" data-i="hiwSub">From sourcing to selling — in four simple steps</div>
+<div class="hiw-sub" data-i="hiwSub">From roasting to serving — in four simple steps</div>
 <div class="hiw-grid reveal-stagger">
-<div class="hiw-step"><div class="hiw-line"></div><div class="hiw-num">1</div><div class="hiw-ico" style="background:var(--amber-lt);border:1px solid var(--amber-br);color:var(--amber)"><i class="fas fa-search"></i></div><div class="hiw-nm" data-i="hiwStep1">Discover</div><div class="hiw-ds" data-i="hiwStep1d">Browse verified green beans from 47 countries &amp; top brands</div></div>
-<div class="hiw-step"><div class="hiw-line"></div><div class="hiw-num">2</div><div class="hiw-ico" style="background:var(--em-lt);border:1px solid var(--em-br);color:var(--emerald)"><i class="fas fa-handshake"></i></div><div class="hiw-nm" data-i="hiwStep2">Connect</div><div class="hiw-ds" data-i="hiwStep2d">Direct trade with farms &amp; cooperatives. Fair, transparent pricing</div></div>
-<div class="hiw-step"><div class="hiw-line"></div><div class="hiw-num">3</div><div class="hiw-ico" style="background:var(--blue-lt);border:1px solid rgba(42,90,144,.2);color:var(--blue)"><i class="fas fa-fire"></i></div><div class="hiw-nm" data-i="hiwStep3">Roast &amp; Track</div><div class="hiw-ds" data-i="hiwStep3d">Use pro tools to log batches, manage inventory &amp; calculate costs</div></div>
-<div class="hiw-step"><div class="hiw-num">4</div><div class="hiw-ico" style="background:var(--cop-lt);border:1px solid rgba(106,122,142,.2);color:var(--copper)"><i class="fas fa-rocket"></i></div><div class="hiw-nm" data-i="hiwStep4">Sell &amp; Grow</div><div class="hiw-ds" data-i="hiwStep4d">Invoice clients, run your café POS &amp; scale your coffee business</div></div>
+<div class="hiw-step"><div class="hiw-line"></div><div class="hiw-num">1</div><div class="hiw-ico" style="background:var(--amber-lt);border:1px solid var(--amber-br);color:var(--amber)"><i class="fas fa-fire"></i></div><div class="hiw-nm" data-i="hiwStep1">Log Your Roasts</div><div class="hiw-ds" data-i="hiwStep1d">Record every batch — charge temp, first crack, drop time, development ratio &amp; more</div></div>
+<div class="hiw-step"><div class="hiw-line"></div><div class="hiw-num">2</div><div class="hiw-ico" style="background:var(--em-lt);border:1px solid var(--em-br);color:var(--emerald)"><i class="fas fa-clipboard-check"></i></div><div class="hiw-nm" data-i="hiwStep2">Score &amp; Cup</div><div class="hiw-ds" data-i="hiwStep2d">SCA-style cupping scoresheets. Rate aroma, flavor, body, acidity &amp; overall quality</div></div>
+<div class="hiw-step"><div class="hiw-line"></div><div class="hiw-num">3</div><div class="hiw-ico" style="background:var(--blue-lt);border:1px solid rgba(42,90,144,.2);color:var(--blue)"><i class="fas fa-boxes-stacked"></i></div><div class="hiw-nm" data-i="hiwStep3">Manage Inventory</div><div class="hiw-ds" data-i="hiwStep3d">Track green beans, packaging, products. Get low-stock alerts &amp; calculate costs in real time</div></div>
+<div class="hiw-step"><div class="hiw-num">4</div><div class="hiw-ico" style="background:var(--cop-lt);border:1px solid rgba(106,122,142,.2);color:var(--copper)"><i class="fas fa-cash-register"></i></div><div class="hiw-nm" data-i="hiwStep4">Run Your Café</div><div class="hiw-ds" data-i="hiwStep4d">Full POS system, table management, kitchen display, loyalty program &amp; analytics built in</div></div>
 </div>
 </div>
 

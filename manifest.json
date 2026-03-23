@@ -1,7 +1,7 @@
 {
-  "name": "CoffeePro — Global Coffee Platform",
+  "name": "CoffeePro — Roastery & Café Management Tools",
   "short_name": "CoffeePro",
-  "description": "The all-in-one B2B coffee trade platform. Marketplace, POS, roasting tools, and supply chain management.",
+  "description": "Professional roastery management tools. Roast logging, cupping scoresheets, bean inventory, yield calculators, and café POS for coffee professionals.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#f6f3ef",
