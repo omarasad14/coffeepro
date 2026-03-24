@@ -18,7 +18,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
 --cream:#faf8f5;--cream2:#f0ece6;--cream3:#e2ddd6;--warm:#c4bdb4;
@@ -30,11 +30,11 @@
 --blue:#2868c0;--blue-lt:rgba(40,104,192,.06);
 --white:#fff;--csh:0 1px 3px rgba(26,22,16,.05),0 6px 20px rgba(26,22,16,.05);
 --csh2:0 6px 16px rgba(26,22,16,.08),0 20px 48px rgba(26,22,16,.08);
---fd:'Outfit',system-ui,sans-serif;--fb:'DM Sans',system-ui,-apple-system,sans-serif;--fm:'JetBrains Mono',monospace;
+--fd:'Poppins',system-ui,sans-serif;--fb:'Poppins',system-ui,-apple-system,sans-serif;--fm:'JetBrains Mono',monospace;
 --r:12px;--rl:16px;--rx:24px;--e:cubic-bezier(.4,0,.2,1);
 --bg:#faf8f5;--accent:#c27c20;--card-bdr:rgba(26,22,16,.06);--card-shadow:rgba(26,22,16,.05);--panel:#f0ece6;--card:#fff;--d-card:#fff;--d-bdr:rgba(26,22,16,.06);--d-txt:#1a1610;--d-bg:#faf8f5;
 }
-html[dir=rtl]{--fb:'Noto Sans Arabic','DM Sans',system-ui,sans-serif;--fd:'Noto Sans Arabic','Outfit',system-ui,sans-serif}
+html[dir=rtl]{--fb:'Noto Sans Arabic','Poppins',system-ui,sans-serif;--fd:'Noto Sans Arabic','Poppins',system-ui,sans-serif}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
 body{font-family:var(--fb);background:var(--cream);color:var(--text);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;min-height:100vh;letter-spacing:-.01em}
 [dir=rtl] .fa-arrow-left::before{content:"\f061"}[dir=rtl] .fa-chevron-right::before{content:"\f053"}
@@ -44,7 +44,7 @@ body{font-family:var(--fb);background:var(--cream);color:var(--text);-webkit-fon
 .H{background:rgba(246,243,239,.92);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid rgba(0,0,0,.04);position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(0,0,0,.02)}
 .H-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;height:64px}
 .H-b{display:flex;align-items:center;gap:8px;flex-shrink:0}
-.H-logo{font-family:var(--fd);font-size:1.35rem;font-weight:800;color:var(--esp);letter-spacing:-.03em;cursor:pointer;white-space:nowrap}.H-logo span{color:var(--amber);font-weight:500}
+.H-logo{font-family:var(--fd);font-size:1.3rem;font-weight:700;color:var(--esp);letter-spacing:-.02em;cursor:pointer;white-space:nowrap}.H-logo span{color:var(--amber);font-weight:400}
 .H-tag{font-size:.42rem;text-transform:uppercase;letter-spacing:2px;color:var(--amber);background:var(--amber-lt);border:1px solid var(--amber-br);padding:2px 7px;border-radius:10px;font-weight:600;font-family:var(--fm)}
 
 /* Main nav links */
@@ -396,17 +396,17 @@ body.dark .hero{background:linear-gradient(180deg,#0e0c08 0%,#14120e 30%,#1a1610
 
 /* === POS / MY CAFE === */
 .cafe-lock{min-height:70vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px 16px}
-.cafe-lock-ico{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--amber-lt),var(--cop-lt));border:2px solid var(--amber);display:flex;align-items:center;justify-content:center;margin-bottom:18px;font-size:2rem;color:var(--amber)}
-.cafe-lock h2{font-family:var(--fd);font-size:1.5rem;font-weight:900;color:var(--esp);margin-bottom:4px}
-.cafe-lock p{font-size:.8rem;color:var(--muted);margin-bottom:20px}
+.cafe-lock-ico{width:80px;height:80px;border-radius:24px;background:linear-gradient(135deg,var(--amber),#a06418);display:flex;align-items:center;justify-content:center;margin-bottom:18px;font-size:2rem;color:white;box-shadow:0 8px 24px rgba(194,124,32,.25)}
+.cafe-lock h2{font-family:var(--fd);font-size:1.5rem;font-weight:700;color:var(--esp);margin-bottom:4px}
+.cafe-lock p{font-size:.8rem;color:var(--muted);margin-bottom:20px;max-width:320px}
 .cafe-lock .fg{width:100%;max-width:300px;text-align:start}.cafe-lock .B{max-width:300px}
 .pos-nav{display:flex;gap:5px;overflow-x:auto;padding-bottom:4px;margin-bottom:14px;scrollbar-width:none}.pos-nav::-webkit-scrollbar{display:none}
 .pos-nb{flex-shrink:0;padding:8px 14px;border-radius:10px;font-size:.68rem;font-weight:600;cursor:pointer;transition:.2s var(--e);border:1.5px solid var(--cream3);color:var(--muted);background:var(--white);display:flex;align-items:center;gap:6px;white-space:nowrap;box-shadow:var(--csh)}
 .pos-nb:hover{border-color:var(--amber-br);transform:translateY(-1px)}.pos-nb.on{background:var(--esp);color:var(--cream);border-color:var(--esp);box-shadow:0 2px 8px rgba(26,22,16,.15)}.pos-nb i{font-size:.72rem}
 .tbl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}
 @media(min-width:700px){.tbl-grid{grid-template-columns:repeat(4,1fr)}}
-.tbl{background:var(--white);border:2px solid var(--cream3);border-radius:var(--rl);padding:14px 8px;text-align:center;cursor:pointer;transition:.25s;position:relative;min-height:90px;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:var(--csh)}
-.tbl:hover{transform:translateY(-2px);box-shadow:var(--csh2)}
+.tbl{background:var(--white);border:2px solid var(--cream3);border-radius:18px;padding:16px 8px;text-align:center;cursor:pointer;transition:.25s var(--e);position:relative;min-height:95px;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:var(--csh)}
+.tbl:hover{transform:translateY(-3px);box-shadow:var(--csh2)}
 .tbl.t-open{border-color:var(--em-br);background:rgba(26,122,76,.04)}
 .tbl.t-occ{border-color:var(--amber-br);background:rgba(200,145,58,.06)}
 .tbl.t-bill{border-color:var(--ruby);background:rgba(166,61,61,.04);animation:pulse 2s infinite}
@@ -418,7 +418,7 @@ body.dark .hero{background:linear-gradient(180deg,#0e0c08 0%,#14120e 30%,#1a1610
 @media(min-width:700px){.pos-grid{grid-template-columns:repeat(4,1fr)}}
 .pos-item{background:var(--white);border:1.5px solid var(--cream3);border-radius:14px;padding:14px 8px;text-align:center;cursor:pointer;transition:.2s var(--e);box-shadow:var(--csh);position:relative;overflow:hidden}
 .pos-item:hover{border-color:var(--amber);box-shadow:var(--csh2);transform:translateY(-2px)}.pos-item:active{transform:scale(.95)}
-.pos-item .pi-ico{font-size:1.8rem;margin-bottom:6px;display:block}.pos-item .pi-nm{font-size:.72rem;font-weight:600;color:var(--esp);line-height:1.25;margin-bottom:3px;font-family:var(--fd)}
+.pos-item .pi-ico{font-size:1.5rem;margin-bottom:6px;display:flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:50%;background:var(--cream);border:1px solid var(--cream3);margin-left:auto;margin-right:auto}.pos-item .pi-nm{font-size:.72rem;font-weight:600;color:var(--esp);line-height:1.25;margin-bottom:3px;font-family:var(--fd)}
 .pos-item .pi-pr{font-family:var(--fm);font-size:.74rem;font-weight:700;color:var(--emerald)}
 .pos-item .pi-ct{position:absolute;top:4px;right:4px;background:var(--ruby);color:white;font-size:.52rem;font-weight:700;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--fm)}
 .cart{background:var(--white);border:1px solid var(--cream3);border-radius:var(--rl);padding:14px;margin-bottom:12px;box-shadow:var(--csh)}
@@ -2065,12 +2065,12 @@ ${low.map(b=>`<div class="sw-warn"><i class="fas fa-exclamation-triangle"></i><s
 <div class="C reveal" style="padding:28px;margin-bottom:14px">
 <div style="text-align:center;margin-bottom:20px"><div style="font-family:var(--fd);font-size:1.2rem;font-weight:800;color:var(--esp);letter-spacing:-.02em">Everything You Need. One App.</div><p style="font-size:.76rem;color:var(--muted);margin-top:4px">From green bean sourcing to the last pour — replace 5 apps with CoffeePro</p></div>
 <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
-<div style="background:linear-gradient(135deg,var(--amber-lt),rgba(194,124,32,.03));border:1px solid var(--amber-br);border-radius:var(--rl);padding:18px;text-align:center;cursor:pointer;transition:.2s" onclick="go('roast')"><div style="font-size:1.8rem;margin-bottom:8px">🔥</div><div style="font-family:var(--fd);font-weight:700;font-size:.78rem;color:var(--esp)">Roast Logger</div><div style="font-size:.6rem;color:var(--muted);margin-top:3px;line-height:1.35">Charge temp, FC, drop, loss %, dev ratio — every batch tracked</div></div>
-<div style="background:linear-gradient(135deg,var(--em-lt),rgba(15,138,82,.03));border:1px solid var(--em-br);border-radius:var(--rl);padding:18px;text-align:center;cursor:pointer;transition:.2s" onclick="go('inventory')"><div style="font-size:1.8rem;margin-bottom:8px">📦</div><div style="font-family:var(--fd);font-weight:700;font-size:.78rem;color:var(--esp)">Inventory</div><div style="font-size:.6rem;color:var(--muted);margin-top:3px;line-height:1.35">Green beans, packaging, products — with auto stock deduction</div></div>
-<div style="background:linear-gradient(135deg,var(--blue-lt),rgba(40,104,192,.03));border:1px solid rgba(40,104,192,.15);border-radius:var(--rl);padding:18px;text-align:center;cursor:pointer;transition:.2s" onclick="go('calc')"><div style="font-size:1.8rem;margin-bottom:8px">⚖️</div><div style="font-family:var(--fd);font-weight:700;font-size:.78rem;color:var(--esp)">Cost Calculator</div><div style="font-size:.6rem;color:var(--muted);margin-top:3px;line-height:1.35">Blend recipes, shrinkage, margins — know your numbers</div></div>
-<div style="background:linear-gradient(135deg,var(--ruby-lt),rgba(208,68,64,.03));border:1px solid rgba(208,68,64,.12);border-radius:var(--rl);padding:18px;text-align:center;cursor:pointer;transition:.2s" onclick="go('cafe')"><div style="font-size:1.8rem;margin-bottom:8px">☕</div><div style="font-family:var(--fd);font-weight:700;font-size:.78rem;color:var(--esp)">Cafe POS</div><div style="font-size:.6rem;color:var(--muted);margin-top:3px;line-height:1.35">Orders, tables, kitchen display, loyalty & daily reports</div></div>
-<div style="background:linear-gradient(135deg,var(--cop-lt),rgba(122,108,94,.03));border:1px solid rgba(122,108,94,.12);border-radius:var(--rl);padding:18px;text-align:center;cursor:pointer;transition:.2s" onclick="go('traceability')"><div style="font-size:1.8rem;margin-bottom:8px">📱</div><div style="font-family:var(--fd);font-weight:700;font-size:.78rem;color:var(--esp)">QR Traceability</div><div style="font-size:.6rem;color:var(--muted);margin-top:3px;line-height:1.35">Scan-to-trace on every bag — farm to cup journey</div></div>
-<div style="background:linear-gradient(135deg,rgba(192,144,224,.08),rgba(192,144,224,.02));border:1px solid rgba(192,144,224,.15);border-radius:var(--rl);padding:18px;text-align:center;cursor:pointer;transition:.2s" onclick="go('roastcoach')"><div style="font-size:1.8rem;margin-bottom:8px">🤖</div><div style="font-family:var(--fd);font-weight:700;font-size:.78rem;color:var(--esp)">AI Roast Coach</div><div style="font-size:.6rem;color:var(--muted);margin-top:3px;line-height:1.35">Personalized tips from your own roast data patterns</div></div>
+<div style="background:linear-gradient(135deg,var(--amber-lt),rgba(194,124,32,.03));border:1px solid var(--amber-br);border-radius:var(--rl);padding:20px 14px;text-align:center;cursor:pointer;transition:.25s var(--e)" onclick="go('roast')" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform=''"><div style="width:44px;height:44px;border-radius:12px;background:var(--amber);color:white;display:flex;align-items:center;justify-content:center;margin:0 auto 10px;font-size:1.1rem"><i class="fas fa-fire-flame-curved"></i></div><div style="font-weight:700;font-size:.78rem;color:var(--esp)">Roast Logger</div><div style="font-size:.6rem;color:var(--muted);margin-top:4px;line-height:1.4">Charge temp, FC, drop, loss %, dev ratio — every batch tracked</div></div>
+<div style="background:linear-gradient(135deg,var(--em-lt),rgba(15,138,82,.03));border:1px solid var(--em-br);border-radius:var(--rl);padding:20px 14px;text-align:center;cursor:pointer;transition:.25s var(--e)" onclick="go('inventory')" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform=''"><div style="width:44px;height:44px;border-radius:12px;background:var(--emerald);color:white;display:flex;align-items:center;justify-content:center;margin:0 auto 10px;font-size:1.1rem"><i class="fas fa-leaf"></i></div><div style="font-weight:700;font-size:.78rem;color:var(--esp)">Inventory</div><div style="font-size:.6rem;color:var(--muted);margin-top:4px;line-height:1.4">Green beans, packaging, products — with auto stock deduction</div></div>
+<div style="background:linear-gradient(135deg,var(--blue-lt),rgba(40,104,192,.03));border:1px solid rgba(40,104,192,.15);border-radius:var(--rl);padding:20px 14px;text-align:center;cursor:pointer;transition:.25s var(--e)" onclick="go('calc')" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform=''"><div style="width:44px;height:44px;border-radius:12px;background:var(--blue);color:white;display:flex;align-items:center;justify-content:center;margin:0 auto 10px;font-size:1.1rem"><i class="fas fa-scale-balanced"></i></div><div style="font-weight:700;font-size:.78rem;color:var(--esp)">Cost Calculator</div><div style="font-size:.6rem;color:var(--muted);margin-top:4px;line-height:1.4">Blend recipes, shrinkage, margins — know your numbers</div></div>
+<div style="background:linear-gradient(135deg,var(--ruby-lt),rgba(208,68,64,.03));border:1px solid rgba(208,68,64,.12);border-radius:var(--rl);padding:20px 14px;text-align:center;cursor:pointer;transition:.25s var(--e)" onclick="go('cafe')" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform=''"><div style="width:44px;height:44px;border-radius:12px;background:var(--ruby);color:white;display:flex;align-items:center;justify-content:center;margin:0 auto 10px;font-size:1.1rem"><i class="fas fa-cash-register"></i></div><div style="font-weight:700;font-size:.78rem;color:var(--esp)">Cafe POS</div><div style="font-size:.6rem;color:var(--muted);margin-top:4px;line-height:1.4">Orders, tables, kitchen display, loyalty & daily reports</div></div>
+<div style="background:linear-gradient(135deg,var(--cop-lt),rgba(122,108,94,.03));border:1px solid rgba(122,108,94,.12);border-radius:var(--rl);padding:20px 14px;text-align:center;cursor:pointer;transition:.25s var(--e)" onclick="go('traceability')" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform=''"><div style="width:44px;height:44px;border-radius:12px;background:var(--copper);color:white;display:flex;align-items:center;justify-content:center;margin:0 auto 10px;font-size:1.1rem"><i class="fas fa-qrcode"></i></div><div style="font-weight:700;font-size:.78rem;color:var(--esp)">QR Traceability</div><div style="font-size:.6rem;color:var(--muted);margin-top:4px;line-height:1.4">Scan-to-trace on every bag — farm to cup journey</div></div>
+<div style="background:linear-gradient(135deg,rgba(120,90,180,.08),rgba(120,90,180,.02));border:1px solid rgba(120,90,180,.15);border-radius:var(--rl);padding:20px 14px;text-align:center;cursor:pointer;transition:.25s var(--e)" onclick="go('roastcoach')" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform=''"><div style="width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#785ab4,#9070c8);color:white;display:flex;align-items:center;justify-content:center;margin:0 auto 10px;font-size:1.1rem"><i class="fas fa-brain"></i></div><div style="font-weight:700;font-size:.78rem;color:var(--esp)">AI Roast Coach</div><div style="font-size:.6rem;color:var(--muted);margin-top:4px;line-height:1.4">Personalized tips from your own roast data patterns</div></div>
 </div></div>
 
 <!-- Competitor Comparison -->
