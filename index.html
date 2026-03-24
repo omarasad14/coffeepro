@@ -1967,7 +1967,7 @@ return`<div class="P ${p.wide?'wide':''}" onclick="viewProd('${esc(pid)}')"><div
 /* ===== RENDER ENGINE ===== */
 function renderPage(){
 const a=$('app');
-const pages={home:rHome,market:rMarket,shop:rShop,trade:rTrade,tradecoops:rTradeCoops,tradeshipcalc:rTradeShipCalc,tradeprivate:rTradePrivate,tradepackets:rTradePackets,tradeequip:rTradeEquip,tools:rTools,inventory:rInv,roast:rRoast,costs:rCosts,calc:rCalc,cupping:rCupping,clients:rClients,inv:rInvGen,pricing:rPricing,about:rAbout,acct:rAcct,cart:rCart,checkout:rCheckout,ordersuccess:rOrderSuccess,auth:rAuth,cafe:rCafe,cafepos:rCafePos,cafetables:rCafeTables,cafemenu:rCafeMenu,cafeorders:rCafeOrders,cafereport:rCafeReport,caferecipes:rCafeRecipes,contact:rContact,cafemenuqr:rCafeMenuQR,cafeloyalty:rCafeLoyalty,cafekitchen:rCafeKitchen,cafeanalytics:rCafeAnalytics,cafewaitlist:rCafeWaitlist,cafewaste:rCafeWaste,cafetips:rCafeTips,brewcalc:rBrewCalc,greenlog:rGreenLog,profitcalc:rProfitCalc};
+const pages={home:rHome,market:rMarket,shop:rShop,trade:rTrade,tradecoops:rTradeCoops,tradeshipcalc:rTradeShipCalc,tradeprivate:rTradePrivate,tradepackets:rTradePackets,tradeequip:rTradeEquip,tools:rTools,inventory:rInv,roast:rRoast,costs:rCosts,calc:rCalc,cupping:rCupping,clients:rClients,inv:rInvGen,pricing:rPricing,about:rAbout,acct:rAcct,cart:rCart,checkout:rCheckout,ordersuccess:rOrderSuccess,auth:rAuth,cafe:rCafe,cafepos:rCafePos,cafetables:rCafeTables,cafemenu:rCafeMenu,cafeorders:rCafeOrders,cafereport:rCafeReport,caferecipes:rCafeRecipes,contact:rContact,cafemenuqr:rCafeMenuQR,cafeloyalty:rCafeLoyalty,cafekitchen:rCafeKitchen,cafeanalytics:rCafeAnalytics,cafewaitlist:rCafeWaitlist,cafewaste:rCafeWaste,cafetips:rCafeTips,brewcalc:rBrewCalc,greenlog:rGreenLog,profitcalc:rProfitCalc,traceability:rTraceability,roastdna:rRoastDNA,costcup:rCostCup,labeldesign:rLabelDesign,roastcoach:rRoastCoach,blendai:rBlendAI,leaderboard:rLeaderboard};
 const fn=pages[curPage]||rHome;
 window._curPage=curPage;
 a.innerHTML=`<div class="S on">${getBreadcrumb(curPage)}${fn()}</div>`;
@@ -2385,6 +2385,15 @@ ${_toolCard('brewcalc','fa-droplet','--blue','--blue-lt','rgba(40,104,192,.2)','
 ${_toolCard('greenlog','fa-globe','--emerald','--em-lt','--em-br','Green Bean Log','Track origin, lot, harvest date, processing method & cupping notes per lot','','')}
 ${_toolCard('profitcalc','fa-chart-line','--ruby','--ruby-lt','rgba(208,68,64,.2)','Profit Analyzer','Revenue vs. costs, profit per product, margin trends over time','','')}
 
+<div style="margin:18px 0 10px;font-family:var(--fd);font-size:.72rem;font-weight:700;color:var(--amber);text-transform:uppercase;letter-spacing:1px"><i class="fas fa-star" style="margin-right:4px"></i> Pro Exclusive Tools</div>
+${_toolCard('traceability','fa-qrcode','--emerald','--em-lt','--em-br','Bean-to-Cup Traceability','Generate QR codes linking to public traceability pages for each roast batch',D.roasts.length+' traceable','g')}
+${_toolCard('roastdna','fa-fingerprint','--amber','--amber-lt','--amber-br','Roast DNA & Flavor Genome','Unique visual fingerprint for each batch — shareable on Instagram','','')}
+${_toolCard('costcup','fa-mug-saucer','--ruby','--ruby-lt','rgba(208,68,64,.2)','Live Cost-Per-Cup','Real-time cost breakdown per cup as prices & overhead change','','')}
+${_toolCard('labeldesign','fa-tag','--blue','--blue-lt','rgba(40,104,192,.2)','Bag Label Designer','Auto-filled labels with QR, flavor radar, origin map — print-ready PDF','','')}
+${_toolCard('roastcoach','fa-robot','--copper','--cop-lt','rgba(122,108,94,.2)','AI Roast Coach','Pattern analysis from your roast history with improvement suggestions','','')}
+${_toolCard('blendai','fa-wand-magic-sparkles','--amber','--amber-lt','--amber-br','Smart Blend Builder','AI-powered recipe creation from your inventory — target score, cost & flavor','','')}
+${_toolCard('leaderboard','fa-ranking-star','--emerald','--em-lt','--em-br','Roaster Benchmarks','See how your roast metrics compare — loss %, consistency, throughput','','')}
+
 <!-- Quick Notes -->
 <div class="C Ca"><div class="st"><span><i class="fas fa-sticky-note" style="color:var(--amber);margin-inline-end:5px"></i>${t('quickNotes')}</span><span class="tg tg-d">${(D.settings.notes||[]).length}</span></div>
 <div style="display:flex;gap:6px;margin-bottom:8px"><input type="text" id="qNoteIn" placeholder="${t('noteText')}" style="flex:1" onkeydown="if(event.key==='Enter')_addQuickNote()"><button class="B Ba Bs" onclick="_addQuickNote()"><i class="fas fa-plus"></i></button></div>
@@ -2779,6 +2788,264 @@ ${productProfits.length?productProfits.map(function(p){var clr=p.margin>=30?'var
 <div class="C"><div class="st"><span><i class="fas fa-fire-flame-curved" style="color:var(--amber);margin-inline-end:5px"></i>Green Bean Investment</span></div>
 <div class="metric-row"><div class="metric-card"><div class="mc-val" style="color:var(--ruby)">₺${roastCost.toFixed(0)}</div><div class="mc-lbl">Bean Costs (All Roasts)</div></div><div class="metric-card"><div class="mc-val" style="color:var(--blue)">${D.roasts.length}</div><div class="mc-lbl">Total Batches</div></div></div></div>`}
 function _beanCost(name){var b=D.beans.find(function(x){return x.name===name});return b?parseFloat(b.cost)||0:0}
+
+/* ===== 1. BEAN-TO-CUP TRACEABILITY ===== */
+function rTraceability(){
+var roasts=D.roasts||[];
+return`<div class="sh"><h2><i class="fas fa-arrow-left" style="font-size:.7rem;cursor:pointer;color:var(--faint);margin-right:6px" onclick="go('tools')"></i>Bean-to-Cup Traceability</h2></div>
+<div class="C Ca"><div class="st"><span><i class="fas fa-qrcode" style="color:var(--emerald);margin-inline-end:5px"></i>Generate Traceability Page</span></div>
+<p style="font-size:.76rem;color:var(--muted);margin-bottom:12px">Select a roast batch to generate a public traceability page with QR code. Customers scan it on the bag to see the full bean-to-cup journey.</p>
+${roasts.length?`<div style="display:flex;flex-direction:column;gap:8px">${roasts.slice(0,20).map((r,i)=>{
+var beans=(r.ded||[]).map(d=>d.name).join(', ')||'—';
+return'<div class="tc" onclick="_genTrace('+i+')"><div class="tc-inner"><div class="tc-ico" style="background:var(--em-lt);border:1px solid var(--em-br);color:var(--emerald)"><i class="fas fa-seedling"></i></div><div><div class="tc-nm">'+esc(r.name)+'</div><div class="tc-ds">'+r.date+' · '+(r.type||'—')+' · '+beans+'</div></div><div class="tc-arr"><i class="fas fa-qrcode"></i></div></div></div>'}).join('')}</div>`:'<div class="empty"><i class="fas fa-seedling"></i>Log some roasts first, then generate traceability pages.</div>'}
+</div>`}
+window._genTrace=function(i){
+var r=D.roasts[i];if(!r)return;
+var beans=(r.ded||[]).map(function(d){return d.name+' ('+d.kg+'kg)'}).join(', ')||'N/A';
+var bean0=r.ded&&r.ded[0]?D.beans.find(function(b){return b.name===r.ded[0].name}):null;
+var origin=bean0?(bean0.origin||'—'):'—';
+var dna=_roastDNAsvg(r);
+var html='<div style="max-width:480px;margin:0 auto;font-family:var(--fb)">'
++'<div style="background:linear-gradient(135deg,var(--esp),var(--esp2));color:white;padding:28px 20px;border-radius:var(--rx) var(--rx) 0 0;text-align:center">'
++'<div style="font-size:.52rem;text-transform:uppercase;letter-spacing:2px;color:var(--amber);margin-bottom:6px">Bean-to-Cup Traceability</div>'
++'<div style="font-family:var(--fd);font-size:1.5rem;font-weight:800;letter-spacing:-.02em">'+esc(r.name)+'</div>'
++'<div style="font-size:.68rem;color:rgba(255,255,255,.5);margin-top:4px">Roasted '+r.date+'</div></div>'
++'<div style="background:var(--white);padding:20px;border:1px solid var(--cream3);border-top:none">'
++'<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px">'
++'<div style="background:var(--cream);padding:10px;border-radius:var(--r);text-align:center"><div style="font-size:.5rem;text-transform:uppercase;color:var(--faint);font-weight:600">Origin</div><div style="font-weight:700;font-size:.82rem;color:var(--esp)">'+esc(origin)+'</div></div>'
++'<div style="background:var(--cream);padding:10px;border-radius:var(--r);text-align:center"><div style="font-size:.5rem;text-transform:uppercase;color:var(--faint);font-weight:600">Process</div><div style="font-weight:700;font-size:.82rem;color:var(--esp)">'+(r.type||'—')+'</div></div>'
++'<div style="background:var(--cream);padding:10px;border-radius:var(--r);text-align:center"><div style="font-size:.5rem;text-transform:uppercase;color:var(--faint);font-weight:600">Roast Level</div><div style="font-weight:700;font-size:.82rem;color:var(--esp)">'+(r.level||'Medium')+'</div></div>'
++'<div style="background:var(--cream);padding:10px;border-radius:var(--r);text-align:center"><div style="font-size:.5rem;text-transform:uppercase;color:var(--faint);font-weight:600">Loss</div><div style="font-weight:700;font-size:.82rem;color:var(--esp)">'+(r.loss||'—')+'%</div></div></div>'
++'<div style="margin-bottom:12px"><div style="font-size:.56rem;text-transform:uppercase;color:var(--faint);font-weight:600;margin-bottom:4px">Green Beans Used</div><div style="font-size:.76rem;color:var(--text)">'+esc(beans)+'</div></div>'
++(r.notes?'<div style="margin-bottom:12px"><div style="font-size:.56rem;text-transform:uppercase;color:var(--faint);font-weight:600;margin-bottom:4px">Tasting Notes</div><div style="font-size:.76rem;color:var(--text);font-style:italic;border-left:3px solid var(--amber);padding-left:8px">'+esc(r.notes)+'</div></div>':'')
++'<div style="text-align:center;margin:16px 0 8px"><div style="font-size:.56rem;text-transform:uppercase;color:var(--faint);font-weight:600;margin-bottom:8px">Roast DNA</div>'+dna+'</div>'
++'<div id="traceQR" style="text-align:center;margin-top:12px"></div>'
++'<div style="text-align:center;font-size:.52rem;color:var(--faint);margin-top:8px">Powered by CoffeePro</div>'
++'</div><div style="background:var(--cream2);padding:12px;border-radius:0 0 var(--rx) var(--rx);border:1px solid var(--cream3);border-top:none;text-align:center">'
++'<button class="B Ba Bs" onclick="_copyTraceHTML()"><i class="fas fa-copy"></i> Copy Link</button> '
++'<button class="B Bg Bs" onclick="_dlTraceImg()"><i class="fas fa-download"></i> Download</button>'
++'</div></div>';
+var el=document.getElementById('mainContent');if(el)el.innerHTML=html;
+setTimeout(function(){var qel=document.getElementById('traceQR');if(qel&&typeof QRCode!=='undefined'){new QRCode(qel,{text:'https://coffeepro.app/trace/'+r.id,width:120,height:120})}},100);
+};
+window._copyTraceHTML=function(){navigator.clipboard.writeText('https://coffeepro.app/trace/'+D.roasts[0]?.id).then(function(){toast('Link copied!')})};
+window._dlTraceImg=function(){toast('Traceability page saved')};
+
+/* ===== 2. ROAST DNA / FLAVOR GENOME ===== */
+function _roastDNAsvg(r){
+var charge=parseFloat(r.charge)||200,drop=parseFloat(r.drop)||215,fc=parseFloat(r.fc)||196;
+var loss=parseFloat(r.loss)||15,time=r.time||'11:00';
+var tp=time.split(':');var secs=(parseInt(tp[0])||0)*60+(parseInt(tp[1])||0);
+var agtron=parseFloat(r.agtron)||55;
+var s=140,cx=s/2,cy=s/2;
+var pts=[];var vals=[charge/250,drop/250,fc/250,loss/30,secs/900,agtron/100];
+var colors=['#c27c20','#d04440','#0f8a52','#2868c0','#8a6c5e','#c090e0'];
+var svg='<svg width="'+s+'" height="'+s+'" viewBox="0 0 '+s+' '+s+'">';
+svg+='<circle cx="'+cx+'" cy="'+cy+'" r="60" fill="none" stroke="var(--cream3)" stroke-width="0.5"/>';
+svg+='<circle cx="'+cx+'" cy="'+cy+'" r="40" fill="none" stroke="var(--cream3)" stroke-width="0.5"/>';
+svg+='<circle cx="'+cx+'" cy="'+cy+'" r="20" fill="none" stroke="var(--cream3)" stroke-width="0.5"/>';
+for(var j=0;j<6;j++){var ang=(j*60-90)*Math.PI/180;var rad=Math.min(Math.max(vals[j],0.15),1)*58;
+var x=cx+Math.cos(ang)*rad;var y=cy+Math.sin(ang)*rad;pts.push(x.toFixed(1)+','+y.toFixed(1));
+svg+='<circle cx="'+x.toFixed(1)+'" cy="'+y.toFixed(1)+'" r="3.5" fill="'+colors[j]+'" opacity="0.9"/>';
+svg+='<line x1="'+cx+'" y1="'+cy+'" x2="'+x.toFixed(1)+'" y2="'+y.toFixed(1)+'" stroke="'+colors[j]+'" stroke-width="1.5" opacity="0.3"/>';}
+svg+='<polygon points="'+pts.join(' ')+'" fill="rgba(194,124,32,.08)" stroke="var(--amber)" stroke-width="1.5"/>';
+var labels=['Charge','Drop','1st Crack','Loss','Time','Agtron'];
+for(var k=0;k<6;k++){var a2=(k*60-90)*Math.PI/180;var lx=cx+Math.cos(a2)*68;var ly=cy+Math.sin(a2)*68;
+svg+='<text x="'+lx.toFixed(1)+'" y="'+ly.toFixed(1)+'" font-size="7" fill="var(--faint)" text-anchor="middle" dominant-baseline="middle">'+labels[k]+'</text>';}
+svg+='</svg>';return svg;
+}
+
+function rRoastDNA(){
+var roasts=D.roasts||[];
+return`<div class="sh"><h2><i class="fas fa-arrow-left" style="font-size:.7rem;cursor:pointer;color:var(--faint);margin-right:6px" onclick="go('tools')"></i>Roast DNA & Flavor Genome</h2></div>
+<p style="font-size:.78rem;color:var(--muted);margin-bottom:14px">Each roast batch has a unique visual fingerprint based on its parameters. Share on Instagram, print on bags, or use for quality tracking.</p>
+${roasts.length?`<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">${roasts.slice(0,20).map(function(r,i){
+return'<div class="C" style="text-align:center;padding:16px"><div style="font-family:var(--fd);font-weight:700;font-size:.84rem;margin-bottom:2px">'+esc(r.name)+'</div><div style="font-size:.6rem;color:var(--faint);margin-bottom:8px">'+r.date+' · '+(r.level||'Medium')+'</div>'+_roastDNAsvg(r)+'<div style="margin-top:6px;display:flex;gap:4px;justify-content:center;flex-wrap:wrap"><span class="tg tg-d" style="font-size:.48rem">Charge: '+(r.charge||'—')+'°C</span><span class="tg tg-d" style="font-size:.48rem">Loss: '+(r.loss||'—')+'%</span><span class="tg tg-d" style="font-size:.48rem">Time: '+(r.time||'—')+'</span></div></div>'}).join('')}</div>`:'<div class="empty"><i class="fas fa-fingerprint"></i>Log your first roast to see its DNA fingerprint.</div>'}`}
+
+/* ===== 3. LIVE COST-PER-CUP ===== */
+function rCostCup(){
+var usd=D.settings.usd||36;
+var oh=(D.oh.r||0)+(D.oh.l||0)+(D.oh.u||0)+(D.oh.m||0);
+var ohKg=D.oh.kg||1000;
+var ohPerKg=ohKg>0?oh/ohKg:0;
+var avgBeanCost=D.beans.length?D.beans.reduce(function(s,b){return s+(parseFloat(b.cost)||0)},0)/D.beans.length:0;
+var avgLoss=D.roasts.length?D.roasts.reduce(function(s,r){return s+(parseFloat(r.loss)||0)},0)/D.roasts.length:15;
+var roastedCostKg=avgBeanCost>0?avgBeanCost/(1-avgLoss/100):0;
+var totalCostKg=roastedCostKg+ohPerKg;
+var espDose=18,espCost=totalCostKg*(espDose/1000);
+var filterDose=15,filterCost=totalCostKg*(filterDose/1000);
+var batchDose=60,batchCost=totalCostKg*(batchDose/1000);
+var coldDose=80,coldCost=totalCostKg*(coldDose/1000);
+var milkCost=usd*0.15;
+return`<div class="sh"><h2><i class="fas fa-arrow-left" style="font-size:.7rem;cursor:pointer;color:var(--faint);margin-right:6px" onclick="go('tools')"></i>Live Cost-Per-Cup</h2></div>
+<div class="C" style="background:linear-gradient(135deg,var(--esp),var(--esp2));color:white;padding:24px;text-align:center;margin-bottom:14px">
+<div style="font-size:.52rem;text-transform:uppercase;letter-spacing:2px;color:var(--amber);margin-bottom:4px">Your Espresso Costs</div>
+<div style="font-family:var(--fm);font-size:2.8rem;font-weight:800;color:white">₺${espCost.toFixed(2)}</div>
+<div style="font-size:.62rem;color:rgba(255,255,255,.4);margin-top:4px">right now · updates live as costs change</div>
+</div>
+<div class="metric-row">
+<div class="metric-card"><div class="mc-val" style="color:var(--emerald)">₺${filterCost.toFixed(2)}</div><div class="mc-lbl">Filter (${filterDose}g)</div></div>
+<div class="metric-card"><div class="mc-val" style="color:var(--amber)">₺${espCost.toFixed(2)}</div><div class="mc-lbl">Espresso (${espDose}g)</div></div>
+<div class="metric-card"><div class="mc-val" style="color:var(--blue)">₺${batchCost.toFixed(2)}</div><div class="mc-lbl">Batch (${batchDose}g)</div></div>
+<div class="metric-card"><div class="mc-val" style="color:var(--copper)">₺${coldCost.toFixed(2)}</div><div class="mc-lbl">Cold Brew (${coldDose}g)</div></div>
+</div>
+<div class="C Ca"><div class="st"><span><i class="fas fa-layer-group" style="color:var(--amber);margin-inline-end:5px"></i>Cost Breakdown</span></div>
+<div class="br-row"><span class="br-l"><i class="fas fa-seedling" style="color:var(--emerald)"></i> Avg Green Bean Cost</span><span class="br-v">₺${avgBeanCost.toFixed(2)}/kg</span></div>
+<div class="br-row"><span class="br-l"><i class="fas fa-fire" style="color:var(--ruby)"></i> Avg Roast Loss</span><span class="br-v">${avgLoss.toFixed(1)}%</span></div>
+<div class="br-row"><span class="br-l"><i class="fas fa-arrow-up" style="color:var(--amber)"></i> Roasted Bean Cost</span><span class="br-v">₺${roastedCostKg.toFixed(2)}/kg</span></div>
+<div class="br-row"><span class="br-l"><i class="fas fa-building" style="color:var(--blue)"></i> Overhead per kg</span><span class="br-v">₺${ohPerKg.toFixed(2)}/kg</span></div>
+<div class="br-t"><span class="br-l" style="font-weight:700">Total Cost per kg</span><span class="br-v" style="font-size:.95rem">₺${totalCostKg.toFixed(2)}</span></div></div>
+<div class="C"><div class="st"><span><i class="fas fa-mug-saucer" style="color:var(--ruby);margin-inline-end:5px"></i>Menu Pricing Helper</span></div>
+<p style="font-size:.72rem;color:var(--muted);margin-bottom:10px">Recommended retail prices at different margins:</p>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px">
+${[60,70,75].map(function(m){var price=espCost/(1-m/100);return'<div style="background:var(--cream);border:1px solid var(--cream3);border-radius:var(--r);padding:12px;text-align:center"><div style="font-size:.48rem;text-transform:uppercase;color:var(--faint);font-weight:600">'+m+'% Margin</div><div style="font-family:var(--fm);font-weight:700;font-size:1rem;color:var(--emerald)">₺'+price.toFixed(0)+'</div><div style="font-size:.52rem;color:var(--faint)">Espresso</div></div>'}).join('')}
+</div></div>`}
+
+/* ===== 4. BAG LABEL DESIGNER ===== */
+function rLabelDesign(){
+var roasts=D.roasts||[];
+return`<div class="sh"><h2><i class="fas fa-arrow-left" style="font-size:.7rem;cursor:pointer;color:var(--faint);margin-right:6px" onclick="go('tools')"></i>Bag Label Designer</h2></div>
+<div class="C Ca"><div class="st"><span><i class="fas fa-tag" style="color:var(--blue);margin-inline-end:5px"></i>Design Your Label</span></div>
+<div class="row fg"><div class="col"><label>Roast Batch</label><select id="lblRoast" onchange="_updateLabel()"><option value="">Select batch...</option>${roasts.map(function(r,i){return'<option value="'+i+'">'+esc(r.name)+' ('+r.date+')</option>'}).join('')}</select></div><div class="col"><label>Net Weight</label><input type="text" id="lblWeight" value="250g" oninput="_updateLabel()"></div></div>
+<div class="row fg"><div class="col"><label>Brand Name</label><input type="text" id="lblBrand" value="${esc(D.user?.name||'My Roastery')}" oninput="_updateLabel()"></div><div class="col"><label>Tagline</label><input type="text" id="lblTag" value="Specialty Coffee" oninput="_updateLabel()"></div></div>
+<div class="row fg"><div class="col"><label>Flavor Notes</label><input type="text" id="lblFlavor" placeholder="Chocolate, Caramel, Citrus" oninput="_updateLabel()"></div><div class="col"><label>Price</label><input type="text" id="lblPrice" placeholder="₺299" oninput="_updateLabel()"></div></div></div>
+<div class="C" style="padding:0;overflow:hidden"><div id="lblPreview" style="background:white;padding:32px;min-height:300px">
+<div style="text-align:center;color:var(--faint);font-size:.78rem;padding:40px">Select a roast batch to preview your label</div>
+</div></div>
+<div class="row" style="margin-top:10px;gap:6px"><div class="col"><button class="B Ba Bw" onclick="_dlLabel()"><i class="fas fa-download"></i> Download PDF</button></div><div class="col"><button class="B Bg Bw" onclick="_printLabel()"><i class="fas fa-print"></i> Print</button></div></div>`}
+window._updateLabel=function(){
+var ri=$('lblRoast')?.value;if(ri===''||ri===undefined)return;
+var r=D.roasts[parseInt(ri)];if(!r)return;
+var brand=$('lblBrand')?.value||'My Roastery';
+var tag=$('lblTag')?.value||'';
+var weight=$('lblWeight')?.value||'250g';
+var flavor=$('lblFlavor')?.value||r.notes||'';
+var price=$('lblPrice')?.value||'';
+var dna=_roastDNAsvg(r);
+var el=$('lblPreview');if(!el)return;
+el.innerHTML='<div style="max-width:360px;margin:0 auto;border:2px solid var(--esp);border-radius:16px;padding:28px;text-align:center;position:relative;overflow:hidden">'
++'<div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--amber),var(--emerald),var(--blue))"></div>'
++'<div style="font-family:var(--fd);font-size:1.4rem;font-weight:800;color:var(--esp);letter-spacing:-.02em;margin-top:8px">'+esc(brand)+'</div>'
++(tag?'<div style="font-size:.58rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--faint);margin-bottom:12px">'+esc(tag)+'</div>':'')
++'<div style="font-family:var(--fd);font-size:1.1rem;font-weight:700;color:var(--amber);margin-bottom:4px">'+esc(r.name)+'</div>'
++'<div style="display:flex;justify-content:center;gap:8px;margin:8px 0"><span class="tg tg-d" style="font-size:.5rem">'+(r.level||'Medium')+'</span><span class="tg tg-d" style="font-size:.5rem">'+(r.type||'Single Origin')+'</span></div>'
++dna
++(flavor?'<div style="margin-top:10px;font-size:.72rem;color:var(--text2);font-style:italic">"'+esc(flavor)+'"</div>':'')
++'<div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:10px;border-top:1px solid var(--cream3)">'
++'<div style="font-size:.62rem;color:var(--faint)">'+weight+' · Roasted '+r.date+'</div>'
++(price?'<div style="font-family:var(--fm);font-weight:700;font-size:.9rem;color:var(--emerald)">'+esc(price)+'</div>':'')
++'</div>'
++'<div style="margin-top:10px;font-size:.42rem;color:var(--faint);text-transform:uppercase;letter-spacing:1px">Powered by CoffeePro</div>'
++'</div>';
+};
+window._dlLabel=function(){
+var el=$('lblPreview');if(!el||!el.innerHTML.includes('brand'))return toast('Design a label first');
+if(typeof html2pdf!=='undefined'){html2pdf().set({margin:10,filename:'coffee-label.pdf',image:{type:'jpeg',quality:.95}}).from(el).save();toast('Label PDF downloading...')}else{toast('PDF library loading...')}
+};
+window._printLabel=function(){var el=$('lblPreview');if(el){var w=window.open('','_blank');w.document.write('<html><body style="display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0">'+el.innerHTML+'</body></html>');w.document.close();w.print()}};
+
+/* ===== 5. AI ROAST COACH ===== */
+function rRoastCoach(){
+var roasts=D.roasts||[];
+var insights=[];
+if(roasts.length>=3){
+var avgLoss=roasts.reduce(function(s,r){return s+(parseFloat(r.loss)||0)},0)/roasts.length;
+var avgTime=roasts.reduce(function(s,r){var p=(r.time||'0:0').split(':');return s+(parseInt(p[0]||0)*60+parseInt(p[1]||0))},0)/roasts.length;
+var lossStd=Math.sqrt(roasts.reduce(function(s,r){return s+Math.pow((parseFloat(r.loss)||0)-avgLoss,2)},0)/roasts.length);
+var recent3=roasts.slice(0,3);var recent3Loss=recent3.reduce(function(s,r){return s+(parseFloat(r.loss)||0)},0)/3;
+if(avgLoss>16)insights.push({type:'warning',icon:'fa-fire-flame-curved',title:'High Average Loss',msg:'Your average loss is '+avgLoss.toFixed(1)+'%. Industry target is 12-16%. Consider dropping temperature 3-5°C earlier or shortening development time by 15-20 seconds.'});
+else if(avgLoss<11)insights.push({type:'info',icon:'fa-snowflake',title:'Very Low Loss',msg:'Your average loss is only '+avgLoss.toFixed(1)+'%. You might be under-developing. Check if your roasts taste grassy or sour — consider extending development by 10-15 seconds.'});
+else insights.push({type:'success',icon:'fa-check-circle',title:'Loss Rate is Optimal',msg:'Your average loss of '+avgLoss.toFixed(1)+'% is in the ideal 12-16% range. Keep it up!'});
+if(lossStd>3)insights.push({type:'warning',icon:'fa-chart-bar',title:'Inconsistent Roasts',msg:'Your loss % varies by ±'+lossStd.toFixed(1)+'%. High variance means inconsistent results. Focus on repeating your best batches with the same charge temp and timing.'});
+else insights.push({type:'success',icon:'fa-bullseye',title:'Great Consistency',msg:'Your loss variance is only ±'+lossStd.toFixed(1)+'%. Your roasts are very consistent — this is professional-grade repeatability.'});
+if(recent3Loss>avgLoss+2)insights.push({type:'warning',icon:'fa-arrow-trend-up',title:'Loss Trending Up',msg:'Your last 3 batches average '+recent3Loss.toFixed(1)+'% loss vs your overall '+avgLoss.toFixed(1)+'%. Check if ambient temperature or bean moisture has changed.'});
+else if(recent3Loss<avgLoss-2)insights.push({type:'success',icon:'fa-arrow-trend-down',title:'Loss Improving',msg:'Your last 3 batches average '+recent3Loss.toFixed(1)+'% loss — better than your overall '+avgLoss.toFixed(1)+'%. Whatever you changed is working!'});
+var avgDev=0,devCount=0;roasts.forEach(function(r){if(r.dev&&r.time){var dp=(r.dev||'0:0').split(':'),tt=(r.time||'0:0').split(':');var ds=parseInt(dp[0]||0)*60+parseInt(dp[1]||0);var ts=parseInt(tt[0]||0)*60+parseInt(tt[1]||0);if(ts>0){avgDev+=ds/ts*100;devCount++}}});
+if(devCount>0){avgDev/=devCount;if(avgDev<18)insights.push({type:'info',icon:'fa-clock',title:'Short Development',msg:'Average development ratio is '+avgDev.toFixed(0)+'%. For balanced flavor, aim for 20-25%. Extend post-crack development by 10-20 seconds.'});
+else if(avgDev>28)insights.push({type:'warning',icon:'fa-clock',title:'Long Development',msg:'Average development ratio is '+avgDev.toFixed(0)+'%. Above 25% can lead to baked flavors. Try a higher charge temp to reach first crack faster.'});
+else insights.push({type:'success',icon:'fa-clock',title:'Development Time Optimal',msg:'Your average development ratio of '+avgDev.toFixed(0)+'% is in the sweet spot (20-25%).'});}
+var byBean={};roasts.forEach(function(r){(r.ded||[]).forEach(function(d){if(!byBean[d.name])byBean[d.name]={count:0,totalLoss:0};byBean[d.name].count++;byBean[d.name].totalLoss+=parseFloat(r.loss)||0})});
+var beanInsights=Object.keys(byBean).filter(function(k){return byBean[k].count>=2}).map(function(k){var avg=byBean[k].totalLoss/byBean[k].count;return{name:k,count:byBean[k].count,avgLoss:avg}}).sort(function(a,b){return b.count-a.count});
+if(beanInsights.length>0){var best=beanInsights.reduce(function(a,b){return a.avgLoss<b.avgLoss?a:b});
+insights.push({type:'info',icon:'fa-seedling',title:'Best Performing Bean',msg:best.name+' has your lowest average loss at '+best.avgLoss.toFixed(1)+'% across '+best.count+' batches. This is your most efficient bean to roast.'});}
+}
+return`<div class="sh"><h2><i class="fas fa-arrow-left" style="font-size:.7rem;cursor:pointer;color:var(--faint);margin-right:6px" onclick="go('tools')"></i>AI Roast Coach</h2></div>
+<div class="C" style="background:linear-gradient(135deg,var(--esp),var(--esp2));color:white;padding:20px;text-align:center;margin-bottom:14px">
+<div style="font-size:2rem;margin-bottom:6px"><i class="fas fa-robot"></i></div>
+<div style="font-family:var(--fd);font-size:1.1rem;font-weight:700">Your Personal Roast Coach</div>
+<div style="font-size:.68rem;color:rgba(255,255,255,.5);margin-top:4px">${roasts.length} batches analyzed · ${insights.length} insights found</div></div>
+${roasts.length<3?'<div class="C Ca" style="text-align:center;padding:28px"><i class="fas fa-chart-line" style="font-size:1.6rem;color:var(--faint);display:block;margin-bottom:8px"></i><div style="font-weight:600;color:var(--esp);margin-bottom:4px">Need More Data</div><div style="font-size:.74rem;color:var(--muted)">Log at least 3 roast batches for the AI coach to analyze your patterns and provide personalized recommendations.</div></div>':
+insights.map(function(ins){var clr=ins.type==='success'?'var(--emerald)':ins.type==='warning'?'var(--ruby)':'var(--blue)';var bg=ins.type==='success'?'var(--em-lt)':ins.type==='warning'?'var(--ruby-lt)':'var(--blue-lt)';
+return'<div class="C" style="border-left:3px solid '+clr+'"><div style="display:flex;gap:10px;align-items:flex-start"><div style="width:36px;height:36px;border-radius:10px;background:'+bg+';display:flex;align-items:center;justify-content:center;flex-shrink:0;color:'+clr+';font-size:.9rem"><i class="fas '+ins.icon+'"></i></div><div><div style="font-family:var(--fd);font-weight:700;font-size:.84rem;color:var(--esp);margin-bottom:3px">'+ins.title+'</div><div style="font-size:.74rem;color:var(--muted);line-height:1.5">'+ins.msg+'</div></div></div></div>'}).join('')}`}
+
+/* ===== 6. SMART BLEND BUILDER ===== */
+function rBlendAI(){
+var beans=D.beans||[];
+return`<div class="sh"><h2><i class="fas fa-arrow-left" style="font-size:.7rem;cursor:pointer;color:var(--faint);margin-right:6px" onclick="go('tools')"></i>Smart Blend Builder</h2></div>
+<div class="C Ca"><div class="st"><span><i class="fas fa-wand-magic-sparkles" style="color:var(--amber);margin-inline-end:5px"></i>Describe Your Ideal Blend</span></div>
+<div class="row fg"><div class="col"><label>Target Flavor Profile</label><select id="aiProfile"><option value="balanced">Balanced & Smooth</option><option value="bright">Bright & Fruity</option><option value="rich">Rich & Chocolatey</option><option value="bold">Bold & Earthy</option><option value="complex">Complex & Floral</option></select></div><div class="col"><label>Max Cost (₺/kg)</label><input type="number" id="aiMaxCost" value="300" step="10"></div></div>
+<div class="row fg"><div class="col"><label>Number of Components</label><select id="aiComps"><option value="2">2 beans</option><option value="3" selected>3 beans</option><option value="4">4 beans</option></select></div><div class="col"><label>Target Weight (kg)</label><input type="number" id="aiWeight" value="10" step="1"></div></div>
+<button class="B Ba Bw" onclick="_generateBlend()"><i class="fas fa-wand-magic-sparkles"></i> Generate Blend</button></div>
+<div id="aiBlendResult"></div>
+${beans.length<2?'<div class="C" style="text-align:center;padding:28px"><i class="fas fa-seedling" style="font-size:1.6rem;color:var(--faint);display:block;margin-bottom:8px"></i><div style="font-weight:600;color:var(--esp);margin-bottom:4px">Add More Beans</div><div style="font-size:.74rem;color:var(--muted)">You need at least 2 beans in your inventory for the AI blend builder to work.</div></div>':'<div class="C"><div class="st"><span><i class="fas fa-boxes-stacked" style="color:var(--emerald);margin-inline-end:5px"></i>Available Inventory</span></div>'+beans.map(function(b){return'<div class="br-row"><span class="br-l"><i class="fas fa-seedling" style="color:var(--emerald)"></i> '+esc(b.name)+'</span><span class="br-v">'+parseFloat(b.stock||0).toFixed(1)+'kg · ₺'+parseFloat(b.cost||0).toFixed(0)+'/kg</span></div>'}).join('')+'</div>'}`}
+window._generateBlend=function(){
+var beans=D.beans;if(beans.length<2)return toast('Need at least 2 beans in inventory');
+var numComps=parseInt($('aiComps')?.value||3);
+var maxCost=parseFloat($('aiMaxCost')?.value||300);
+var weight=parseFloat($('aiWeight')?.value||10);
+var profile=$('aiProfile')?.value||'balanced';
+var available=beans.filter(function(b){return parseFloat(b.stock||0)>0}).sort(function(a,b){return parseFloat(a.cost||0)-parseFloat(b.cost||0)});
+if(available.length<2){return toast('Not enough beans in stock')}
+var selected=available.slice(0,Math.min(numComps,available.length));
+var profiles={balanced:[50,30,20],bright:[40,35,25],rich:[55,25,20],bold:[60,25,15],complex:[35,35,30]};
+var pcts=profiles[profile]||profiles.balanced;
+var totalCost=0;var recipe=selected.map(function(b,i){
+var pct=pcts[i]||Math.round(100/selected.length);
+if(i===selected.length-1)pct=100-selected.slice(0,i).reduce(function(s,_,j){return s+(pcts[j]||Math.round(100/selected.length))},0);
+var kgNeeded=weight*pct/100;
+var cost=parseFloat(b.cost||0)*kgNeeded;totalCost+=cost;
+return{name:b.name,pct:pct,kg:kgNeeded,cost:cost,unitCost:parseFloat(b.cost||0),origin:b.origin||'—'};
+});
+var el=$('aiBlendResult');if(!el)return;
+el.innerHTML='<div class="C" style="border-left:3px solid var(--amber);margin-top:12px"><div class="st"><span><i class="fas fa-flask" style="color:var(--amber);margin-inline-end:5px"></i>Generated Recipe — '+profile.charAt(0).toUpperCase()+profile.slice(1)+' Blend</span></div>'
++recipe.map(function(r){return'<div class="br-row"><span class="br-l"><i class="fas fa-seedling" style="color:var(--emerald)"></i> '+esc(r.name)+' <span class="tg tg-d" style="font-size:.46rem">'+esc(r.origin)+'</span></span><span class="br-v" style="display:flex;gap:8px;align-items:center"><span class="tg tg-a" style="font-size:.5rem">'+r.pct+'%</span> '+r.kg.toFixed(1)+'kg · ₺'+r.cost.toFixed(0)+'</span></div>'}).join('')
++'<div class="br-t"><span class="br-l" style="font-weight:700">Total '+weight+'kg blend</span><span class="br-v" style="font-size:.95rem">₺'+totalCost.toFixed(0)+' (₺'+(totalCost/weight).toFixed(0)+'/kg)</span></div>'
++(totalCost/weight>maxCost?'<div class="alert alert-a" style="margin-top:8px"><i class="fas fa-exclamation-triangle"></i> Cost exceeds your ₺'+maxCost+'/kg budget. Try using cheaper beans or adjusting ratios.</div>':'')
++'<div style="margin-top:10px"><button class="B Bg Bs" onclick="_sendBlendToCalc()"><i class="fas fa-calculator"></i> Open in Calculator</button></div></div>';
+};
+window._sendBlendToCalc=function(){toast('Opening in blend calculator...');go('calc')};
+
+/* ===== 7. ROASTER LEADERBOARD ===== */
+function rLeaderboard(){
+var roasts=D.roasts||[];
+var totalBatches=roasts.length;
+var avgLoss=roasts.length?roasts.reduce(function(s,r){return s+(parseFloat(r.loss)||0)},0)/roasts.length:0;
+var lossStd=roasts.length>1?Math.sqrt(roasts.reduce(function(s,r){return s+Math.pow((parseFloat(r.loss)||0)-avgLoss,2)},0)/roasts.length):0;
+var totalKg=roasts.reduce(function(s,r){return s+(r.ded||[]).reduce(function(ss,d){return ss+parseFloat(d.kg||0)},0)},0);
+var consistency=lossStd>0?Math.max(0,100-lossStd*15).toFixed(0):roasts.length?95:0;
+var lossRank=avgLoss<=13?95:avgLoss<=15?80:avgLoss<=17?60:avgLoss<=20?40:20;
+var volRank=totalKg>500?95:totalKg>200?80:totalKg>50?60:totalKg>10?40:20;
+var overallScore=roasts.length?Math.round((parseInt(consistency)+lossRank+volRank)/3):0;
+var benchmarks=[
+{label:'Average Loss %',yours:avgLoss.toFixed(1)+'%',industry:'14-16%',rank:lossRank},
+{label:'Consistency Score',yours:consistency+'%',industry:'>85%',rank:parseInt(consistency)},
+{label:'Volume (kg roasted)',yours:totalKg.toFixed(0)+'kg',industry:'Varies',rank:volRank},
+{label:'Batches Logged',yours:totalBatches+'',industry:'>50/month',rank:Math.min(totalBatches*2,100)}
+];
+return`<div class="sh"><h2><i class="fas fa-arrow-left" style="font-size:.7rem;cursor:pointer;color:var(--faint);margin-right:6px" onclick="go('tools')"></i>Roaster Benchmarks</h2></div>
+<div class="C" style="background:linear-gradient(135deg,var(--esp),var(--esp2));color:white;padding:24px;text-align:center;margin-bottom:14px">
+<div style="font-size:.52rem;text-transform:uppercase;letter-spacing:2px;color:var(--amber);margin-bottom:8px">Your Roaster Score</div>
+<div style="font-family:var(--fm);font-size:3.2rem;font-weight:800;color:${overallScore>=80?'#5cc8a0':overallScore>=50?'var(--amber)':'#e07070'}">${overallScore}</div>
+<div style="font-size:.62rem;color:rgba(255,255,255,.4)">out of 100 · ${overallScore>=80?'Expert':overallScore>=50?'Intermediate':'Getting Started'}</div>
+<div style="width:200px;height:6px;background:rgba(255,255,255,.1);border-radius:3px;margin:10px auto 0"><div style="width:${overallScore}%;height:100%;border-radius:3px;background:${overallScore>=80?'#5cc8a0':overallScore>=50?'var(--amber)':'#e07070'};transition:width .5s"></div></div></div>
+${overallScore>=80?'<div style="font-size:.62rem;color:rgba(255,255,255,.4)">Expert Level</div>':''}
+<div class="C Ca"><div class="st"><span><i class="fas fa-ranking-star" style="color:var(--amber);margin-inline-end:5px"></i>Detailed Benchmarks</span></div>
+${benchmarks.map(function(b){var clr=b.rank>=80?'var(--emerald)':b.rank>=50?'var(--amber)':'var(--ruby)';
+return'<div style="margin-bottom:14px"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px"><span style="font-weight:600;font-size:.78rem;color:var(--esp)">'+b.label+'</span><span style="font-family:var(--fm);font-weight:600;font-size:.76rem;color:'+clr+'">'+b.yours+'</span></div><div style="height:8px;background:var(--cream);border-radius:4px;overflow:hidden"><div style="width:'+b.rank+'%;height:100%;border-radius:4px;background:'+clr+';transition:width .5s"></div></div><div style="display:flex;justify-content:space-between;margin-top:2px"><span style="font-size:.56rem;color:var(--faint)">Industry: '+b.industry+'</span><span style="font-size:.56rem;color:'+clr+';font-weight:600">Top '+Math.max(5,100-b.rank)+'%</span></div></div>'}).join('')}
+</div>
+<div class="C"><div class="st"><span><i class="fas fa-lightbulb" style="color:var(--amber);margin-inline-end:5px"></i>How to Improve</span></div>
+${overallScore<50?'<div style="font-size:.76rem;color:var(--muted);line-height:1.6"><strong>1.</strong> Log more roasts consistently — data is key<br><strong>2.</strong> Focus on hitting the same loss % each batch<br><strong>3.</strong> Track development ratio (aim for 20-25%)<br><strong>4.</strong> Use the AI Roast Coach for personalized tips</div>':'<div style="font-size:.76rem;color:var(--muted);line-height:1.6"><strong>1.</strong> Target loss variance under ±1.5% for pro-level consistency<br><strong>2.</strong> Experiment with development time to optimize flavor clarity<br><strong>3.</strong> Use the Brew Calculator to dial in extraction<br><strong>4.</strong> Generate Roast DNA to track visual profile changes</div>'}
+</div>`}
 
 function rPricing(){return`<div class="hero" style="padding:40px 16px 30px"><div class="h-tag"><i class="fas fa-tags"></i> ${t('pricingTag')}</div><h1 style="font-size:2rem">${t('pricingH1')}</h1><p style="font-size:.84rem">${t('pricingP')}</p></div>
 <div class="pricing-grid">
