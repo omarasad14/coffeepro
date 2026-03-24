@@ -2006,7 +2006,7 @@ return`<div class="P ${p.wide?'wide':''}" onclick="viewProd('${esc(pid)}')"><div
 /* ===== RENDER ENGINE ===== */
 function renderPage(){
 const a=$('app');
-const pages={home:rHome,market:rMarket,shop:rShop,trade:rTrade,tradecoops:rTradeCoops,tradeshipcalc:rTradeShipCalc,tradeprivate:rTradePrivate,tradepackets:rTradePackets,tradeequip:rTradeEquip,tools:rTools,inventory:rInv,roast:rRoast,costs:rCosts,calc:rCalc,cupping:rCupping,clients:rClients,inv:rInvGen,pricing:rPricing,about:rAbout,acct:rAcct,cart:rCart,checkout:rCheckout,ordersuccess:rOrderSuccess,auth:rAuth,cafe:rCafe,cafepos:rCafePos,cafetables:rCafeTables,cafemenu:rCafeMenu,cafeorders:rCafeOrders,cafereport:rCafeReport,caferecipes:rCafeRecipes,contact:rContact,cafemenuqr:rCafeMenuQR,cafeloyalty:rCafeLoyalty,cafekitchen:rCafeKitchen,cafeanalytics:rCafeAnalytics,cafewaitlist:rCafeWaitlist,cafewaste:rCafeWaste,cafetips:rCafeTips,brewcalc:rBrewCalc,greenlog:rGreenLog,profitcalc:rProfitCalc,traceability:rTraceability,roastdna:rRoastDNA,costcup:rCostCup,labeldesign:rLabelDesign,roastcoach:rRoastCoach,blendai:rBlendAI,leaderboard:rLeaderboard,coffeemarket:rCoffeeMarket};
+const pages={home:rHome,market:rMarket,shop:rShop,trade:rTrade,tradecoops:rTradeCoops,tradeshipcalc:rTradeShipCalc,tradeprivate:rTradePrivate,tradepackets:rTradePackets,tradeequip:rTradeEquip,tools:rTools,inventory:rInv,roast:rRoast,costs:rCosts,calc:rCalc,cupping:rCupping,clients:rClients,inv:rInvGen,pricing:rPricing,about:rAbout,acct:rAcct,cart:rCart,checkout:rCheckout,ordersuccess:rOrderSuccess,auth:rAuth,cafe:rCafe,cafepos:rCafePos,cafetables:rCafeTables,cafemenu:rCafeMenu,cafeorders:rCafeOrders,cafereport:rCafeReport,caferecipes:rCafeRecipes,contact:rContact,cafemenuqr:rCafeMenuQR,cafeloyalty:rCafeLoyalty,cafekitchen:rCafeKitchen,cafeanalytics:rCafeAnalytics,cafewaitlist:rCafeWaitlist,cafewaste:rCafeWaste,cafetips:rCafeTips,cafecashclose:rCafeCashClose,cafestaff:rCafeStaff,brewcalc:rBrewCalc,greenlog:rGreenLog,profitcalc:rProfitCalc,traceability:rTraceability,roastdna:rRoastDNA,costcup:rCostCup,labeldesign:rLabelDesign,roastcoach:rRoastCoach,blendai:rBlendAI,leaderboard:rLeaderboard,coffeemarket:rCoffeeMarket};
 const fn=pages[curPage]||rHome;
 window._curPage=curPage;
 a.innerHTML=`<div class="S on">${getBreadcrumb(curPage)}${fn()}</div>`;
@@ -4469,7 +4469,7 @@ function _catL(c){var m={coffee:'catCoffee',tea:'catTea',cold:'catCold',food:'ca
 function _catI(c){var m={coffee:'fa-mug-hot',tea:'fa-leaf',cold:'fa-snowflake',food:'fa-utensils',dessert:'fa-cake-candles',other:'fa-ellipsis'};return m[c]||'fa-circle'}
 
 function _posH(){var h='<div class="sh"><h2><i class="fas fa-cash-register" style="color:var(--amber);font-size:.85rem;margin-inline-end:6px"></i>'+esc(CF.name||'My Café');if(CF.shift){h+=' <span class="tg tg-g"><i class="fas fa-clock"></i> '+((Date.now()-CF.shift)/3600000).toFixed(1)+'h</span>'}h+='</h2><button class="B Bo Bs" data-act="logout"><i class="fas fa-sign-out-alt"></i></button></div>';if(typeof _happyHourBanner==='function')h+=_happyHourBanner();return h}
-function _posN(){var tabs=[['order','posNewOrder','fa-plus-circle'],['tables','posTables','fa-th-large'],['menu','posMenu','fa-utensils'],['orders','posOrders','fa-receipt'],['report','posReport','fa-chart-bar'],['recipes','posRecipes','fa-flask'],['loyalty','posLoyalty','fa-heart'],['kitchen','posKitchen','fa-fire-burner'],['analytics','posAnalytics','fa-chart-pie'],['waitlist','posWaitlist','fa-clock'],['waste','wasteTracker','fa-trash-can'],['tips','tipTracker','fa-coins']];var h='<div class="pos-nav" style="overflow-x:auto;scrollbar-width:none">';for(var i=0;i<tabs.length;i++){h+='<div class="pos-nb'+(CF.posTab===tabs[i][0]?' on':'')+'" data-act="postab" data-id="'+tabs[i][0]+'"><i class="fas '+tabs[i][2]+'"></i> '+t(tabs[i][1])+'</div>'}h+='</div>';return h}
+function _posN(){var tabs=[['order','posNewOrder','fa-plus-circle'],['tables','posTables','fa-th-large'],['menu','posMenu','fa-utensils'],['orders','posOrders','fa-receipt'],['report','posReport','fa-chart-bar'],['cashclose','Cash Close','fa-cash-register'],['staff','Staff','fa-users'],['recipes','posRecipes','fa-flask'],['loyalty','posLoyalty','fa-heart'],['kitchen','posKitchen','fa-fire-burner'],['analytics','posAnalytics','fa-chart-pie'],['waitlist','posWaitlist','fa-clock'],['waste','wasteTracker','fa-trash-can'],['tips','tipTracker','fa-coins']];var h='<div class="pos-nav" style="overflow-x:auto;scrollbar-width:none">';for(var i=0;i<tabs.length;i++){h+='<div class="pos-nb'+(CF.posTab===tabs[i][0]?' on':'')+'" data-act="postab" data-id="'+tabs[i][0]+'"><i class="fas '+tabs[i][2]+'"></i> '+t(tabs[i][1])+'</div>'}h+='</div>';return h}
 
 /* ═══════════════════════════════════════
    BATCH B: CAFÉ POS REVOLUTION — PAGES
@@ -4776,6 +4776,94 @@ function rCafeTips(){CF.posTab='tips';
   return h;
 }
 
+/* ===== CASH CLOSE / RECONCILIATION ===== */
+function rCafeCashClose(){CF.posTab='cashclose';
+var tO=_todayOrds(),totalSales=0,cashSales=0,cardSales=0,cashCount=0,cardCount=0;
+for(var i=0;i<tO.length;i++){totalSales+=tO[i].total;if(tO[i].method==='cash'){cashSales+=tO[i].total;cashCount++}else{cardSales+=tO[i].total;cardCount++}}
+var tips=0;if(CF.tips)(CF.tips||[]).forEach(function(tp){var d=new Date(tp.date);if(d.toDateString()===new Date().toDateString())tips+=parseFloat(tp.amount)||0});
+var openFloat=parseFloat(CF.openFloat)||0;
+var expectedCash=openFloat+cashSales;
+var h=_posH()+_posN();
+h+='<div class="sh"><h2><i class="fas fa-cash-register" style="color:var(--amber);margin-inline-end:6px"></i>Daily Cash Close</h2></div>';
+h+='<div class="C" style="background:linear-gradient(135deg,var(--esp),var(--esp2));color:white;padding:20px;margin-bottom:14px"><div class="metric-row" style="margin-bottom:0">';
+h+='<div class="metric-card" style="border-color:rgba(255,255,255,.1)"><div class="mc-val" style="color:#5cc8a0">₺'+totalSales.toFixed(2)+'</div><div class="mc-lbl" style="color:rgba(255,255,255,.5)">Total Sales</div></div>';
+h+='<div class="metric-card" style="border-color:rgba(255,255,255,.1)"><div class="mc-val" style="color:#f0a060">₺'+cashSales.toFixed(2)+'</div><div class="mc-lbl" style="color:rgba(255,255,255,.5)">Cash ('+cashCount+')</div></div>';
+h+='<div class="metric-card" style="border-color:rgba(255,255,255,.1)"><div class="mc-val" style="color:#5090d4">₺'+cardSales.toFixed(2)+'</div><div class="mc-lbl" style="color:rgba(255,255,255,.5)">Card ('+cardCount+')</div></div>';
+h+='<div class="metric-card" style="border-color:rgba(255,255,255,.1)"><div class="mc-val" style="color:#c090e0">₺'+tips.toFixed(2)+'</div><div class="mc-lbl" style="color:rgba(255,255,255,.5)">Tips</div></div>';
+h+='</div></div>';
+h+='<div class="C Ca"><div class="st"><span><i class="fas fa-calculator" style="color:var(--emerald);margin-inline-end:5px"></i>Cash Drawer Reconciliation</span></div>';
+h+='<div class="row fg"><div class="col"><label>Opening Float (₺)</label><input type="number" id="ccFloat" value="'+openFloat.toFixed(0)+'" onchange="CF.openFloat=parseFloat(this.value)||0;saveCF()"></div><div class="col"><label>Expected in Drawer</label><input type="text" value="₺'+expectedCash.toFixed(2)+'" readonly style="background:var(--cream2);font-weight:700;color:var(--emerald)"></div></div>';
+h+='<div class="fg"><label>Actual Cash Counted (₺)</label><input type="number" id="ccActual" placeholder="Count your drawer..." oninput="_calcVariance()" style="font-size:1.1rem;text-align:center;font-weight:700"></div>';
+h+='<div id="ccVariance" style="text-align:center;margin:10px 0;font-size:.82rem"></div>';
+h+='<button class="B Bg Bw" onclick="_closeCashDay()"><i class="fas fa-lock"></i> Close Day & Save Report</button></div>';
+h+='<div class="C"><div class="st"><span><i class="fas fa-receipt" style="color:var(--copper);margin-inline-end:5px"></i>Denomination Counter</span></div>';
+h+='<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px" id="denomGrid">';
+var denoms=[200,100,50,20,10,5,1,0.5];
+for(var d=0;d<denoms.length;d++){h+='<div style="background:var(--cream);border:1px solid var(--cream3);border-radius:var(--r);padding:8px;text-align:center"><div style="font-size:.52rem;text-transform:uppercase;color:var(--faint);font-weight:600">₺'+denoms[d]+'</div><input type="number" class="denomIn" data-val="'+denoms[d]+'" value="0" min="0" style="width:100%;text-align:center;font-size:.9rem;font-weight:700;padding:4px;margin-top:2px" oninput="_calcDenomTotal()"></div>'}
+h+='</div><div id="denomTotal" style="text-align:center;margin-top:10px;font-family:var(--fm);font-size:1.1rem;font-weight:700;color:var(--amber)"></div></div>';
+return h}
+window._calcVariance=function(){
+var expected=(parseFloat(CF.openFloat)||0)+_todayOrds().filter(function(o){return o.method==='cash'}).reduce(function(s,o){return s+o.total},0);
+var actual=parseFloat(document.getElementById('ccActual')?.value)||0;
+var diff=actual-expected;
+var el=document.getElementById('ccVariance');
+if(!el)return;
+if(actual===0){el.innerHTML='';return}
+var clr=Math.abs(diff)<1?'var(--emerald)':Math.abs(diff)<10?'var(--amber)':'var(--ruby)';
+el.innerHTML='<div style="font-family:var(--fm);font-weight:700;font-size:1.2rem;color:'+clr+'">'+(diff>=0?'+':'')+diff.toFixed(2)+'</div><div style="font-size:.62rem;color:var(--muted)">'+(Math.abs(diff)<1?'Perfect match!':diff>0?'Over by ₺'+diff.toFixed(2):'Short by ₺'+Math.abs(diff).toFixed(2))+'</div>';
+};
+window._calcDenomTotal=function(){
+var total=0;document.querySelectorAll('.denomIn').forEach(function(inp){total+=parseFloat(inp.value||0)*parseFloat(inp.dataset.val)});
+var el=document.getElementById('denomTotal');if(el)el.textContent='Counted: ₺'+total.toFixed(2);
+var actual=document.getElementById('ccActual');if(actual)actual.value=total.toFixed(2);
+_calcVariance();
+};
+window._closeCashDay=function(){
+var actual=parseFloat(document.getElementById('ccActual')?.value)||0;
+var tO=_todayOrds();var cashS=tO.filter(function(o){return o.method==='cash'}).reduce(function(s,o){return s+o.total},0);
+var expected=(parseFloat(CF.openFloat)||0)+cashS;
+if(!CF.cashCloses)CF.cashCloses=[];
+CF.cashCloses.push({date:new Date().toISOString(),orders:tO.length,totalSales:tO.reduce(function(s,o){return s+o.total},0),cashSales:cashS,expected:expected,actual:actual,variance:actual-expected});
+saveCF();toast('Day closed. Variance: ₺'+(actual-expected).toFixed(2));
+};
+
+/* ===== STAFF MANAGEMENT ===== */
+function rCafeStaff(){CF.posTab='staff';
+if(!CF.staff)CF.staff=[];
+var tO=_todayOrds();
+var h=_posH()+_posN();
+h+='<div class="sh"><h2><i class="fas fa-users" style="color:var(--blue);margin-inline-end:6px"></i>Staff Management</h2></div>';
+h+='<div class="C Ca"><div class="st"><span><i class="fas fa-user-plus" style="color:var(--emerald);margin-inline-end:5px"></i>Add Staff Member</span></div>';
+h+='<div class="row fg"><div class="col"><label>Name</label><input type="text" id="staffName" placeholder="Ahmet"></div><div class="col"><label>Role</label><select id="staffRole"><option>Barista</option><option>Cashier</option><option>Manager</option><option>Kitchen</option><option>Server</option></select></div></div>';
+h+='<div class="row fg"><div class="col"><label>Phone</label><input type="text" id="staffPhone" placeholder="+90 5XX XXX XXXX"></div><div class="col"><label>Hourly Rate (₺)</label><input type="number" id="staffRate" placeholder="120"></div></div>';
+h+='<button class="B Bg Bw" onclick="_addStaff()"><i class="fas fa-plus"></i> Add Staff</button></div>';
+if(CF.staff.length){
+h+='<div class="C"><div class="st"><span><i class="fas fa-users" style="color:var(--blue);margin-inline-end:5px"></i>Team ('+CF.staff.length+')</span></div>';
+var tipsByStaff={};(CF.tips||[]).forEach(function(tp){if(!tipsByStaff[tp.staff])tipsByStaff[tp.staff]=0;tipsByStaff[tp.staff]+=parseFloat(tp.amount)||0});
+for(var i=0;i<CF.staff.length;i++){var s=CF.staff[i];
+var roleClr=s.role==='Manager'?'var(--amber)':s.role==='Barista'?'var(--blue)':s.role==='Kitchen'?'var(--ruby)':'var(--emerald)';
+var staffTips=tipsByStaff[s.name]||0;
+h+='<div style="display:flex;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--cream3)">';
+h+='<div style="width:42px;height:42px;border-radius:50%;background:'+roleClr+'15;display:flex;align-items:center;justify-content:center;color:'+roleClr+';font-weight:700;font-size:.8rem;flex-shrink:0">'+esc(s.name.charAt(0).toUpperCase())+'</div>';
+h+='<div style="flex:1"><div style="font-weight:600;font-size:.82rem;color:var(--esp)">'+esc(s.name)+'</div><div style="font-size:.62rem;color:var(--faint)"><span class="tg" style="font-size:.48rem;background:'+roleClr+'12;color:'+roleClr+';border:1px solid '+roleClr+'25;padding:1px 5px">'+s.role+'</span>'+(s.rate?' · ₺'+s.rate+'/hr':'')+(s.phone?' · '+esc(s.phone):'')+'</div></div>';
+h+='<div style="text-align:right"><div style="font-family:var(--fm);font-weight:600;font-size:.76rem;color:var(--amber)">₺'+staffTips.toFixed(0)+'</div><div style="font-size:.5rem;color:var(--faint)">tips</div></div>';
+h+='<i class="fas fa-trash" style="color:var(--faint);cursor:pointer;font-size:.58rem" onclick="_delStaff('+i+')"></i></div>'}
+h+='</div>';
+// Shift Log
+h+='<div class="C"><div class="st"><span><i class="fas fa-clock" style="color:var(--copper);margin-inline-end:5px"></i>Today\'s Shifts</span></div>';
+if(!CF.shiftLog||!CF.shiftLog.length){h+='<div style="text-align:center;padding:16px;color:var(--faint);font-size:.74rem">No shifts logged today. Use the clock-in button above.</div>'}
+else{CF.shiftLog.forEach(function(sl){h+='<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--cream3);font-size:.74rem"><span style="font-weight:600">'+esc(sl.name)+'</span><span style="color:var(--muted)">'+new Date(sl.start).toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})+(sl.end?' → '+new Date(sl.end).toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'}):'<span style="color:var(--emerald)"> Active</span>')+'</span></div>'})}
+h+='</div>';
+}else{h+='<div class="empty"><i class="fas fa-users"></i>Add your first staff member to start tracking.</div>'}
+return h}
+window._addStaff=function(){
+var name=document.getElementById('staffName')?.value?.trim();if(!name)return toast('Enter a name');
+if(!CF.staff)CF.staff=[];
+CF.staff.push({name:name,role:document.getElementById('staffRole')?.value||'Barista',phone:document.getElementById('staffPhone')?.value?.trim()||'',rate:document.getElementById('staffRate')?.value||''});
+saveCF();renderPage();toast('Staff added: '+name);
+};
+window._delStaff=function(i){if(!confirm('Remove staff member?'))return;CF.staff.splice(i,1);saveCF();renderPage()};
+
 function rCafe(){return CF.loggedIn?rCafePos():rCafeLogin()}
 
 function rCafeLogin(){
@@ -4870,7 +4958,27 @@ function rCafeReport(){CF.posTab='report';var tO=_todayOrds(),totalS=0,cashS=0,c
 /* === ACTIONS === */
 function _doLogin(){var nm=$('cfName')?$('cfName').value.trim():'',u=$('cfUser')?$('cfUser').value.trim():'',p=$('cfPass')?$('cfPass').value:'';if(!nm){toast(t('enterCafeName'));return}if(!u){toast(t('enterUsername'));return}if(CF.user&&CF.pass){if(u!==CF.user||p!==CF.pass){toast(t('wrongCreds'));return}}CF.name=nm;CF.user=u;CF.pass=p||CF.pass||'1234';CF.loggedIn=true;saveCF();renderPage();toast('✓ '+t('welcomeBackName')+' — '+nm)}
 function _doLogout(){CF.loggedIn=false;CF.cart=[];CF.cartTable='';CF.discount={type:'pct',val:0};saveCF();renderPage()}
-function _doAdd(id){var it=_fMenu(id);if(!it)return;var ci=_fCart(id);if(ci>=0)CF.cart[ci].qty++;else CF.cart.push({id:it.id,nm:it.nm,pr:it.pr,qty:1,note:''});saveCF();renderPage()}
+function _doAdd(id){var it=_fMenu(id);if(!it)return;var ci=_fCart(id);if(ci>=0){CF.cart[ci].qty++;saveCF();renderPage()}else{_showModifiers(it)}}
+function _showModifiers(it){
+var mods=[{l:'+Extra Shot',p:10,i:'fa-plus'},{l:'Oat Milk',p:8,i:'fa-wheat-awn'},{l:'Almond Milk',p:8,i:'fa-seedling'},{l:'No Sugar',p:0,i:'fa-ban'},{l:'Extra Hot',p:0,i:'fa-temperature-high'},{l:'Decaf',p:5,i:'fa-moon'},{l:'Large Size',p:15,i:'fa-arrow-up'},{l:'Iced',p:0,i:'fa-snowflake'}];
+var ov=document.createElement('div');ov.className='pay-overlay';ov.id='modOv';
+var h='<div class="pay-modal" style="max-width:420px"><div class="sh" style="margin-bottom:10px"><h2><span style="font-size:1.2rem;margin-right:6px">'+it.ico+'</span>'+esc(it.nm)+'</h2><button class="B Bo Bs" onclick="document.getElementById(\'modOv\').remove()"><i class="fas fa-times"></i></button></div>';
+h+='<div style="font-size:.72rem;color:var(--muted);margin-bottom:10px">Tap modifiers to customize, or add as-is:</div>';
+h+='<div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:12px" id="modGrid">';
+for(var i=0;i<mods.length;i++){h+='<div class="mod-btn" data-idx="'+i+'" style="background:var(--cream);border:1.5px solid var(--cream3);border-radius:var(--r);padding:10px;cursor:pointer;display:flex;align-items:center;gap:8px;transition:.2s"><i class="fas '+mods[i].i+'" style="color:var(--amber);font-size:.8rem;width:16px;text-align:center"></i><div><div style="font-weight:600;font-size:.74rem;color:var(--esp)">'+mods[i].l+'</div>'+(mods[i].p?'<div style="font-size:.58rem;color:var(--emerald);font-family:var(--fm)">+₺'+mods[i].p+'</div>':'<div style="font-size:.58rem;color:var(--faint)">Free</div>')+'</div></div>'}
+h+='</div>';
+h+='<div style="display:flex;gap:6px"><button class="B Bg" style="flex:1" id="modAdd"><i class="fas fa-plus"></i> Add As-Is</button><button class="B Ba" style="flex:1" id="modAddMod"><i class="fas fa-wand-magic-sparkles"></i> Add Modified</button></div></div>';
+ov.innerHTML=h;document.body.appendChild(ov);
+var selected=[];
+ov.addEventListener('click',function(e){
+if(e.target===ov){ov.remove();return}
+var mb=e.target.closest('.mod-btn');
+if(mb){mb.classList.toggle('mod-on');var idx=parseInt(mb.dataset.idx);if(selected.indexOf(idx)>=0)selected.splice(selected.indexOf(idx),1);else selected.push(idx);
+mb.style.borderColor=mb.classList.contains('mod-on')?'var(--amber)':'var(--cream3)';mb.style.background=mb.classList.contains('mod-on')?'var(--amber-lt)':'var(--cream)';return}
+if(e.target.closest('#modAdd')){CF.cart.push({id:it.id,nm:it.nm,pr:it.pr,qty:1,note:''});saveCF();ov.remove();renderPage();return}
+if(e.target.closest('#modAddMod')){var extraP=0,notes=[];selected.forEach(function(si){extraP+=mods[si].p;notes.push(mods[si].l)});
+CF.cart.push({id:it.id,nm:it.nm+(notes.length?' ('+notes.join(', ')+')':''),pr:it.pr+extraP,qty:1,note:notes.join(', ')});saveCF();ov.remove();renderPage();return}
+})}
 function _doPlus(id){var ci=_fCart(id);if(ci>=0){CF.cart[ci].qty++;saveCF();renderPage()}}
 function _doMinus(id){var ci=_fCart(id);if(ci<0)return;CF.cart[ci].qty--;if(CF.cart[ci].qty<=0)CF.cart.splice(ci,1);saveCF();renderPage()}
 function _doNote(id){var ci=_fCart(id);if(ci<0)return;var n=prompt('Note (no sugar, oat milk, extra shot):',CF.cart[ci].note||'');if(n!==null){CF.cart[ci].note=n;saveCF();renderPage()}}
@@ -4950,7 +5058,7 @@ ov.innerHTML=h;document.body.appendChild(ov);ov.addEventListener('click',functio
 document.addEventListener('click',function(e){var el=e.target.closest('[data-act]');if(!el)return;var act=el.dataset.act,id=el.dataset.id;
 switch(act){
 case 'login':_doLogin();break;case 'logout':_doLogout();break;
-case 'postab':CF.posTab=id;if(id==='order')go('cafe');else if(id==='tables')go('cafetables');else if(id==='menu')go('cafemenu');else if(id==='orders')go('cafeorders');else if(id==='report')go('cafereport');else if(id==='recipes')go('caferecipes');else if(id==='loyalty')go('cafeloyalty');else if(id==='kitchen')go('cafekitchen');else if(id==='analytics')go('cafeanalytics');else if(id==='waitlist')go('cafewaitlist');else if(id==='waste')go('cafewaste');else if(id==='tips')go('cafetips');break;
+case 'postab':CF.posTab=id;if(id==='order')go('cafe');else if(id==='tables')go('cafetables');else if(id==='menu')go('cafemenu');else if(id==='orders')go('cafeorders');else if(id==='report')go('cafereport');else if(id==='recipes')go('caferecipes');else if(id==='loyalty')go('cafeloyalty');else if(id==='kitchen')go('cafekitchen');else if(id==='analytics')go('cafeanalytics');else if(id==='waitlist')go('cafewaitlist');else if(id==='waste')go('cafewaste');else if(id==='tips')go('cafetips');else if(id==='cashclose')go('cafecashclose');else if(id==='staff')go('cafestaff');break;
 case 'poscat':window._cfCat=id;renderPage();break;case 'seltbl':_doSelTbl(parseInt(id));break;case 'additem':_doAdd(parseInt(id));break;case 'loadtbl':_doLoadTbl(parseInt(id));break;
 case 'cartplus':_doPlus(parseInt(id));break;case 'cartminus':_doMinus(parseInt(id));break;case 'cartnote':_doNote(parseInt(id));break;case 'clearcart':_doClear();break;
 case 'discount':_openDisc();break;case 'savetbl':_doSaveTbl();break;case 'openpay':_openPay();break;
