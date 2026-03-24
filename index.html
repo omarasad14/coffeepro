@@ -18,25 +18,25 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,400;1,9..144,500;1,9..144,700&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
---cream:#f8f6f2;--cream2:#efeae4;--cream3:#e0dbd4;--warm:#c4bdb4;
---esp:#181410;--esp2:#28231c;--text:#181410;--text2:#453d34;--muted:#6b6259;--faint:#948a80;
---amber:#b5822e;--amber2:#c99438;--amber-lt:rgba(181,130,46,.07);--amber-br:rgba(181,130,46,.18);
---emerald:#1d7d4e;--emerald2:#28965e;--em-lt:rgba(29,125,78,.07);--em-br:rgba(29,125,78,.16);
+--cream:#faf8f5;--cream2:#f0ece6;--cream3:#e2ddd6;--warm:#c4bdb4;
+--esp:#1a1610;--esp2:#2a241c;--text:#1a1610;--text2:#3d362e;--muted:#68604a;--faint:#8a826e;
+--amber:#c27c20;--amber2:#d48a28;--amber-lt:rgba(194,124,32,.08);--amber-br:rgba(194,124,32,.2);
+--emerald:#0f8a52;--emerald2:#12a862;--em-lt:rgba(15,138,82,.07);--em-br:rgba(15,138,82,.16);
 --copper:#7a6c5e;--cop-lt:rgba(122,108,94,.07);
---ruby:#b84842;--ruby-lt:rgba(184,72,66,.07);
---blue:#2f68b0;--blue-lt:rgba(47,104,176,.06);
---white:#fff;--csh:0 1px 3px rgba(24,20,16,.04),0 4px 16px rgba(24,20,16,.05);
---csh2:0 4px 14px rgba(24,20,16,.07),0 16px 44px rgba(24,20,16,.07);
---fd:'Fraunces',Georgia,serif;--fb:'Inter',system-ui,-apple-system,sans-serif;--fm:'JetBrains Mono',monospace;
+--ruby:#d04440;--ruby-lt:rgba(208,68,64,.07);
+--blue:#2868c0;--blue-lt:rgba(40,104,192,.06);
+--white:#fff;--csh:0 1px 3px rgba(26,22,16,.05),0 6px 20px rgba(26,22,16,.05);
+--csh2:0 6px 16px rgba(26,22,16,.08),0 20px 48px rgba(26,22,16,.08);
+--fd:'Outfit',system-ui,sans-serif;--fb:'DM Sans',system-ui,-apple-system,sans-serif;--fm:'JetBrains Mono',monospace;
 --r:12px;--rl:16px;--rx:24px;--e:cubic-bezier(.4,0,.2,1);
---bg:#f8f6f2;--accent:#b5822e;--card-bdr:rgba(24,20,16,.06);--card-shadow:rgba(24,20,16,.05);--panel:#efeae4;--card:#fff;--d-card:#fff;--d-bdr:rgba(24,20,16,.06);--d-txt:#181410;--d-bg:#f8f6f2;
+--bg:#faf8f5;--accent:#c27c20;--card-bdr:rgba(26,22,16,.06);--card-shadow:rgba(26,22,16,.05);--panel:#f0ece6;--card:#fff;--d-card:#fff;--d-bdr:rgba(26,22,16,.06);--d-txt:#1a1610;--d-bg:#faf8f5;
 }
-html[dir=rtl]{--fb:'Noto Sans Arabic','Inter',system-ui,sans-serif;--fd:'Noto Sans Arabic','Fraunces',Georgia,serif}
+html[dir=rtl]{--fb:'Noto Sans Arabic','DM Sans',system-ui,sans-serif;--fd:'Noto Sans Arabic','Outfit',system-ui,sans-serif}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
-body{font-family:var(--fb);background:var(--cream);color:var(--text);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;min-height:100vh;font-feature-settings:'cv01','cv02','cv03','cv04';letter-spacing:-.01em}
+body{font-family:var(--fb);background:var(--cream);color:var(--text);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;min-height:100vh;letter-spacing:-.01em}
 [dir=rtl] .fa-arrow-left::before{content:"\f061"}[dir=rtl] .fa-chevron-right::before{content:"\f053"}
 [dir=rtl] .Ca{border-left:0;border-right:3px solid var(--amber)}
 
@@ -44,7 +44,7 @@ body{font-family:var(--fb);background:var(--cream);color:var(--text);-webkit-fon
 .H{background:rgba(246,243,239,.92);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid rgba(0,0,0,.04);position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(0,0,0,.02)}
 .H-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;height:64px}
 .H-b{display:flex;align-items:center;gap:8px;flex-shrink:0}
-.H-logo{font-family:var(--fd);font-size:1.3rem;font-weight:800;color:var(--esp);letter-spacing:-.02em;cursor:pointer;white-space:nowrap;font-variation-settings:'opsz' 36}.H-logo span{color:var(--amber);font-weight:400;font-style:italic}
+.H-logo{font-family:var(--fd);font-size:1.35rem;font-weight:800;color:var(--esp);letter-spacing:-.03em;cursor:pointer;white-space:nowrap}.H-logo span{color:var(--amber);font-weight:500}
 .H-tag{font-size:.42rem;text-transform:uppercase;letter-spacing:2px;color:var(--amber);background:var(--amber-lt);border:1px solid var(--amber-br);padding:2px 7px;border-radius:10px;font-weight:600;font-family:var(--fm)}
 
 /* Main nav links */
@@ -69,7 +69,8 @@ body{font-family:var(--fb);background:var(--cream);color:var(--text);-webkit-fon
   .H-inner{padding:0 10px;height:54px}
   .H-link{padding:6px 9px;font-size:.64rem}
   .H-link i{font-size:.68rem}
-  .lang-sw{display:none}
+  .lang-sw{background:transparent;border:none;gap:1px}
+  .lang-b{padding:3px 5px;font-size:.48rem;border-radius:4px}
 }
 
 /* CART BADGE */
@@ -175,8 +176,8 @@ body{font-family:var(--fb);background:var(--cream);color:var(--text);-webkit-fon
 /* CARDS */
 .C{background:var(--white);border:1px solid var(--cream3);border-radius:var(--rl);padding:18px;margin-bottom:14px;box-shadow:var(--csh)}
 .Ca{border-left:3px solid var(--amber)}
-.st{font-family:var(--fd);font-size:1.05rem;font-weight:600;color:var(--esp);margin-bottom:14px;padding-bottom:9px;border-bottom:1px solid var(--cream3);display:flex;justify-content:space-between;align-items:center;font-variation-settings:'opsz' 24;letter-spacing:-.01em}
-.sh{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.sh h2{font-family:var(--fd);font-weight:600;color:var(--esp);font-size:1.2rem;font-variation-settings:'opsz' 28;letter-spacing:-.015em}
+.st{font-family:var(--fd);font-size:1.05rem;font-weight:700;color:var(--esp);margin-bottom:14px;padding-bottom:9px;border-bottom:1px solid var(--cream3);display:flex;justify-content:space-between;align-items:center;letter-spacing:-.02em}
+.sh{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.sh h2{font-family:var(--fd);font-weight:700;color:var(--esp);font-size:1.2rem;letter-spacing:-.02em}
 
 /* FORMS */
 label{display:block;font-size:.62rem;color:var(--muted);margin-bottom:4px;font-weight:600;text-transform:uppercase;letter-spacing:.5px}
@@ -189,8 +190,8 @@ select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%
 
 /* BUTTONS */
 .B{padding:10px 18px;border:none;border-radius:var(--r);font-size:.72rem;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:6px;text-transform:uppercase;letter-spacing:.3px;transition:.2s;font-family:var(--fb)}.B:active{transform:scale(.97)}
-.Ba{background:linear-gradient(135deg,#b5822e,#956a1e);color:white;box-shadow:0 2px 12px rgba(181,130,46,.3)}
-.Bg{background:linear-gradient(135deg,#1d7d4e,#16663e);color:white;box-shadow:0 2px 12px rgba(29,125,78,.25)}
+.Ba{background:linear-gradient(135deg,#c27c20,#a06418);color:white;box-shadow:0 2px 12px rgba(194,124,32,.35)}
+.Bg{background:linear-gradient(135deg,#0f8a52,#0a7042);color:white;box-shadow:0 2px 12px rgba(15,138,82,.3)}
 .Bd{background:var(--white);color:var(--esp);border:1px solid var(--cream3);box-shadow:var(--csh)}
 .Bo{background:transparent;border:1.5px solid var(--cream3);color:var(--muted)}
 .Bw{width:100%;justify-content:center}.Bs{padding:6px 11px;font-size:.6rem}
@@ -223,7 +224,7 @@ select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%
 [dir=rtl] .Pi-sv{right:auto;left:8px}.Pi-sv:hover,.Pi-sv.liked{background:var(--ruby);color:white}
 .Pb{padding:12px;flex:1;display:flex;flex-direction:column}
 .P-or{font-size:.52rem;text-transform:uppercase;letter-spacing:1px;color:var(--amber);font-weight:600;margin-bottom:2px}
-.P-nm{font-family:var(--fd);font-size:.88rem;font-weight:600;color:var(--esp);margin-bottom:2px;line-height:1.2;font-variation-settings:'opsz' 20;letter-spacing:-.01em}
+.P-nm{font-family:var(--fd);font-size:.88rem;font-weight:600;color:var(--esp);margin-bottom:2px;line-height:1.2;letter-spacing:-.02em}
 .P-ds{font-size:.68rem;color:var(--muted);line-height:1.35;margin-bottom:6px;flex:1}
 .P-tg{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:6px}
 .tg{display:inline-block;padding:2px 7px;border-radius:4px;font-size:.52rem;font-weight:600;font-family:var(--fm)}
@@ -259,7 +260,7 @@ body.dark .hero{background:linear-gradient(180deg,#0e0c08 0%,#14120e 30%,#1a1610
 /* old hero pseudo removed */
 .h-tag{display:inline-flex;align-items:center;gap:6px;padding:7px 16px;background:rgba(200,145,58,.1);border:1px solid rgba(200,145,58,.25);border-radius:24px;font-size:.68rem;font-weight:600;color:var(--amber);margin-bottom:18px;backdrop-filter:blur(8px)}
 .h-tag i{font-size:.6rem}
-.hero h1{font-family:var(--fd);font-size:2.8rem;font-weight:800;color:#fff;line-height:1.08;margin-bottom:14px;letter-spacing:-.03em;font-variation-settings:'opsz' 72}.hero h1 em{color:#c99438;font-style:italic;font-weight:400}
+.hero h1{font-family:var(--fd);font-size:2.8rem;font-weight:800;color:#fff;line-height:1.08;margin-bottom:14px;letter-spacing:-.04em}.hero h1 em{color:var(--amber2);font-style:normal;font-weight:400}
 .hero p{font-size:.9rem;color:rgba(255,255,255,.5);max-width:520px;margin:0 auto 26px;line-height:1.6}
 /* hero btn — see premium override below */
 .h-acts .B.Bg{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);color:#fff;backdrop-filter:blur(6px)}.h-acts .B.Bg:hover{background:rgba(255,255,255,.14)}
@@ -298,7 +299,7 @@ body.dark .hero{background:linear-gradient(180deg,#0e0c08 0%,#14120e 30%,#1a1610
 .plan.ft{border-color:var(--amber);box-shadow:0 4px 24px rgba(200,145,58,.12)}
 .plan.ft::after{content:'★ POPULAR';position:absolute;top:14px;right:14px;background:linear-gradient(135deg,#3a72b8,#2a5a90);color:white;font-size:.5rem;font-weight:700;padding:4px 12px;border-radius:6px;font-family:var(--fm)}
 [dir=rtl] .plan.ft::after{right:auto;left:14px}
-.pl-nm{font-family:var(--fd);font-size:1.3rem;font-weight:600;color:var(--esp);margin-bottom:3px;font-variation-settings:'opsz' 28}
+.pl-nm{font-family:var(--fd);font-size:1.3rem;font-weight:700;color:var(--esp);margin-bottom:3px;letter-spacing:-.02em}
 .pl-pr{font-family:var(--fm);font-size:2rem;font-weight:600;color:var(--amber);margin-bottom:3px}.pl-pr small{font-size:.65rem;color:var(--faint);font-weight:400}
 .pl-ds{font-size:.76rem;color:var(--muted);margin-bottom:16px;line-height:1.4}
 .pl-ft{list-style:none;margin-bottom:18px}.pl-ft li{padding:5px 0;font-size:.76rem;color:var(--text2);display:flex;align-items:center;gap:7px}.pl-ft li i{color:var(--emerald);font-size:.6rem;width:14px;text-align:center}
@@ -360,18 +361,18 @@ body.dark .hero{background:linear-gradient(180deg,#0e0c08 0%,#14120e 30%,#1a1610
 @media(max-width:600px){.footer-grid{grid-template-columns:1fr 1fr;gap:14px}}
 .footer h4{color:white;font-family:var(--fd);font-weight:500;font-size:.82rem;margin-bottom:8px}
 .footer-bot{text-align:center;border-top:1px solid rgba(255,255,255,.08);padding-top:14px;font-size:.58rem}
-.footer-brand{font-family:var(--fd);font-size:1.1rem;font-weight:700;color:white;margin-bottom:6px;font-variation-settings:'opsz' 28}.footer-brand span{color:var(--amber2);font-style:italic;font-weight:400}
+.footer-brand{font-family:var(--fd);font-size:1.1rem;font-weight:800;color:white;margin-bottom:6px;letter-spacing:-.02em}.footer-brand span{color:var(--amber2);font-weight:400}
 
 /* ABOUT PAGE */
 .about-hero{text-align:center;padding:70px 16px 50px;margin:-24px -24px 24px;position:relative;overflow:hidden;background:linear-gradient(160deg,#0c1220 0%,#142238 30%,#1a3050 60%,#0c1220 100%)}
 .about-hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cellipse cx='25' cy='40' rx='12' ry='18' fill='none' stroke='%233a72b8' stroke-width='.6' opacity='.12' transform='rotate(-15 25 40)'/%3E%3Cpath d='M25 25 Q25 40 25 55' stroke='%233a72b8' stroke-width='.4' opacity='.1' transform='rotate(-15 25 40)'/%3E%3Cellipse cx='58' cy='35' rx='10' ry='15' fill='none' stroke='%233a72b8' stroke-width='.5' opacity='.09' transform='rotate(20 58 35)'/%3E%3Cpath d='M58 22 Q58 35 58 48' stroke='%233a72b8' stroke-width='.3' opacity='.08' transform='rotate(20 58 35)'/%3E%3Ccircle cx='12' cy='12' r='2' fill='%233a72b8' opacity='.06'/%3E%3Ccircle cx='70' cy='65' r='1.5' fill='%233a72b8' opacity='.05'/%3E%3C/svg%3E") repeat;animation:beanDrift 60s linear infinite}
 @keyframes beanDrift{from{background-position:0 0}to{background-position:80px 80px}}
 .about-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:80px;background:linear-gradient(to top,var(--cream) 0%,transparent 100%);z-index:1}
-.about-hero h1{font-family:var(--fd);font-size:2.4rem;font-weight:800;color:#fff;margin-bottom:10px;position:relative;z-index:1;text-shadow:0 2px 20px rgba(0,0,0,.3);font-variation-settings:'opsz' 60}
+.about-hero h1{font-family:var(--fd);font-size:2.4rem;font-weight:800;color:#fff;margin-bottom:10px;position:relative;z-index:1;text-shadow:0 2px 20px rgba(0,0,0,.3);letter-spacing:-.03em}
 .about-hero h1 em{color:var(--amber);font-style:normal}
 .about-hero p{color:rgba(255,255,255,.7);font-size:.92rem;max-width:560px;margin:0 auto;line-height:1.6;position:relative;z-index:1}
 .about-hero .h-tag{position:relative;z-index:1;color:var(--amber);border-color:rgba(200,145,58,.3);background:rgba(200,145,58,.1)}
-.about-logo{font-family:var(--fd);font-size:3.2rem;font-weight:800;color:#fff;margin-bottom:6px;position:relative;z-index:1;letter-spacing:-.02em;font-variation-settings:'opsz' 72}
+.about-logo{font-family:var(--fd);font-size:3.2rem;font-weight:800;color:#fff;margin-bottom:6px;position:relative;z-index:1;letter-spacing:-.03em}
 .about-logo span{color:var(--amber);font-weight:400;font-style:italic}
 .about-section{margin-bottom:28px;position:relative}.about-section h2{font-family:var(--fd);font-size:1.2rem;font-weight:700;color:var(--esp);margin-bottom:10px;display:flex;align-items:center;gap:8px}
 .about-section h2 i{color:var(--amber);font-size:.9rem}
@@ -1838,10 +1839,10 @@ function go(id){curPage=id;renderPage();window.scrollTo({top:0,behavior:'instant
   if(id==='inv'){setTimeout(()=>{const d=$('invDate');if(d&&!d.value){d.value=new Date().toISOString().slice(0,10);updInv()}},30)}
 }
 /* STORAGE */
-let D={beans:[],packs:[],products:[],roasts:[],clients:[],cuppings:[],invoices:[],settings:{usd:36,ohKg:0,low:5},oh:{r:0,l:0,u:0,m:0,kg:1000},cart:[],user:null,sub:'free',orders:[],wishlist:[],reviews:[]};
+let D={beans:[],packs:[],products:[],roasts:[],clients:[],cuppings:[],invoices:[],settings:{usd:36,ohKg:0,low:5},oh:{r:0,l:0,u:0,m:0,kg:1000},cart:[],user:null,sub:'free',orders:[],wishlist:[],reviews:[],greenlog:[]};
 function ls(k,v){if(v!==undefined){localStorage.setItem('cp_'+k,JSON.stringify(v));return}try{return JSON.parse(localStorage.getItem('cp_'+k))}catch(e){return null}}
 function loadAll(){D.beans=ls('beans')||[];D.packs=ls('packs')||[];D.products=ls('products')||[];D.roasts=ls('roasts')||[];D.clients=ls('clients')||[];D.cuppings=ls('cuppings')||[];D.invoices=ls('invoices')||[];const s=ls('settings');D.settings=s?Object.assign({usd:36,ohKg:0,low:5},s):{usd:36,ohKg:0,low:5};D.oh=ls('oh')||{r:0,l:0,u:0,m:0,kg:1000};D.cart=ls('cart')||[];D.user=ls('user')||null;D.sub=ls('sub')||'free';D.orders=ls('orders')||[];D.wishlist=ls('wishlist')||[];D.reviews=ls('reviews')||[];updCartBadge();updUserBtn()}
-function saveD(){try{['beans','packs','products','roasts','clients','cuppings','invoices','settings','oh','cart','user','sub','orders','wishlist','reviews'].forEach(k=>ls(k,D[k]))}catch(e){if(e.name==='QuotaExceededError'||e.code===22){toast('⚠ Storage full — clear old data or export a backup');console.warn('localStorage quota exceeded',e)}else{throw e}}}
+function saveD(){try{['beans','packs','products','roasts','clients','cuppings','invoices','settings','oh','cart','user','sub','orders','wishlist','reviews','greenlog'].forEach(k=>ls(k,D[k]))}catch(e){if(e.name==='QuotaExceededError'||e.code===22){toast('⚠ Storage full — clear old data or export a backup');console.warn('localStorage quota exceeded',e)}else{throw e}}}
 
 function updCartBadge(){const b=$('cartBadge');if(!b)return;const c=D.cart.reduce((s,i)=>s+i.qty,0);b.textContent=c;b.classList.toggle('empty',c===0)}
 function updUserBtn(){const el=$('userHeaderBtn');if(!el)return;if(D.user&&D.user.name){el.innerHTML=`<div class="user-bar" onclick="go('acct')"><div class="user-av">${D.user.name.charAt(0).toUpperCase()}</div><span class="user-nm">${esc(D.user.name.split(' ')[0])}</span></div>`}else{el.innerHTML=`<div class="H-btn" onclick="go('auth')"><i class="fas fa-user"></i></div>`}}
@@ -1966,7 +1967,7 @@ return`<div class="P ${p.wide?'wide':''}" onclick="viewProd('${esc(pid)}')"><div
 /* ===== RENDER ENGINE ===== */
 function renderPage(){
 const a=$('app');
-const pages={home:rHome,market:rMarket,shop:rShop,trade:rTrade,tradecoops:rTradeCoops,tradeshipcalc:rTradeShipCalc,tradeprivate:rTradePrivate,tradepackets:rTradePackets,tradeequip:rTradeEquip,tools:rTools,inventory:rInv,roast:rRoast,costs:rCosts,calc:rCalc,cupping:rCupping,clients:rClients,inv:rInvGen,pricing:rPricing,about:rAbout,acct:rAcct,cart:rCart,checkout:rCheckout,ordersuccess:rOrderSuccess,auth:rAuth,cafe:rCafe,cafepos:rCafePos,cafetables:rCafeTables,cafemenu:rCafeMenu,cafeorders:rCafeOrders,cafereport:rCafeReport,caferecipes:rCafeRecipes,contact:rContact,cafemenuqr:rCafeMenuQR,cafeloyalty:rCafeLoyalty,cafekitchen:rCafeKitchen,cafeanalytics:rCafeAnalytics,cafewaitlist:rCafeWaitlist,cafewaste:rCafeWaste,cafetips:rCafeTips};
+const pages={home:rHome,market:rMarket,shop:rShop,trade:rTrade,tradecoops:rTradeCoops,tradeshipcalc:rTradeShipCalc,tradeprivate:rTradePrivate,tradepackets:rTradePackets,tradeequip:rTradeEquip,tools:rTools,inventory:rInv,roast:rRoast,costs:rCosts,calc:rCalc,cupping:rCupping,clients:rClients,inv:rInvGen,pricing:rPricing,about:rAbout,acct:rAcct,cart:rCart,checkout:rCheckout,ordersuccess:rOrderSuccess,auth:rAuth,cafe:rCafe,cafepos:rCafePos,cafetables:rCafeTables,cafemenu:rCafeMenu,cafeorders:rCafeOrders,cafereport:rCafeReport,caferecipes:rCafeRecipes,contact:rContact,cafemenuqr:rCafeMenuQR,cafeloyalty:rCafeLoyalty,cafekitchen:rCafeKitchen,cafeanalytics:rCafeAnalytics,cafewaitlist:rCafeWaitlist,cafewaste:rCafeWaste,cafetips:rCafeTips,brewcalc:rBrewCalc,greenlog:rGreenLog,profitcalc:rProfitCalc};
 const fn=pages[curPage]||rHome;
 window._curPage=curPage;
 a.innerHTML=`<div class="S on">${getBreadcrumb(curPage)}${fn()}</div>`;
@@ -2373,13 +2374,16 @@ return`<div class="sh"><h2>${t('toolsTitle')}</h2><div style="display:flex;gap:6
 <div style="font-family:var(--fd);font-size:.82rem;font-weight:700;margin-bottom:12px;opacity:.8"><i class="fas fa-chart-pie" style="margin-right:4px"></i> Command Center</div>
 <div class="qs" style="margin-bottom:8px"><div class="q" style="border-color:rgba(255,255,255,.1)"><div class="q-v" style="color:#5cc8a0">${bk.toFixed(0)}<small style="font-size:.45rem;opacity:.6"> kg</small></div><div class="q-l" style="color:rgba(255,255,255,.5)">${t('greenBeansTitle')}</div></div><div class="q" style="border-color:rgba(255,255,255,.1)"><div class="q-v" style="color:#5090d4">$${bv.toFixed(0)}</div><div class="q-l" style="color:rgba(255,255,255,.5)">${t('stockValue')}</div></div><div class="q" style="border-color:rgba(255,255,255,.1)"><div class="q-v" style="color:#f0a060">${pv.toFixed(0)}%</div><div class="q-l" style="color:rgba(255,255,255,.5)">${t('avgMargin')}</div></div><div class="q" style="border-color:rgba(255,255,255,.1)"><div class="q-v" style="color:${low+out>0?'#e07070':'#5cc8a0'}">${low+out}</div><div class="q-l" style="color:rgba(255,255,255,.5)">${low?low+' Low':'0 Low'}${out?' · '+out+' Out':''}</div></div></div>
 <div class="qs" style="margin-bottom:0"><div class="q" style="border-color:rgba(255,255,255,.1)"><div class="q-v" style="color:#c090e0">${totalRoasts}</div><div class="q-l" style="color:rgba(255,255,255,.5)">Roast Batches</div></div><div class="q" style="border-color:rgba(255,255,255,.1)"><div class="q-v" style="color:#e0a060">${totalCuppings}</div><div class="q-l" style="color:rgba(255,255,255,.5)">Cuppings</div></div><div class="q" style="border-color:rgba(255,255,255,.1)"><div class="q-v" style="color:#80c0d0">${D.clients.length}</div><div class="q-l" style="color:rgba(255,255,255,.5)">Clients</div></div><div class="q" style="border-color:rgba(255,255,255,.1)"><div class="q-v" style="color:#e08080">₺${ohPk>0?(ohPk/(D.oh.kg||1000)).toFixed(2):'0'}</div><div class="q-l" style="color:rgba(255,255,255,.5)">Overhead/kg</div></div></div></div>
-${_toolCard('inventory','fa-seedling','--emerald','--em-lt','--em-br',t('inventory'),t('inventoryD'),D.beans.length+' beans · '+D.packs.length+' packs','g')}
-${_toolCard('roast','fa-fire','--amber','--amber-lt','--amber-br',t('roastLog'),t('roastLogD'),D.roasts.length+' roasts','d')}
-${_toolCard('costs','fa-coins','--blue','--blue-lt','rgba(42,90,144,.2)',t('overheadCosts'),t('overheadD'),'₺'+(D.settings.ohKg||0).toFixed(2)+'/kg','d')}
-${_toolCard('calc','fa-calculator','--copper','--cop-lt','rgba(106,122,142,.2)',t('blendCalc'),t('blendCalcD'),D.products.length+' products','d')}
-${_toolCard('cupping','fa-star-half-alt','--amber','--amber-lt','--amber-br','Cupping Scores','SCA cupping evaluation for green & roasted lots',(D.cuppings?D.cuppings.length:0)+' evaluations','d')}
-${_toolCard('clients','fa-address-book','--ruby','--ruby-lt','rgba(176,64,74,.2)',t('clientDB'),t('clientDBD'),D.clients.length+' clients','d')}
-${_toolCard('inv','fa-file-invoice-dollar','--amber','--amber-lt','--amber-br',t('invoiceGen'),t('invoiceGenD'),'','')}
+${_toolCard('inventory','fa-leaf','--emerald','--em-lt','--em-br',t('inventory'),t('inventoryD'),D.beans.length+' beans · '+D.packs.length+' packs','g')}
+${_toolCard('roast','fa-fire-flame-curved','--amber','--amber-lt','--amber-br',t('roastLog'),t('roastLogD'),D.roasts.length+' roasts','d')}
+${_toolCard('costs','fa-chart-pie','--blue','--blue-lt','rgba(42,90,144,.2)',t('overheadCosts'),t('overheadD'),'₺'+(D.settings.ohKg||0).toFixed(2)+'/kg','d')}
+${_toolCard('calc','fa-scale-balanced','--copper','--cop-lt','rgba(106,122,142,.2)',t('blendCalc'),t('blendCalcD'),D.products.length+' products','d')}
+${_toolCard('cupping','fa-wine-glass','--amber','--amber-lt','--amber-br','Cupping Scores','SCA cupping evaluation for green & roasted lots',(D.cuppings?D.cuppings.length:0)+' evaluations','d')}
+${_toolCard('clients','fa-users','--ruby','--ruby-lt','rgba(176,64,74,.2)',t('clientDB'),t('clientDBD'),D.clients.length+' clients','d')}
+${_toolCard('inv','fa-file-invoice','--amber','--amber-lt','--amber-br',t('invoiceGen'),t('invoiceGenD'),'','')}
+${_toolCard('brewcalc','fa-droplet','--blue','--blue-lt','rgba(40,104,192,.2)','Brew Calculator','Water ratio, extraction yield & TDS for pour-over, espresso, batch brew','','')}
+${_toolCard('greenlog','fa-globe','--emerald','--em-lt','--em-br','Green Bean Log','Track origin, lot, harvest date, processing method & cupping notes per lot','','')}
+${_toolCard('profitcalc','fa-chart-line','--ruby','--ruby-lt','rgba(208,68,64,.2)','Profit Analyzer','Revenue vs. costs, profit per product, margin trends over time','','')}
 
 <!-- Quick Notes -->
 <div class="C Ca"><div class="st"><span><i class="fas fa-sticky-note" style="color:var(--amber);margin-inline-end:5px"></i>${t('quickNotes')}</span><span class="tg tg-d">${(D.settings.notes||[]).length}</span></div>
@@ -2680,13 +2684,109 @@ ${invHist.map((iv,i)=>`<tr><td class="num" style="font-size:.66rem">INV-${String
 <div class="inv-wrap"><div id="invPaper"><div style="border-bottom:3px solid #16202e;padding-bottom:14px;margin-bottom:24px;display:flex;justify-content:space-between;align-items:flex-end"><div><h1 style="color:#16202e;margin:0;font-family:'Fraunces',serif;font-size:2.2em;font-weight:900">Coffee<span style="color:#3a72b8;font-weight:400;font-style:italic">Pro</span></h1><div style="font-size:.75em;color:#3a72b8;font-weight:600;letter-spacing:3px;text-transform:uppercase">Pro Forma</div></div><div style="text-align:right"><h2 style="color:#ccc;margin:0;font-family:'Outfit',sans-serif;font-weight:300;font-size:1.4em">INVOICE</h2><div style="font-size:.75em;color:#888;margin-top:3px">Date: <span id="pdfDate"></span></div></div></div><div style="display:flex;justify-content:space-between;margin-bottom:28px;font-family:'Outfit',sans-serif;font-size:.8em;line-height:1.6"><div style="width:45%"><strong style="color:#3a72b8;text-transform:uppercase;font-size:.78em;letter-spacing:1.5px;display:block;margin-bottom:6px">From</strong>Frances Coffee Roastery<br>Istanbul, Turkey<br>francescoffee.com.tr</div><div style="width:45%"><strong style="color:#3a72b8;text-transform:uppercase;font-size:.78em;letter-spacing:1.5px;display:block;margin-bottom:6px">Bill To</strong><span id="pCl">CLIENT</span><br><span id="pAd"></span><br>Tax: <span id="pTx">—</span></div></div><table style="width:100%;border-collapse:collapse;margin-bottom:24px;font-family:'Outfit',sans-serif"><thead><tr style="background:#16202e;color:white"><th style="padding:10px 12px;text-align:left;font-size:.74em">Item</th><th style="padding:10px;text-align:right;font-size:.74em">Qty</th><th style="padding:10px;text-align:right;font-size:.74em">Price</th><th style="padding:10px 12px;text-align:right;font-size:.74em">Total</th></tr></thead><tbody id="pTbody"><tr><td style="padding:13px 12px;border-bottom:1px solid #eee"><strong id="pPr"></strong><br><small id="pDs" style="color:#999"></small></td><td id="pQt" style="padding:13px;border-bottom:1px solid #eee;text-align:right;font-family:monospace"></td><td id="pPc" style="padding:13px;border-bottom:1px solid #eee;text-align:right;font-family:monospace"></td><td id="pTt" style="padding:13px 12px;border-bottom:1px solid #eee;text-align:right;font-family:monospace;font-weight:600"></td></tr></tbody></table><div style="text-align:right;font-size:.82em"><div style="color:#999">Subtotal: <span id="pSb">0 TL</span></div><div style="color:#999">Tax: <span id="pKd">0 TL</span></div><div style="padding-top:10px;border-top:2px solid #16202e;margin-top:6px;font-size:1.3em;font-weight:700;color:#16202e">Total: <span id="pGr" style="color:#3a72b8">0 TL</span></div></div><div style="position:absolute;bottom:53px;left:83px;right:83px;border-top:1px solid #eee;padding-top:8px;text-align:center;font-size:.64em;color:#bbb">CoffeePro · Frances Coffee · Istanbul · francescoffee.com.tr</div></div></div>
 <div class="row" style="margin-top:10px;gap:6px"><div class="col"><button class="B Ba Bw" onclick="dlPDF()"><i class="fas fa-file-pdf"></i> ${t('downloadPdf')}</button></div><div class="col"><button class="B Bg Bw" onclick="_saveInvoice()"><i class="fas fa-save"></i> Save Invoice</button></div></div>`}
 
+/* ===== BREW CALCULATOR ===== */
+function rBrewCalc(){
+const methods=[
+{name:'Pour Over (V60)',ratio:16.5,temp:'92–96',grind:'Medium-Fine',time:'2:30–3:30'},
+{name:'Espresso',ratio:2,temp:'90–94',grind:'Fine',time:'25–35s'},
+{name:'French Press',ratio:15,temp:'93–96',grind:'Coarse',time:'4:00'},
+{name:'AeroPress',ratio:14,temp:'80–92',grind:'Medium',time:'1:30–2:30'},
+{name:'Batch Brew',ratio:17,temp:'93–96',grind:'Medium',time:'4:00–6:00'},
+{name:'Cold Brew',ratio:8,temp:'Cold',grind:'Extra Coarse',time:'12–24h'},
+{name:'Chemex',ratio:16,temp:'92–96',grind:'Medium-Coarse',time:'3:30–4:30'},
+{name:'Moka Pot',ratio:7,temp:'~100',grind:'Fine-Medium',time:'3:00–5:00'}
+];
+return`<div class="sh"><h2><i class="fas fa-arrow-left" style="font-size:.7rem;cursor:pointer;color:var(--faint);margin-right:6px" onclick="go('tools')"></i>Brew Calculator</h2></div>
+<div class="C Ca"><div class="st"><span><i class="fas fa-droplet" style="color:var(--blue);margin-inline-end:5px"></i>Recipe Builder</span></div>
+<div class="row fg"><div class="col"><label>Brew Method</label><select id="brewMethod" onchange="_updateBrewCalc()"><option value="">Select method...</option>${methods.map((m,i)=>'<option value="'+i+'">'+m.name+'</option>').join('')}</select></div><div class="col"><label>Coffee Dose (g)</label><input type="number" id="brewDose" value="18" oninput="_updateBrewCalc()"></div></div>
+<div class="row fg"><div class="col"><label>Water:Coffee Ratio</label><input type="number" id="brewRatio" value="16.5" step="0.5" oninput="_updateBrewCalc()"></div><div class="col"><label>TDS % (measured)</label><input type="number" id="brewTDS" value="1.35" step="0.01" oninput="_updateBrewCalc()"></div></div>
+<div id="brewResult" style="margin-top:8px"></div></div>
+<div class="C"><div class="st"><span><i class="fas fa-list" style="color:var(--amber);margin-inline-end:5px"></i>Brew Method Guide</span></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+${methods.map(m=>'<div style="background:var(--cream);border:1px solid var(--cream3);border-radius:var(--r);padding:12px"><div style="font-weight:700;font-size:.82rem;color:var(--esp);font-family:var(--fd);margin-bottom:6px">'+m.name+'</div><div style="font-size:.66rem;color:var(--muted);line-height:1.5"><div><strong>Ratio:</strong> 1:'+m.ratio+'</div><div><strong>Temp:</strong> '+m.temp+'°C</div><div><strong>Grind:</strong> '+m.grind+'</div><div><strong>Time:</strong> '+m.time+'</div></div></div>').join('')}
+</div></div>`}
+window._brewMethods=[{ratio:16.5},{ratio:2},{ratio:15},{ratio:14},{ratio:17},{ratio:8},{ratio:16},{ratio:7}];
+window._updateBrewCalc=function(){
+var mi=document.getElementById('brewMethod').value;
+if(mi!==''){var m=_brewMethods[parseInt(mi)];document.getElementById('brewRatio').value=m.ratio}
+var dose=parseFloat(document.getElementById('brewDose').value)||0;
+var ratio=parseFloat(document.getElementById('brewRatio').value)||0;
+var tds=parseFloat(document.getElementById('brewTDS').value)||0;
+var water=dose*ratio;
+var ey=tds>0&&dose>0?((water*tds/100)/dose)*100:0;
+var cups=water/240;
+var el=document.getElementById('brewResult');
+if(!el)return;
+var eyClr=ey>=18&&ey<=22?'var(--emerald)':ey>0?'var(--ruby)':'var(--muted)';
+var eyLabel='—';
+if(ey>=18&&ey<=22)eyLabel='Optimal';else if(ey>22)eyLabel='Over-extracted';else if(ey>0)eyLabel='Under-extracted';
+el.innerHTML='<div class="metric-row"><div class="metric-card"><div class="mc-val" style="color:var(--blue)">'+water.toFixed(0)+'<small>ml</small></div><div class="mc-lbl">Water</div></div><div class="metric-card"><div class="mc-val" style="color:'+eyClr+'">'+ey.toFixed(1)+'<small>%</small></div><div class="mc-lbl">Extraction Yield</div></div><div class="metric-card"><div class="mc-val" style="color:var(--amber)">'+cups.toFixed(1)+'</div><div class="mc-lbl">Cups (240ml)</div></div><div class="metric-card"><div class="mc-val" style="color:var(--emerald)">1:'+ratio+'</div><div class="mc-lbl">Ratio</div></div></div>';
+};
+
+/* ===== GREEN BEAN LOG ===== */
+function rGreenLog(){
+if(!D.greenlog)D.greenlog=[];
+return`<div class="sh"><h2><i class="fas fa-arrow-left" style="font-size:.7rem;cursor:pointer;color:var(--faint);margin-right:6px" onclick="go('tools')"></i>Green Bean Log</h2><button class="Bgh" onclick="_exportGreenCSV()"><i class="fas fa-file-csv"></i> Export</button></div>
+<div class="C Ca"><div class="st"><span><i class="fas fa-globe" style="color:var(--emerald);margin-inline-end:5px"></i>New Lot Entry</span></div>
+<div class="row fg"><div class="col"><label>Lot Name</label><input type="text" id="glName" placeholder="Ethiopia Yirgacheffe G1"></div><div class="col"><label>Origin / Region</label><input type="text" id="glOrigin" placeholder="Yirgacheffe, Ethiopia"></div></div>
+<div class="row fg"><div class="col"><label>Farm / Cooperative</label><input type="text" id="glFarm" placeholder="Konga Cooperative"></div><div class="col"><label>Lot Number</label><input type="text" id="glLot" placeholder="LOT-2024-042"></div></div>
+<div class="row fg"><div class="col"><label>Process</label><select id="glProcess"><option>Washed</option><option>Natural</option><option>Honey</option><option>Anaerobic</option><option>Wet-Hulled</option></select></div><div class="col"><label>Variety</label><input type="text" id="glVariety" placeholder="Heirloom, SL28..."></div></div>
+<div class="row fg"><div class="col"><label>Harvest Date</label><input type="date" id="glHarvest"></div><div class="col"><label>Arrival Date</label><input type="date" id="glArrival"></div></div>
+<div class="row fg"><div class="col"><label>Weight (kg)</label><input type="number" id="glWeight" placeholder="60"></div><div class="col"><label>Cost ($/kg)</label><input type="number" id="glCost" placeholder="8.50" step="0.01"></div></div>
+<div class="row fg"><div class="col"><label>Altitude (masl)</label><input type="number" id="glAltitude" placeholder="1900"></div><div class="col"><label>Moisture %</label><input type="number" id="glMoisture" placeholder="11.5" step="0.1"></div></div>
+<div class="fg"><label>Cupping Notes</label><textarea id="glNotes" rows="2" placeholder="Jasmine, bergamot, stone fruit, silky body..."></textarea></div>
+<div class="row fg"><div class="col"><label>SCA Score</label><input type="number" id="glScore" placeholder="87" min="0" max="100"></div><div class="col"><label>Bag Size (kg)</label><input type="number" id="glBag" placeholder="60"></div></div>
+<button class="B Bg Bw" onclick="_saveGreenLot()"><i class="fas fa-plus"></i> Add Lot</button></div>
+<div id="greenLotsList">${!D.greenlog.length?'<div class="empty"><i class="fas fa-globe"></i>No lots logged yet. Add your first green bean lot above.</div>':D.greenlog.map((g,i)=>'<div class="C" style="border-left:3px solid var(--emerald)"><div style="display:flex;justify-content:space-between;align-items:flex-start"><div><strong style="font-family:var(--fd);font-size:.88rem">'+esc(g.name)+'</strong> <span class="tg tg-g" style="font-size:.48rem">'+esc(g.process||'—')+'</span>'+(g.score?' <span class="tg tg-a" style="font-size:.48rem">SCA '+g.score+'</span>':'')+'<div style="font-size:.64rem;color:var(--faint);margin-top:2px">'+esc(g.origin||'—')+' · '+esc(g.farm||'—')+(g.lot?' · #'+esc(g.lot):'')+'</div></div><i class="fas fa-trash" style="color:var(--faint);cursor:pointer;font-size:.58rem" onclick="_delGreenLot('+i+')"></i></div><div class="rc-metrics" style="margin-top:8px"><div class="rc-m"><div class="v">'+(g.weight||'—')+'<small>kg</small></div><div class="l">Weight</div></div><div class="rc-m"><div class="v">$'+(g.cost||'—')+'</div><div class="l">Cost/kg</div></div><div class="rc-m"><div class="v">'+(g.altitude||'—')+'</div><div class="l">Altitude</div></div><div class="rc-m"><div class="v">'+(g.moisture||'—')+'%</div><div class="l">Moisture</div></div></div>'+(g.notes?'<div style="margin-top:6px;font-style:italic;font-size:.72rem;color:var(--muted);border-left:3px solid var(--amber);padding-left:8px">'+esc(g.notes)+'</div>':'')+'</div>').join('')}</div>`}
+window._saveGreenLot=function(){
+var n=$('glName')?.value?.trim();if(!n)return toast('Enter a lot name');
+if(!D.greenlog)D.greenlog=[];
+D.greenlog.unshift({name:n,origin:$('glOrigin')?.value?.trim()||'',farm:$('glFarm')?.value?.trim()||'',lot:$('glLot')?.value?.trim()||'',process:$('glProcess')?.value||'',variety:$('glVariety')?.value?.trim()||'',harvest:$('glHarvest')?.value||'',arrival:$('glArrival')?.value||'',weight:$('glWeight')?.value||'',cost:$('glCost')?.value||'',altitude:$('glAltitude')?.value||'',moisture:$('glMoisture')?.value||'',notes:$('glNotes')?.value?.trim()||'',score:$('glScore')?.value||'',bag:$('glBag')?.value||'',date:new Date().toISOString()});
+saveD();renderPage();toast('Lot added: '+n);
+};
+window._delGreenLot=function(i){if(!confirm('Delete this lot?'))return;D.greenlog.splice(i,1);saveD();renderPage()};
+window._exportGreenCSV=function(){
+if(!D.greenlog||!D.greenlog.length)return toast('No lots to export');
+var h='Name,Origin,Farm,Lot,Process,Variety,Harvest,Arrival,Weight,Cost,Altitude,Moisture,Score,Notes\n';
+var rows=D.greenlog.map(g=>[g.name,g.origin,g.farm,g.lot,g.process,g.variety,g.harvest,g.arrival,g.weight,g.cost,g.altitude,g.moisture,g.score,'"'+(g.notes||'').replace(/"/g,'""')+'"'].join(','));
+var csv=h+rows.join('\n');
+var b=new Blob([csv],{type:'text/csv'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='green_bean_log.csv';a.click();toast('CSV exported');
+};
+
+/* ===== PROFIT ANALYZER ===== */
+function rProfitCalc(){
+var totalRevenue=0,totalCosts=0;
+var productProfits=D.products.map(function(p){
+var price=parseFloat(p.price)||0;var cost=parseFloat(p.cost)||0;
+var margin=price>0?((price-cost)/price*100):0;
+totalRevenue+=price;totalCosts+=cost;
+return{name:p.name,price:price,cost:cost,profit:price-cost,margin:margin};
+}).sort(function(a,b){return b.margin-a.margin});
+var roastCost=D.roasts.reduce(function(s,r){return s+(r.ded||[]).reduce(function(ss,d){return ss+(parseFloat(d.kg||0)*_beanCost(d.name))},0)},0);
+var ohTotal=(D.oh.r||0)+(D.oh.l||0)+(D.oh.u||0)+(D.oh.m||0);
+var totalProfit=totalRevenue-totalCosts;
+var avgMargin=productProfits.length?productProfits.reduce(function(s,p){return s+p.margin},0)/productProfits.length:0;
+return`<div class="sh"><h2><i class="fas fa-arrow-left" style="font-size:.7rem;cursor:pointer;color:var(--faint);margin-right:6px" onclick="go('tools')"></i>Profit Analyzer</h2></div>
+<div class="metric-row">
+<div class="metric-card"><div class="mc-val" style="color:var(--emerald)">₺${totalRevenue.toFixed(0)}</div><div class="mc-lbl">Revenue (Products)</div></div>
+<div class="metric-card"><div class="mc-val" style="color:var(--ruby)">₺${totalCosts.toFixed(0)}</div><div class="mc-lbl">Product Costs</div></div>
+<div class="metric-card"><div class="mc-val" style="color:var(--amber)">₺${ohTotal.toFixed(0)}</div><div class="mc-lbl">Monthly Overhead</div></div>
+<div class="metric-card"><div class="mc-val" style="color:${avgMargin>=20?'var(--emerald)':'var(--ruby)'}">${avgMargin.toFixed(1)}%</div><div class="mc-lbl">Avg Margin</div></div>
+</div>
+<div class="C Ca"><div class="st"><span><i class="fas fa-chart-line" style="color:var(--emerald);margin-inline-end:5px"></i>Product Margins</span></div>
+${productProfits.length?productProfits.map(function(p){var clr=p.margin>=30?'var(--emerald)':p.margin>=15?'var(--amber)':'var(--ruby)';return'<div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--cream3)"><div><strong style="font-size:.8rem">'+esc(p.name)+'</strong><div style="font-size:.62rem;color:var(--faint)">Cost: ₺'+p.cost.toFixed(2)+' · Price: ₺'+p.price.toFixed(2)+'</div></div><div style="text-align:right"><div style="font-family:var(--fm);font-weight:700;color:'+clr+';font-size:.82rem">'+p.margin.toFixed(1)+'%</div><div style="font-size:.58rem;color:var(--faint)">₺'+p.profit.toFixed(2)+' profit</div></div></div>'}).join(''):'<div class="empty"><i class="fas fa-chart-bar"></i>Add products with prices to see margin analysis.</div>'}
+</div>
+<div class="C"><div class="st"><span><i class="fas fa-fire-flame-curved" style="color:var(--amber);margin-inline-end:5px"></i>Green Bean Investment</span></div>
+<div class="metric-row"><div class="metric-card"><div class="mc-val" style="color:var(--ruby)">₺${roastCost.toFixed(0)}</div><div class="mc-lbl">Bean Costs (All Roasts)</div></div><div class="metric-card"><div class="mc-val" style="color:var(--blue)">${D.roasts.length}</div><div class="mc-lbl">Total Batches</div></div></div></div>`}
+function _beanCost(name){var b=D.beans.find(function(x){return x.name===name});return b?parseFloat(b.cost)||0:0}
+
 function rPricing(){return`<div class="hero" style="padding:40px 16px 30px"><div class="h-tag"><i class="fas fa-tags"></i> ${t('pricingTag')}</div><h1 style="font-size:2rem">${t('pricingH1')}</h1><p style="font-size:.84rem">${t('pricingP')}</p></div>
 <div class="pricing-grid">
 <div class="plan"><div class="pl-nm">${t('starter')}</div><div class="pl-pr">${t('free')} <small>/ ${t('forever')}</small></div><div class="pl-ds">Essential tools to get started with professional roast tracking.</div><ul class="pl-ft"><li><i class="fas fa-check"></i>Up to 10 roast logs</li><li><i class="fas fa-check"></i>Basic cupping sheets</li><li><i class="fas fa-check"></i>Yield calculator</li><li><i class="fas fa-check"></i>Single currency</li><li><i class="fas fa-check"></i>Local data storage</li><li><i class="fas fa-check"></i>Community support</li></ul><button class="B Bd Bw" onclick="pickSub('free')">${D.sub==='free'?'<i class="fas fa-check-circle"></i> '+t('curPlan'):'<i class="fas fa-leaf"></i> '+t('getStarted')}</button></div>
 <div class="plan ft"><div class="pl-nm">${t('professional')}</div><div class="pl-pr">$9.99 <small>/ ${t('month')}</small></div><div class="pl-ds">Everything you need to run a professional roastery.</div><ul class="pl-ft"><li><i class="fas fa-check"></i>Unlimited roast logs</li><li><i class="fas fa-check"></i>Full inventory management</li><li><i class="fas fa-check"></i>Cost & margin calculator</li><li><i class="fas fa-check"></i>Cupping scoresheets with radar</li><li><i class="fas fa-check"></i>Roast comparison & analytics</li><li><i class="fas fa-check"></i>Client management</li><li><i class="fas fa-check"></i>PDF invoice generation</li><li><i class="fas fa-check"></i>Cloud backup & sync</li><li><i class="fas fa-check"></i>Priority email support</li></ul><button class="B Ba Bw" onclick="pickSub('pro')">${D.sub==='pro'?'<i class="fas fa-check-circle"></i> '+t('curPlan'):'<i class="fas fa-rocket"></i> '+t('startTrial')}</button></div>
 <div class="plan"><div class="pl-nm">Business</div><div class="pl-pr">$29.99 <small>/ ${t('month')}</small></div><div class="pl-ds">For roasteries with a cafe, or multi-location operations.</div><ul class="pl-ft"><li><i class="fas fa-check"></i>Everything in Pro</li><li><i class="fas fa-check"></i>Full Cafe POS system</li><li><i class="fas fa-check"></i>Table management</li><li><i class="fas fa-check"></i>Kitchen display system</li><li><i class="fas fa-check"></i>Loyalty program</li><li><i class="fas fa-check"></i>Revenue analytics & goals</li><li><i class="fas fa-check"></i>Multi-location support</li><li><i class="fas fa-check"></i>Custom branding</li><li><i class="fas fa-check"></i>Dedicated account manager</li></ul><button class="B Bd Bw" onclick="pickSub('enterprise')">${D.sub==='enterprise'?'<i class="fas fa-check-circle"></i> '+t('curPlan'):'<i class="fas fa-building"></i> Start Free Trial'}</button></div>
 </div>
-<div class="C" style="margin-top:20px;text-align:center;padding:28px"><div style="font-family:var(--fd);font-size:1rem;font-weight:600;color:var(--esp);margin-bottom:6px;font-variation-settings:'opsz' 24">Compare All Features</div>
+<div class="C" style="margin-top:20px;text-align:center;padding:28px"><div style="font-family:var(--fd);font-size:1rem;font-weight:700;color:var(--esp);margin-bottom:6px;letter-spacing:-.02em">Compare All Features</div>
 <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:0;font-size:.68rem;text-align:center;margin-top:14px">
 <div style="text-align:left;font-weight:600;padding:8px;border-bottom:1px solid var(--cream3)">Feature</div><div style="padding:8px;border-bottom:1px solid var(--cream3);font-weight:600">Starter</div><div style="padding:8px;border-bottom:1px solid var(--cream3);font-weight:600;color:var(--amber)">Pro</div><div style="padding:8px;border-bottom:1px solid var(--cream3);font-weight:600">Business</div>
 <div style="text-align:left;padding:6px 8px;border-bottom:1px solid var(--cream3)">Roast Logs</div><div style="padding:6px;border-bottom:1px solid var(--cream3)">10</div><div style="padding:6px;border-bottom:1px solid var(--cream3);color:var(--amber)">Unlimited</div><div style="padding:6px;border-bottom:1px solid var(--cream3)">Unlimited</div>
