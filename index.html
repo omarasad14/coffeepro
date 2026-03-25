@@ -2056,68 +2056,130 @@ function ls(k,v){if(v!==undefined){localStorage.setItem('cp_'+k,JSON.stringify(v
 function loadAll(){D.beans=ls('beans')||[];D.packs=ls('packs')||[];D.products=ls('products')||[];D.roasts=ls('roasts')||[];D.clients=ls('clients')||[];D.cuppings=ls('cuppings')||[];D.invoices=ls('invoices')||[];const s=ls('settings');D.settings=s?Object.assign({usd:36,ohKg:0,low:5},s):{usd:36,ohKg:0,low:5};D.oh=ls('oh')||{r:0,l:0,u:0,m:0,kg:1000};D.cart=ls('cart')||[];D.user=ls('user')||null;D.sub=ls('sub')||'free';D.orders=ls('orders')||[];D.wishlist=ls('wishlist')||[];D.reviews=ls('reviews')||[];D.greenlog=ls('greenlog')||[];updCartBadge();updUserBtn()}
 function saveD(){try{['beans','packs','products','roasts','clients','cuppings','invoices','settings','oh','cart','user','sub','orders','wishlist','reviews','greenlog'].forEach(k=>ls(k,D[k]))}catch(e){if(e.name==='QuotaExceededError'||e.code===22){toast('⚠ Storage full — clear old data or export a backup');console.warn('localStorage quota exceeded',e)}else{throw e}}}
 
-window._loadDemo=function(){if(!confirm('Load demo data? This will overwrite your current data.'))return;
+window._loadDemo=function(){if(!confirm('Load demo data? This will overwrite current data with 6 months of Frances Coffee Istanbul operations.'))return;
 var now=new Date();var d=function(n){var dt=new Date(now);dt.setDate(dt.getDate()-n);return dt.toISOString().slice(0,10)};
 D.user={name:'Omar Asad',email:'omar@francescoffee.com'};
 D.sub='pro';
+/* ═══ GREEN BEAN INVENTORY — 10 origins, realistic stock after 6mo importing ═══ */
 D.beans=[
-{id:1,name:'Ethiopia Yirgacheffe Gr.1',origin:'Ethiopia',cost:8.5,stock:145,unit:'kg',low:20,supplier:'Addis Export',lot:'ETH-2024-042',arrival:d(30)},
-{id:2,name:'Colombia Huila Supremo',origin:'Colombia',cost:7.2,stock:210,unit:'kg',low:25,supplier:'Santos Trading',lot:'COL-2024-118',arrival:d(45)},
-{id:3,name:'Brazil Santos NY2',origin:'Brazil',cost:5.8,stock:380,unit:'kg',low:50,supplier:'Santos Trading',lot:'BRA-2024-091',arrival:d(15)},
-{id:4,name:'Guatemala Antigua SHB',origin:'Guatemala',cost:9.1,stock:85,unit:'kg',low:15,supplier:'Café Imports',lot:'GUA-2024-033',arrival:d(60)},
-{id:5,name:'Kenya AA Nyeri',origin:'Kenya',cost:11.2,stock:42,unit:'kg',low:10,supplier:'Dormans',lot:'KEN-2024-007',arrival:d(20)},
-{id:6,name:'Indonesia Mandheling Gr.1',origin:'Indonesia',cost:6.9,stock:120,unit:'kg',low:20,supplier:'Olam Intl',lot:'IDN-2024-055',arrival:d(40)},
-{id:7,name:'Costa Rica Tarrazú',origin:'Costa Rica',cost:10.5,stock:55,unit:'kg',low:10,supplier:'Exclusive Coffees',lot:'CRI-2024-019',arrival:d(25)},
-{id:8,name:'Peru Chanchamayo Org.',origin:'Peru',cost:7.8,stock:95,unit:'kg',low:15,supplier:'Café Imports',lot:'PER-2024-061',arrival:d(35)}
+{id:1,name:'Ethiopia Yirgacheffe Gr.1',origin:'Ethiopia',cost:8.5,stock:145,unit:'kg',low:20,supplier:'Addis Export Co.',lot:'ETH-2025-042',arrival:d(30)},
+{id:2,name:'Colombia Huila Supremo',origin:'Colombia',cost:7.2,stock:210,unit:'kg',low:25,supplier:'Café Imports EU',lot:'COL-2025-118',arrival:d(45)},
+{id:3,name:'Brazil Santos NY2/3',origin:'Brazil',cost:5.8,stock:380,unit:'kg',low:50,supplier:'Santos Trading SA',lot:'BRA-2025-091',arrival:d(15)},
+{id:4,name:'Guatemala Antigua SHB',origin:'Guatemala',cost:9.1,stock:85,unit:'kg',low:15,supplier:'Café Imports EU',lot:'GUA-2025-033',arrival:d(60)},
+{id:5,name:'Kenya AA Nyeri',origin:'Kenya',cost:11.2,stock:42,unit:'kg',low:10,supplier:'Dormans Coffee',lot:'KEN-2025-007',arrival:d(20)},
+{id:6,name:'Indonesia Mandheling Gr.1',origin:'Indonesia',cost:6.9,stock:120,unit:'kg',low:20,supplier:'Olam International',lot:'IDN-2025-055',arrival:d(40)},
+{id:7,name:'Costa Rica Tarrazú SHB',origin:'Costa Rica',cost:10.5,stock:55,unit:'kg',low:10,supplier:'Exclusive Coffees',lot:'CRI-2025-019',arrival:d(25)},
+{id:8,name:'Peru Chanchamayo Organic',origin:'Peru',cost:7.8,stock:95,unit:'kg',low:15,supplier:'Café Imports EU',lot:'PER-2025-061',arrival:d(35)},
+{id:9,name:'Rwanda Nyamasheke A',origin:'Rwanda',cost:9.8,stock:60,unit:'kg',low:10,supplier:'Rwanda Trading Co.',lot:'RWA-2025-014',arrival:d(50)},
+{id:10,name:'Honduras Marcala HG',origin:'Honduras',cost:6.5,stock:175,unit:'kg',low:20,supplier:'Becamo SA',lot:'HND-2025-088',arrival:d(18)}
 ];
+/* ═══ PACKAGING — 5 types ═══ */
 D.packs=[
-{id:1,name:'250g Kraft Bag w/ Valve',cost:0.45,stock:2200,unit:'pc'},
-{id:2,name:'1kg Foil Bag w/ Valve',cost:0.85,stock:800,unit:'pc'},
-{id:3,name:'500g Stand-Up Pouch',cost:0.62,stock:1500,unit:'pc'},
-{id:4,name:'Custom Label (roll/500)',cost:0.12,stock:4000,unit:'pc'}
+{id:1,name:'250g Kraft Bag w/ Valve',cost:0.45,stock:1850,unit:'pc'},
+{id:2,name:'1kg Foil Bag w/ Valve',cost:0.85,stock:620,unit:'pc'},
+{id:3,name:'500g Stand-Up Pouch',cost:0.62,stock:1200,unit:'pc'},
+{id:4,name:'Custom Label (per pc)',cost:0.12,stock:3500,unit:'pc'},
+{id:5,name:'Sample Bag 100g',cost:0.28,stock:500,unit:'pc'}
 ];
-D.roasts=[
-{id:101,name:'Yirgacheffe Light',date:d(1),type:'Single Origin',level:'Light',agtron:'75',charge:'200',fc:'195',drop:'210',dev:'20',time:'11:30',loss:'13.8',notes:'Floral, citrus, tea-like body. Beautiful acidity.',img:null,ded:[{id:1,amt:12}]},
-{id:102,name:'Huila Medium',date:d(2),type:'Single Origin',level:'Medium',agtron:'58',charge:'205',fc:'198',drop:'218',dev:'22',time:'12:45',loss:'15.1',notes:'Chocolate, caramel, red apple. Balanced sweetness.',img:null,ded:[{id:2,amt:15}]},
-{id:103,name:'House Blend #7',date:d(3),type:'Blend',level:'Medium',agtron:'55',charge:'208',fc:'200',drop:'220',dev:'24',time:'13:00',loss:'15.8',notes:'Nutty, cocoa, brown sugar. Great for espresso.',img:null,ded:[{id:3,amt:10},{id:2,amt:5}]},
-{id:104,name:'Santos Dark Roast',date:d(5),type:'Single Origin',level:'Dark',agtron:'42',charge:'210',fc:'202',drop:'228',dev:'28',time:'14:20',loss:'17.5',notes:'Bittersweet chocolate, smoky, full body.',img:null,ded:[{id:3,amt:20}]},
-{id:105,name:'Kenya Filter Roast',date:d(7),type:'Single Origin',level:'Light',agtron:'72',charge:'198',fc:'193',drop:'208',dev:'19',time:'11:00',loss:'13.2',notes:'Blackcurrant, grapefruit, sparkling acidity.',img:null,ded:[{id:5,amt:8}]},
-{id:106,name:'Espresso Blend Pro',date:d(8),type:'Blend',level:'Medium-Dark',agtron:'48',charge:'210',fc:'201',drop:'224',dev:'26',time:'13:45',loss:'16.3',notes:'Crema monster. Chocolate, hazelnut, caramel.',img:null,ded:[{id:3,amt:8},{id:2,amt:6},{id:6,amt:4}]},
-{id:107,name:'Guatemala Honey Process',date:d(10),type:'Single Origin',level:'Medium',agtron:'60',charge:'202',fc:'196',drop:'216',dev:'21',time:'12:30',loss:'14.9',notes:'Honey, peach, brown sugar. Silky body.',img:null,ded:[{id:4,amt:10}]},
-{id:108,name:'Mandheling Full City',date:d(12),type:'Single Origin',level:'Medium-Dark',agtron:'50',charge:'208',fc:'200',drop:'222',dev:'25',time:'13:30',loss:'16.0',notes:'Earthy, cedar, dark chocolate. Low acidity.',img:null,ded:[{id:6,amt:12}]},
-{id:109,name:'Costa Rica Black Honey',date:d(14),type:'Single Origin',level:'Medium',agtron:'62',charge:'200',fc:'194',drop:'214',dev:'22',time:'12:15',loss:'14.5',notes:'Strawberry jam, milk chocolate, sweet finish.',img:null,ded:[{id:7,amt:8}]},
-{id:110,name:'Peru Organic Light',date:d(16),type:'Single Origin',level:'Light',agtron:'70',charge:'196',fc:'191',drop:'206',dev:'18',time:'10:50',loss:'12.8',notes:'Green apple, jasmine, clean cup.',img:null,ded:[{id:8,amt:10}]}
+/* ═══ 30 ROAST BATCHES — spanning 6 months, realistic profiles ═══ */
+D.roasts=[];
+var rNames=[
+['Yirgacheffe Filter','Single Origin','Light','75','200','195','210','20','11:30','13.8','Floral, citrus, tea-like. Beautiful acidity.',1,12],
+['Huila Medium','Single Origin','Medium','58','205','198','218','22','12:45','15.1','Chocolate, caramel, red apple. Balanced.',2,15],
+['House Blend #7','Blend','Medium','55','208','200','220','24','13:00','15.8','Nutty, cocoa, brown sugar. Espresso base.',3,10],
+['Santos Dark Roast','Single Origin','Dark','42','210','202','228','28','14:20','17.5','Bittersweet chocolate, smoky, full body.',3,20],
+['Kenya Filter Roast','Single Origin','Light','72','198','193','208','19','11:00','13.2','Blackcurrant, grapefruit, sparkling.',5,8],
+['Espresso Blend Pro','Blend','Medium-Dark','48','210','201','224','26','13:45','16.3','Crema monster. Hazelnut, caramel.',3,8],
+['Guatemala Honey','Single Origin','Medium','60','202','196','216','21','12:30','14.9','Honey, peach, brown sugar. Silky.',4,10],
+['Mandheling Full City','Single Origin','Medium-Dark','50','208','200','222','25','13:30','16.0','Earthy, cedar, dark chocolate.',6,12],
+['Costa Rica BH','Single Origin','Medium','62','200','194','214','22','12:15','14.5','Strawberry jam, milk chocolate.',7,8],
+['Peru Organic Light','Single Origin','Light','70','196','191','206','18','10:50','12.8','Green apple, jasmine, clean cup.',8,10],
+['Rwanda Bourbon','Single Origin','Medium','61','201','195','215','21','12:20','14.2','Red berry, orange blossom, silky.',9,8],
+['Honduras Caramel','Single Origin','Medium','56','204','197','217','23','12:40','15.0','Caramel, almond, citrus finish.',10,12],
+['Breakfast Blend','Blend','Medium','54','206','199','219','23','12:50','15.5','Smooth, balanced, everyday cup.',3,8],
+['Turkish Blend Special','Blend','Dark','40','212','203','230','30','14:40','18.0','Intense, spice, cardamom-ready.',3,12],
+['Decaf Colombia','Single Origin','Medium','57','203','197','216','22','12:30','14.8','Chocolate, mild fruit, clean.',2,10]
 ];
+for(var ri=0;ri<30;ri++){var tmpl=rNames[ri%rNames.length];var dayOffset=ri*6+1;
+D.roasts.push({id:100+ri,name:tmpl[0]+(ri>=15?' B'+(ri-14):''),date:d(dayOffset),type:tmpl[1],level:tmpl[2],agtron:tmpl[3],charge:tmpl[4],fc:tmpl[5],drop:tmpl[6],dev:tmpl[7],time:tmpl[8],loss:String((parseFloat(tmpl[9])+(Math.random()*1.2-0.6)).toFixed(1)),notes:tmpl[10],img:null,ded:[{id:tmpl[11],amt:tmpl[12]}]});}
+/* ═══ 8 SAVED PRODUCTS — retail and wholesale ═══ */
 D.products=[
 {id:1,name:'House Blend 250g',cost:4.82,price:12.99,margin:63,cat:'Blend',net:250,bag:0.45,label:0.12,ship:0.30,shrinkage:15.8,saved:true},
 {id:2,name:'Ethiopia Yirgacheffe 250g',cost:5.94,price:16.99,margin:65,cat:'Single Origin',net:250,bag:0.45,label:0.12,ship:0.30,shrinkage:13.8,saved:true},
-{id:3,name:'Espresso Pro 1kg',cost:15.60,price:39.99,margin:61,cat:'Blend',net:1000,bag:0.85,label:0.12,ship:0.50,shrinkage:16.3,saved:true}
+{id:3,name:'Espresso Pro 1kg',cost:15.60,price:39.99,margin:61,cat:'Blend',net:1000,bag:0.85,label:0.12,ship:0.50,shrinkage:16.3,saved:true},
+{id:4,name:'Kenya AA 250g',cost:7.42,price:19.99,margin:63,cat:'Single Origin',net:250,bag:0.45,label:0.12,ship:0.30,shrinkage:13.2,saved:true},
+{id:5,name:'Turkish Blend 500g',cost:6.10,price:14.99,margin:59,cat:'Blend',net:500,bag:0.62,label:0.12,ship:0.40,shrinkage:18.0,saved:true},
+{id:6,name:'Costa Rica BH 250g',cost:7.10,price:18.99,margin:63,cat:'Single Origin',net:250,bag:0.45,label:0.12,ship:0.30,shrinkage:14.5,saved:true},
+{id:7,name:'Breakfast Blend 1kg',cost:13.20,price:32.99,margin:60,cat:'Blend',net:1000,bag:0.85,label:0.12,ship:0.50,shrinkage:15.5,saved:true},
+{id:8,name:'Rwanda Bourbon 250g',cost:6.80,price:17.99,margin:62,cat:'Single Origin',net:250,bag:0.45,label:0.12,ship:0.30,shrinkage:14.2,saved:true}
 ];
+/* ═══ 8 CLIENTS — cafés, wholesalers, hotels, export ═══ */
 D.clients=[
-{id:1,company:'Brew & Bean Café',contact:'Ahmet Yılmaz',email:'ahmet@brewbean.com.tr',phone:'+90 532 111 2233',address:'Kadıköy, Istanbul',taxId:'1234567890',tag:'VIP',limit:50000,notes:'Weekly orders, prefers medium roast',orders:[{date:d(3),total:2450},{date:d(10),total:1890},{date:d(17),total:3200},{date:d(24),total:2100}]},
-{id:2,company:'The Grind House',contact:'Sarah Chen',email:'sarah@grindhouse.co',phone:'+44 7700 900123',address:'Shoreditch, London',taxId:'GB123456',tag:'Wholesale',limit:100000,notes:'Monthly container orders, single origins only',orders:[{date:d(5),total:8500},{date:d(35),total:12000}]},
-{id:3,company:'Kahve Molası',contact:'Elif Demir',email:'elif@kahvemolasi.com',phone:'+90 541 333 4455',address:'Beşiktaş, Istanbul',taxId:'9876543210',tag:'Regular',limit:20000,notes:'Espresso blend focus',orders:[{date:d(2),total:1200},{date:d(9),total:950},{date:d(15),total:1450}]}
+{id:1,company:'Brew & Bean Café',contact:'Ahmet Yılmaz',email:'ahmet@brewbean.com.tr',phone:'+90 532 111 2233',address:'Kadıköy, Istanbul',taxId:'1234567890',tag:'VIP',limit:50000,notes:'Weekly orders, prefers medium roast. 2yr relationship.',orders:[{date:d(3),total:2450},{date:d(10),total:1890},{date:d(17),total:3200},{date:d(24),total:2100},{date:d(38),total:2800},{date:d(52),total:1950},{date:d(66),total:2600},{date:d(80),total:3100},{date:d(94),total:2300},{date:d(108),total:2750},{date:d(122),total:1900},{date:d(136),total:3400},{date:d(150),total:2200},{date:d(164),total:2650}]},
+{id:2,company:'The Grind House',contact:'Sarah Chen',email:'sarah@grindhouse.co',phone:'+44 7700 900123',address:'Shoreditch, London, UK',taxId:'GB123456789',tag:'Wholesale',limit:100000,notes:'Monthly container. Single origins only. EUR invoicing.',orders:[{date:d(5),total:8500},{date:d(35),total:12000},{date:d(65),total:9800},{date:d(95),total:11500},{date:d(125),total:10200},{date:d(155),total:13000}]},
+{id:3,company:'Kahve Molası',contact:'Elif Demir',email:'elif@kahvemolasi.com',phone:'+90 541 333 4455',address:'Beşiktaş, Istanbul',taxId:'9876543210',tag:'Regular',limit:20000,notes:'Small café. Espresso blend focus. Bi-weekly orders.',orders:[{date:d(2),total:1200},{date:d(15),total:950},{date:d(28),total:1450},{date:d(42),total:1100},{date:d(56),total:1350},{date:d(70),total:980},{date:d(84),total:1250},{date:d(98),total:1400},{date:d(112),total:1050},{date:d(126),total:1300},{date:d(140),total:1150},{date:d(154),total:1450}]},
+{id:4,company:'Hilton Istanbul Bomonti',contact:'Mehmet Kara',email:'mehmet.kara@hilton.com',phone:'+90 212 375 0000',address:'Bomonti, Şişli, Istanbul',taxId:'5678901234',tag:'VIP',limit:150000,notes:'Hotel chain. House blend for lobby + restaurant. Monthly.',orders:[{date:d(8),total:5200},{date:d(38),total:4800},{date:d(68),total:5600},{date:d(98),total:5100},{date:d(128),total:5400},{date:d(158),total:4900}]},
+{id:5,company:'Çekirdek & Co.',contact:'Zeynep Arslan',email:'zeynep@cekirdek.co',phone:'+90 555 222 3344',address:'Cihangir, Beyoğlu, Istanbul',taxId:'3456789012',tag:'Regular',limit:25000,notes:'Specialty café. Filter + espresso. Loves single origins.',orders:[{date:d(4),total:1800},{date:d(18),total:2100},{date:d(32),total:1650},{date:d(46),total:1900},{date:d(60),total:2300},{date:d(74),total:1750},{date:d(88),total:2050},{date:d(102),total:1800},{date:d(116),total:2200},{date:d(130),total:1950},{date:d(144),total:2100},{date:d(158),total:1700}]},
+{id:6,company:'Berlin Kaffee Co.',contact:'Anna Schmidt',email:'anna@berlinkaffee.de',phone:'+49 30 1234 5678',address:'Kreuzberg, Berlin, DE',taxId:'DE987654321',tag:'Wholesale',limit:80000,notes:'German market. Quarterly 250kg orders. Single origins.',orders:[{date:d(15),total:7200},{date:d(105),total:8100},{date:d(165),total:7800}]},
+{id:7,company:'Arabica House Dubai',contact:'Khalid Al-Rashid',email:'khalid@arabicahouse.ae',phone:'+971 4 567 8901',address:'Al Quoz, Dubai, UAE',taxId:'AE123456789',tag:'VIP',limit:200000,notes:'Dubai café chain. 3 locations. Turkish + espresso blends.',orders:[{date:d(10),total:9500},{date:d(40),total:11000},{date:d(70),total:8800},{date:d(100),total:10500},{date:d(130),total:12000},{date:d(160),total:9200}]},
+{id:8,company:'Taze Kahve Online',contact:'Can Öztürk',email:'can@tazekahve.com.tr',phone:'+90 538 444 5566',address:'Ataşehir, Istanbul',taxId:'7890123456',tag:'Regular',limit:15000,notes:'E-commerce. Weekly small orders for online retail.',orders:[{date:d(1),total:850},{date:d(8),total:720},{date:d(15),total:980},{date:d(22),total:650},{date:d(29),total:1100},{date:d(36),total:780},{date:d(43),total:900},{date:d(50),total:850},{date:d(57),total:1050},{date:d(64),total:720},{date:d(71),total:880},{date:d(78),total:960}]}
 ];
+/* ═══ 12 CUPPING SESSIONS — every new lot gets cupped ═══ */
 D.cuppings=[
-{id:1,sample:'Ethiopia Yirgacheffe Gr.1',date:d(2),origin:'Ethiopia',process:'Washed',scores:[8.5,8,8.5,8,9,7.5,8.5,10,10,9],total:87,notes:'Outstanding floral complexity. Jasmine, bergamot, lemon zest.'},
-{id:2,sample:'Kenya AA Nyeri',date:d(5),origin:'Kenya',process:'Washed',scores:[8,8.5,9,8.5,9,8,8.5,10,10,9],total:88.5,notes:'Explosive fruit. Blackcurrant, tomato, phosphoric acidity.'},
-{id:3,sample:'Colombia Huila Supremo',date:d(8),origin:'Colombia',process:'Washed',scores:[7.5,8,8,7.5,7.5,8,8,10,10,8.5],total:83,notes:'Clean, balanced. Red apple, milk chocolate, caramel.'},
-{id:4,sample:'Guatemala Antigua SHB',date:d(12),origin:'Guatemala',process:'Washed',scores:[8,7.5,8,8,7.5,8,8,10,10,8.5],total:83.5,notes:'Spice, cocoa nib, orange peel. Full body.'},
-{id:5,sample:'Costa Rica Tarrazú BH',date:d(15),origin:'Costa Rica',process:'Honey',scores:[8,8,8.5,8,8,7.5,8,10,10,9],total:85,notes:'Strawberry, honey, milk chocolate. Sweet.'}
+{id:1,sample:'Ethiopia Yirgacheffe Gr.1',date:d(2),origin:'Ethiopia',process:'Washed',scores:[8.5,8,8.5,8,9,7.5,8.5,10,10,9],total:87,notes:'Outstanding floral complexity. Jasmine, bergamot, lemon zest. Clean finish.'},
+{id:2,sample:'Kenya AA Nyeri',date:d(5),origin:'Kenya',process:'Washed',scores:[8,8.5,9,8.5,9,8,8.5,10,10,9],total:88.5,notes:'Explosive fruit. Blackcurrant, tomato, phosphoric acidity. Best lot this year.'},
+{id:3,sample:'Colombia Huila Supremo',date:d(18),origin:'Colombia',process:'Washed',scores:[7.5,8,8,7.5,7.5,8,8,10,10,8.5],total:83,notes:'Clean, balanced. Red apple, milk chocolate, caramel. Solid everyday.'},
+{id:4,sample:'Guatemala Antigua SHB',date:d(32),origin:'Guatemala',process:'Washed',scores:[8,7.5,8,8,7.5,8,8,10,10,8.5],total:83.5,notes:'Spice, cocoa nib, orange peel. Full body. Great for blends.'},
+{id:5,sample:'Costa Rica Tarrazú BH',date:d(48),origin:'Costa Rica',process:'Honey',scores:[8,8,8.5,8,8,7.5,8,10,10,9],total:85,notes:'Strawberry, honey, milk chocolate. Sweet and complex.'},
+{id:6,sample:'Rwanda Nyamasheke A',date:d(55),origin:'Rwanda',process:'Washed',scores:[8,8,8,8,8.5,7.5,8,10,10,8.5],total:84.5,notes:'Red berry, orange blossom, silky body. Excellent value.'},
+{id:7,sample:'Peru Chanchamayo Org.',date:d(70),origin:'Peru',process:'Washed',scores:[7.5,7.5,7.5,7,7.5,7.5,7.5,10,10,8],total:80,notes:'Green apple, jasmine, clean. Mild but pleasant. Good for blends.'},
+{id:8,sample:'Brazil Santos NY2/3',date:d(85),origin:'Brazil',process:'Natural',scores:[7,7.5,7.5,7,7,8,7.5,10,10,8],total:79.5,notes:'Nutty, cocoa, low acidity. Workhorse bean. Consistent quality.'},
+{id:9,sample:'Indonesia Mandheling Gr.1',date:d(100),origin:'Indonesia',process:'Wet-Hulled',scores:[7.5,8,8,7.5,6.5,8.5,7.5,10,10,8],total:81.5,notes:'Earthy, cedar, herbal. Heavy body. Unique character.'},
+{id:10,sample:'Honduras Marcala HG',date:d(115),origin:'Honduras',process:'Washed',scores:[7.5,7.5,8,7.5,7.5,7.5,7.5,10,10,8],total:81,notes:'Caramel, almond, mild citrus. Good value import.'},
+{id:11,sample:'Ethiopia Sidamo Gr.2',date:d(130),origin:'Ethiopia',process:'Natural',scores:[8,8,8.5,8,8.5,7.5,8,10,10,8.5],total:85,notes:'Blueberry, wine, tropical. Natural process gem.'},
+{id:12,sample:'Colombia Nariño Microlot',date:d(150),origin:'Colombia',process:'Washed',scores:[8.5,8.5,9,8.5,8.5,8,8.5,10,10,9],total:88.5,notes:'Passion fruit, brown sugar, floral. Competition-grade.'}
 ];
-D.oh={r:12000,l:28000,u:4500,m:3000,kg:800};
-D.settings={usd:36.5,ohKg:59.38,low:10};
+/* ═══ OVERHEAD — realistic Istanbul roastery + café ═══ */
+D.oh={r:18000,l:45000,u:6500,m:5000,kg:1200};
+D.settings={usd:36.8,ohKg:62.08,low:10,notes:[
+{text:'New Rwanda lot arriving next week — reserve 60kg for Arabica House',date:d(1)},
+{text:'Probat drum maintenance scheduled for April 5',date:d(3)},
+{text:'Hilton contract renewal due end of Q2',date:d(8)}
+]};
+/* ═══ GREEN BEAN LOG — full traceability for each import ═══ */
 D.greenlog=[
-{id:1,name:'ETH Yirgacheffe Kochere',origin:'Yirgacheffe, Ethiopia',farm:'Kochere Washing Station',lot:'ETH-2024-042',process:'Washed',variety:'Heirloom',harvest:'2024-11',arrival:d(30),weight:300,cost:8.5,altitude:2100,moisture:10.8,notes:'Jasmine, bergamot, lemon',score:87,bagSize:60},
-{id:2,name:'COL Huila La Pradera',origin:'Huila, Colombia',farm:'Finca La Pradera',lot:'COL-2024-118',process:'Washed',variety:'Caturra/Castillo',harvest:'2024-10',arrival:d(45),weight:500,cost:7.2,altitude:1800,moisture:11.2,notes:'Chocolate, red apple',score:83,bagSize:69},
-{id:3,name:'BRA Santos Fazenda Alta',origin:'Mogiana, Brazil',farm:'Fazenda Alta Vista',lot:'BRA-2024-091',process:'Natural',variety:'Mundo Novo',harvest:'2024-09',arrival:d(15),weight:600,cost:5.8,altitude:1100,moisture:11.5,notes:'Nutty, cocoa, brown sugar',score:80,bagSize:60}
+{id:1,name:'ETH Yirgacheffe Kochere',origin:'Yirgacheffe, Ethiopia',farm:'Kochere Washing Station',lot:'ETH-2025-042',process:'Washed',variety:'Heirloom',harvest:'2024-11',arrival:d(30),weight:300,cost:8.5,altitude:2100,moisture:10.8,notes:'Jasmine, bergamot, lemon. Lot 042.',score:87,bagSize:60},
+{id:2,name:'COL Huila La Pradera',origin:'Huila, Colombia',farm:'Finca La Pradera',lot:'COL-2025-118',process:'Washed',variety:'Caturra/Castillo',harvest:'2024-10',arrival:d(45),weight:500,cost:7.2,altitude:1800,moisture:11.2,notes:'Chocolate, red apple. Reliable farm.',score:83,bagSize:69},
+{id:3,name:'BRA Santos Fazenda Alta',origin:'Mogiana, Brazil',farm:'Fazenda Alta Vista',lot:'BRA-2025-091',process:'Natural',variety:'Mundo Novo',harvest:'2024-09',arrival:d(15),weight:600,cost:5.8,altitude:1100,moisture:11.5,notes:'Nutty, cocoa, brown sugar. Bulk lot.',score:80,bagSize:60},
+{id:4,name:'KEN AA Nyeri Othaya',origin:'Nyeri, Kenya',farm:'Othaya Farmers Co-op',lot:'KEN-2025-007',process:'Washed',variety:'SL28/SL34',harvest:'2024-12',arrival:d(20),weight:120,cost:11.2,altitude:1850,moisture:10.5,notes:'Blackcurrant, grapefruit. Premium.',score:88.5,bagSize:60},
+{id:5,name:'GTM Antigua San Sebastian',origin:'Antigua, Guatemala',farm:'Finca San Sebastian',lot:'GUA-2025-033',process:'Washed',variety:'Bourbon/Caturra',harvest:'2024-11',arrival:d(60),weight:200,cost:9.1,altitude:1600,moisture:11.0,notes:'Spice, cocoa nib, orange peel.',score:83.5,bagSize:69},
+{id:6,name:'CRI Tarrazú Don Mayo BH',origin:'Tarrazú, Costa Rica',farm:'Beneficio Don Mayo',lot:'CRI-2025-019',process:'Honey',variety:'Catuaí/Caturra',harvest:'2024-12',arrival:d(25),weight:120,cost:10.5,altitude:1700,moisture:10.9,notes:'Strawberry jam, honey sweetness.',score:85,bagSize:46},
+{id:7,name:'RWA Nyamasheke Buf',origin:'Nyamasheke, Rwanda',farm:'Buf Coffee',lot:'RWA-2025-014',process:'Washed',variety:'Red Bourbon',harvest:'2024-10',arrival:d(50),weight:120,cost:9.8,altitude:1900,moisture:10.6,notes:'Red berry, orange blossom.',score:84.5,bagSize:60},
+{id:8,name:'IDN Mandheling Permata',origin:'North Sumatra, Indonesia',farm:'Permata Gayo Co-op',lot:'IDN-2025-055',process:'Wet-Hulled',variety:'Typica/Catimor',harvest:'2024-08',arrival:d(40),weight:300,cost:6.9,altitude:1400,moisture:12.0,notes:'Earthy, cedar, dark chocolate.',score:81.5,bagSize:60}
 ];
+/* ═══ 18 INVOICES — 6 months of billing ═══ */
 D.invoices=[
-{id:1,client:'Brew & Bean Café',items:[{desc:'House Blend 1kg x10',qty:10,price:39.99,tax:18}],total:4718.82,status:'Paid',date:d(3),currency:'TRY'},
-{id:2,client:'The Grind House',items:[{desc:'Ethiopia Yirgacheffe 250g x50',qty:50,price:16.99,tax:0}],total:849.50,status:'Paid',date:d(5),currency:'USD'},
-{id:3,client:'Kahve Molası',items:[{desc:'Espresso Pro 1kg x5',qty:5,price:39.99,tax:18},{desc:'House Blend 250g x20',qty:20,price:12.99,tax:18}],total:542.10,status:'Pending',date:d(2),currency:'TRY'}
+{id:1001,client:'Brew & Bean Café',items:[{desc:'House Blend 1kg x10',qty:10,price:39.99,tax:18}],total:4718.82,status:'Paid',date:d(3),currency:'TRY'},
+{id:1002,client:'The Grind House',items:[{desc:'Ethiopia Yirgacheffe 250g x80',qty:80,price:16.99,tax:0}],total:1359.20,status:'Paid',date:d(5),currency:'USD'},
+{id:1003,client:'Kahve Molası',items:[{desc:'Espresso Pro 1kg x5',qty:5,price:39.99,tax:18},{desc:'House Blend 250g x20',qty:20,price:12.99,tax:18}],total:542.10,status:'Paid',date:d(15),currency:'TRY'},
+{id:1004,client:'Hilton Istanbul Bomonti',items:[{desc:'House Blend 1kg x20',qty:20,price:36.00,tax:18},{desc:'Espresso Pro 1kg x10',qty:10,price:39.99,tax:18}],total:1290.68,status:'Paid',date:d(8),currency:'TRY'},
+{id:1005,client:'Çekirdek & Co.',items:[{desc:'Kenya AA 250g x30',qty:30,price:19.99,tax:18},{desc:'Costa Rica BH 250g x20',qty:20,price:18.99,tax:18}],total:1155.64,status:'Paid',date:d(18),currency:'TRY'},
+{id:1006,client:'Berlin Kaffee Co.',items:[{desc:'Ethiopia Yirgacheffe 250g x100',qty:100,price:14.50,tax:0},{desc:'Rwanda Bourbon 250g x60',qty:60,price:15.00,tax:0}],total:2350.00,status:'Paid',date:d(15),currency:'EUR'},
+{id:1007,client:'Arabica House Dubai',items:[{desc:'Turkish Blend 500g x60',qty:60,price:14.99,tax:0},{desc:'Espresso Pro 1kg x25',qty:25,price:39.99,tax:0}],total:1899.15,status:'Paid',date:d(10),currency:'USD'},
+{id:1008,client:'Taze Kahve Online',items:[{desc:'House Blend 250g x40',qty:40,price:12.99,tax:18},{desc:'Ethiopia Yirg 250g x20',qty:20,price:16.99,tax:18}],total:1014.48,status:'Paid',date:d(8),currency:'TRY'},
+{id:1009,client:'Brew & Bean Café',items:[{desc:'House Blend 1kg x8',qty:8,price:39.99,tax:18},{desc:'Breakfast Blend 1kg x5',qty:5,price:32.99,tax:18}],total:572.18,status:'Paid',date:d(38),currency:'TRY'},
+{id:1010,client:'Hilton Istanbul Bomonti',items:[{desc:'House Blend 1kg x25',qty:25,price:36.00,tax:18}],total:1062.00,status:'Paid',date:d(38),currency:'TRY'},
+{id:1011,client:'The Grind House',items:[{desc:'Kenya AA 250g x60',qty:60,price:19.99,tax:0},{desc:'Guatemala 250g x40',qty:40,price:15.50,tax:0}],total:1819.40,status:'Paid',date:d(35),currency:'USD'},
+{id:1012,client:'Arabica House Dubai',items:[{desc:'Turkish Blend 500g x80',qty:80,price:14.99,tax:0},{desc:'House Blend 1kg x15',qty:15,price:39.99,tax:0}],total:1799.05,status:'Paid',date:d(40),currency:'USD'},
+{id:1013,client:'Çekirdek & Co.',items:[{desc:'Rwanda Bourbon 250g x25',qty:25,price:17.99,tax:18},{desc:'Ethiopia Yirg 250g x25',qty:25,price:16.99,tax:18}],total:1031.70,status:'Paid',date:d(46),currency:'TRY'},
+{id:1014,client:'Brew & Bean Café',items:[{desc:'Espresso Pro 1kg x12',qty:12,price:39.99,tax:18}],total:566.26,status:'Paid',date:d(66),currency:'TRY'},
+{id:1015,client:'Kahve Molası',items:[{desc:'Espresso Pro 1kg x4',qty:4,price:39.99,tax:18},{desc:'House Blend 250g x30',qty:30,price:12.99,tax:18}],total:649.46,status:'Pending',date:d(2),currency:'TRY'},
+{id:1016,client:'Hilton Istanbul Bomonti',items:[{desc:'House Blend 1kg x22',qty:22,price:36.00,tax:18}],total:934.56,status:'Pending',date:d(1),currency:'TRY'},
+{id:1017,client:'Berlin Kaffee Co.',items:[{desc:'Colombia Huila 250g x120',qty:120,price:13.50,tax:0}],total:1620.00,status:'Pending',date:d(4),currency:'EUR'},
+{id:1018,client:'Taze Kahve Online',items:[{desc:'House Blend 250g x50',qty:50,price:12.99,tax:18},{desc:'Kenya AA 250g x15',qty:15,price:19.99,tax:18}],total:1120.73,status:'Pending',date:d(1),currency:'TRY'}
 ];
-saveD();toast('✓ Demo data loaded — Frances Coffee Istanbul');go('home');renderPage()};
+D.orders=[];D.cart=[];D.wishlist=[];D.reviews=[];
+saveD();toast('✓ Frances Coffee Istanbul — 6 months of data loaded');go('home');renderPage()};
 
 function updCartBadge(){const b=$('cartBadge');if(!b)return;const c=D.cart.reduce((s,i)=>s+i.qty,0);b.textContent=c;b.classList.toggle('empty',c===0)}
 function updUserBtn(){const el=$('userHeaderBtn');if(!el)return;if(D.user&&D.user.name){el.innerHTML=`<div class="user-bar" onclick="go('acct')"><div class="user-av">${D.user.name.charAt(0).toUpperCase()}</div><span class="user-nm">${esc(D.user.name.split(' ')[0])}</span></div>`}else{el.innerHTML=`<div class="H-btn" onclick="go('auth')"><i class="fas fa-user"></i></div>`}}
