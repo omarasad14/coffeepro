@@ -169,6 +169,47 @@ body{font-family:var(--fb);background:var(--cream);color:var(--text);-webkit-fon
 .sub-pro{background:linear-gradient(135deg,var(--amber-lt),rgba(42,90,144,.12));color:var(--amber);border:1px solid var(--amber-br)}
 .sub-ent{background:linear-gradient(135deg,var(--em-lt),rgba(26,128,96,.12));color:var(--emerald);border:1px solid var(--em-br)}
 
+/* CARD ENTRANCE ANIMATIONS */
+.C{opacity:0;animation:cardIn .4s var(--e) forwards}.C:nth-child(2){animation-delay:.05s}.C:nth-child(3){animation-delay:.1s}.C:nth-child(4){animation-delay:.15s}.C:nth-child(5){animation-delay:.2s}
+@keyframes cardIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* SPARKLINE */
+.sparkline{display:inline-block;vertical-align:middle}
+.sparkline-path{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+
+/* RECENT ACTIVITY FEED */
+.activity-feed{display:flex;flex-direction:column;gap:8px}
+.act-item{display:flex;align-items:center;gap:10px;padding:8px 12px;border-radius:10px;background:var(--cream);transition:background .2s}
+.act-item:hover{background:var(--cream2)}
+.act-ico{width:32px;height:32px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:.7rem;color:white;flex-shrink:0}
+.act-body{flex:1;min-width:0}
+.act-title{font-size:.72rem;font-weight:600;color:var(--esp);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.act-meta{font-size:.6rem;color:var(--faint)}
+.act-val{font-size:.72rem;font-weight:700;color:var(--amber);flex-shrink:0}
+
+/* POS TABLE STATUS GLOW */
+.tbl.tbl-open{border-color:var(--em-br);background:linear-gradient(135deg,rgba(15,138,82,.03),var(--white))}
+.tbl.tbl-open .tbl-status{color:var(--emerald)}
+.tbl.tbl-occupied{border-color:var(--amber-br);background:linear-gradient(135deg,rgba(194,124,32,.04),var(--white));box-shadow:0 0 0 2px rgba(194,124,32,.1),var(--csh)}
+.tbl.tbl-occupied .tbl-status{color:var(--amber)}
+.tbl.tbl-bill{border-color:rgba(208,68,64,.2);background:linear-gradient(135deg,rgba(208,68,64,.03),var(--white));box-shadow:0 0 0 2px rgba(208,68,64,.1),var(--csh)}
+.tbl.tbl-bill .tbl-status{color:var(--ruby)}
+
+/* POS SHIFT SUMMARY BAR */
+.shift-bar{display:flex;gap:8px;padding:10px 14px;background:linear-gradient(135deg,var(--esp),var(--esp2));border-radius:14px;margin-bottom:12px;color:white}
+.shift-stat{flex:1;text-align:center}
+.shift-stat-v{font-size:1rem;font-weight:700;font-family:var(--fm)}
+.shift-stat-l{font-size:.55rem;opacity:.6;text-transform:uppercase;letter-spacing:.5px}
+
+/* MOBILE BOTTOM NAV POLISH */
+.M .mi.on{position:relative}
+.M .mi.on::before{content:'';position:absolute;top:-2px;left:50%;transform:translateX(-50%);width:24px;height:3px;background:var(--amber);border-radius:2px}
+.M .mi.on .mi-ico{color:var(--amber);transform:translateY(-1px)}
+
+/* METRIC CARD HOVER */
+.metric-card{transition:transform .2s var(--e),box-shadow .2s}
+.metric-card:hover{transform:translateY(-2px);box-shadow:var(--csh2)}
+
 /* SCREENS */
 .S{display:none;padding:24px;position:relative;z-index:1;max-width:1000px;margin:0 auto}.S.on{display:block;animation:fu .25s var(--e)}
 @keyframes fu{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
@@ -1740,7 +1781,7 @@ featRoastLogger:"Roast Logger",featRoastLoggerD:"Charge temp, FC, drop, loss %, 
 showcaseTitle:"Everything You Need. One App.",showcaseSub:"From green bean sourcing to the last pour — replace 5 apps with CoffeePro",
 compRoastLogging:"Roast Logging",compInvMgmt:"Inventory Management",compCafePOSfeat:"Cafe POS System",compQRTrace:"QR Traceability",compAICoach:"AI Roast Coach",compLiveMarket:"Live Market Data",compMultiLang:"Multi-Language (4)",compOffline:"Works Offline",compSpreadsheets:"Spreadsheets",
 ctaReady:"Ready to level up your roastery?",ctaJoin:"Join thousands of coffee professionals who manage their entire operation with CoffeePro.",ctaTryTools:"Try Tools Free",ctaViewPlans:"View Plans",
-compareAllFeatures:"Compare All Features"
+compareAllFeatures:"Compare All Features",recentActivity:"Recent Activity"
 },
 tr:{
 navHome:"Ana Sayfa",navMarket:"Pazar",navShop:"Mağaza",navTrade:"Ticaret",navCafe:"Kafem",navTools:"Araçlar",
@@ -1853,7 +1894,7 @@ featRoastLogger:"Kavurma Kaydı",featRoastLoggerD:"Yükleme sıcaklığı, 1. ç
 showcaseTitle:"İhtiyacınız Olan Her Şey. Tek Uygulama.",showcaseSub:"Yeşil çekirdek tedariğinden son servise — 5 uygulamayı CoffeePro ile değiştirin",
 compRoastLogging:"Kavurma Kaydı",compInvMgmt:"Envanter Yönetimi",compCafePOSfeat:"Kafe POS Sistemi",compQRTrace:"QR İzlenebilirlik",compAICoach:"YZ Kavurma Koçu",compLiveMarket:"Canlı Piyasa Verisi",compMultiLang:"Çoklu Dil (4)",compOffline:"Çevrimdışı Çalışır",compSpreadsheets:"Tablolar",
 ctaReady:"Kavurhanenizi bir üst seviyeye taşımaya hazır mısınız?",ctaJoin:"Tüm operasyonlarını CoffeePro ile yöneten binlerce kahve profesyoneline katılın.",ctaTryTools:"Araçları Ücretsiz Dene",ctaViewPlans:"Planları Gör",
-compareAllFeatures:"Tüm Özellikleri Karşılaştır"
+compareAllFeatures:"Tüm Özellikleri Karşılaştır",recentActivity:"Son Aktivite"
 },
 ar:{
 navHome:"الرئيسية",navMarket:"السوق",navShop:"المتجر",navTrade:"التجارة",navCafe:"مقهاي",navTools:"الأدوات",
@@ -2631,6 +2672,8 @@ ${items.map(function(eq){return'<div class="pk-card" style="overflow:hidden"><di
 
 <div class="alert alert-a" style="margin-top:10px"><i class="fas fa-shield-halved"></i><span>All equipment sellers on CoffeePro are verified and reviewed. Purchases include escrow payment protection and CoffeePro dispute resolution.</span></div>`}
 
+function _sparkSvg(data,w,h,color){if(!data||data.length<2)return'';var mn=Math.min.apply(null,data),mx=Math.max.apply(null,data),rng=mx-mn||1;var pts=data.map(function(v,i){return(i/(data.length-1))*w+','+(h-((v-mn)/rng)*h)}).join(' ');return'<svg class="sparkline" width="'+w+'" height="'+h+'" viewBox="0 0 '+w+' '+h+'"><polyline class="sparkline-path" style="stroke:'+color+'" points="'+pts+'"/></svg>'}
+function _recentActivity(){var acts=[];D.roasts.slice(-3).reverse().forEach(function(r){acts.push({ico:'fa-fire',bg:'var(--amber)',title:r.name,meta:r.date+' · '+r.loss+'% loss',val:r.time})});D.cuppings.slice(-2).reverse().forEach(function(c){acts.push({ico:'fa-star',bg:'var(--emerald)',title:c.sample,meta:c.date+' · '+c.origin,val:c.total+' pts'})});D.invoices.slice(-1).forEach(function(inv){acts.push({ico:'fa-file-invoice',bg:'var(--blue)',title:inv.client,meta:inv.date+' · '+inv.status,val:inv.currency==='USD'?'$'+inv.total:'₺'+inv.total})});if(!acts.length)return'';return'<div class="C Ca" style="animation-delay:.25s"><div class="st"><span><i class="fas fa-clock-rotate-left" style="color:var(--amber);margin-right:5px"></i>'+t('recentActivity')+'</span></div><div class="activity-feed">'+acts.slice(0,5).map(function(a){return'<div class="act-item"><div class="act-ico" style="background:'+a.bg+'"><i class="fas '+a.ico+'"></i></div><div class="act-body"><div class="act-title">'+esc(a.title)+'</div><div class="act-meta">'+a.meta+'</div></div><div class="act-val">'+a.val+'</div></div>'}).join('')+'</div></div>'}
 function _toolCard(route,icon,color,bg,br,title,desc,badge,badgeType){
 return '<div class="tc" onclick="go(\''+route+'\')"><div class="tc-inner"><div class="tc-ico" style="background:var('+bg+');border:1px solid '+(br.startsWith('--')?'var('+br+')':br)+';color:var('+color+')"><i class="fas '+icon+'"></i></div><div><div class="tc-nm">'+title+(badge?' <span class="tg tg-'+badgeType+'">'+badge+'</span>':'')+'</div><div class="tc-ds">'+desc+'</div></div><div class="tc-arr"><i class="fas fa-chevron-right"></i></div></div></div>'}
 
@@ -2646,26 +2689,27 @@ return`<div class="sh"><h2>${t('toolsTitle')}</h2><div style="display:flex;gap:6
 <div class="C" style="background:linear-gradient(135deg,var(--esp),var(--esp2));color:white;padding:20px;margin-bottom:14px">
 <div style="font-family:var(--fd);font-size:.82rem;font-weight:700;margin-bottom:12px;opacity:.8"><i class="fas fa-chart-pie" style="margin-right:4px"></i> ${t('commandCenter')}</div>
 <div class="qs" style="margin-bottom:8px"><div class="q" style="border-color:rgba(255,255,255,.1)"><div class="q-v" style="color:#5cc8a0">${bk.toFixed(0)}<small style="font-size:.45rem;opacity:.6"> kg</small></div><div class="q-l" style="color:rgba(255,255,255,.5)">${t('greenBeansTitle')}</div></div><div class="q" style="border-color:rgba(255,255,255,.1)"><div class="q-v" style="color:#5090d4">$${bv.toFixed(0)}</div><div class="q-l" style="color:rgba(255,255,255,.5)">${t('stockValue')}</div></div><div class="q" style="border-color:rgba(255,255,255,.1)"><div class="q-v" style="color:#f0a060">${pv.toFixed(0)}%</div><div class="q-l" style="color:rgba(255,255,255,.5)">${t('avgMargin')}</div></div><div class="q" style="border-color:rgba(255,255,255,.1)"><div class="q-v" style="color:${low+out>0?'#e07070':'#5cc8a0'}">${low+out}</div><div class="q-l" style="color:rgba(255,255,255,.5)">${low?low+' Low':'0 Low'}${out?' · '+out+' Out':''}</div></div></div>
-<div class="qs" style="margin-bottom:0"><div class="q" style="border-color:rgba(255,255,255,.1)"><div class="q-v" style="color:#c090e0">${totalRoasts}</div><div class="q-l" style="color:rgba(255,255,255,.5)">${t('roastBatches')}</div></div><div class="q" style="border-color:rgba(255,255,255,.1)"><div class="q-v" style="color:#e0a060">${totalCuppings}</div><div class="q-l" style="color:rgba(255,255,255,.5)">${t('cuppingsLabel')}</div></div><div class="q" style="border-color:rgba(255,255,255,.1)"><div class="q-v" style="color:#80c0d0">${D.clients.length}</div><div class="q-l" style="color:rgba(255,255,255,.5)">${t('clientsLabel')}</div></div><div class="q" style="border-color:rgba(255,255,255,.1)"><div class="q-v" style="color:#e08080">₺${ohPk>0?(ohPk/(D.oh.kg||1000)).toFixed(2):'0'}</div><div class="q-l" style="color:rgba(255,255,255,.5)">${t('overheadKgLabel')}</div></div></div></div>
+<div class="qs" style="margin-bottom:0"><div class="q" style="border-color:rgba(255,255,255,.1)"><div class="q-v" style="color:#c090e0">${totalRoasts}</div><div style="margin:2px 0">${_sparkSvg(D.roasts.slice(-8).map(function(r){return parseFloat(r.loss)||0}),60,18,'#c090e0')}</div><div class="q-l" style="color:rgba(255,255,255,.5)">${t('roastBatches')}</div></div><div class="q" style="border-color:rgba(255,255,255,.1)"><div class="q-v" style="color:#e0a060">${totalCuppings}</div><div class="q-l" style="color:rgba(255,255,255,.5)">${t('cuppingsLabel')}</div></div><div class="q" style="border-color:rgba(255,255,255,.1)"><div class="q-v" style="color:#80c0d0">${D.clients.length}</div><div class="q-l" style="color:rgba(255,255,255,.5)">${t('clientsLabel')}</div></div><div class="q" style="border-color:rgba(255,255,255,.1)"><div class="q-v" style="color:#e08080">₺${ohPk>0?(ohPk/(D.oh.kg||1000)).toFixed(2):'0'}</div><div class="q-l" style="color:rgba(255,255,255,.5)">${t('overheadKgLabel')}</div></div></div></div>
+${_recentActivity()}
 ${_toolCard('inventory','fa-leaf','--emerald','--em-lt','--em-br',t('inventory'),t('inventoryD'),D.beans.length+' beans · '+D.packs.length+' packs','g')}
 ${_toolCard('roast','fa-fire-flame-curved','--amber','--amber-lt','--amber-br',t('roastLog'),t('roastLogD'),D.roasts.length+' roasts','d')}
 ${_toolCard('costs','fa-chart-pie','--blue','--blue-lt','rgba(42,90,144,.2)',t('overheadCosts'),t('overheadD'),'₺'+(D.settings.ohKg||0).toFixed(2)+'/kg','d')}
 ${_toolCard('calc','fa-scale-balanced','--copper','--cop-lt','rgba(106,122,142,.2)',t('blendCalc'),t('blendCalcD'),D.products.length+' products','d')}
-${_toolCard('cupping','fa-wine-glass','--amber','--amber-lt','--amber-br','Cupping Scores','SCA cupping evaluation for green & roasted lots',(D.cuppings?D.cuppings.length:0)+' evaluations','d')}
+${_toolCard('cupping','fa-wine-glass','--amber','--amber-lt','--amber-br',t('cuppingScores'),t('cuppingScoresD'),(D.cuppings?D.cuppings.length:0)+' evaluations','d')}
 ${_toolCard('clients','fa-users','--ruby','--ruby-lt','rgba(176,64,74,.2)',t('clientDB'),t('clientDBD'),D.clients.length+' clients','d')}
 ${_toolCard('inv','fa-file-invoice','--amber','--amber-lt','--amber-br',t('invoiceGen'),t('invoiceGenD'),'','')}
-${_toolCard('brewcalc','fa-droplet','--blue','--blue-lt','rgba(40,104,192,.2)','Brew Calculator','Water ratio, extraction yield & TDS for pour-over, espresso, batch brew','','')}
-${_toolCard('greenlog','fa-globe','--emerald','--em-lt','--em-br','Green Bean Log','Track origin, lot, harvest date, processing method & cupping notes per lot','','')}
-${_toolCard('profitcalc','fa-chart-line','--ruby','--ruby-lt','rgba(208,68,64,.2)','Profit Analyzer','Revenue vs. costs, profit per product, margin trends over time','','')}
+${_toolCard('brewcalc','fa-droplet','--blue','--blue-lt','rgba(40,104,192,.2)',t('brewCalcTitle'),t('brewCalcD'),'','')}
+${_toolCard('greenlog','fa-globe','--emerald','--em-lt','--em-br',t('greenBeanLog'),t('greenBeanLogD'),'','')}
+${_toolCard('profitcalc','fa-chart-line','--ruby','--ruby-lt','rgba(208,68,64,.2)',t('profitAnalyzer'),t('profitAnalyzerD'),'','')}
 
 <div style="margin:18px 0 10px;font-family:var(--fd);font-size:.72rem;font-weight:700;color:var(--amber);text-transform:uppercase;letter-spacing:1px"><i class="fas fa-star" style="margin-right:4px"></i> ${t('proExclusive')}</div>
-${_toolCard('traceability','fa-qrcode','--emerald','--em-lt','--em-br','Bean-to-Cup Traceability','Generate QR codes linking to public traceability pages for each roast batch',D.roasts.length+' traceable','g')}
-${_toolCard('roastdna','fa-fingerprint','--amber','--amber-lt','--amber-br','Roast DNA & Flavor Genome','Unique visual fingerprint for each batch — shareable on Instagram','','')}
-${_toolCard('costcup','fa-mug-saucer','--ruby','--ruby-lt','rgba(208,68,64,.2)','Live Cost-Per-Cup','Real-time cost breakdown per cup as prices & overhead change','','')}
-${_toolCard('labeldesign','fa-tag','--blue','--blue-lt','rgba(40,104,192,.2)','Bag Label Designer','Auto-filled labels with QR, flavor radar, origin map — print-ready PDF','','')}
-${_toolCard('roastcoach','fa-robot','--copper','--cop-lt','rgba(122,108,94,.2)','AI Roast Coach','Pattern analysis from your roast history with improvement suggestions','','')}
-${_toolCard('blendai','fa-wand-magic-sparkles','--amber','--amber-lt','--amber-br','Smart Blend Builder','AI-powered recipe creation from your inventory — target score, cost & flavor','','')}
-${_toolCard('leaderboard','fa-ranking-star','--emerald','--em-lt','--em-br','Roaster Benchmarks','See how your roast metrics compare — loss %, consistency, throughput','','')}
+${_toolCard('traceability','fa-qrcode','--emerald','--em-lt','--em-br',t('traceabilityCard'),t('traceabilityCardD'),D.roasts.length+' traceable','g')}
+${_toolCard('roastdna','fa-fingerprint','--amber','--amber-lt','--amber-br',t('roastDNACard'),t('roastDNACardD'),'','')}
+${_toolCard('costcup','fa-mug-saucer','--ruby','--ruby-lt','rgba(208,68,64,.2)',t('costCupCard'),t('costCupCardD'),'','')}
+${_toolCard('labeldesign','fa-tag','--blue','--blue-lt','rgba(40,104,192,.2)',t('labelCard'),t('labelCardD'),'','')}
+${_toolCard('roastcoach','fa-robot','--copper','--cop-lt','rgba(122,108,94,.2)',t('coachCard'),t('coachCardD'),'','')}
+${_toolCard('blendai','fa-wand-magic-sparkles','--amber','--amber-lt','--amber-br',t('blendAiCard'),t('blendAiCardD'),'','')}
+${_toolCard('leaderboard','fa-ranking-star','--emerald','--em-lt','--em-br',t('benchCard'),t('benchCardD'),'','')}
 
 <div style="margin:18px 0 10px;font-family:var(--fd);font-size:.72rem;font-weight:700;color:var(--ruby);text-transform:uppercase;letter-spacing:1px"><i class="fas fa-gem" style="margin-right:4px"></i> ${t('advancedTools')}</div>
 ${_toolCard('beanaging','fa-hourglass-half','--emerald','--em-lt','--em-br',t('agingTitle'),t('agingDesc'),D.beans.filter(b=>b.arrival).length+' lots tracked','g')}
