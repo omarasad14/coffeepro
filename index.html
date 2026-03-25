@@ -2015,6 +2015,69 @@ function ls(k,v){if(v!==undefined){localStorage.setItem('cp_'+k,JSON.stringify(v
 function loadAll(){D.beans=ls('beans')||[];D.packs=ls('packs')||[];D.products=ls('products')||[];D.roasts=ls('roasts')||[];D.clients=ls('clients')||[];D.cuppings=ls('cuppings')||[];D.invoices=ls('invoices')||[];const s=ls('settings');D.settings=s?Object.assign({usd:36,ohKg:0,low:5},s):{usd:36,ohKg:0,low:5};D.oh=ls('oh')||{r:0,l:0,u:0,m:0,kg:1000};D.cart=ls('cart')||[];D.user=ls('user')||null;D.sub=ls('sub')||'free';D.orders=ls('orders')||[];D.wishlist=ls('wishlist')||[];D.reviews=ls('reviews')||[];D.greenlog=ls('greenlog')||[];updCartBadge();updUserBtn()}
 function saveD(){try{['beans','packs','products','roasts','clients','cuppings','invoices','settings','oh','cart','user','sub','orders','wishlist','reviews','greenlog'].forEach(k=>ls(k,D[k]))}catch(e){if(e.name==='QuotaExceededError'||e.code===22){toast('⚠ Storage full — clear old data or export a backup');console.warn('localStorage quota exceeded',e)}else{throw e}}}
 
+window._loadDemo=function(){if(!confirm('Load demo data? This will overwrite your current data.'))return;
+var now=new Date();var d=function(n){var dt=new Date(now);dt.setDate(dt.getDate()-n);return dt.toISOString().slice(0,10)};
+D.user={name:'Omar Asad',email:'omar@francescoffee.com'};
+D.sub='pro';
+D.beans=[
+{id:1,name:'Ethiopia Yirgacheffe Gr.1',origin:'Ethiopia',cost:8.5,stock:145,unit:'kg',low:20,supplier:'Addis Export',lot:'ETH-2024-042',arrival:d(30)},
+{id:2,name:'Colombia Huila Supremo',origin:'Colombia',cost:7.2,stock:210,unit:'kg',low:25,supplier:'Santos Trading',lot:'COL-2024-118',arrival:d(45)},
+{id:3,name:'Brazil Santos NY2',origin:'Brazil',cost:5.8,stock:380,unit:'kg',low:50,supplier:'Santos Trading',lot:'BRA-2024-091',arrival:d(15)},
+{id:4,name:'Guatemala Antigua SHB',origin:'Guatemala',cost:9.1,stock:85,unit:'kg',low:15,supplier:'Café Imports',lot:'GUA-2024-033',arrival:d(60)},
+{id:5,name:'Kenya AA Nyeri',origin:'Kenya',cost:11.2,stock:42,unit:'kg',low:10,supplier:'Dormans',lot:'KEN-2024-007',arrival:d(20)},
+{id:6,name:'Indonesia Mandheling Gr.1',origin:'Indonesia',cost:6.9,stock:120,unit:'kg',low:20,supplier:'Olam Intl',lot:'IDN-2024-055',arrival:d(40)},
+{id:7,name:'Costa Rica Tarrazú',origin:'Costa Rica',cost:10.5,stock:55,unit:'kg',low:10,supplier:'Exclusive Coffees',lot:'CRI-2024-019',arrival:d(25)},
+{id:8,name:'Peru Chanchamayo Org.',origin:'Peru',cost:7.8,stock:95,unit:'kg',low:15,supplier:'Café Imports',lot:'PER-2024-061',arrival:d(35)}
+];
+D.packs=[
+{id:1,name:'250g Kraft Bag w/ Valve',cost:0.45,stock:2200,unit:'pc'},
+{id:2,name:'1kg Foil Bag w/ Valve',cost:0.85,stock:800,unit:'pc'},
+{id:3,name:'500g Stand-Up Pouch',cost:0.62,stock:1500,unit:'pc'},
+{id:4,name:'Custom Label (roll/500)',cost:0.12,stock:4000,unit:'pc'}
+];
+D.roasts=[
+{id:101,name:'Yirgacheffe Light',date:d(1),type:'Single Origin',level:'Light',agtron:'75',charge:'200',fc:'195',drop:'210',dev:'20',time:'11:30',loss:'13.8',notes:'Floral, citrus, tea-like body. Beautiful acidity.',img:null,ded:[{id:1,amt:12}]},
+{id:102,name:'Huila Medium',date:d(2),type:'Single Origin',level:'Medium',agtron:'58',charge:'205',fc:'198',drop:'218',dev:'22',time:'12:45',loss:'15.1',notes:'Chocolate, caramel, red apple. Balanced sweetness.',img:null,ded:[{id:2,amt:15}]},
+{id:103,name:'House Blend #7',date:d(3),type:'Blend',level:'Medium',agtron:'55',charge:'208',fc:'200',drop:'220',dev:'24',time:'13:00',loss:'15.8',notes:'Nutty, cocoa, brown sugar. Great for espresso.',img:null,ded:[{id:3,amt:10},{id:2,amt:5}]},
+{id:104,name:'Santos Dark Roast',date:d(5),type:'Single Origin',level:'Dark',agtron:'42',charge:'210',fc:'202',drop:'228',dev:'28',time:'14:20',loss:'17.5',notes:'Bittersweet chocolate, smoky, full body.',img:null,ded:[{id:3,amt:20}]},
+{id:105,name:'Kenya Filter Roast',date:d(7),type:'Single Origin',level:'Light',agtron:'72',charge:'198',fc:'193',drop:'208',dev:'19',time:'11:00',loss:'13.2',notes:'Blackcurrant, grapefruit, sparkling acidity.',img:null,ded:[{id:5,amt:8}]},
+{id:106,name:'Espresso Blend Pro',date:d(8),type:'Blend',level:'Medium-Dark',agtron:'48',charge:'210',fc:'201',drop:'224',dev:'26',time:'13:45',loss:'16.3',notes:'Crema monster. Chocolate, hazelnut, caramel.',img:null,ded:[{id:3,amt:8},{id:2,amt:6},{id:6,amt:4}]},
+{id:107,name:'Guatemala Honey Process',date:d(10),type:'Single Origin',level:'Medium',agtron:'60',charge:'202',fc:'196',drop:'216',dev:'21',time:'12:30',loss:'14.9',notes:'Honey, peach, brown sugar. Silky body.',img:null,ded:[{id:4,amt:10}]},
+{id:108,name:'Mandheling Full City',date:d(12),type:'Single Origin',level:'Medium-Dark',agtron:'50',charge:'208',fc:'200',drop:'222',dev:'25',time:'13:30',loss:'16.0',notes:'Earthy, cedar, dark chocolate. Low acidity.',img:null,ded:[{id:6,amt:12}]},
+{id:109,name:'Costa Rica Black Honey',date:d(14),type:'Single Origin',level:'Medium',agtron:'62',charge:'200',fc:'194',drop:'214',dev:'22',time:'12:15',loss:'14.5',notes:'Strawberry jam, milk chocolate, sweet finish.',img:null,ded:[{id:7,amt:8}]},
+{id:110,name:'Peru Organic Light',date:d(16),type:'Single Origin',level:'Light',agtron:'70',charge:'196',fc:'191',drop:'206',dev:'18',time:'10:50',loss:'12.8',notes:'Green apple, jasmine, clean cup.',img:null,ded:[{id:8,amt:10}]}
+];
+D.products=[
+{id:1,name:'House Blend 250g',cost:4.82,price:12.99,margin:63,cat:'Blend',net:250,bag:0.45,label:0.12,ship:0.30,shrinkage:15.8,saved:true},
+{id:2,name:'Ethiopia Yirgacheffe 250g',cost:5.94,price:16.99,margin:65,cat:'Single Origin',net:250,bag:0.45,label:0.12,ship:0.30,shrinkage:13.8,saved:true},
+{id:3,name:'Espresso Pro 1kg',cost:15.60,price:39.99,margin:61,cat:'Blend',net:1000,bag:0.85,label:0.12,ship:0.50,shrinkage:16.3,saved:true}
+];
+D.clients=[
+{id:1,company:'Brew & Bean Café',contact:'Ahmet Yılmaz',email:'ahmet@brewbean.com.tr',phone:'+90 532 111 2233',address:'Kadıköy, Istanbul',taxId:'1234567890',tag:'VIP',limit:50000,notes:'Weekly orders, prefers medium roast',orders:[{date:d(3),total:2450},{date:d(10),total:1890},{date:d(17),total:3200},{date:d(24),total:2100}]},
+{id:2,company:'The Grind House',contact:'Sarah Chen',email:'sarah@grindhouse.co',phone:'+44 7700 900123',address:'Shoreditch, London',taxId:'GB123456',tag:'Wholesale',limit:100000,notes:'Monthly container orders, single origins only',orders:[{date:d(5),total:8500},{date:d(35),total:12000}]},
+{id:3,company:'Kahve Molası',contact:'Elif Demir',email:'elif@kahvemolasi.com',phone:'+90 541 333 4455',address:'Beşiktaş, Istanbul',taxId:'9876543210',tag:'Regular',limit:20000,notes:'Espresso blend focus',orders:[{date:d(2),total:1200},{date:d(9),total:950},{date:d(15),total:1450}]}
+];
+D.cuppings=[
+{id:1,sample:'Ethiopia Yirgacheffe Gr.1',date:d(2),origin:'Ethiopia',process:'Washed',scores:[8.5,8,8.5,8,9,7.5,8.5,10,10,9],total:87,notes:'Outstanding floral complexity. Jasmine, bergamot, lemon zest.'},
+{id:2,sample:'Kenya AA Nyeri',date:d(5),origin:'Kenya',process:'Washed',scores:[8,8.5,9,8.5,9,8,8.5,10,10,9],total:88.5,notes:'Explosive fruit. Blackcurrant, tomato, phosphoric acidity.'},
+{id:3,sample:'Colombia Huila Supremo',date:d(8),origin:'Colombia',process:'Washed',scores:[7.5,8,8,7.5,7.5,8,8,10,10,8.5],total:83,notes:'Clean, balanced. Red apple, milk chocolate, caramel.'},
+{id:4,sample:'Guatemala Antigua SHB',date:d(12),origin:'Guatemala',process:'Washed',scores:[8,7.5,8,8,7.5,8,8,10,10,8.5],total:83.5,notes:'Spice, cocoa nib, orange peel. Full body.'},
+{id:5,sample:'Costa Rica Tarrazú BH',date:d(15),origin:'Costa Rica',process:'Honey',scores:[8,8,8.5,8,8,7.5,8,10,10,9],total:85,notes:'Strawberry, honey, milk chocolate. Sweet.'}
+];
+D.oh={r:12000,l:28000,u:4500,m:3000,kg:800};
+D.settings={usd:36.5,ohKg:59.38,low:10};
+D.greenlog=[
+{id:1,name:'ETH Yirgacheffe Kochere',origin:'Yirgacheffe, Ethiopia',farm:'Kochere Washing Station',lot:'ETH-2024-042',process:'Washed',variety:'Heirloom',harvest:'2024-11',arrival:d(30),weight:300,cost:8.5,altitude:2100,moisture:10.8,notes:'Jasmine, bergamot, lemon',score:87,bagSize:60},
+{id:2,name:'COL Huila La Pradera',origin:'Huila, Colombia',farm:'Finca La Pradera',lot:'COL-2024-118',process:'Washed',variety:'Caturra/Castillo',harvest:'2024-10',arrival:d(45),weight:500,cost:7.2,altitude:1800,moisture:11.2,notes:'Chocolate, red apple',score:83,bagSize:69},
+{id:3,name:'BRA Santos Fazenda Alta',origin:'Mogiana, Brazil',farm:'Fazenda Alta Vista',lot:'BRA-2024-091',process:'Natural',variety:'Mundo Novo',harvest:'2024-09',arrival:d(15),weight:600,cost:5.8,altitude:1100,moisture:11.5,notes:'Nutty, cocoa, brown sugar',score:80,bagSize:60}
+];
+D.invoices=[
+{id:1,client:'Brew & Bean Café',items:[{desc:'House Blend 1kg x10',qty:10,price:39.99,tax:18}],total:4718.82,status:'Paid',date:d(3),currency:'TRY'},
+{id:2,client:'The Grind House',items:[{desc:'Ethiopia Yirgacheffe 250g x50',qty:50,price:16.99,tax:0}],total:849.50,status:'Paid',date:d(5),currency:'USD'},
+{id:3,client:'Kahve Molası',items:[{desc:'Espresso Pro 1kg x5',qty:5,price:39.99,tax:18},{desc:'House Blend 250g x20',qty:20,price:12.99,tax:18}],total:542.10,status:'Pending',date:d(2),currency:'TRY'}
+];
+saveD();toast('✓ Demo data loaded — Frances Coffee Istanbul');go('home');renderPage()};
+
 function updCartBadge(){const b=$('cartBadge');if(!b)return;const c=D.cart.reduce((s,i)=>s+i.qty,0);b.textContent=c;b.classList.toggle('empty',c===0)}
 function updUserBtn(){const el=$('userHeaderBtn');if(!el)return;if(D.user&&D.user.name){el.innerHTML=`<div class="user-bar" onclick="go('acct')"><div class="user-av">${D.user.name.charAt(0).toUpperCase()}</div><span class="user-nm">${esc(D.user.name.split(' ')[0])}</span></div>`}else{el.innerHTML=`<div class="H-btn" onclick="go('auth')"><i class="fas fa-user"></i></div>`}}
 
@@ -5552,7 +5615,7 @@ window._generateQR=function(){
   var canvas=document.getElementById('qrCanvas');if(!canvas)return;
   var url=window.location.origin+'/#cafemenuqr';
   if(typeof QRCode!=='undefined'){
-    QRCode.toCanvas(canvas,url,{width:220,margin:2,color:{dark:'#1a1612',light:'#ffffff'}},function(err){if(err)toast('QR Error: '+err.message);else toast('QR code generated!')});
+    var qrDiv=document.createElement('div');canvas.parentNode.replaceChild(qrDiv,canvas);qrDiv.id='qrCanvas';new QRCode(qrDiv,{text:url,width:220,height:220,colorDark:'#1a1612',colorLight:'#ffffff'});toast('QR code generated!');
   }else{
     canvas.width=220;canvas.height=220;var ctx=canvas.getContext('2d');
     ctx.fillStyle='#f6f3ef';ctx.fillRect(0,0,220,220);
@@ -6228,17 +6291,24 @@ window._saveInvoice=function(){
 /* === Save addItem() upgrade for origin/lot/supplier/arrival === */
 var _origAddItem=window.addItem;
 window.addItem=function(type){
-  if(typeof _origAddItem==='function')_origAddItem(type);
-  if(type==='bean'&&D.beans.length){
-    var last=D.beans[D.beans.length-1];
+  var _origin='',_lot='',_supplier='',_arrival='';
+  if(type==='bean'){
     var originEl=document.getElementById('beanOrigin');
     var lotEl=document.getElementById('beanLot');
     var supplierEl=document.getElementById('beanSupplier');
     var arrivalEl=document.getElementById('beanArrival');
-    if(originEl)last.origin=originEl.value;
-    if(lotEl)last.lot=lotEl.value;
-    if(supplierEl)last.supplier=supplierEl.value;
-    if(arrivalEl)last.arrival=arrivalEl.value;
+    if(originEl)_origin=originEl.value;
+    if(lotEl)_lot=lotEl.value;
+    if(supplierEl)_supplier=supplierEl.value;
+    if(arrivalEl)_arrival=arrivalEl.value;
+  }
+  if(typeof _origAddItem==='function')_origAddItem(type);
+  if(type==='bean'&&D.beans.length){
+    var last=D.beans[D.beans.length-1];
+    last.origin=_origin;
+    last.lot=_lot;
+    last.supplier=_supplier;
+    last.arrival=_arrival;
     saveD();
   }
 };
@@ -7133,7 +7203,7 @@ window._exportDailyPDF=function(){
   var el=document.createElement('div');
   el.style.cssText='padding:30px;font-family:Outfit,system-ui,sans-serif;max-width:600px';
   el.innerHTML='<div style="text-align:center;margin-bottom:20px"><h1 style="font-family:Fraunces,Georgia,serif;font-size:1.4rem;margin:0">'+esc(CF.name||'CoffeePro')+'</h1><div style="font-size:.78rem;color:#888">Daily Report — '+new Date().toLocaleDateString()+'</div></div>'+
-  '<div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:12px;margin-bottom:20px;text-align:center"><div style="padding:12px;background:#f8f6f3;border-radius:8px"><div style="font-size:1.1rem;font-weight:700;color:#2a8a5a">₺'+totalS.toFixed(0)+'</div><div style="font-size:.62rem;color:#888">Total Sales</div></div><div style="padding:12px;background:#f8f6f3;border-radius:8px"><div style="font-size:1.1rem;font-weight:700;color:#c8913a">'+tO.length+'</div><div style="font-size:.62rem;color:#888">Orders</div></div><div style="padding:12px;background:#f8f6f3;border-radius:8px"><div style="font-size:1.1rem;font-weight:700;color:#3a72b8">₺'+(tO.length?totalS/tO.length:0).toFixed(0)+'</div><div style="font-size:.62rem;color:#888">Avg Order</div></div><div style="padding:12px;background:#f8f6f3;border-radius:8px"><div style="font-size:1.1rem;font-weight:700;color:#8a7a6a">₺'+(CF.tips||0).toFixed(0)+'</div><div style="font-size:.62rem;color:#888">Tips</div></div></div>'+
+  '<div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:12px;margin-bottom:20px;text-align:center"><div style="padding:12px;background:#f8f6f3;border-radius:8px"><div style="font-size:1.1rem;font-weight:700;color:#2a8a5a">₺'+totalS.toFixed(0)+'</div><div style="font-size:.62rem;color:#888">Total Sales</div></div><div style="padding:12px;background:#f8f6f3;border-radius:8px"><div style="font-size:1.1rem;font-weight:700;color:#c8913a">'+tO.length+'</div><div style="font-size:.62rem;color:#888">Orders</div></div><div style="padding:12px;background:#f8f6f3;border-radius:8px"><div style="font-size:1.1rem;font-weight:700;color:#3a72b8">₺'+(tO.length?totalS/tO.length:0).toFixed(0)+'</div><div style="font-size:.62rem;color:#888">Avg Order</div></div><div style="padding:12px;background:#f8f6f3;border-radius:8px"><div style="font-size:1.1rem;font-weight:700;color:#8a7a6a">₺'+(Array.isArray(CF.tips)?CF.tips.reduce(function(s,t){return s+(parseFloat(t.amount)||0)},0):0).toFixed(0)+'</div><div style="font-size:.62rem;color:#888">Tips</div></div></div>'+
   '<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px"><div style="padding:12px;border:1px solid #eee;border-radius:8px"><div style="font-size:.68rem;color:#888;margin-bottom:4px"><i class="fas fa-money-bill-wave"></i> Cash</div><div style="font-size:1rem;font-weight:700">₺'+cashS.toFixed(0)+' <span style="font-size:.62rem;color:#888">('+cashC+' orders)</span></div></div><div style="padding:12px;border:1px solid #eee;border-radius:8px"><div style="font-size:.68rem;color:#888;margin-bottom:4px"><i class="fas fa-credit-card"></i> Card</div><div style="font-size:1rem;font-weight:700">₺'+cardS.toFixed(0)+' <span style="font-size:.62rem;color:#888">('+cardC+' orders)</span></div></div></div>'+
   '<h3 style="font-size:.82rem;margin-bottom:8px">Top Items</h3>'+
   '<table style="width:100%;border-collapse:collapse;font-size:.72rem"><thead><tr style="border-bottom:2px solid #ddd"><th style="text-align:left;padding:6px">Item</th><th style="text-align:right;padding:6px">Qty</th></tr></thead><tbody>'+
