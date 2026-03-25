@@ -1543,7 +1543,7 @@ body.dark .dtable tbody tr:hover td{background:#221e1a}
 <div class="footer">
 <div class="footer-inner">
 <div class="footer-grid">
-<div><div class="footer-brand">Coffee<span>Pro</span></div><div style="font-size:.72rem;line-height:1.5;margin-bottom:8px" data-i="footerDesc">Professional roastery management and café tools for coffee professionals. Log roasts, score cuppings, track inventory, and run your café — all in one place.</div><div class="nl-wrap"><input class="nl-input" id="nlEmail" placeholder="Enter your email..." type="email"><button class="nl-btn" onclick="nlSignup()">Subscribe</button></div><div class="trust-row"><div class="trust-badge"><i class="fas fa-lock"></i> <span data-i="sslEncrypted">SSL Encrypted</span></div><div class="trust-badge"><i class="fas fa-cloud"></i> <span>Cloud Sync</span></div><div class="trust-badge"><i class="fas fa-globe"></i> 4 Languages</div></div><div style="display:flex;gap:10px;font-size:1rem;margin-top:10px"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-linkedin"></i></a><a href="#"><i class="fab fa-x-twitter"></i></a><a href="#"><i class="fab fa-youtube"></i></a></div></div>
+<div><div class="footer-brand">Coffee<span>Pro</span></div><div style="font-size:.72rem;line-height:1.5;margin-bottom:8px" data-i="footerDesc">Professional roastery management and café tools for coffee professionals. Log roasts, score cuppings, track inventory, and run your café — all in one place.</div><div class="nl-wrap"><input class="nl-input" id="nlEmail" placeholder="Enter your email..." type="email"><button class="nl-btn" onclick="nlSignup()">Subscribe</button></div><div class="trust-row"><div class="trust-badge"><i class="fas fa-lock"></i> <span data-i="sslEncrypted">SSL Encrypted</span></div><div class="trust-badge"><i class="fas fa-cloud"></i> <span data-i="cloudSync">Cloud Sync</span></div><div class="trust-badge"><i class="fas fa-globe"></i> <span data-i="fourLanguages">4 Languages</span></div></div><div style="display:flex;gap:10px;font-size:1rem;margin-top:10px"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-linkedin"></i></a><a href="#"><i class="fab fa-x-twitter"></i></a><a href="#"><i class="fab fa-youtube"></i></a></div></div>
 <div><h4 data-i="platformCol">Platform</h4><a href="#" onclick="go('tools');return false" data-i="navTools">Tools</a><br><a href="#" onclick="go('cafe');return false" data-i="navCafe">My Café</a><br><a href="#" onclick="go('pricing');return false" data-i="navPricing">Pricing</a><br><a href="#" onclick="go('about');return false" data-i="aboutUs">About</a></div>
 <div><h4 data-i="companyCol">Company</h4><a href="#" onclick="go('about');return false" data-i="aboutUs">About Us</a><br><a href="#" onclick="go('pricing');return false">Pricing</a><br><a href="#" onclick="toast('🚀 Careers page coming soon!');return false" data-i="careers">Careers</a><br><a href="#" onclick="toast('📝 Blog launching soon!');return false" data-i="blog">Blog</a><br><a href="#" onclick="toast('📰 Press kit coming soon!');return false" data-i="press">Press</a></div>
 <div><h4 data-i="supportCol">Support</h4><a href="#" onclick="go('contact');return false" data-i="helpCenter">Help Center</a><br><a href="#" onclick="go('contact');return false" data-i="contact">Contact</a><br><a href="#" onclick="toast('📋 Terms of Service — Coming Soon');return false" data-i="terms">Terms</a><br><a href="#" onclick="toast('🔒 Privacy Policy — Coming Soon');return false" data-i="privacy">Privacy</a></div>
@@ -2328,19 +2328,19 @@ ${low.map(b=>`<div class="sw-warn"><i class="fas fa-exclamation-triangle"></i><s
 <div class="why-grid"><div class="why-card"><div class="why-ico" style="background:var(--em-lt);border:1px solid var(--em-br)"><i class="fas fa-fire" style="color:var(--emerald)"></i></div><div class="why-nm">${t('whyV')}</div><div class="why-ds">${t('whyVd')}</div></div><div class="why-card"><div class="why-ico" style="background:var(--blue-lt);border:1px solid rgba(42,90,144,.2)"><i class="fas fa-language" style="color:var(--blue)"></i></div><div class="why-nm">${t('whyG')}</div><div class="why-ds">${t('whyGd')}</div></div><div class="why-card"><div class="why-ico" style="background:var(--amber-lt);border:1px solid var(--amber-br)"><i class="fas fa-cloud-arrow-up" style="color:var(--amber)"></i></div><div class="why-nm">${t('whyS')}</div><div class="why-ds">${t('whySd')}</div></div><div class="why-card"><div class="why-ico" style="background:var(--cop-lt);border:1px solid rgba(106,122,142,.2)"><i class="fas fa-chart-line" style="color:var(--copper)"></i></div><div class="why-nm">${t('whyT')}</div><div class="why-ds">${t('whyTd')}</div></div></div></div>
 <!-- How It Works -->
 <div class="hiw reveal">
-<div class="hiw-title" data-i="hiwTitle">How It Works</div>
-<div class="hiw-sub" data-i="hiwSub">From roasting to serving — in four simple steps</div>
+<div class="hiw-title">${t('hiwTitle')}</div>
+<div class="hiw-sub">${t('hiwSub')}</div>
 <div class="hiw-grid reveal-stagger">
-<div class="hiw-step"><div class="hiw-line"></div><div class="hiw-num">1</div><div class="hiw-ico" style="background:var(--amber-lt);border:1px solid var(--amber-br);color:var(--amber)"><i class="fas fa-fire"></i></div><div class="hiw-nm" data-i="hiwStep1">Log Your Roasts</div><div class="hiw-ds" data-i="hiwStep1d">Record every batch — charge temp, first crack, drop time, development ratio &amp; more</div></div>
-<div class="hiw-step"><div class="hiw-line"></div><div class="hiw-num">2</div><div class="hiw-ico" style="background:var(--em-lt);border:1px solid var(--em-br);color:var(--emerald)"><i class="fas fa-clipboard-check"></i></div><div class="hiw-nm" data-i="hiwStep2">Score &amp; Cup</div><div class="hiw-ds" data-i="hiwStep2d">SCA-style cupping scoresheets. Rate aroma, flavor, body, acidity &amp; overall quality</div></div>
-<div class="hiw-step"><div class="hiw-line"></div><div class="hiw-num">3</div><div class="hiw-ico" style="background:var(--blue-lt);border:1px solid rgba(42,90,144,.2);color:var(--blue)"><i class="fas fa-boxes-stacked"></i></div><div class="hiw-nm" data-i="hiwStep3">Manage Inventory</div><div class="hiw-ds" data-i="hiwStep3d">Track green beans, packaging, products. Get low-stock alerts &amp; calculate costs in real time</div></div>
-<div class="hiw-step"><div class="hiw-num">4</div><div class="hiw-ico" style="background:var(--cop-lt);border:1px solid rgba(106,122,142,.2);color:var(--copper)"><i class="fas fa-cash-register"></i></div><div class="hiw-nm" data-i="hiwStep4">Run Your Café</div><div class="hiw-ds" data-i="hiwStep4d">Full POS system, table management, kitchen display, loyalty program &amp; analytics built in</div></div>
+<div class="hiw-step"><div class="hiw-line"></div><div class="hiw-num">1</div><div class="hiw-ico" style="background:var(--amber-lt);border:1px solid var(--amber-br);color:var(--amber)"><i class="fas fa-fire"></i></div><div class="hiw-nm">${t('hiwStep1')}</div><div class="hiw-ds">${t('hiwStep1d')}</div></div>
+<div class="hiw-step"><div class="hiw-line"></div><div class="hiw-num">2</div><div class="hiw-ico" style="background:var(--em-lt);border:1px solid var(--em-br);color:var(--emerald)"><i class="fas fa-clipboard-check"></i></div><div class="hiw-nm">${t('hiwStep2')}</div><div class="hiw-ds">${t('hiwStep2d')}</div></div>
+<div class="hiw-step"><div class="hiw-line"></div><div class="hiw-num">3</div><div class="hiw-ico" style="background:var(--blue-lt);border:1px solid rgba(42,90,144,.2);color:var(--blue)"><i class="fas fa-boxes-stacked"></i></div><div class="hiw-nm">${t('hiwStep3')}</div><div class="hiw-ds">${t('hiwStep3d')}</div></div>
+<div class="hiw-step"><div class="hiw-num">4</div><div class="hiw-ico" style="background:var(--cop-lt);border:1px solid rgba(106,122,142,.2);color:var(--copper)"><i class="fas fa-cash-register"></i></div><div class="hiw-nm">${t('hiwStep4')}</div><div class="hiw-ds">${t('hiwStep4d')}</div></div>
 </div>
 </div>
 
 <!-- Testimonials -->
 <div class="testi-section reveal">
-<div class="sh"><h2 data-i="testiTitle">What Roasters <em>Say</em></h2></div>
+<div class="sh"><h2>${t('testiTitle')}</h2></div>
 <div class="testi-carousel" id="testiCarousel">
 <div class="testi-track" id="testiTrack">
 <div class="testi-card"><div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><div class="testi-text">CoffeePro transformed how we source beans. Direct trade connections saved us 30% on green coffee costs while improving quality.</div><div class="testi-footer"><div class="testi-avatar" style="background:var(--amber-lt)">🇹🇷</div><div class="testi-info"><div class="testi-name">Mehmet Kaya</div><div class="testi-company">Istanbul Roasters, Turkey</div></div></div></div>
@@ -2394,7 +2394,7 @@ ${low.map(b=>`<div class="sw-warn"><i class="fas fa-exclamation-triangle"></i><s
 
 <!-- Trusted By Strip -->
 <div class="trusted reveal">
-<div class="trusted-title" data-i="trustedBy">Trusted by roasters worldwide</div>
+<div class="trusted-title">${t('trustedBy')}</div>
 <div style="overflow:hidden"><div class="trusted-scroll" id="trustedScroll">
 <div class="trusted-logo"><span>🇹🇷</span> Frances Coffee</div>
 <div class="trusted-logo"><span>☕</span> Kahve Dünyası</div>
@@ -2804,21 +2804,21 @@ return`<div class="sh"><h2><i class="fas fa-arrow-left" style="font-size:.7rem;c
 <div class="metric-row">
 <div class="metric-card"><div class="mc-val" style="color:var(--emerald)">${totalKg.toFixed(0)}<small> kg</small></div><div class="mc-lbl">${t('totalStock')}</div></div>
 <div class="metric-card"><div class="mc-val" style="color:var(--blue)">$${totalVal.toFixed(0)}</div><div class="mc-lbl">${t('stockValue')}</div></div>
-<div class="metric-card"><div class="mc-val" style="color:var(--amber)">${origins.length}</div><div class="mc-lbl">Origins</div></div>
-<div class="metric-card"><div class="mc-val" style="color:${lowBeans.length+outBeans.length>0?'var(--ruby)':'var(--emerald)'}">${lowBeans.length+outBeans.length}</div><div class="mc-lbl">Alerts</div></div>
+<div class="metric-card"><div class="mc-val" style="color:var(--amber)">${origins.length}</div><div class="mc-lbl">${t('originsLabel')}</div></div>
+<div class="metric-card"><div class="mc-val" style="color:${lowBeans.length+outBeans.length>0?'var(--ruby)':'var(--emerald)'}">${lowBeans.length+outBeans.length}</div><div class="mc-lbl">${t('alertsLabel')}</div></div>
 </div>
 
 <!-- Stock Donut Chart -->
 <div class="C Ca" style="text-align:center;padding:20px">
-<div class="st"><span><i class="fas fa-chart-pie" style="color:var(--amber);margin-inline-end:5px"></i>Stock Distribution</span></div>
+<div class="st"><span><i class="fas fa-chart-pie" style="color:var(--amber);margin-inline-end:5px"></i>${t('stockDistribution')}</span></div>
 <div id="invDonut" style="display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap">
-${D.beans.length?_invDonut(D.beans,totalKg):'<div style="color:var(--muted);font-size:.74rem">Add beans to see distribution</div>'}
+${D.beans.length?_invDonut(D.beans,totalKg):'<div style="color:var(--muted);font-size:.74rem">'+t('addBeansToSee')+'</div>'}
 </div></div>
 
 ${lowBeans.length||outBeans.length?`<div class="C" style="background:linear-gradient(135deg,rgba(176,64,74,.08),rgba(200,145,58,.08));border:1px solid rgba(176,64,74,.2);padding:14px;margin-bottom:10px">
-<div style="font-family:var(--fd);font-size:.78rem;font-weight:700;color:var(--ruby);margin-bottom:8px"><i class="fas fa-exclamation-triangle"></i> Reorder Alerts</div>
-${outBeans.map(b=>`<div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(0,0,0,.06)"><span style="font-size:.72rem;font-weight:600">${esc(b.name)}</span><span class="tg tg-r">OUT OF STOCK</span></div>`).join('')}
-${lowBeans.map(b=>`<div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(0,0,0,.06)"><span style="font-size:.72rem;font-weight:600">${esc(b.name)}</span><span class="tg tg-a">⚠ ${b.stock}kg left</span></div>`).join('')}
+<div style="font-family:var(--fd);font-size:.78rem;font-weight:700;color:var(--ruby);margin-bottom:8px"><i class="fas fa-exclamation-triangle"></i> ${t('reorderAlerts')}</div>
+${outBeans.map(b=>`<div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(0,0,0,.06)"><span style="font-size:.72rem;font-weight:600">${esc(b.name)}</span><span class="tg tg-r">${t('outOfStock')}</span></div>`).join('')}
+${lowBeans.map(b=>`<div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(0,0,0,.06)"><span style="font-size:.72rem;font-weight:600">${esc(b.name)}</span><span class="tg tg-a">⚠ ${b.stock}${t('kgLeft')}</span></div>`).join('')}
 </div>`:''}
 
 <!-- Green Beans Table -->
@@ -2865,7 +2865,7 @@ return`<div class="sh"><h2><i class="fas fa-arrow-left" style="font-size:.7rem;c
 <div class="metric-card"><div class="mc-val" style="color:var(--blue)">${Math.floor(avgTime/60)}:${String(Math.round(avgTime%60)).padStart(2,'0')}</div><div class="mc-lbl">${t('avgTime')}</div></div>
 </div>
 
-${D.roasts.length>=2?`<div class="C Ca"><div class="st"><span><i class="fas fa-chart-line" style="color:var(--ruby);margin-inline-end:5px"></i>Loss % Trend</span></div>
+${D.roasts.length>=2?`<div class="C Ca"><div class="st"><span><i class="fas fa-chart-line" style="color:var(--ruby);margin-inline-end:5px"></i>${t('lossTrend')}</span></div>
 ${buildSvgLine(D.roasts.slice(-12).map(r=>parseFloat(r.loss)||0),320,80,'var(--ruby)')}</div>`:''}
 
 <div class="C Ca"><div class="st"><span><i class="fas fa-fire" style="color:var(--amber);margin-inline-end:5px"></i>${t('newRoast')}</span></div>
@@ -2888,7 +2888,7 @@ return`<div class="rc-enhanced"><div class="rc-top">${r.img?`<img src="${r.img}"
 <div style="flex:1"><div style="display:flex;justify-content:space-between;align-items:flex-start"><strong style="font-family:var(--fd);font-size:.88rem">${esc(r.name)}</strong><div style="display:flex;gap:6px;align-items:center"><span class="tg tg-d" style="font-size:.5rem;background:${lvlClr}18;color:${lvlClr};border:1px solid ${lvlClr}30">${lvl}</span><i class="fas fa-copy" style="color:var(--blue);cursor:pointer;font-size:.58rem" title="${t('duplicateRoast')}" onclick="event.stopPropagation();_dupRoast(${i})"></i><i class="fas fa-trash" style="color:var(--faint);cursor:pointer;font-size:.58rem" onclick="delItem('roast',${i})"></i></div></div>
 <div style="font-size:.64rem;color:var(--faint);margin-top:2px">${r.date||'—'} · ${r.type}${r.agtron?' · Agtron '+r.agtron:''}</div>
 ${r.ded?.length?`<div style="margin-top:4px;font-size:.62rem;color:var(--muted)"><i class="fas fa-seedling" style="color:var(--emerald)"></i> ${r.ded.map(d=>esc(d.name)+' ('+d.kg+'kg)').join(', ')}</div>`:''}</div></div>
-<div class="rc-metrics"><div class="rc-m"><div class="v">${r.charge||'—'}°C</div><div class="l">Charge</div></div><div class="rc-m"><div class="v">${r.fc||'—'}°C</div><div class="l">1st Crack</div></div><div class="rc-m"><div class="v">${r.drop||'—'}°C</div><div class="l">Drop</div></div><div class="rc-m"><div class="v">${r.time||'—'}</div><div class="l">Total</div></div></div>
+<div class="rc-metrics"><div class="rc-m"><div class="v">${r.charge||'—'}°C</div><div class="l">${t('chargeLabel')}</div></div><div class="rc-m"><div class="v">${r.fc||'—'}°C</div><div class="l">${t('firstCrackLabel')}</div></div><div class="rc-m"><div class="v">${r.drop||'—'}°C</div><div class="l">${t('dropLabel')}</div></div><div class="rc-m"><div class="v">${r.time||'—'}</div><div class="l">${t('total')}</div></div></div>
 <div style="display:flex;gap:6px;padding:0 14px 10px;flex-wrap:wrap">
 <span class="tg tg-d" style="font-size:.52rem"><i class="fas fa-fire-flame-curved"></i> Loss: ${r.loss||'—'}%</span>
 ${r.dev?`<span class="tg tg-d" style="font-size:.52rem"><i class="fas fa-clock"></i> Dev: ${r.dev}${devPct?' ('+devPct+'%)':''}</span>`:''}
@@ -2928,21 +2928,21 @@ ${hist.length>=2?`<div class="C Ca"><div class="st"><span><i class="fas fa-chart
 <div class="C Ca"><div class="st"><span>${t('breakdown')}</span></div><div id="costBD"></div><div class="meter"><div class="meter-fill" id="costMeter" style="width:0%;background:linear-gradient(90deg,var(--amber),var(--copper))"></div></div><div class="pb" style="border-color:var(--amber)"><div class="pb-l">${t('overheadKg')}</div><div class="pb-v" id="ohKg" style="color:var(--amber)">₺${pk.toFixed(2)}</div><div class="pb-u">TL/kg</div></div></div>
 
 <!-- Scenario Planning -->
-<div class="C Ca"><div class="st"><span><i class="fas fa-sliders-h" style="color:var(--copper);margin-inline-end:5px"></i>Scenario Planner</span></div>
-<div style="font-size:.68rem;color:var(--muted);margin-bottom:10px">Slide to see how changes affect per-kg cost</div>
-<div class="fg"><label>If production changes to: <strong id="scenKgVal">${kg}</strong> kg</label><input type="range" id="scenKg" min="${Math.max(100,kg*0.5)}" max="${kg*2}" value="${kg}" step="50" oninput="_updScenario()" style="width:100%;accent-color:var(--amber)"></div>
-<div class="fg"><label>If rent changes to: <strong id="scenRVal">₺${r}</strong></label><input type="range" id="scenR" min="0" max="${Math.max(r*3,10000)}" value="${r}" step="100" oninput="_updScenario()" style="width:100%;accent-color:var(--ruby)"></div>
-<div style="text-align:center;padding:14px;background:var(--cream);border-radius:var(--r);margin-top:8px"><div style="font-size:.6rem;color:var(--faint);text-transform:uppercase;letter-spacing:1px">Projected Per-Kg Cost</div><div id="scenResult" style="font-family:var(--fm);font-size:1.6rem;font-weight:700;color:var(--amber)">₺${pk.toFixed(2)}</div></div></div>
+<div class="C Ca"><div class="st"><span><i class="fas fa-sliders-h" style="color:var(--copper);margin-inline-end:5px"></i>${t('scenarioPlanner')}</span></div>
+<div style="font-size:.68rem;color:var(--muted);margin-bottom:10px">${t('scenarioDesc')}</div>
+<div class="fg"><label>${t('ifProdChanges')} <strong id="scenKgVal">${kg}</strong> kg</label><input type="range" id="scenKg" min="${Math.max(100,kg*0.5)}" max="${kg*2}" value="${kg}" step="50" oninput="_updScenario()" style="width:100%;accent-color:var(--amber)"></div>
+<div class="fg"><label>${t('ifRentChanges')} <strong id="scenRVal">₺${r}</strong></label><input type="range" id="scenR" min="0" max="${Math.max(r*3,10000)}" value="${r}" step="100" oninput="_updScenario()" style="width:100%;accent-color:var(--ruby)"></div>
+<div style="text-align:center;padding:14px;background:var(--cream);border-radius:var(--r);margin-top:8px"><div style="font-size:.6rem;color:var(--faint);text-transform:uppercase;letter-spacing:1px">${t('projectedCost')}</div><div id="scenResult" style="font-family:var(--fm);font-size:1.6rem;font-weight:700;color:var(--amber)">₺${pk.toFixed(2)}</div></div></div>
 
 <!-- Break-Even Calculator -->
-<div class="C Ca"><div class="st"><span><i class="fas fa-balance-scale" style="color:var(--emerald);margin-inline-end:5px"></i>Break-Even Calculator</span></div>
-<div class="row fg"><div class="col"><label>Avg Sell Price/kg</label><input type="number" id="bePrice" placeholder="120" value="${D.products.length?((D.products.reduce((s,p)=>s+parseFloat(p.price||0),0)/D.products.length)*4).toFixed(0):''}" oninput="_calcBreakEven()"></div><div class="col"><label>Avg Cost/kg (beans)</label><input type="number" id="beCost" placeholder="40" value="${D.beans.length?((D.beans.reduce((s,b)=>s+parseFloat(b.cost||0),0)/D.beans.length)*D.settings.usd).toFixed(0):''}" oninput="_calcBreakEven()"></div></div>
-<div style="text-align:center;padding:14px;background:linear-gradient(135deg,var(--em-lt),var(--cream));border-radius:var(--r);margin-top:6px"><div style="font-size:.6rem;color:var(--faint);text-transform:uppercase;letter-spacing:1px">Break-Even Production</div><div id="beResult" style="font-family:var(--fm);font-size:1.4rem;font-weight:700;color:var(--emerald)">— kg/month</div><div style="font-size:.6rem;color:var(--muted);margin-top:2px">To cover all overhead costs</div></div></div>`}
+<div class="C Ca"><div class="st"><span><i class="fas fa-balance-scale" style="color:var(--emerald);margin-inline-end:5px"></i>${t('breakEvenCalc')}</span></div>
+<div class="row fg"><div class="col"><label>${t('avgSellPrice')}</label><input type="number" id="bePrice" placeholder="120" value="${D.products.length?((D.products.reduce((s,p)=>s+parseFloat(p.price||0),0)/D.products.length)*4).toFixed(0):''}" oninput="_calcBreakEven()"></div><div class="col"><label>${t('avgCostBeans')}</label><input type="number" id="beCost" placeholder="40" value="${D.beans.length?((D.beans.reduce((s,b)=>s+parseFloat(b.cost||0),0)/D.beans.length)*D.settings.usd).toFixed(0):''}" oninput="_calcBreakEven()"></div></div>
+<div style="text-align:center;padding:14px;background:linear-gradient(135deg,var(--em-lt),var(--cream));border-radius:var(--r);margin-top:6px"><div style="font-size:.6rem;color:var(--faint);text-transform:uppercase;letter-spacing:1px">${t('breakEvenProd')}</div><div id="beResult" style="font-family:var(--fm);font-size:1.4rem;font-weight:700;color:var(--emerald)">— kg/month</div><div style="font-size:.6rem;color:var(--muted);margin-top:2px">${t('toCoverOverhead')}</div></div></div>`}
 
 function rCalc(){return`<div class="sh"><h2><i class="fas fa-arrow-left" style="font-size:.7rem;cursor:pointer;color:var(--faint);margin-right:6px" onclick="go('tools')"></i><em>${t('calcTitle')}</em></h2><button class="Bgh" onclick="_batchScaleModal()"><i class="fas fa-expand-arrows-alt"></i> Batch Scale</button></div>
 
 ${D.products.length>=2?`<div class="C Ca"><div class="st"><span><i class="fas fa-table" style="color:var(--blue);margin-inline-end:5px"></i>${t('productComparison')}</span></div>
-<div style="overflow-x:auto"><table class="dtable"><thead><tr><th>Product</th><th>Cost</th><th>Price</th><th>Margin</th><th>Profit</th></tr></thead><tbody>
+<div style="overflow-x:auto"><table class="dtable"><thead><tr><th>${t('product')}</th><th>${t('cost')}</th><th>${t('price')}</th><th>${t('marginCol')}</th><th>${t('profitCol')}</th></tr></thead><tbody>
 ${D.products.map(p=>{const co=parseFloat(p.cost),pr=parseFloat(p.price),mg=pr>0?((pr-co)/pr*100):0,pf=pr-co;return`<tr><td><strong style="font-size:.72rem">${esc(p.name)}</strong></td><td class="num" style="color:var(--ruby)">₺${co.toFixed(2)}</td><td class="num" style="color:var(--emerald)">₺${pr.toFixed(2)}</td><td class="num"><span class="tg ${mg>=30?'tg-g':mg>=15?'tg-a':'tg-r'}">${mg.toFixed(1)}%</span></td><td class="num" style="color:var(--amber)">₺${pf.toFixed(2)}</td></tr>`}).join('')}
 </tbody></table></div></div>`:''}
 
@@ -2961,18 +2961,18 @@ ${D.products.map(p=>{const co=parseFloat(p.cost),pr=parseFloat(p.price),mg=pr>0?
 
 <!-- Margin Optimizer -->
 <div class="C Ca"><div class="st"><span><i class="fas fa-bullseye" style="color:var(--emerald);margin-inline-end:5px"></i>${t('marginOptimizer')}</span></div>
-<div style="font-size:.68rem;color:var(--muted);margin-bottom:8px">Find the optimal price point for your target margin</div>
-<div class="row fg"><div class="col"><label>Target Margin %</label><input type="range" id="optMargin" min="5" max="60" value="30" step="1" oninput="_updateOptimizer()" style="width:100%;accent-color:var(--emerald)"></div><div class="col" style="flex:.5;text-align:center"><div id="optMarginVal" style="font-family:var(--fm);font-size:1.2rem;font-weight:700;color:var(--emerald)">30%</div></div></div>
+<div style="font-size:.68rem;color:var(--muted);margin-bottom:8px">${t('marginOptDesc')}</div>
+<div class="row fg"><div class="col"><label>${t('targetMarginPct')}</label><input type="range" id="optMargin" min="5" max="60" value="30" step="1" oninput="_updateOptimizer()" style="width:100%;accent-color:var(--emerald)"></div><div class="col" style="flex:.5;text-align:center"><div id="optMarginVal" style="font-family:var(--fm);font-size:1.2rem;font-weight:700;color:var(--emerald)">30%</div></div></div>
 <div id="optResult" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-top:8px">
-<div style="text-align:center;padding:10px;background:var(--cream);border-radius:var(--r)"><div style="font-size:.54rem;color:var(--faint);text-transform:uppercase">Min Price</div><div id="optMin" style="font-family:var(--fm);font-size:.9rem;font-weight:700;color:var(--ruby)">₺0</div></div>
-<div style="text-align:center;padding:10px;background:var(--em-lt);border-radius:var(--r)"><div style="font-size:.54rem;color:var(--faint);text-transform:uppercase">Sweet Spot</div><div id="optSweet" style="font-family:var(--fm);font-size:.9rem;font-weight:700;color:var(--emerald)">₺0</div></div>
-<div style="text-align:center;padding:10px;background:var(--cream);border-radius:var(--r)"><div style="font-size:.54rem;color:var(--faint);text-transform:uppercase">Per 100 units</div><div id="optBulk" style="font-family:var(--fm);font-size:.9rem;font-weight:700;color:var(--amber)">₺0</div></div>
+<div style="text-align:center;padding:10px;background:var(--cream);border-radius:var(--r)"><div style="font-size:.54rem;color:var(--faint);text-transform:uppercase">${t('minPrice')}</div><div id="optMin" style="font-family:var(--fm);font-size:.9rem;font-weight:700;color:var(--ruby)">₺0</div></div>
+<div style="text-align:center;padding:10px;background:var(--em-lt);border-radius:var(--r)"><div style="font-size:.54rem;color:var(--faint);text-transform:uppercase">${t('sweetSpot')}</div><div id="optSweet" style="font-family:var(--fm);font-size:.9rem;font-weight:700;color:var(--emerald)">₺0</div></div>
+<div style="text-align:center;padding:10px;background:var(--cream);border-radius:var(--r)"><div style="font-size:.54rem;color:var(--faint);text-transform:uppercase">${t('per100Units')}</div><div id="optBulk" style="font-family:var(--fm);font-size:.9rem;font-weight:700;color:var(--amber)">₺0</div></div>
 </div></div>
 
 <!-- What-If Scenarios -->
 <div class="C Ca"><div class="st"><span><i class="fas fa-flask" style="color:var(--copper);margin-inline-end:5px"></i>${t('whatIfScenarios')}</span></div>
-<div class="row fg"><div class="col"><label>If bean cost ↑ 20%</label><div id="wiBeanUp" style="font-family:var(--fm);font-size:.82rem;font-weight:600;color:var(--ruby);padding:8px;background:var(--cream);border-radius:var(--r);text-align:center">—</div></div><div class="col"><label>If bean cost ↓ 20%</label><div id="wiBeanDn" style="font-family:var(--fm);font-size:.82rem;font-weight:600;color:var(--emerald);padding:8px;background:var(--cream);border-radius:var(--r);text-align:center">—</div></div></div>
-<div class="row fg"><div class="col"><label>If you sell 500 units</label><div id="wi500" style="font-family:var(--fm);font-size:.82rem;font-weight:600;color:var(--amber);padding:8px;background:var(--cream);border-radius:var(--r);text-align:center">—</div></div><div class="col"><label>If you sell 1000 units</label><div id="wi1000" style="font-family:var(--fm);font-size:.82rem;font-weight:600;color:var(--amber);padding:8px;background:var(--cream);border-radius:var(--r);text-align:center">—</div></div></div>
+<div class="row fg"><div class="col"><label>${t('beanCostUp')}</label><div id="wiBeanUp" style="font-family:var(--fm);font-size:.82rem;font-weight:600;color:var(--ruby);padding:8px;background:var(--cream);border-radius:var(--r);text-align:center">—</div></div><div class="col"><label>${t('beanCostDown')}</label><div id="wiBeanDn" style="font-family:var(--fm);font-size:.82rem;font-weight:600;color:var(--emerald);padding:8px;background:var(--cream);border-radius:var(--r);text-align:center">—</div></div></div>
+<div class="row fg"><div class="col"><label>${t('sell500')}</label><div id="wi500" style="font-family:var(--fm);font-size:.82rem;font-weight:600;color:var(--amber);padding:8px;background:var(--cream);border-radius:var(--r);text-align:center">—</div></div><div class="col"><label>${t('sell1000')}</label><div id="wi1000" style="font-family:var(--fm);font-size:.82rem;font-weight:600;color:var(--amber);padding:8px;background:var(--cream);border-radius:var(--r);text-align:center">—</div></div></div>
 </div>`}
 
 function rClients(){
@@ -2986,7 +2986,7 @@ return`<div class="sh"><h2><i class="fas fa-arrow-left" style="font-size:.7rem;c
 <div class="metric-card"><div class="mc-val" style="color:var(--blue)">${totalClients}</div><div class="mc-lbl">${t('totalClients')}</div></div>
 <div class="metric-card"><div class="mc-val" style="color:var(--amber)">${vipClients}</div><div class="mc-lbl">${t('vipClients')}</div></div>
 <div class="metric-card"><div class="mc-val" style="color:var(--emerald)">₺${totalRev.toLocaleString()}</div><div class="mc-lbl">${t('totalRevenue')}</div></div>
-<div class="metric-card"><div class="mc-val" style="color:var(--copper)">${totalClients?'₺'+(totalRev/totalClients).toFixed(0):'—'}</div><div class="mc-lbl">Avg / Client</div></div>
+<div class="metric-card"><div class="mc-val" style="color:var(--copper)">${totalClients?'₺'+(totalRev/totalClients).toFixed(0):'—'}</div><div class="mc-lbl">${t('avgPerClient')}</div></div>
 </div>
 
 <div class="C Ca"><div class="st"><span>${t('newClient')}</span></div>
@@ -3019,16 +3019,16 @@ return`<div class="sh"><h2><i class="fas fa-arrow-left" style="font-size:.7rem;c
 <div class="metric-card"><div class="mc-val" style="color:var(--ruby)">${best?esc(best.name).substring(0,12):'—'}</div><div class="mc-lbl">${t('topSample')}</div></div>
 </div>
 
-${D.cuppings.length>=3?`<div class="C Ca"><div class="st"><span><i class="fas fa-trophy" style="color:var(--amber);margin-inline-end:5px"></i>Leaderboard</span></div>
-<div style="overflow-x:auto"><table class="dtable"><thead><tr><th>#</th><th>Sample</th><th>Origin</th><th>Process</th><th>Score</th><th>Grade</th></tr></thead><tbody>
+${D.cuppings.length>=3?`<div class="C Ca"><div class="st"><span><i class="fas fa-trophy" style="color:var(--amber);margin-inline-end:5px"></i>${t('leaderboardLabel')}</span></div>
+<div style="overflow-x:auto"><table class="dtable"><thead><tr><th>#</th><th>${t('sampleName')}</th><th>${t('origin')}</th><th>${t('process')}</th><th>Score</th><th>Grade</th></tr></thead><tbody>
 ${sorted.slice(0,5).map((c,i)=>{const grade=c.total>=85?t('gradeOutstanding'):c.total>=80?t('gradeExcellent'):c.total>=70?t('gradeVeryGood'):c.total>=60?t('gradeGood'):t('gradeBelow');const gc=c.total>=85?'tg-g':c.total>=80?'tg-a':c.total>=70?'tg-d':'tg-r';
 return`<tr><td style="font-weight:700;color:${i===0?'var(--amber)':i===1?'var(--copper)':'var(--muted)'}">${i===0?'🥇':i===1?'🥈':i===2?'🥉':i+1}</td><td><strong style="font-size:.72rem">${esc(c.name)}</strong></td><td style="font-size:.66rem;color:var(--muted)">${esc(c.origin||'—')}</td><td style="font-size:.66rem">${esc(c.process||'—')}</td><td class="num" style="font-weight:700;color:var(--amber)">${c.total.toFixed(1)}</td><td><span class="tg ${gc}" style="font-size:.48rem">${grade}</span></td></tr>`}).join('')}
 </tbody></table></div></div>`:''}
 
-${D.cuppings.length>=2?`<div class="C Ca"><div class="st"><span><i class="fas fa-chart-bar" style="color:var(--blue);margin-inline-end:5px"></i>Score Distribution</span></div>
+${D.cuppings.length>=2?`<div class="C Ca"><div class="st"><span><i class="fas fa-chart-bar" style="color:var(--blue);margin-inline-end:5px"></i>${t('scoreDistribution')}</span></div>
 ${_scoreHistogram(D.cuppings)}</div>`:''}
 
-<div class="C Ca"><div class="st"><span><i class="fas fa-star-half-alt" style="color:var(--amber);margin-inline-end:5px"></i>New Cupping Session</span></div>
+<div class="C Ca"><div class="st"><span><i class="fas fa-star-half-alt" style="color:var(--amber);margin-inline-end:5px"></i>${t('newCuppingSession')}</span></div>
 <div class="alert alert-a"><i class="fas fa-info-circle"></i><span>Score each attribute 0–10 following SCA cupping protocol. Total score out of 100.</span></div>
 <div class="row fg"><div class="col"><label>${t('sampleName')}</label><input type="text" id="cupName" placeholder="Ethiopia Yirgacheffe Lot #12"></div><div class="col"><label>${t('date')}</label><input type="date" id="cupDate"></div></div>
 <div class="row fg"><div class="col"><label>${t('origin')}</label><input type="text" id="cupOrigin" placeholder="Ethiopia"></div><div class="col"><label>${t('process')}</label><select id="cupProc"><option>${t('washed')}</option><option>${t('natural')}</option><option>${t('honey')}</option><option>${t('anaerobic')}</option><option>${t('wetHulled')}</option></select></div></div>
@@ -3036,11 +3036,11 @@ ${_scoreHistogram(D.cuppings)}</div>`:''}
 ${cats.map((c,i)=>`<div class="fg" style="margin:0"><label>${c}</label><div style="display:flex;align-items:center;gap:6px"><input type="range" id="cup${i}" min="0" max="10" step="0.25" value="7" oninput="updCupTotal()" style="flex:1;accent-color:var(--amber)"><span id="cupV${i}" style="font-family:var(--fm);font-size:.74rem;font-weight:600;min-width:28px;text-align:right;color:var(--amber)">7.0</span></div></div>`).join('')}
 </div>
 <div style="display:flex;align-items:center;justify-content:space-between;padding:14px;background:var(--cream);border-radius:var(--r);margin-bottom:10px">
-<div><div style="font-size:.64rem;color:var(--faint);text-transform:uppercase;letter-spacing:1px;font-weight:600">Total Score</div><div id="cupTotal" style="font-family:var(--fm);font-size:1.8rem;font-weight:700;color:var(--amber)">70.0</div></div>
-<div id="cupGrade" style="font-size:.78rem;font-weight:600;padding:6px 14px;border-radius:8px;background:var(--em-lt);color:var(--emerald)">Very Good</div>
+<div><div style="font-size:.64rem;color:var(--faint);text-transform:uppercase;letter-spacing:1px;font-weight:600">${t('totalScoreLabel')}</div><div id="cupTotal" style="font-family:var(--fm);font-size:1.8rem;font-weight:700;color:var(--amber)">70.0</div></div>
+<div id="cupGrade" style="font-size:.78rem;font-weight:600;padding:6px 14px;border-radius:8px;background:var(--em-lt);color:var(--emerald)">${t('gradeVeryGood')}</div>
 </div>
 <div class="fg"><label>${t('tastingNotes')}</label><textarea id="cupNotes" rows="2" placeholder="Blueberry, jasmine, dark chocolate, wine-like acidity..."></textarea></div>
-<button class="B Ba Bw" onclick="saveCupping()"><i class="fas fa-save"></i> Save Cupping</button></div>
+<button class="B Ba Bw" onclick="saveCupping()"><i class="fas fa-save"></i> ${t('saveCupping')}</button></div>
 ${!D.cuppings.length?emptyState('fa-star-half-alt','No cuppings yet','Start your first cupping session to evaluate coffee quality','Start Cupping',"document.getElementById('cupName').focus()"):D.cuppings.map((c,i)=>{
 const grade=c.total>=85?t('gradeOutstanding'):c.total>=80?t('gradeExcellent'):c.total>=70?t('gradeVeryGood'):c.total>=60?t('gradeGood'):t('gradeBelow');
 const gc=c.total>=85?'tg-g':c.total>=80?'tg-a':c.total>=70?'tg-d':'tg-r';
@@ -3059,13 +3059,13 @@ return`<div class="sh"><h2><i class="fas fa-arrow-left" style="font-size:.7rem;c
 
 ${invHist.length?`<div class="metric-row">
 <div class="metric-card"><div class="mc-val" style="color:var(--blue)">${invHist.length}</div><div class="mc-lbl">${t('totalInvoices')}</div></div>
-<div class="metric-card"><div class="mc-val" style="color:var(--emerald)">${paid}</div><div class="mc-lbl">Paid</div></div>
-<div class="metric-card"><div class="mc-val" style="color:var(--amber)">${pending}</div><div class="mc-lbl">Pending</div></div>
-<div class="metric-card"><div class="mc-val" style="color:var(--ruby)">₺${totalRev.toLocaleString()}</div><div class="mc-lbl">Revenue</div></div>
+<div class="metric-card"><div class="mc-val" style="color:var(--emerald)">${paid}</div><div class="mc-lbl">${t('paidLabel')}</div></div>
+<div class="metric-card"><div class="mc-val" style="color:var(--amber)">${pending}</div><div class="mc-lbl">${t('pendingLabel')}</div></div>
+<div class="metric-card"><div class="mc-val" style="color:var(--ruby)">₺${totalRev.toLocaleString()}</div><div class="mc-lbl">${t('revenueLabel')}</div></div>
 </div>`:''}
 
-<div id="invHistPanel" style="display:none">${invHist.length?`<div class="C Ca"><div class="st"><span>Invoice History</span></div><div style="overflow-x:auto"><table class="dtable"><thead><tr><th>#</th><th>Client</th><th>Date</th><th>Total</th><th>Status</th><th class="act">Act</th></tr></thead><tbody>
-${invHist.map((iv,i)=>`<tr><td class="num" style="font-size:.66rem">INV-${String(i+1).padStart(3,'0')}</td><td style="font-size:.72rem">${esc(iv.client||'—')}</td><td style="font-size:.66rem;color:var(--muted)">${iv.date||'—'}</td><td class="num" style="font-weight:600">₺${parseFloat(iv.total||0).toLocaleString()}</td><td><span class="tg ${iv.status==='paid'?'tg-g':'tg-a'}" style="font-size:.48rem;cursor:pointer" onclick="_toggleInvStatus(${i})">${iv.status==='paid'?'Paid':'Pending'}</span></td><td class="act"><i class="fas fa-trash" style="color:var(--ruby)" onclick="_delInvoice(${i})"></i></td></tr>`).join('')}
+<div id="invHistPanel" style="display:none">${invHist.length?`<div class="C Ca"><div class="st"><span>${t('ordHistory')}</span></div><div style="overflow-x:auto"><table class="dtable"><thead><tr><th>#</th><th>Client</th><th>Date</th><th>Total</th><th>Status</th><th class="act">Act</th></tr></thead><tbody>
+${invHist.map((iv,i)=>`<tr><td class="num" style="font-size:.66rem">INV-${String(i+1).padStart(3,'0')}</td><td style="font-size:.72rem">${esc(iv.client||'—')}</td><td style="font-size:.66rem;color:var(--muted)">${iv.date||'—'}</td><td class="num" style="font-weight:600">₺${parseFloat(iv.total||0).toLocaleString()}</td><td><span class="tg ${iv.status==='paid'?'tg-g':'tg-a'}" style="font-size:.48rem;cursor:pointer" onclick="_toggleInvStatus(${i})">${iv.status==='paid'?t('paidLabel'):t('pendingLabel')}</span></td><td class="act"><i class="fas fa-trash" style="color:var(--ruby)" onclick="_delInvoice(${i})"></i></td></tr>`).join('')}
 </tbody></table></div></div>`:''}</div>
 
 <div class="C Ca"><div class="st"><span>${t('editor')}</span></div>
@@ -3097,11 +3097,11 @@ const methods=[
 {name:'Moka Pot',ratio:7,temp:'~100',grind:'Fine-Medium',time:'3:00–5:00'}
 ];
 return`<div class="sh"><h2><i class="fas fa-arrow-left" style="font-size:.7rem;cursor:pointer;color:var(--faint);margin-right:6px" onclick="go('tools')"></i>${t('brewCalcTitle')}</h2></div>
-<div class="C Ca"><div class="st"><span><i class="fas fa-droplet" style="color:var(--blue);margin-inline-end:5px"></i>Recipe Builder</span></div>
-<div class="row fg"><div class="col"><label>Brew Method</label><select id="brewMethod" onchange="_updateBrewCalc()"><option value="">Select method...</option>${methods.map((m,i)=>'<option value="'+i+'">'+m.name+'</option>').join('')}</select></div><div class="col"><label>Coffee Dose (g)</label><input type="number" id="brewDose" value="18" oninput="_updateBrewCalc()"></div></div>
-<div class="row fg"><div class="col"><label>Water:Coffee Ratio</label><input type="number" id="brewRatio" value="16.5" step="0.5" oninput="_updateBrewCalc()"></div><div class="col"><label>TDS % (measured)</label><input type="number" id="brewTDS" value="1.35" step="0.01" oninput="_updateBrewCalc()"></div></div>
+<div class="C Ca"><div class="st"><span><i class="fas fa-droplet" style="color:var(--blue);margin-inline-end:5px"></i>${t('recipeBuilder')}</span></div>
+<div class="row fg"><div class="col"><label>${t('brewMethod')}</label><select id="brewMethod" onchange="_updateBrewCalc()"><option value="">${t('selectMethod')}</option>${methods.map((m,i)=>'<option value="'+i+'">'+m.name+'</option>').join('')}</select></div><div class="col"><label>${t('coffeeDose')}</label><input type="number" id="brewDose" value="18" oninput="_updateBrewCalc()"></div></div>
+<div class="row fg"><div class="col"><label>${t('brewRatio')}</label><input type="number" id="brewRatio" value="16.5" step="0.5" oninput="_updateBrewCalc()"></div><div class="col"><label>${t('brewTds')}</label><input type="number" id="brewTDS" value="1.35" step="0.01" oninput="_updateBrewCalc()"></div></div>
 <div id="brewResult" style="margin-top:8px"></div></div>
-<div class="C"><div class="st"><span><i class="fas fa-list" style="color:var(--amber);margin-inline-end:5px"></i>Brew Method Guide</span></div>
+<div class="C"><div class="st"><span><i class="fas fa-list" style="color:var(--amber);margin-inline-end:5px"></i>${t('brewMethodGuide')}</span></div>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
 ${methods.map(m=>'<div style="background:var(--cream);border:1px solid var(--cream3);border-radius:var(--r);padding:12px"><div style="font-weight:700;font-size:.82rem;color:var(--esp);font-family:var(--fd);margin-bottom:6px">'+m.name+'</div><div style="font-size:.66rem;color:var(--muted);line-height:1.5"><div><strong>Ratio:</strong> 1:'+m.ratio+'</div><div><strong>Temp:</strong> '+m.temp+'°C</div><div><strong>Grind:</strong> '+m.grind+'</div><div><strong>Time:</strong> '+m.time+'</div></div></div>').join('')}
 </div></div>`}
@@ -3120,22 +3120,22 @@ if(!el)return;
 var eyClr=ey>=18&&ey<=22?'var(--emerald)':ey>0?'var(--ruby)':'var(--muted)';
 var eyLabel='—';
 if(ey>=18&&ey<=22)eyLabel='Optimal';else if(ey>22)eyLabel='Over-extracted';else if(ey>0)eyLabel='Under-extracted';
-el.innerHTML='<div class="metric-row"><div class="metric-card"><div class="mc-val" style="color:var(--blue)">'+water.toFixed(0)+'<small>ml</small></div><div class="mc-lbl">Water</div></div><div class="metric-card"><div class="mc-val" style="color:'+eyClr+'">'+ey.toFixed(1)+'<small>%</small></div><div class="mc-lbl">Extraction Yield</div></div><div class="metric-card"><div class="mc-val" style="color:var(--amber)">'+cups.toFixed(1)+'</div><div class="mc-lbl">Cups (240ml)</div></div><div class="metric-card"><div class="mc-val" style="color:var(--emerald)">1:'+ratio+'</div><div class="mc-lbl">Ratio</div></div></div>';
+el.innerHTML='<div class="metric-row"><div class="metric-card"><div class="mc-val" style="color:var(--blue)">'+water.toFixed(0)+'<small>ml</small></div><div class="mc-lbl">'+t('brewWater')+'</div></div><div class="metric-card"><div class="mc-val" style="color:'+eyClr+'">'+ey.toFixed(1)+'<small>%</small></div><div class="mc-lbl">'+t('brewEY')+'</div></div><div class="metric-card"><div class="mc-val" style="color:var(--amber)">'+cups.toFixed(1)+'</div><div class="mc-lbl">'+t('brewCups')+'</div></div><div class="metric-card"><div class="mc-val" style="color:var(--emerald)">1:'+ratio+'</div><div class="mc-lbl">Ratio</div></div></div>';
 };
 
 /* ===== GREEN BEAN LOG ===== */
 function rGreenLog(){
 if(!D.greenlog)D.greenlog=[];
-return`<div class="sh"><h2><i class="fas fa-arrow-left" style="font-size:.7rem;cursor:pointer;color:var(--faint);margin-right:6px" onclick="go('tools')"></i>${t('greenLogTitle')}</h2><button class="Bgh" onclick="_exportGreenCSV()"><i class="fas fa-file-csv"></i> Export</button></div>
+return`<div class="sh"><h2><i class="fas fa-arrow-left" style="font-size:.7rem;cursor:pointer;color:var(--faint);margin-right:6px" onclick="go('tools')"></i>${t('greenLogTitle')}</h2><button class="Bgh" onclick="_exportGreenCSV()"><i class="fas fa-file-csv"></i> ${t('greenExport')}</button></div>
 <div class="C Ca"><div class="st"><span><i class="fas fa-globe" style="color:var(--emerald);margin-inline-end:5px"></i>${t('newLotEntry')}</span></div>
 <div class="row fg"><div class="col"><label>${t('lotName')}</label><input type="text" id="glName" placeholder="Ethiopia Yirgacheffe G1"></div><div class="col"><label>${t('originRegion')}</label><input type="text" id="glOrigin" placeholder="Yirgacheffe, Ethiopia"></div></div>
 <div class="row fg"><div class="col"><label>${t('farmCoop')}</label><input type="text" id="glFarm" placeholder="Konga Cooperative"></div><div class="col"><label>${t('lotNumber')}</label><input type="text" id="glLot" placeholder="LOT-2024-042"></div></div>
-<div class="row fg"><div class="col"><label>Process</label><select id="glProcess"><option>Washed</option><option>Natural</option><option>Honey</option><option>Anaerobic</option><option>Wet-Hulled</option></select></div><div class="col"><label>${t('variety')}</label><input type="text" id="glVariety" placeholder="Heirloom, SL28..."></div></div>
-<div class="row fg"><div class="col"><label>${t('harvestDate')}</label><input type="date" id="glHarvest"></div><div class="col"><label>Arrival Date</label><input type="date" id="glArrival"></div></div>
-<div class="row fg"><div class="col"><label>Weight (kg)</label><input type="number" id="glWeight" placeholder="60"></div><div class="col"><label>Cost ($/kg)</label><input type="number" id="glCost" placeholder="8.50" step="0.01"></div></div>
-<div class="row fg"><div class="col"><label>Altitude (masl)</label><input type="number" id="glAltitude" placeholder="1900"></div><div class="col"><label>Moisture %</label><input type="number" id="glMoisture" placeholder="11.5" step="0.1"></div></div>
-<div class="fg"><label>Cupping Notes</label><textarea id="glNotes" rows="2" placeholder="Jasmine, bergamot, stone fruit, silky body..."></textarea></div>
-<div class="row fg"><div class="col"><label>SCA Score</label><input type="number" id="glScore" placeholder="87" min="0" max="100"></div><div class="col"><label>Bag Size (kg)</label><input type="number" id="glBag" placeholder="60"></div></div>
+<div class="row fg"><div class="col"><label>${t('process')}</label><select id="glProcess"><option>${t('washed')}</option><option>${t('natural')}</option><option>${t('honey')}</option><option>${t('anaerobic')}</option><option>${t('wetHulled')}</option></select></div><div class="col"><label>${t('variety')}</label><input type="text" id="glVariety" placeholder="Heirloom, SL28..."></div></div>
+<div class="row fg"><div class="col"><label>${t('harvestDate')}</label><input type="date" id="glHarvest"></div><div class="col"><label>${t('greenArrival')}</label><input type="date" id="glArrival"></div></div>
+<div class="row fg"><div class="col"><label>${t('greenWeight')}</label><input type="number" id="glWeight" placeholder="60"></div><div class="col"><label>${t('greenCostKg')}</label><input type="number" id="glCost" placeholder="8.50" step="0.01"></div></div>
+<div class="row fg"><div class="col"><label>${t('greenAltitude')}</label><input type="number" id="glAltitude" placeholder="1900"></div><div class="col"><label>${t('greenMoisture')}</label><input type="number" id="glMoisture" placeholder="11.5" step="0.1"></div></div>
+<div class="fg"><label>${t('greenCupping')}</label><textarea id="glNotes" rows="2" placeholder="Jasmine, bergamot, stone fruit, silky body..."></textarea></div>
+<div class="row fg"><div class="col"><label>${t('greenScore')}</label><input type="number" id="glScore" placeholder="87" min="0" max="100"></div><div class="col"><label>${t('greenBagSize')}</label><input type="number" id="glBag" placeholder="60"></div></div>
 <button class="B Bg Bw" onclick="_saveGreenLot()"><i class="fas fa-plus"></i> ${t('addLot')}</button></div>
 <div id="greenLotsList">${!D.greenlog.length?'<div class="empty"><i class="fas fa-globe"></i>No lots logged yet. Add your first green bean lot above.</div>':D.greenlog.map((g,i)=>'<div class="C" style="border-left:3px solid var(--emerald)"><div style="display:flex;justify-content:space-between;align-items:flex-start"><div><strong style="font-family:var(--fd);font-size:.88rem">'+esc(g.name)+'</strong> <span class="tg tg-g" style="font-size:.48rem">'+esc(g.process||'—')+'</span>'+(g.score?' <span class="tg tg-a" style="font-size:.48rem">SCA '+g.score+'</span>':'')+'<div style="font-size:.64rem;color:var(--faint);margin-top:2px">'+esc(g.origin||'—')+' · '+esc(g.farm||'—')+(g.lot?' · #'+esc(g.lot):'')+'</div></div><i class="fas fa-trash" style="color:var(--faint);cursor:pointer;font-size:.58rem" onclick="_delGreenLot('+i+')"></i></div><div class="rc-metrics" style="margin-top:8px"><div class="rc-m"><div class="v">'+(g.weight||'—')+'<small>kg</small></div><div class="l">Weight</div></div><div class="rc-m"><div class="v">$'+(g.cost||'—')+'</div><div class="l">Cost/kg</div></div><div class="rc-m"><div class="v">'+(g.altitude||'—')+'</div><div class="l">Altitude</div></div><div class="rc-m"><div class="v">'+(g.moisture||'—')+'%</div><div class="l">Moisture</div></div></div>'+(g.notes?'<div style="margin-top:6px;font-style:italic;font-size:.72rem;color:var(--muted);border-left:3px solid var(--amber);padding-left:8px">'+esc(g.notes)+'</div>':'')+'</div>').join('')}</div>`}
 window._saveGreenLot=function(){
@@ -3177,7 +3177,7 @@ return`<div class="sh"><h2><i class="fas fa-arrow-left" style="font-size:.7rem;c
 ${productProfits.length?productProfits.map(function(p){var clr=p.margin>=30?'var(--emerald)':p.margin>=15?'var(--amber)':'var(--ruby)';return'<div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--cream3)"><div><strong style="font-size:.8rem">'+esc(p.name)+'</strong><div style="font-size:.62rem;color:var(--faint)">Cost: ₺'+p.cost.toFixed(2)+' · Price: ₺'+p.price.toFixed(2)+'</div></div><div style="text-align:right"><div style="font-family:var(--fm);font-weight:700;color:'+clr+';font-size:.82rem">'+p.margin.toFixed(1)+'%</div><div style="font-size:.58rem;color:var(--faint)">₺'+p.profit.toFixed(2)+' profit</div></div></div>'}).join(''):'<div class="empty"><i class="fas fa-chart-bar"></i>Add products with prices to see margin analysis.</div>'}
 </div>
 <div class="C"><div class="st"><span><i class="fas fa-fire-flame-curved" style="color:var(--amber);margin-inline-end:5px"></i>${t('greenBeanInvestment')}</span></div>
-<div class="metric-row"><div class="metric-card"><div class="mc-val" style="color:var(--ruby)">₺${roastCost.toFixed(0)}</div><div class="mc-lbl">Bean Costs (All Roasts)</div></div><div class="metric-card"><div class="mc-val" style="color:var(--blue)">${D.roasts.length}</div><div class="mc-lbl">${t('totalBatches')}</div></div></div></div>`}
+<div class="metric-row"><div class="metric-card"><div class="mc-val" style="color:var(--ruby)">₺${roastCost.toFixed(0)}</div><div class="mc-lbl">${t('profitBeanCosts')}</div></div><div class="metric-card"><div class="mc-val" style="color:var(--blue)">${D.roasts.length}</div><div class="mc-lbl">${t('totalBatches')}</div></div></div></div>`}
 function _beanCost(name){var b=D.beans.find(function(x){return x.name===name});return b?parseFloat(b.cost)||0:0}
 
 /* ===== 1. BEAN-TO-CUP TRACEABILITY ===== */
@@ -3211,10 +3211,10 @@ var html='<div style="max-width:480px;margin:0 auto;font-family:var(--fb)">'
 +(r.notes?'<div style="margin-bottom:12px"><div style="font-size:.56rem;text-transform:uppercase;color:var(--faint);font-weight:600;margin-bottom:4px">Tasting Notes</div><div style="font-size:.76rem;color:var(--text);font-style:italic;border-left:3px solid var(--amber);padding-left:8px">'+esc(r.notes)+'</div></div>':'')
 +'<div style="text-align:center;margin:16px 0 8px"><div style="font-size:.56rem;text-transform:uppercase;color:var(--faint);font-weight:600;margin-bottom:8px">Roast DNA</div>'+dna+'</div>'
 +'<div id="traceQR" style="text-align:center;margin-top:12px"></div>'
-+'<div style="text-align:center;font-size:.52rem;color:var(--faint);margin-top:8px">Powered by CoffeePro</div>'
++'<div style="text-align:center;font-size:.52rem;color:var(--faint);margin-top:8px">'+t('poweredByCoffeePro')+'</div>'
 +'</div><div style="background:var(--cream2);padding:12px;border-radius:0 0 var(--rx) var(--rx);border:1px solid var(--cream3);border-top:none;text-align:center">'
-+'<button class="B Ba Bs" onclick="_copyTraceHTML()"><i class="fas fa-copy"></i> Copy Link</button> '
-+'<button class="B Bg Bs" onclick="_dlTraceImg()"><i class="fas fa-download"></i> Download</button>'
++'<button class="B Ba Bs" onclick="_copyTraceHTML()"><i class="fas fa-copy"></i> '+t('copyLink')+'</button> '
++'<button class="B Bg Bs" onclick="_dlTraceImg()"><i class="fas fa-download"></i> '+t('downloadBtn')+'</button>'
 +'</div></div>';
 var el=document.getElementById('mainContent');if(el)el.innerHTML=html;
 setTimeout(function(){var qel=document.getElementById('traceQR');if(qel&&typeof QRCode!=='undefined'){new QRCode(qel,{text:'https://coffeepro.app/trace/'+r.id,width:120,height:120})}},100);
@@ -3272,7 +3272,7 @@ return`<div class="sh"><h2><i class="fas fa-arrow-left" style="font-size:.7rem;c
 <div class="C" style="background:linear-gradient(135deg,var(--esp),var(--esp2));color:white;padding:24px;text-align:center;margin-bottom:14px">
 <div style="font-size:.52rem;text-transform:uppercase;letter-spacing:2px;color:var(--amber);margin-bottom:4px">${t('yourEspressoCosts')}</div>
 <div style="font-family:var(--fm);font-size:2.8rem;font-weight:800;color:white">₺${espCost.toFixed(2)}</div>
-<div style="font-size:.62rem;color:rgba(255,255,255,.4);margin-top:4px">right now · updates live as costs change</div>
+<div style="font-size:.62rem;color:rgba(255,255,255,.4);margin-top:4px">${t('costCupLive')}</div>
 </div>
 <div class="metric-row">
 <div class="metric-card"><div class="mc-val" style="color:var(--emerald)">₺${filterCost.toFixed(2)}</div><div class="mc-lbl">Filter (${filterDose}g)</div></div>
@@ -3281,13 +3281,13 @@ return`<div class="sh"><h2><i class="fas fa-arrow-left" style="font-size:.7rem;c
 <div class="metric-card"><div class="mc-val" style="color:var(--copper)">₺${coldCost.toFixed(2)}</div><div class="mc-lbl">Cold Brew (${coldDose}g)</div></div>
 </div>
 <div class="C Ca"><div class="st"><span><i class="fas fa-layer-group" style="color:var(--amber);margin-inline-end:5px"></i>${t('costBreakdownLabel')}</span></div>
-<div class="br-row"><span class="br-l"><i class="fas fa-seedling" style="color:var(--emerald)"></i> Avg Green Bean Cost</span><span class="br-v">₺${avgBeanCost.toFixed(2)}/kg</span></div>
-<div class="br-row"><span class="br-l"><i class="fas fa-fire" style="color:var(--ruby)"></i> Avg Roast Loss</span><span class="br-v">${avgLoss.toFixed(1)}%</span></div>
-<div class="br-row"><span class="br-l"><i class="fas fa-arrow-up" style="color:var(--amber)"></i> Roasted Bean Cost</span><span class="br-v">₺${roastedCostKg.toFixed(2)}/kg</span></div>
-<div class="br-row"><span class="br-l"><i class="fas fa-building" style="color:var(--blue)"></i> Overhead per kg</span><span class="br-v">₺${ohPerKg.toFixed(2)}/kg</span></div>
-<div class="br-t"><span class="br-l" style="font-weight:700">Total Cost per kg</span><span class="br-v" style="font-size:.95rem">₺${totalCostKg.toFixed(2)}</span></div></div>
+<div class="br-row"><span class="br-l"><i class="fas fa-seedling" style="color:var(--emerald)"></i> ${t('costCupGreenCost')}</span><span class="br-v">₺${avgBeanCost.toFixed(2)}/kg</span></div>
+<div class="br-row"><span class="br-l"><i class="fas fa-fire" style="color:var(--ruby)"></i> ${t('costCupRoastLoss')}</span><span class="br-v">${avgLoss.toFixed(1)}%</span></div>
+<div class="br-row"><span class="br-l"><i class="fas fa-arrow-up" style="color:var(--amber)"></i> ${t('costCupRoastedCost')}</span><span class="br-v">₺${roastedCostKg.toFixed(2)}/kg</span></div>
+<div class="br-row"><span class="br-l"><i class="fas fa-building" style="color:var(--blue)"></i> ${t('costCupOverheadKg')}</span><span class="br-v">₺${ohPerKg.toFixed(2)}/kg</span></div>
+<div class="br-t"><span class="br-l" style="font-weight:700">${t('costCupTotalKg')}</span><span class="br-v" style="font-size:.95rem">₺${totalCostKg.toFixed(2)}</span></div></div>
 <div class="C"><div class="st"><span><i class="fas fa-mug-saucer" style="color:var(--ruby);margin-inline-end:5px"></i>${t('menuPricingHelper')}</span></div>
-<p style="font-size:.72rem;color:var(--muted);margin-bottom:10px">Recommended retail prices at different margins:</p>
+<p style="font-size:.72rem;color:var(--muted);margin-bottom:10px">${t('costCupMenuDesc')}</p>
 <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px">
 ${[60,70,75].map(function(m){var price=espCost/(1-m/100);return'<div style="background:var(--cream);border:1px solid var(--cream3);border-radius:var(--r);padding:12px;text-align:center"><div style="font-size:.48rem;text-transform:uppercase;color:var(--faint);font-weight:600">'+m+'% Margin</div><div style="font-family:var(--fm);font-weight:700;font-size:1rem;color:var(--emerald)">₺'+price.toFixed(0)+'</div><div style="font-size:.52rem;color:var(--faint)">Espresso</div></div>'}).join('')}
 </div></div>`}
@@ -3297,13 +3297,13 @@ function rLabelDesign(){
 var roasts=D.roasts||[];
 return`<div class="sh"><h2><i class="fas fa-arrow-left" style="font-size:.7rem;cursor:pointer;color:var(--faint);margin-right:6px" onclick="go('tools')"></i>${t('labelDesignTitle')}</h2></div>
 <div class="C Ca"><div class="st"><span><i class="fas fa-tag" style="color:var(--blue);margin-inline-end:5px"></i>${t('designYourLabel')}</span></div>
-<div class="row fg"><div class="col"><label>Roast Batch</label><select id="lblRoast" onchange="_updateLabel()"><option value="">Select batch...</option>${roasts.map(function(r,i){return'<option value="'+i+'">'+esc(r.name)+' ('+r.date+')</option>'}).join('')}</select></div><div class="col"><label>Net Weight</label><input type="text" id="lblWeight" value="250g" oninput="_updateLabel()"></div></div>
-<div class="row fg"><div class="col"><label>Brand Name</label><input type="text" id="lblBrand" value="${esc(D.user?.name||'My Roastery')}" oninput="_updateLabel()"></div><div class="col"><label>Tagline</label><input type="text" id="lblTag" value="Specialty Coffee" oninput="_updateLabel()"></div></div>
-<div class="row fg"><div class="col"><label>Flavor Notes</label><input type="text" id="lblFlavor" placeholder="Chocolate, Caramel, Citrus" oninput="_updateLabel()"></div><div class="col"><label>Price</label><input type="text" id="lblPrice" placeholder="₺299" oninput="_updateLabel()"></div></div></div>
+<div class="row fg"><div class="col"><label>${t('roastBatch')}</label><select id="lblRoast" onchange="_updateLabel()"><option value="">${t('selectBatch')}</option>${roasts.map(function(r,i){return'<option value="'+i+'">'+esc(r.name)+' ('+r.date+')</option>'}).join('')}</select></div><div class="col"><label>${t('netWeight')}</label><input type="text" id="lblWeight" value="250g" oninput="_updateLabel()"></div></div>
+<div class="row fg"><div class="col"><label>${t('brandNameLabel')}</label><input type="text" id="lblBrand" value="${esc(D.user?.name||'My Roastery')}" oninput="_updateLabel()"></div><div class="col"><label>${t('taglineLabel')}</label><input type="text" id="lblTag" value="Specialty Coffee" oninput="_updateLabel()"></div></div>
+<div class="row fg"><div class="col"><label>${t('flavorNotesLabel')}</label><input type="text" id="lblFlavor" placeholder="Chocolate, Caramel, Citrus" oninput="_updateLabel()"></div><div class="col"><label>${t('labelPrice')}</label><input type="text" id="lblPrice" placeholder="₺299" oninput="_updateLabel()"></div></div></div>
 <div class="C" style="padding:0;overflow:hidden"><div id="lblPreview" style="background:white;padding:32px;min-height:300px">
 <div style="text-align:center;color:var(--faint);font-size:.78rem;padding:40px">Select a roast batch to preview your label</div>
 </div></div>
-<div class="row" style="margin-top:10px;gap:6px"><div class="col"><button class="B Ba Bw" onclick="_dlLabel()"><i class="fas fa-download"></i> Download PDF</button></div><div class="col"><button class="B Bg Bw" onclick="_printLabel()"><i class="fas fa-print"></i> Print</button></div></div>`}
+<div class="row" style="margin-top:10px;gap:6px"><div class="col"><button class="B Ba Bw" onclick="_dlLabel()"><i class="fas fa-download"></i> ${t('downloadPDF')}</button></div><div class="col"><button class="B Bg Bw" onclick="_printLabel()"><i class="fas fa-print"></i> ${t('printBtn')}</button></div></div>`}
 window._updateLabel=function(){
 var ri=$('lblRoast')?.value;if(ri===''||ri===undefined)return;
 var r=D.roasts[parseInt(ri)];if(!r)return;
@@ -3626,13 +3626,13 @@ if(document.getElementById('mktChart')&&!document.getElementById('mktChart').chi
 
 function rPricing(){return`<div class="hero" style="padding:40px 16px 30px"><div class="h-tag"><i class="fas fa-tags"></i> ${t('pricingTag')}</div><h1 style="font-size:2rem">${t('pricingH1')}</h1><p style="font-size:.84rem">${t('pricingP')}</p></div>
 <div class="pricing-grid">
-<div class="plan"><div class="pl-nm">${t('starter')}</div><div class="pl-pr">${t('free')} <small>/ ${t('forever')}</small></div><div class="pl-ds">Essential tools to get started with professional roast tracking.</div><ul class="pl-ft"><li><i class="fas fa-check"></i>Up to 10 roast logs</li><li><i class="fas fa-check"></i>Basic cupping sheets</li><li><i class="fas fa-check"></i>Yield calculator</li><li><i class="fas fa-check"></i>Single currency</li><li><i class="fas fa-check"></i>Local data storage</li><li><i class="fas fa-check"></i>Community support</li></ul><button class="B Bd Bw" onclick="pickSub('free')">${D.sub==='free'?'<i class="fas fa-check-circle"></i> '+t('curPlan'):'<i class="fas fa-leaf"></i> '+t('getStarted')}</button></div>
-<div class="plan ft"><div class="pl-nm">${t('professional')}</div><div class="pl-pr">$9.99 <small>/ ${t('month')}</small></div><div class="pl-ds">Everything you need to run a professional roastery.</div><ul class="pl-ft"><li><i class="fas fa-check"></i>Unlimited roast logs</li><li><i class="fas fa-check"></i>Full inventory management</li><li><i class="fas fa-check"></i>Cost & margin calculator</li><li><i class="fas fa-check"></i>Cupping scoresheets with radar</li><li><i class="fas fa-check"></i>Roast comparison & analytics</li><li><i class="fas fa-check"></i>Client management</li><li><i class="fas fa-check"></i>PDF invoice generation</li><li><i class="fas fa-check"></i>Cloud backup & sync</li><li><i class="fas fa-check"></i>Priority email support</li></ul><button class="B Ba Bw" onclick="pickSub('pro')">${D.sub==='pro'?'<i class="fas fa-check-circle"></i> '+t('curPlan'):'<i class="fas fa-rocket"></i> '+t('startTrial')}</button></div>
-<div class="plan"><div class="pl-nm">Business</div><div class="pl-pr">$29.99 <small>/ ${t('month')}</small></div><div class="pl-ds">For roasteries with a cafe, or multi-location operations.</div><ul class="pl-ft"><li><i class="fas fa-check"></i>Everything in Pro</li><li><i class="fas fa-check"></i>Full Cafe POS system</li><li><i class="fas fa-check"></i>Table management</li><li><i class="fas fa-check"></i>Kitchen display system</li><li><i class="fas fa-check"></i>Loyalty program</li><li><i class="fas fa-check"></i>Revenue analytics & goals</li><li><i class="fas fa-check"></i>Multi-location support</li><li><i class="fas fa-check"></i>Custom branding</li><li><i class="fas fa-check"></i>Dedicated account manager</li></ul><button class="B Bd Bw" onclick="pickSub('enterprise')">${D.sub==='enterprise'?'<i class="fas fa-check-circle"></i> '+t('curPlan'):'<i class="fas fa-building"></i> Start Free Trial'}</button></div>
+<div class="plan"><div class="pl-nm">${t('starter')}</div><div class="pl-pr">${t('free')} <small>/ ${t('forever')}</small></div><div class="pl-ds">${t('starterD')}</div><ul class="pl-ft"><li><i class="fas fa-check"></i>Up to 10 roast logs</li><li><i class="fas fa-check"></i>Basic cupping sheets</li><li><i class="fas fa-check"></i>Yield calculator</li><li><i class="fas fa-check"></i>Single currency</li><li><i class="fas fa-check"></i>Local data storage</li><li><i class="fas fa-check"></i>${t('commSupport')}</li></ul><button class="B Bd Bw" onclick="pickSub('free')">${D.sub==='free'?'<i class="fas fa-check-circle"></i> '+t('curPlan'):'<i class="fas fa-leaf"></i> '+t('getStarted')}</button></div>
+<div class="plan ft"><div class="pl-nm">${t('professional')}</div><div class="pl-pr">$9.99 <small>/ ${t('month')}</small></div><div class="pl-ds">${t('proD')}</div><ul class="pl-ft"><li><i class="fas fa-check"></i>${t('unlimitedList')}</li><li><i class="fas fa-check"></i>${t('fullTools')}</li><li><i class="fas fa-check"></i>Cost & margin calculator</li><li><i class="fas fa-check"></i>Cupping scoresheets with radar</li><li><i class="fas fa-check"></i>Roast comparison & analytics</li><li><i class="fas fa-check"></i>${t('clientDB')}</li><li><i class="fas fa-check"></i>${t('invoiceGenPdf')}</li><li><i class="fas fa-check"></i>Cloud backup & sync</li><li><i class="fas fa-check"></i>${t('priorityEmail')}</li></ul><button class="B Ba Bw" onclick="pickSub('pro')">${D.sub==='pro'?'<i class="fas fa-check-circle"></i> '+t('curPlan'):'<i class="fas fa-rocket"></i> '+t('startTrial')}</button></div>
+<div class="plan"><div class="pl-nm">${t('enterprise')}</div><div class="pl-pr">$29.99 <small>/ ${t('month')}</small></div><div class="pl-ds">${t('entD')}</div><ul class="pl-ft"><li><i class="fas fa-check"></i>Everything in Pro</li><li><i class="fas fa-check"></i>${t('unlimitedPos')}</li><li><i class="fas fa-check"></i>Table management</li><li><i class="fas fa-check"></i>Kitchen display system</li><li><i class="fas fa-check"></i>Loyalty program</li><li><i class="fas fa-check"></i>Revenue analytics & goals</li><li><i class="fas fa-check"></i>${t('multiLoc')}</li><li><i class="fas fa-check"></i>${t('whiteLabel')}</li><li><i class="fas fa-check"></i>${t('dedManager')}</li></ul><button class="B Bd Bw" onclick="pickSub('enterprise')">${D.sub==='enterprise'?'<i class="fas fa-check-circle"></i> '+t('curPlan'):'<i class="fas fa-building"></i> '+t('startTrial')}</button></div>
 </div>
-<div class="C" style="margin-top:20px;text-align:center;padding:28px"><div style="font-family:var(--fd);font-size:1rem;font-weight:700;color:var(--esp);margin-bottom:6px;letter-spacing:-.02em">Compare All Features</div>
+<div class="C" style="margin-top:20px;text-align:center;padding:28px"><div style="font-family:var(--fd);font-size:1rem;font-weight:700;color:var(--esp);margin-bottom:6px;letter-spacing:-.02em">${t('compareAllFeatures')}</div>
 <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:0;font-size:.68rem;text-align:center;margin-top:14px">
-<div style="text-align:left;font-weight:600;padding:8px;border-bottom:1px solid var(--cream3)">Feature</div><div style="padding:8px;border-bottom:1px solid var(--cream3);font-weight:600">Starter</div><div style="padding:8px;border-bottom:1px solid var(--cream3);font-weight:600;color:var(--amber)">Pro</div><div style="padding:8px;border-bottom:1px solid var(--cream3);font-weight:600">Business</div>
+<div style="text-align:left;font-weight:600;padding:8px;border-bottom:1px solid var(--cream3)">${t('feature')}</div><div style="padding:8px;border-bottom:1px solid var(--cream3);font-weight:600">${t('starter')}</div><div style="padding:8px;border-bottom:1px solid var(--cream3);font-weight:600;color:var(--amber)">${t('professional')}</div><div style="padding:8px;border-bottom:1px solid var(--cream3);font-weight:600">${t('enterprise')}</div>
 <div style="text-align:left;padding:6px 8px;border-bottom:1px solid var(--cream3)">Roast Logs</div><div style="padding:6px;border-bottom:1px solid var(--cream3)">10</div><div style="padding:6px;border-bottom:1px solid var(--cream3);color:var(--amber)">Unlimited</div><div style="padding:6px;border-bottom:1px solid var(--cream3)">Unlimited</div>
 <div style="text-align:left;padding:6px 8px;border-bottom:1px solid var(--cream3)">Inventory Tracking</div><div style="padding:6px;border-bottom:1px solid var(--cream3);color:var(--faint)">Basic</div><div style="padding:6px;border-bottom:1px solid var(--cream3);color:var(--emerald)">Full</div><div style="padding:6px;border-bottom:1px solid var(--cream3);color:var(--emerald)">Full</div>
 <div style="text-align:left;padding:6px 8px;border-bottom:1px solid var(--cream3)">Cupping Scoresheets</div><div style="padding:6px;border-bottom:1px solid var(--cream3)">5</div><div style="padding:6px;border-bottom:1px solid var(--cream3);color:var(--amber)">Unlimited</div><div style="padding:6px;border-bottom:1px solid var(--cream3)">Unlimited</div>
