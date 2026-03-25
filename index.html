@@ -1926,7 +1926,7 @@ function go(id){curPage=id;renderPage();window.scrollTo({top:0,behavior:'instant
 /* STORAGE */
 let D={beans:[],packs:[],products:[],roasts:[],clients:[],cuppings:[],invoices:[],settings:{usd:36,ohKg:0,low:5},oh:{r:0,l:0,u:0,m:0,kg:1000},cart:[],user:null,sub:'free',orders:[],wishlist:[],reviews:[],greenlog:[]};
 function ls(k,v){if(v!==undefined){localStorage.setItem('cp_'+k,JSON.stringify(v));return}try{return JSON.parse(localStorage.getItem('cp_'+k))}catch(e){return null}}
-function loadAll(){D.beans=ls('beans')||[];D.packs=ls('packs')||[];D.products=ls('products')||[];D.roasts=ls('roasts')||[];D.clients=ls('clients')||[];D.cuppings=ls('cuppings')||[];D.invoices=ls('invoices')||[];const s=ls('settings');D.settings=s?Object.assign({usd:36,ohKg:0,low:5},s):{usd:36,ohKg:0,low:5};D.oh=ls('oh')||{r:0,l:0,u:0,m:0,kg:1000};D.cart=ls('cart')||[];D.user=ls('user')||null;D.sub=ls('sub')||'free';D.orders=ls('orders')||[];D.wishlist=ls('wishlist')||[];D.reviews=ls('reviews')||[];updCartBadge();updUserBtn()}
+function loadAll(){D.beans=ls('beans')||[];D.packs=ls('packs')||[];D.products=ls('products')||[];D.roasts=ls('roasts')||[];D.clients=ls('clients')||[];D.cuppings=ls('cuppings')||[];D.invoices=ls('invoices')||[];const s=ls('settings');D.settings=s?Object.assign({usd:36,ohKg:0,low:5},s):{usd:36,ohKg:0,low:5};D.oh=ls('oh')||{r:0,l:0,u:0,m:0,kg:1000};D.cart=ls('cart')||[];D.user=ls('user')||null;D.sub=ls('sub')||'free';D.orders=ls('orders')||[];D.wishlist=ls('wishlist')||[];D.reviews=ls('reviews')||[];D.greenlog=ls('greenlog')||[];updCartBadge();updUserBtn()}
 function saveD(){try{['beans','packs','products','roasts','clients','cuppings','invoices','settings','oh','cart','user','sub','orders','wishlist','reviews','greenlog'].forEach(k=>ls(k,D[k]))}catch(e){if(e.name==='QuotaExceededError'||e.code===22){toast('⚠ Storage full — clear old data or export a backup');console.warn('localStorage quota exceeded',e)}else{throw e}}}
 
 function updCartBadge(){const b=$('cartBadge');if(!b)return;const c=D.cart.reduce((s,i)=>s+i.qty,0);b.textContent=c;b.classList.toggle('empty',c===0)}
@@ -3721,7 +3721,7 @@ window.toggleDark=function(){document.body.classList.toggle('dark');var isDark=d
 window.showNotifs=function(){var existing=document.getElementById('notifPanel');if(existing){existing.remove();return}
 var notifs=[];var low=D.beans.filter(function(b){return parseFloat(b.stock||0)<=(D.settings.low||5)});
 low.forEach(function(b){notifs.push({ico:'fas fa-exclamation-triangle',color:'var(--amber)',title:'Low Stock: '+b.name,desc:b.stock+' kg remaining',time:'Now'})});
-if(D.orders.length>0){var last=D.orders[D.orders.length-1];notifs.push({ico:'fas fa-box',color:'var(--emerald)',title:'Order #'+last.id,desc:'Status: '+last.status,time:new Date(last.date).toLocaleDateString()})}
+if(D.orders.length>0){var last=D.orders[D.orders.length-1];notifs.push({ico:'fas fa-box',color:'var(--emerald)',title:'Order #'+last.id,desc:'Status: '+(last.status||'Completed'),time:new Date(last.date).toLocaleDateString()})}
 if(D.wishlist&&D.wishlist.length>0)notifs.push({ico:'fas fa-heart',color:'var(--ruby)',title:'Wishlist',desc:D.wishlist.length+' saved items',time:''});
 if(notifs.length===0)notifs.push({ico:'fas fa-check-circle',color:'var(--emerald)',title:'All good!',desc:'No new notifications',time:''});
 var html='<div class="notif-panel" id="notifPanel"><div class="notif-hdr">Notifications <span style="font-size:.6rem;background:var(--accent);color:#fff;padding:2px 6px;border-radius:8px">'+notifs.length+'</span></div>';
@@ -4205,7 +4205,7 @@ function loadCF(){
   CF.specials=CF.specials||[];CF.feedback=CF.feedback||[];CF.waitlist=CF.waitlist||[];
   CF.waste=CF.waste||[];CF.tips=CF.tips||[];CF.kdsEnabled=CF.kdsEnabled!==undefined?CF.kdsEnabled:false;
 }
-function saveCF(){ls('cafe',CF)}
+function saveCF(){try{ls('cafe',CF)}catch(e){if(e.name==='QuotaExceededError'||e.code===22){toast('⚠ Storage full — clear old data or export a backup')}else{throw e}}}
 
 function _defaultMenu(){return[
 {id:1,nm:'Espresso',pr:45,cat:'coffee',ico:'☕'},{id:2,nm:'Double Espresso',pr:55,cat:'coffee',ico:'☕'},
@@ -5341,7 +5341,7 @@ window.showNotifs=function(){
   var notifs=_sampleNotifs.slice();
   var low=D.beans.filter(function(b){return parseFloat(b.stock||0)<=(D.settings.low||5)});
   low.forEach(function(b){notifs.unshift({ico:'fas fa-exclamation-triangle',color:'var(--amber)',title:'Low Stock: '+b.name,desc:b.stock+' kg remaining',time:'Now'})});
-  if(D.orders.length>0){var last=D.orders[D.orders.length-1];notifs.unshift({ico:'fas fa-box',color:'var(--emerald)',title:'Order #'+last.id,desc:'Status: '+last.status,time:new Date(last.date).toLocaleDateString()})}
+  if(D.orders.length>0){var last=D.orders[D.orders.length-1];notifs.unshift({ico:'fas fa-box',color:'var(--emerald)',title:'Order #'+last.id,desc:'Status: '+(last.status||'Completed'),time:new Date(last.date).toLocaleDateString()})}
   var html='<div class="notif-panel" id="notifPanel"><div class="notif-hdr"><span style="font-family:var(--fd);font-weight:700">Notifications</span><span style="font-size:.55rem;background:linear-gradient(135deg,var(--amber),#a07828);color:#fff;padding:3px 8px;border-radius:10px;font-weight:700">'+notifs.length+'</span></div>';
   notifs.forEach(function(n){html+='<div style="padding:12px 14px;border-bottom:1px solid var(--card-bdr);display:flex;gap:10px;align-items:flex-start;transition:background .15s;cursor:pointer" onmouseover="this.style.background=\'var(--cream2)\'" onmouseout="this.style.background=\'transparent\'"><div style="width:30px;height:30px;border-radius:10px;background:'+n.color+'12;display:flex;align-items:center;justify-content:center;flex-shrink:0"><i class="'+n.ico+'" style="font-size:.62rem;color:'+n.color+'"></i></div><div style="flex:1;min-width:0"><div style="font-size:.72rem;font-weight:600;color:var(--esp)">'+n.title+'</div><div style="font-size:.64rem;color:var(--muted);margin-top:1px">'+n.desc+'</div></div>'+(n.time?'<div style="font-size:.54rem;color:var(--faint);white-space:nowrap">'+n.time+'</div>':'')+'</div>'});
   html+='<div style="padding:10px;text-align:center;border-top:1px solid var(--card-bdr)"><button class="Bgh" style="font-size:.62rem" onclick="document.getElementById(\'notifPanel\').remove()">Mark all as read</button></div></div>';
@@ -6567,7 +6567,7 @@ window._openTipCalc=function(total){
   h+='<div style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px">';
   percents.forEach(function(p){
     var tipAmt=(total*p/100).toFixed(2);
-    h+='<div class="pay-opt" style="cursor:pointer" onclick="CF.tips=(CF.tips||0)+'+tipAmt+';saveCF();this.closest(\'.pay-overlay\').remove();toast(\'Tip ₺'+tipAmt+' added!\')"><div style="font-size:1.1rem;font-weight:700;color:var(--amber)">'+p+'%</div><div style="font-size:.72rem;color:var(--muted)">₺'+tipAmt+'</div></div>';
+    h+='<div class="pay-opt" style="cursor:pointer" onclick="if(!Array.isArray(CF.tips))CF.tips=[];CF.tips.push({amount:'+tipAmt+',date:new Date().toISOString(),staff:\'\'});saveCF();this.closest(\'.pay-overlay\').remove();toast(\'Tip ₺'+tipAmt+' added!\')"><div style="font-size:1.1rem;font-weight:700;color:var(--amber)">'+p+'%</div><div style="font-size:.72rem;color:var(--muted)">₺'+tipAmt+'</div></div>';
   });
   h+='</div>';
   h+='<div style="margin-top:12px;text-align:center"><button class="B Bo" onclick="this.closest(\'.pay-overlay\').remove()">No Tip</button></div>';
@@ -6621,7 +6621,7 @@ window._dailySummary=function(){
   var today=new Date().toDateString();
   var todayOrds=CF.orders.filter(function(o){return new Date(o.date||o.time).toDateString()===today});
   var rev=todayOrds.reduce(function(s,o){return s+o.total},0);
-  var tips=CF.tips||0;
+  var tips=Array.isArray(CF.tips)?CF.tips.reduce(function(s,t){return s+(parseFloat(t.amount)||0)},0):0;
   toast('Today: '+todayOrds.length+' orders · ₺'+rev.toFixed(0)+' revenue · ₺'+tips.toFixed(0)+' tips');
 };
 
