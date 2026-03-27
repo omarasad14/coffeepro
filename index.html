@@ -1781,7 +1781,8 @@ featRoastLogger:"Roast Logger",featRoastLoggerD:"Charge temp, FC, drop, loss %, 
 showcaseTitle:"Everything You Need. One App.",showcaseSub:"From green bean sourcing to the last pour — replace 5 apps with CoffeePro",
 compRoastLogging:"Roast Logging",compInvMgmt:"Inventory Management",compCafePOSfeat:"Cafe POS System",compQRTrace:"QR Traceability",compAICoach:"AI Roast Coach",compLiveMarket:"Live Market Data",compMultiLang:"Multi-Language (4)",compOffline:"Works Offline",compSpreadsheets:"Spreadsheets",
 ctaReady:"Ready to level up your roastery?",ctaJoin:"Join thousands of coffee professionals who manage their entire operation with CoffeePro.",ctaTryTools:"Try Tools Free",ctaViewPlans:"View Plans",
-compareAllFeatures:"Compare All Features",recentActivity:"Recent Activity"
+compareAllFeatures:"Compare All Features",recentActivity:"Recent Activity",
+welcomeToCoffeePro:"Welcome to CoffeePro",setupWizardDesc:"Let's set up your workspace in 30 seconds. Pick your role, currency, and preferred units.",whatIsYourRole:"What best describes you?",roleRoaster:"Roaster",roleCafe:"Caf\u00e9 Owner",roleBoth:"Both",roleImporter:"Importer",setupCurrency:"Your Currency",setupCurrencyDesc:"All prices and costs will display in your chosen currency.",setupUnits:"Measurement Units",setupUnitsDesc:"Choose how weights and temperatures are displayed throughout the app.",metricLabel:"Metric",imperialLabel:"Imperial",setupComplete:"All Set!",skipSetup:"Skip setup",back:"Back",next:"Next"
 },
 tr:{
 navHome:"Ana Sayfa",navMarket:"Pazar",navShop:"Mağaza",navTrade:"Ticaret",navCafe:"Kafem",navTools:"Araçlar",
@@ -1894,7 +1895,8 @@ featRoastLogger:"Kavurma Kaydı",featRoastLoggerD:"Yükleme sıcaklığı, 1. ç
 showcaseTitle:"İhtiyacınız Olan Her Şey. Tek Uygulama.",showcaseSub:"Yeşil çekirdek tedariğinden son servise — 5 uygulamayı CoffeePro ile değiştirin",
 compRoastLogging:"Kavurma Kaydı",compInvMgmt:"Envanter Yönetimi",compCafePOSfeat:"Kafe POS Sistemi",compQRTrace:"QR İzlenebilirlik",compAICoach:"YZ Kavurma Koçu",compLiveMarket:"Canlı Piyasa Verisi",compMultiLang:"Çoklu Dil (4)",compOffline:"Çevrimdışı Çalışır",compSpreadsheets:"Tablolar",
 ctaReady:"Kavurhanenizi bir üst seviyeye taşımaya hazır mısınız?",ctaJoin:"Tüm operasyonlarını CoffeePro ile yöneten binlerce kahve profesyoneline katılın.",ctaTryTools:"Araçları Ücretsiz Dene",ctaViewPlans:"Planları Gör",
-compareAllFeatures:"Tüm Özellikleri Karşılaştır",recentActivity:"Son Aktivite"
+compareAllFeatures:"Tüm Özellikleri Karşılaştır",recentActivity:"Son Aktivite",
+welcomeToCoffeePro:"CoffeePro'ya Hoş Geldiniz",setupWizardDesc:"Çalışma alanınızı 30 saniyede kuralım. Rolünüzü, para biriminizi ve ölçü biriminizi seçin.",whatIsYourRole:"Sizi en iyi ne tanımlar?",roleRoaster:"Kavurmacı",roleCafe:"Kafe Sahibi",roleBoth:"Her İkisi",roleImporter:"İthalatçı",setupCurrency:"Para Biriminiz",setupCurrencyDesc:"Tüm fiyatlar ve maliyetler seçtiğiniz para biriminde görüntülenir.",setupUnits:"Ölçü Birimleri",setupUnitsDesc:"Ağırlıkların ve sıcaklıkların uygulama genelinde nasıl görüntüleneceğini seçin.",metricLabel:"Metrik",imperialLabel:"İngiliz",setupComplete:"Hazır!",skipSetup:"Kurulumu atla",back:"Geri",next:"İleri"
 },
 ar:{
 navHome:"الرئيسية",navMarket:"السوق",navShop:"المتجر",navTrade:"التجارة",navCafe:"مقهاي",navTools:"الأدوات",
@@ -2033,6 +2035,31 @@ supplierTitle:"Оценка поставщиков",supplierDesc:"Оцените
 let lang='en';
 function t(k){return(L[lang]&&L[lang][k])||L.en[k]||k}
 function setLang(l){lang=l;localStorage.setItem('cp_lang',l);document.documentElement.dir=l==='ar'?'rtl':'ltr';document.documentElement.lang=l;document.querySelectorAll('.lang-b').forEach(b=>b.classList.toggle('on',b.textContent.trim()===(l==='ar'?'ع':l.toUpperCase())));document.querySelectorAll('[data-i]').forEach(el=>{el.textContent=t(el.dataset.i)});document.querySelectorAll('[data-i-placeholder]').forEach(el=>{el.placeholder=t(el.getAttribute('data-i-placeholder'))});renderPage()}
+
+/* === CURRENCY & UNITS SYSTEM === */
+var _currencies={USD:{sym:'$',code:'USD'},EUR:{sym:'\u20ac',code:'EUR'},GBP:{sym:'\u00a3',code:'GBP'},TRY:{sym:'\u20ba',code:'TRY'},BRL:{sym:'R$',code:'BRL'},JPY:{sym:'\u00a5',code:'JPY'},AUD:{sym:'A$',code:'AUD'},CAD:{sym:'C$',code:'CAD'},KES:{sym:'KSh',code:'KES'},INR:{sym:'\u20b9',code:'INR'},SAR:{sym:'SAR',code:'SAR'},AED:{sym:'AED',code:'AED'},KRW:{sym:'\u20a9',code:'KRW'},IDR:{sym:'Rp',code:'IDR'},MXN:{sym:'MX$',code:'MXN'},SEK:{sym:'kr',code:'SEK'},CHF:{sym:'CHF',code:'CHF'},CNY:{sym:'\u00a5',code:'CNY'}};
+function getCur(){return _currencies[(D.settings&&D.settings.currency)||'USD']||_currencies.USD}
+function curSym(){return getCur().sym}
+function fmtCur(v){return getCur().sym+(parseFloat(v)||0).toFixed(2)}
+function isMetric(){return!D.settings||D.settings.units!=='imperial'}
+function wUnit(){return isMetric()?'kg':'lb'}
+function tUnit(){return isMetric()?'\u00b0C':'\u00b0F'}
+function toDisplayW(kg){return isMetric()?kg:(kg*2.20462)}
+function toDisplayT(c){return isMetric()?c:(c*9/5+32)}
+function toMetricW(val){return isMetric()?val:(val/2.20462)}
+function toMetricT(val){return isMetric()?val:((val-32)*5/9)}
+
+/* === BROWSER LANGUAGE AUTO-DETECT === */
+(function(){
+var stored=localStorage.getItem('cp_lang');
+if(stored){lang=stored}
+else{var bl=(navigator.language||navigator.userLanguage||'en').toLowerCase();
+if(bl.startsWith('tr'))lang='tr';
+else if(bl.startsWith('ar'))lang='ar';
+else if(bl.startsWith('ru'))lang='ru';
+else lang='en';
+localStorage.setItem('cp_lang',lang)}
+})();
 
 function toast(m){
   var stack=document.querySelector('.toast-stack');
@@ -6438,28 +6465,58 @@ window.addItem=function(type){
   }else toast('Open in browser to install')};
 })();
 
-/* === 2. Onboarding Tutorial === */
-window._onboardSteps=[
-  {target:'.H',title:'Welcome to CoffeePro!',desc:'Your all-in-one coffee business platform. Let\'s take a quick tour.',pos:'bottom'},
-  {target:'[data-mob="tools"],.tc:first-child',title:'Pro Tools',desc:'Inventory, roasting, cupping, costs — everything you need to manage your coffee business.',pos:'top'},
-  {target:'[data-mob="market"]',title:'Marketplace',desc:'Browse and buy green beans from cooperatives worldwide.',pos:'top'},
-  {target:'[data-mob="cafe"]',title:'My Café',desc:'Full POS system for your café — orders, kitchen display, loyalty, analytics.',pos:'top'},
-  {target:'.theme-picker-btn,.fa-palette',title:'Themes',desc:'Customize your experience with 5 beautiful themes.',pos:'bottom'}
-];
-window._onboardIdx=0;
+/* === 2. Guided Setup Wizard === */
+window._setupStep=0;
 window.startOnboarding=function(){
   if(localStorage.getItem('cp_onboarded'))return;
-  window._onboardIdx=0;_showOnboardStep(0);
+  window._setupStep=0;_showSetupWizard();
 };
-window._showOnboardStep=function(idx){
-  var existing=document.getElementById('onboardTip');if(existing)existing.remove();
-  if(idx>=window._onboardSteps.length){localStorage.setItem('cp_onboarded','1');toast('Tour complete! You\'re all set.');return}
-  var step=window._onboardSteps[idx];
-  var tip=document.createElement('div');tip.className='onboard-tip';tip.id='onboardTip';
-  tip.innerHTML='<div class="ob-title">'+step.title+'</div><div class="ob-desc">'+step.desc+'</div><div class="ob-step">Step '+(idx+1)+' of '+window._onboardSteps.length+'</div><div class="ob-btns">'+(idx>0?'<button class="B Bo Bs" onclick="_showOnboardStep('+(idx-1)+')">Back</button>':'')+'<button class="B Ba Bs" onclick="_showOnboardStep('+(idx+1)+')">'+(idx===window._onboardSteps.length-1?'Finish':'Next')+'</button><button class="B Bo Bs" onclick="document.getElementById(\'onboardTip\').remove();localStorage.setItem(\'cp_onboarded\',\'1\')">Skip</button></div>';
-  tip.style.left='50%';tip.style.transform='translateX(-50%)';
-  tip.style[step.pos==='top'?'bottom':'top']='80px';
-  document.body.appendChild(tip);
+window._showSetupWizard=function(){
+  var existing=document.querySelector('.setup-wizard-overlay');if(existing)existing.remove();
+  var ov=document.createElement('div');ov.className='setup-wizard-overlay';
+  ov.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.6);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(8px)';
+  var step=window._setupStep;
+  var curCurrency=(D.settings&&D.settings.currency)||'USD';
+  var curUnits=(D.settings&&D.settings.units)||'metric';
+  var html='<div style="background:var(--white);border-radius:20px;padding:32px 28px;max-width:420px;width:100%;box-shadow:0 24px 64px rgba(0,0,0,.3);max-height:90vh;overflow-y:auto">';
+  html+='<div style="text-align:center;margin-bottom:20px"><div style="display:flex;justify-content:center;gap:8px;margin-bottom:16px">';
+  for(var i=0;i<3;i++)html+='<div style="width:'+(i===step?'24px':'8px')+';height:8px;border-radius:4px;background:'+(i===step?'var(--amber)':i<step?'var(--emerald)':'var(--cream3)')+';transition:.3s"></div>';
+  html+='</div>';
+  if(step===0){
+    html+='<div style="font-size:2rem;margin-bottom:8px"><i class="fas fa-mug-hot" style="color:var(--amber)"></i></div>';
+    html+='<h2 style="font-family:var(--fd);font-size:1.3rem;font-weight:700;color:var(--esp);margin-bottom:6px">'+t('welcomeToCoffeePro')+'</h2>';
+    html+='<p style="font-size:.82rem;color:var(--muted);margin-bottom:20px;line-height:1.5">'+t('setupWizardDesc')+'</p>';
+    html+='<div style="font-size:.68rem;font-weight:600;text-transform:uppercase;color:var(--muted);margin-bottom:10px;letter-spacing:.5px">'+t('whatIsYourRole')+'</div>';
+    var roles=[{id:'roaster',ico:'fa-fire',label:t('roleRoaster')},{id:'cafe',ico:'fa-coffee',label:t('roleCafe')},{id:'both',ico:'fa-store',label:t('roleBoth')},{id:'importer',ico:'fa-ship',label:t('roleImporter')}];
+    var curRole=(D.settings&&D.settings.role)||'';
+    html+='<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">';
+    roles.forEach(function(r){html+='<div onclick="D.settings=D.settings||{};D.settings.role=\''+r.id+'\';saveD();_showSetupWizard()" style="padding:16px 12px;border:2px solid '+(curRole===r.id?'var(--amber)':'var(--cream3)')+';border-radius:14px;cursor:pointer;text-align:center;transition:.2s;background:'+(curRole===r.id?'var(--amber-lt)':'var(--white)')+'"><i class="fas '+r.ico+'" style="font-size:1.3rem;color:'+(curRole===r.id?'var(--amber)':'var(--muted)')+';margin-bottom:6px;display:block"></i><div style="font-size:.76rem;font-weight:600;color:var(--esp)">'+r.label+'</div></div>'});
+    html+='</div>';
+  } else if(step===1){
+    html+='<div style="font-size:2rem;margin-bottom:8px"><i class="fas fa-coins" style="color:var(--amber)"></i></div>';
+    html+='<h2 style="font-family:var(--fd);font-size:1.3rem;font-weight:700;color:var(--esp);margin-bottom:6px">'+t('setupCurrency')+'</h2>';
+    html+='<p style="font-size:.82rem;color:var(--muted);margin-bottom:16px;line-height:1.5">'+t('setupCurrencyDesc')+'</p>';
+    var popCur=['USD','EUR','GBP','TRY','BRL','AUD','CAD','SAR','AED','JPY','INR','KES','IDR','MXN','SEK','CHF','CNY','KRW'];
+    html+='<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px">';
+    popCur.forEach(function(c){var cur=_currencies[c];html+='<div onclick="D.settings=D.settings||{};D.settings.currency=\''+c+'\';saveD();_showSetupWizard()" style="padding:10px 6px;border:2px solid '+(curCurrency===c?'var(--amber)':'var(--cream3)')+';border-radius:10px;cursor:pointer;text-align:center;transition:.2s;background:'+(curCurrency===c?'var(--amber-lt)':'var(--white)')+'"><div style="font-size:.9rem;font-weight:700;color:'+(curCurrency===c?'var(--amber)':'var(--esp)')+'">'+cur.sym+'</div><div style="font-size:.58rem;color:var(--muted)">'+c+'</div></div>'});
+    html+='</div>';
+  } else if(step===2){
+    html+='<div style="font-size:2rem;margin-bottom:8px"><i class="fas fa-ruler" style="color:var(--amber)"></i></div>';
+    html+='<h2 style="font-family:var(--fd);font-size:1.3rem;font-weight:700;color:var(--esp);margin-bottom:6px">'+t('setupUnits')+'</h2>';
+    html+='<p style="font-size:.82rem;color:var(--muted);margin-bottom:16px;line-height:1.5">'+t('setupUnitsDesc')+'</p>';
+    html+='<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">';
+    [{id:'metric',label:t('metricLabel'),sub:'kg, °C, g'},{id:'imperial',label:t('imperialLabel'),sub:'lbs, °F, oz'}].forEach(function(u){
+      html+='<div onclick="D.settings=D.settings||{};D.settings.units=\''+u.id+'\';saveD();_showSetupWizard()" style="padding:20px 14px;border:2px solid '+(curUnits===u.id?'var(--amber)':'var(--cream3)')+';border-radius:14px;cursor:pointer;text-align:center;transition:.2s;background:'+(curUnits===u.id?'var(--amber-lt)':'var(--white)')+'"><div style="font-size:1.1rem;font-weight:700;color:'+(curUnits===u.id?'var(--amber)':'var(--esp)')+';margin-bottom:4px">'+u.label+'</div><div style="font-size:.7rem;color:var(--muted)">'+u.sub+'</div></div>'});
+    html+='</div>';
+  }
+  html+='<div style="display:flex;gap:8px;margin-top:20px;justify-content:center">';
+  if(step>0)html+='<button class="B Bo" onclick="window._setupStep--;_showSetupWizard()"><i class="fas fa-arrow-left"></i> '+t('back')+'</button>';
+  if(step<2)html+='<button class="B Ba" onclick="window._setupStep++;_showSetupWizard()">'+t('next')+' <i class="fas fa-arrow-right"></i></button>';
+  else html+='<button class="B Ba" onclick="localStorage.setItem(\'cp_onboarded\',\'1\');document.querySelector(\'.setup-wizard-overlay\').remove();renderPage();toast(\'\\u2713 \'+t(\'setupComplete\'))"><i class="fas fa-check"></i> '+t('setupComplete')+'</button>';
+  html+='</div>';
+  html+='<div style="text-align:center;margin-top:10px"><a href="#" style="font-size:.66rem;color:var(--faint);text-decoration:none" onclick="event.preventDefault();localStorage.setItem(\'cp_onboarded\',\'1\');document.querySelector(\'.setup-wizard-overlay\').remove()">'+t('skipSetup')+'</a></div>';
+  html+='</div>';
+  ov.innerHTML=html;document.body.appendChild(ov);
 };
 
 /* === 3. Data Backup/Restore (enhanced) === */
