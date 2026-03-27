@@ -2080,7 +2080,7 @@ function go(id){curPage=id;renderPage();window.scrollTo({top:0,behavior:'instant
 /* STORAGE */
 let D={beans:[],packs:[],products:[],roasts:[],clients:[],cuppings:[],invoices:[],settings:{usd:36,ohKg:0,low:5},oh:{r:0,l:0,u:0,m:0,kg:1000},cart:[],user:null,sub:'free',orders:[],wishlist:[],reviews:[],greenlog:[]};
 function ls(k,v){if(v!==undefined){localStorage.setItem('cp_'+k,JSON.stringify(v));return}try{return JSON.parse(localStorage.getItem('cp_'+k))}catch(e){return null}}
-function loadAll(){D.beans=ls('beans')||[];D.packs=ls('packs')||[];D.products=ls('products')||[];D.roasts=ls('roasts')||[];D.clients=ls('clients')||[];D.cuppings=ls('cuppings')||[];D.invoices=ls('invoices')||[];const s=ls('settings');D.settings=s?Object.assign({usd:36,ohKg:0,low:5},s):{usd:36,ohKg:0,low:5};D.oh=ls('oh')||{r:0,l:0,u:0,m:0,kg:1000};D.cart=ls('cart')||[];D.user=ls('user')||null;D.sub=ls('sub')||'free';D.orders=ls('orders')||[];D.wishlist=ls('wishlist')||[];D.reviews=ls('reviews')||[];D.greenlog=ls('greenlog')||[];updCartBadge();updUserBtn()}
+function loadAll(){D.beans=ls('beans')||[];D.packs=ls('packs')||[];D.products=ls('products')||[];D.roasts=ls('roasts')||[];D.clients=ls('clients')||[];D.cuppings=ls('cuppings')||[];D.invoices=ls('invoices')||[];const s=ls('settings');D.settings=s?Object.assign({usd:36,ohKg:0,low:5},s):{usd:36,ohKg:0,low:5};/* Apply stored setup wizard choices */var _sc=localStorage.getItem('cp_setup');if(_sc){try{var sc=JSON.parse(_sc);if(sc.role)D.settings.role=sc.role;if(sc.currency)D.settings.currency=sc.currency;if(sc.units)D.settings.units=sc.units;localStorage.removeItem('cp_setup');ls('settings',D.settings)}catch(e){}}D.oh=ls('oh')||{r:0,l:0,u:0,m:0,kg:1000};D.cart=ls('cart')||[];D.user=ls('user')||null;D.sub=ls('sub')||'free';D.orders=ls('orders')||[];D.wishlist=ls('wishlist')||[];D.reviews=ls('reviews')||[];D.greenlog=ls('greenlog')||[];updCartBadge();updUserBtn()}
 function saveD(){try{['beans','packs','products','roasts','clients','cuppings','invoices','settings','oh','cart','user','sub','orders','wishlist','reviews','greenlog'].forEach(k=>ls(k,D[k]))}catch(e){if(e.name==='QuotaExceededError'||e.code===22){toast('⚠ Storage full — clear old data or export a backup');console.warn('localStorage quota exceeded',e)}else{throw e}}}
 
 window._loadDemo=function(){if(!confirm('Load demo data? This will overwrite current data with 6 months of Frances Coffee Istanbul operations.'))return;
@@ -6467,17 +6467,20 @@ window.addItem=function(type){
 
 /* === 2. Guided Setup Wizard === */
 window._setupStep=0;
+window._setupChoices={role:'',currency:'USD',units:'metric'};
 window.startOnboarding=function(){
   if(localStorage.getItem('cp_onboarded'))return;
-  window._setupStep=0;_showSetupWizard();
+  window._setupStep=0;
+  window._setupChoices={role:'',currency:'USD',units:'metric'};
+  _showSetupWizard();
 };
 window._showSetupWizard=function(){
   var existing=document.querySelector('.setup-wizard-overlay');if(existing)existing.remove();
   var ov=document.createElement('div');ov.className='setup-wizard-overlay';
   ov.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.6);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(8px)';
   var step=window._setupStep;
-  var curCurrency=(D.settings&&D.settings.currency)||'USD';
-  var curUnits=(D.settings&&D.settings.units)||'metric';
+  var curCurrency=window._setupChoices.currency||'USD';
+  var curUnits=window._setupChoices.units||'metric';
   var html='<div style="background:var(--white);border-radius:20px;padding:32px 28px;max-width:420px;width:100%;box-shadow:0 24px 64px rgba(0,0,0,.3);max-height:90vh;overflow-y:auto">';
   html+='<div style="text-align:center;margin-bottom:20px"><div style="display:flex;justify-content:center;gap:8px;margin-bottom:16px">';
   for(var i=0;i<3;i++)html+='<div style="width:'+(i===step?'24px':'8px')+';height:8px;border-radius:4px;background:'+(i===step?'var(--amber)':i<step?'var(--emerald)':'var(--cream3)')+';transition:.3s"></div>';
@@ -6488,9 +6491,9 @@ window._showSetupWizard=function(){
     html+='<p style="font-size:.82rem;color:var(--muted);margin-bottom:20px;line-height:1.5">'+t('setupWizardDesc')+'</p>';
     html+='<div style="font-size:.68rem;font-weight:600;text-transform:uppercase;color:var(--muted);margin-bottom:10px;letter-spacing:.5px">'+t('whatIsYourRole')+'</div>';
     var roles=[{id:'roaster',ico:'fa-fire',label:t('roleRoaster')},{id:'cafe',ico:'fa-coffee',label:t('roleCafe')},{id:'both',ico:'fa-store',label:t('roleBoth')},{id:'importer',ico:'fa-ship',label:t('roleImporter')}];
-    var curRole=(D.settings&&D.settings.role)||'';
+    var curRole=window._setupChoices.role||'';
     html+='<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">';
-    roles.forEach(function(r){html+='<div onclick="D.settings=D.settings||{};D.settings.role=\''+r.id+'\';saveD();_showSetupWizard()" style="padding:16px 12px;border:2px solid '+(curRole===r.id?'var(--amber)':'var(--cream3)')+';border-radius:14px;cursor:pointer;text-align:center;transition:.2s;background:'+(curRole===r.id?'var(--amber-lt)':'var(--white)')+'"><i class="fas '+r.ico+'" style="font-size:1.3rem;color:'+(curRole===r.id?'var(--amber)':'var(--muted)')+';margin-bottom:6px;display:block"></i><div style="font-size:.76rem;font-weight:600;color:var(--esp)">'+r.label+'</div></div>'});
+    roles.forEach(function(r){html+='<div onclick="window._setupChoices.role=\''+r.id+'\';_showSetupWizard()" style="padding:16px 12px;border:2px solid '+(curRole===r.id?'var(--amber)':'var(--cream3)')+';border-radius:14px;cursor:pointer;text-align:center;transition:.2s;background:'+(curRole===r.id?'var(--amber-lt)':'var(--white)')+'"><i class="fas '+r.ico+'" style="font-size:1.3rem;color:'+(curRole===r.id?'var(--amber)':'var(--muted)')+';margin-bottom:6px;display:block"></i><div style="font-size:.76rem;font-weight:600;color:var(--esp)">'+r.label+'</div></div>'});
     html+='</div>';
   } else if(step===1){
     html+='<div style="font-size:2rem;margin-bottom:8px"><i class="fas fa-coins" style="color:var(--amber)"></i></div>';
@@ -6498,7 +6501,7 @@ window._showSetupWizard=function(){
     html+='<p style="font-size:.82rem;color:var(--muted);margin-bottom:16px;line-height:1.5">'+t('setupCurrencyDesc')+'</p>';
     var popCur=['USD','EUR','GBP','TRY','BRL','AUD','CAD','SAR','AED','JPY','INR','KES','IDR','MXN','SEK','CHF','CNY','KRW'];
     html+='<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px">';
-    popCur.forEach(function(c){var cur=_currencies[c];html+='<div onclick="D.settings=D.settings||{};D.settings.currency=\''+c+'\';saveD();_showSetupWizard()" style="padding:10px 6px;border:2px solid '+(curCurrency===c?'var(--amber)':'var(--cream3)')+';border-radius:10px;cursor:pointer;text-align:center;transition:.2s;background:'+(curCurrency===c?'var(--amber-lt)':'var(--white)')+'"><div style="font-size:.9rem;font-weight:700;color:'+(curCurrency===c?'var(--amber)':'var(--esp)')+'">'+cur.sym+'</div><div style="font-size:.58rem;color:var(--muted)">'+c+'</div></div>'});
+    popCur.forEach(function(c){var cur=_currencies[c];html+='<div onclick="window._setupChoices.currency=\''+c+'\';_showSetupWizard()" style="padding:10px 6px;border:2px solid '+(curCurrency===c?'var(--amber)':'var(--cream3)')+';border-radius:10px;cursor:pointer;text-align:center;transition:.2s;background:'+(curCurrency===c?'var(--amber-lt)':'var(--white)')+'"><div style="font-size:.9rem;font-weight:700;color:'+(curCurrency===c?'var(--amber)':'var(--esp)')+'">'+cur.sym+'</div><div style="font-size:.58rem;color:var(--muted)">'+c+'</div></div>'});
     html+='</div>';
   } else if(step===2){
     html+='<div style="font-size:2rem;margin-bottom:8px"><i class="fas fa-ruler" style="color:var(--amber)"></i></div>';
@@ -6506,17 +6509,34 @@ window._showSetupWizard=function(){
     html+='<p style="font-size:.82rem;color:var(--muted);margin-bottom:16px;line-height:1.5">'+t('setupUnitsDesc')+'</p>';
     html+='<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">';
     [{id:'metric',label:t('metricLabel'),sub:'kg, °C, g'},{id:'imperial',label:t('imperialLabel'),sub:'lbs, °F, oz'}].forEach(function(u){
-      html+='<div onclick="D.settings=D.settings||{};D.settings.units=\''+u.id+'\';saveD();_showSetupWizard()" style="padding:20px 14px;border:2px solid '+(curUnits===u.id?'var(--amber)':'var(--cream3)')+';border-radius:14px;cursor:pointer;text-align:center;transition:.2s;background:'+(curUnits===u.id?'var(--amber-lt)':'var(--white)')+'"><div style="font-size:1.1rem;font-weight:700;color:'+(curUnits===u.id?'var(--amber)':'var(--esp)')+';margin-bottom:4px">'+u.label+'</div><div style="font-size:.7rem;color:var(--muted)">'+u.sub+'</div></div>'});
+      html+='<div onclick="window._setupChoices.units=\''+u.id+'\';_showSetupWizard()" style="padding:20px 14px;border:2px solid '+(curUnits===u.id?'var(--amber)':'var(--cream3)')+';border-radius:14px;cursor:pointer;text-align:center;transition:.2s;background:'+(curUnits===u.id?'var(--amber-lt)':'var(--white)')+'"><div style="font-size:1.1rem;font-weight:700;color:'+(curUnits===u.id?'var(--amber)':'var(--esp)')+';margin-bottom:4px">'+u.label+'</div><div style="font-size:.7rem;color:var(--muted)">'+u.sub+'</div></div>'});
     html+='</div>';
   }
   html+='<div style="display:flex;gap:8px;margin-top:20px;justify-content:center">';
   if(step>0)html+='<button class="B Bo" onclick="window._setupStep--;_showSetupWizard()"><i class="fas fa-arrow-left"></i> '+t('back')+'</button>';
   if(step<2)html+='<button class="B Ba" onclick="window._setupStep++;_showSetupWizard()">'+t('next')+' <i class="fas fa-arrow-right"></i></button>';
-  else html+='<button class="B Ba" onclick="localStorage.setItem(\'cp_onboarded\',\'1\');document.querySelector(\'.setup-wizard-overlay\').remove();renderPage();toast(\'\\u2713 \'+t(\'setupComplete\'))"><i class="fas fa-check"></i> '+t('setupComplete')+'</button>';
+  else html+='<button class="B Ba" onclick="_applySetup()"><i class="fas fa-check"></i> '+t('setupComplete')+'</button>';
   html+='</div>';
   html+='<div style="text-align:center;margin-top:10px"><a href="#" style="font-size:.66rem;color:var(--faint);text-decoration:none" onclick="event.preventDefault();localStorage.setItem(\'cp_onboarded\',\'1\');document.querySelector(\'.setup-wizard-overlay\').remove()">'+t('skipSetup')+'</a></div>';
   html+='</div>';
   ov.innerHTML=html;document.body.appendChild(ov);
+};
+window._applySetup=function(){
+  localStorage.setItem('cp_onboarded','1');
+  /* Apply choices to D.settings if D exists */
+  if(typeof D!=='undefined'){
+    D.settings=D.settings||{};
+    D.settings.role=window._setupChoices.role;
+    D.settings.currency=window._setupChoices.currency;
+    D.settings.units=window._setupChoices.units;
+    saveD();
+  } else {
+    /* Store in localStorage for when D initializes */
+    localStorage.setItem('cp_setup',JSON.stringify(window._setupChoices));
+  }
+  document.querySelector('.setup-wizard-overlay')?.remove();
+  if(typeof renderPage==='function')renderPage();
+  if(typeof toast==='function')toast('\u2713 '+t('setupComplete'));
 };
 
 /* === 3. Data Backup/Restore (enhanced) === */
